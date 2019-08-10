@@ -56,7 +56,7 @@ msg_missing_util() {
 }
 
 msg_success() {
-    echo "SUCCES: Dotfiles were deployed and changes will take place on"
+    echo "SUCCESS: Dotfiles were deployed and changes will take place on"
     echo "        the next terminal session that you start."
     exit 0
 }

@@ -11,7 +11,7 @@ bash $HOME/.dotfiles/install_dotfiles.sh
 If all went well a similar message should be displayed at the end:
 
 ```properties
-SUCCES: Dotfiles were deployed and changes will take place on
+SUCCESS: Dotfiles were deployed and changes will take place on
         the next terminal session that you start.
 ```
 
