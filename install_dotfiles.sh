@@ -28,10 +28,13 @@ main() {
     [ -f "$PWD/utils/fzf.tar" ] && tar -C "$PWD/" -xvf "$PWD/utils/fzf.tar" || msg_missing_util
 
     # Setup vim_runtime or die trying
-    [ -f "$PWD/utils/vim_runtime.tar" ] &&\
-          (tar -C "$HOME/" -xvf "$PWD/utils/vim_runtime.tar" &&\
-          cp "$PWD/files/my_configs.vim" "$HOME/.vim_runtime/my_configs.vim") ||\
-          msg_missing_util
+    if [ -f "$PWD/utils/vim_runtime.tar" ] ; then
+        tar -C "$HOME/" -xvf "$PWD/utils/vim_runtime.tar" &&\
+        cp "$PWD/files/my_configs.vim" "$HOME/.vim_runtime/my_configs.vim"
+        [ -f "$HOME/.vim_runtime/install_awesome_vimrc.sh" ] && "$HOME/.vim_runtime/install_awesome_vimrc.sh" || msg_missing_util
+    else
+        msg_missing_util
+    fi
 
     # Check pet snippet or die trying
     [ -x "$PWD/utils/pet" ] && chmod 755 "$PWD/utils/pet" || msg_missing_util
