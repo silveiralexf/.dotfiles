@@ -1,0 +1,24 @@
+#!/bin/bash
+
+VERSION=$(minikube version | awk '{ print $3 }')
+USERID=$(whoami)
+
+# Stop minikube
+minikube stop
+
+# Backup Minikube local config directory
+mv /home/${USERID}/.minikube /home/${USERID}/.minikube_${VERSION}
+
+# Backup minikube binary file
+mv /usr/local/bin/minikube /usr/local/bin/minikube_${VERSION}
+
+# Download latest minikube binary file, set its execute permission and move it to /usr/local/bin
+minikube https://storage.googleapis.com/minikube/releases/v0.28.2/minikube-linux-amd64 
+chmod +x minikube
+mv minikube /usr/local/bin/
+
+# Start minikube
+minikube start
+
+# Start dasboard
+minikube dasboard 

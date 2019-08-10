@@ -1,0 +1,6 @@
+#!/bin/bash
+
+wget https://kubernetes-helm.storage.googleapis.com/helm-v2.7.2-linux-amd64.tar.gz
+tar -xzvf helm-v2.7.2-linux-amd64.tar.gz
+chmod +x linux-amd64/helm
+sudo mv linux-amd64/helm /usr/local/bin
