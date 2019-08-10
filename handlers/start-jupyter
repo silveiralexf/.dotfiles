@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run -d -v work:/home/jovyan/work -p 8888:8888 jupyter/base-notebook start-notebook.sh --NotebookApp.token=''

@@ -1,0 +1,16 @@
+#!/bin/bash
+# Changes extensions of multiple files at once on current dir
+
+EXT_FROM=$1
+EXT_TO=$2
+
+if [ $# -ne 2 ] ; then
+
+    echo "USAGE:    ${0} \<SOURCE_EXTENSTION\> \<TARGET_EXTENSION\>"
+    exit 1
+fi
+
+# Rename all *.txt to *.text
+for f in *."${EXT_FROM}"; do
+    mv -- "$f" "${f%.}.${EXT_TO}"
+done
