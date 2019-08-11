@@ -165,7 +165,7 @@ if [ -f "$(whereis source-highlight | awk '{ print $2 }')" ]; then
 fi
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -f /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspi3pe)"
+[ -f /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # cat syntax highlight
 alias pcat='source-highlight --failsafe -f esc --lang-def=makefile.lang --style-file=esc.style -i '
