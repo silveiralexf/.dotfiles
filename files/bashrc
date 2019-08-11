@@ -57,7 +57,7 @@ shopt -s checkwinsize
 [ -f "$(whereis gofish | awk '{ print $2 }')" ] && eval "$(gofish tank)"
 
 # Fuzzy search sourcing
-[ -f ~/.dotfiles/.fzf.bash ] && source ~/.dotfiles/.fzf.bash
+[ -f ~/.dotfiles/files/fzf.bash ] && source ~/.dotfiles/files/fzf.bash
 
 # Select commands from Pet snippet list
 function pet-select() {
