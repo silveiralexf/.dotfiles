@@ -1,0 +1,156 @@
+#!/bin/bash
+
+# Read The Freaking Manual (or Google it)
+function rtfm() { "$@" --help 2> /dev/null || man "$@" 2> /dev/null || google-chrome "http://www.google.com/search?q=$@"; }
+
+# Count chars of a string from command line
+function len {
+    printf %s $1 | wc -c
+}
+
+# Convert epoch time to human readable format from command line
+function epoch {
+    date -d @$(($1))
+}
+
+# Response time of URL (Timeconnect, timetransfer, timetoal)
+function curltime {
+  echo "time_connect, time_starttransfer, time_total"
+  curl -o /dev/null -s -w "%{time_connect} + %{time_starttransfer} = %{time_total}\n" "$1"
+}
+
+# Create a new directory and enter it
+mkd() {
+	mkdir -p "$@"
+	cd "$@" || exit
+}
+
+# Make a temporary directory and enter it
+tmpd() {
+	local dir
+	if [ $# -eq 0 ]; then
+		dir=$(mktemp -d)
+	else
+		dir=$(mktemp -d -t "${1}.XXXXXXXXXX")
+	fi
+	cd "$dir" || exit
+}
+
+# Determine size of a file or total size of a directory
+fs() {
+	if du -b /dev/null > /dev/null 2>&1; then
+		local arg=-sbh
+	else
+		local arg=-sh
+	fi
+	# shellcheck disable=SC2199
+	if [[ -n "$@" ]]; then
+		du $arg -- "$@"
+	else
+		du $arg -- .[^.]* *
+	fi
+}
+
+# `o` with no arguments opens the current directory, otherwise opens the given
+# location
+o() {
+	if [ $# -eq 0 ]; then
+		xdg-open .	> /dev/null 2>&1
+	else
+		xdg-open "$@" > /dev/null 2>&1
+	fi
+}
+
+# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
+# the `.git` directory, listing directories first. The output gets piped into
+# `less` with options to preserve color and line numbers, unless the output is
+# small enough for one screen.
+tre() {
+	tree -aC -I '.git' --dirsfirst "$@" | less -FRNX
+}
+
+# Get colors in manual pages
+man() {
+	env \
+		LESS_TERMCAP_mb="$(printf '\e[1;31m')" \
+		LESS_TERMCAP_md="$(printf '\e[1;31m')" \
+		LESS_TERMCAP_me="$(printf '\e[0m')" \
+		LESS_TERMCAP_se="$(printf '\e[0m')" \
+		LESS_TERMCAP_so="$(printf '\e[1;44;33m')" \
+		LESS_TERMCAP_ue="$(printf '\e[0m')" \
+		LESS_TERMCAP_us="$(printf '\e[1;32m')" \
+		man "$@"
+}
+
+# Restart the gpg agent.
+gpg-reload(){
+	kill -9 $(pidof scdaemon) >/dev/null 2>&1
+	kill -9 $(pidof gpg-agent) >/dev/null 2>&1
+	gpg-connect-agent /bye >/dev/null 2>&1
+	gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
+    gpgconf --reload gpg-agent
+}
+
+function parse_git_dirty() {
+    [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+}
+
+function parse_git_branch() {
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+}
+
+function git_undo() {
+    git reset --soft HEAD^
+}
+
+function reset_master() {
+    git checkout master
+    git fetch origin && git reset --hard origin/master
+}
+
+function go_doc() {
+    godoc -http="localhost:6060"
+}
+
+# go to a folder easily in your gopath
+gogo(){
+	local d=$1
+
+	if [[ -z $d ]]; then
+		echo "You need to specify a project name."
+		return 1
+	fi
+
+	if [[ "$d" == github* ]]; then
+		d=$(echo "$d" | sed 's/.*\///')
+	fi
+	d=${d%/}
+
+	# search for the project dir in the GOPATH
+	mapfile -t path < <(find "${GOPATH}/src" \( -type d -o -type l \) -iname "$d"  | awk '{print length, $0;}' | sort -n | awk '{print $2}')
+
+	if [ "${path[0]}" == "" ] || [ "${path[*]}" == "" ]; then
+		echo "Could not find a directory named $d in $GOPATH"
+		echo "Maybe you need to 'go get' it ;)"
+		return 1
+	fi
+
+	# enter the first path found
+	cd "${path[0]}" || return 1
+}
+
+golistdeps(){
+	(
+	if [[ -n "$1" ]]; then
+		gogo "$@"
+	fi
+
+	go list -e -f '{{join .Deps "\n"}}' ./... | xargs go list -e -f '{{if not .Standard}}{{.ImportPath}}{{end}}'
+	)
+}
+
+function tunnel() {
+    ssh "$1" -L "$2:$3" -N
+}
+
+# EOF
