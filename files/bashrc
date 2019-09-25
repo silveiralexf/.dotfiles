@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for file in $HOME/.dotfiles/.{exports,aliases,functions,custom}; do
+for file in $HOME/.dotfiles/.{exports,aliases,functions,custom,private}; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		source "$file"
 	fi
