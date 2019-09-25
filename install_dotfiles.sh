@@ -12,38 +12,41 @@
 #   - GNU Source-highlight (http://www.gnu.org/software/src-highlite/)
 #
 # ---------------------------------------------------------------------------
-PWD="$HOME/.dotfiles"
+BASEDIR="$HOME/.dotfiles"
 
 main() {
 
     # Add dotfiles to PATH by updating $HOME/.bashrc
-    if [ -f "$PWD/files/dotfiles.source" ]; then
+    if [ -f "$BASEDIR/files/dotfiles.source" ]; then
         grep -q ^"# Source bash dotfiles" ~/.bashrc ||\
-        cat "$PWD/files/dotfiles.source" >> "$HOME/.bashrc"
+        cat "$BASEDIR/files/dotfiles.source" >> "$HOME/.bashrc"
     else
         msg_missing_util
     fi
 
     # Setup fzf or die trying
-    [ -f "$PWD/utils/fzf.tar" ] && tar -C "$PWD/" -xvf "$PWD/utils/fzf.tar" || msg_missing_util
+    [ -f "$BASEDIR/utils/fzf.tar" ] && tar -C "$BASEDIR/" -xvf "$BASEDIR/utils/fzf.tar" || msg_missing_util
 
     # Setup vim_runtime or die trying
-    if [ -f "$PWD/utils/vim_runtime.tar" ] ; then
-        tar -C "$HOME/" -xvf "$PWD/utils/vim_runtime.tar" &&\
-        cp "$PWD/files/my_configs.vim" "$HOME/.vim_runtime/my_configs.vim"
+    if [ -f "$BASEDIR/utils/vim_runtime.tar" ] ; then
+        tar -C "$HOME/" -xvf "$BASEDIR/utils/vim_runtime.tar" &&\
+        cp "$BASEDIR/files/my_configs.vim" "$HOME/.vim_runtime/my_configs.vim"
         [ -f "$HOME/.vim_runtime/install_awesome_vimrc.sh" ] && "$HOME/.vim_runtime/install_awesome_vimrc.sh" || msg_missing_util
     else
         msg_missing_util
     fi
 
     # Check pet snippet or die trying
-    [ -x "$PWD/utils/pet" ] && chmod 755 "$PWD/utils/pet" || msg_missing_util
+    [ -x "$BASEDIR/utils/pet" ] && chmod 755 "$BASEDIR/utils/pet" || msg_missing_util
 
     # Copy TMUX conf file if TMUX is found on server
-    [ -f "$(whereis tmux | awk '{ print $2 }')" ] && cp "$PWD/files/tmux.conf" "$HOME/.tmux.conf"
+    [ -f "$(whereis tmux | awk '{ print $2 }')" ] && cp "$BASEDIR/files/tmux.conf" "$HOME/.tmux.conf"
 
     # Copy gitconfig if none is found
-    [ -f "$PWD/files/gitconfig" ] || cp "$PWD/files/gitconfig" "$HOME/.gitconfig"
+    [ -f "$BASEDIR/files/gitconfig" ] || cp "$BASEDIR/files/gitconfig" "$HOME/.gitconfig"
+
+    # Copy gpg.conf from dotfiles
+    [ -f "$HOME/.gnupg/gpg.conf" ] && cp "$BASEDIR/files/gpg.conf" "$BASEDIR/files/gpg.conf"
 
     # If all goes well tell user the good news
     msg_success

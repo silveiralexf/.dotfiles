@@ -1,0 +1,10 @@
+#!/bin/bash
+
+for file in $HOME/.dotfiles/.{exports,aliases,functions,custom}; do
+	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
+		source "$file"
+	fi
+done
+unset file
+
+# EOF
