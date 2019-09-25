@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Fix keyboard US International layout for supporting multiple languages
+# use this only when using Brazilian-Portuguese should be used along with English
+command -v setxkbmap &>/dev/null && setxkbmap -model pc104 -layout us_intl
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# Enable cdspell for spell-checking
+shopt -s cdspell
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# Select commands from Pet snippet list
+function pet-select() {
+  BUFFER=$(pet search --query "$READLINE_LINE")
+  READLINE_LINE=$BUFFER
+  READLINE_POINT=${#BUFFER}
+}
+
+# Add Previous command to Pet
+function prev() {
+  PREV=$(echo `history | tail -n2 | head -n1` | sed 's/[0-9]* //')
+  sh -c "pet new $(printf %q "$PREV")"
+}
+
+# Keybinding: Execute commands from Pet selection (CTRL-X + CTRL-X)
+bind -x '"\C-x\C-x": pet-select'
+
+# Keybinding: Fuzzy Vim Open files from current directory (CTRL-X + CTRL-O)
+bind -x '"\C-x\C-o": vim $(fzf --height 40%)'
+
+# Keybinding: Fuzzy search from current directory (CTRL-X + CTRL-F)
+bind -x '"\C-x\C-f": fzf --height 40%'
+
+# EOF
