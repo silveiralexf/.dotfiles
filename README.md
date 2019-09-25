@@ -17,7 +17,7 @@ SUCCESS: Dotfiles were deployed and changes will take place on
 
 ## Non-Public dotfiles
 
-All the custom and non-public stuff should be placed at `$HOME/.dotfiles/files/customrc`.
+All the custom and non-public stuff should be placed at `$HOME/.dotfiles/.private`.
 
 In case additional VIM customizations not covered by `vim_runtime` are required, placed them at `$HOME/.dotfiles/files/my_configs.vim` and re-run the installation script.
 
@@ -32,4 +32,3 @@ The following utils will be deployed by the installation script:
 The following is recommended to be installed, but not covered by the installation script:
 
 - [GNU Source-highlight](http://www.gnu.org/software/src-highlite)
-
