@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Put handlers on PATH
-[ -d "$HOME/.dotfiles/handlers" ] && export PATH="$PATH:$HOME/.dotfiles/handlers::";
-
-# Put utils on PATH
-[ -d "$HOME/.dotfiles/utils" ] && export PATH="$PATH:$HOME/.dotfiles/utils::";
-
 # update path
 export PATH="/usr/local/bin:${PATH}:/sbin::";
 
@@ -62,9 +56,6 @@ export CDPATH=${CDPATH}:${GOPATH}/src/github.com:${GOPATH}/src/golang.org:${GOPA
 
 # GoFish source
 command -v gofish &>/dev/null && eval "$(gofish tank)"
-
-# Fuzzy search sourcing
-[ -f ~/.dotfiles/files/fzf.bash ] && source ~/.dotfiles/files/fzf.bash
 
 # CLI auto-completes
 command -v kubectl &> /dev/null && source <(kubectl completion bash)
