@@ -82,13 +82,22 @@ man() {
 		man "$@"
 }
 
-# Restart the gpg agent.
+# Restart the gpg agent
 gpg-reload(){
     pkill scdaemon
     pkill gpg-agent
 	gpg-connect-agent /bye >/dev/null 2>&1
 	gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
     gpgconf --reload gpg-agent
+}
+
+# Restarts the bluethood-daemon 
+bt-reload(){
+	systemctl stop bluetooth.target
+	pkill bluedevil-monolithic
+	sudo pkill bluetoothd
+	systemctl start bluetooth.target
+	nohup bluedevil-monolithic &>/dev/null &
 }
 
 function parse_git_dirty() {
