@@ -1,0 +1,13 @@
+# ~/.config/openbox/autostart.sh
+#
+# Run these programs when openbox starts.
+
+
+# tint2 -- provides panel, systray, clock & taskbar
+tint2 &
+
+# starts conky
+sleep 2 && conky &
+
+# start nautilus
+nautilus -n &

@@ -10,6 +10,7 @@
 # The following is recommended to be installed, but not covered
 # by this install script:
 #   - GNU Source-highlight (http://www.gnu.org/software/src-highlite/)
+#   - Conky (http://conky.sourceforge.net)
 #
 # ---------------------------------------------------------------------------
 BASEDIR="$HOME/.dotfiles"
@@ -48,6 +49,9 @@ main() {
     # Copy gpg.conf from dotfiles
     [ -f "$HOME/.gnupg/gpg.conf" ] && cp "$BASEDIR/files/gpg.conf" "$BASEDIR/files/gpg.conf"
 
+    # Copy .conkyrc from dotfiles
+    [ ! -f "$HOME/.conkyrc" ] && ln -s "$BASEDIR/files/conkyrc" "$HOME/.conkyrc"
+
     # If all goes well tell user the good news
     msg_success
 }
@@ -63,6 +67,8 @@ msg_success() {
     echo "        the next terminal session that you start."
     exit 0
 }
+
 # ---------------------------------------------------------------------------
 main "$@"
 
+# EOF

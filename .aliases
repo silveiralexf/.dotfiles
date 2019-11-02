@@ -24,6 +24,12 @@ alias dl="cd ~/Downloads"
 alias g="git"
 alias h="history"
 
+# Single monitor
+alias singlemonitor='xrandr -s 0'
+
+# Dual monitor
+alias dualmonitor='xrandr --auto --output eDP-1 --mode 1920x1080 --left-of HDMI-2'
+
 # Vim / Vi setup
 set -o vi
 if command -v vim &> /dev/null 2>&0 ; then 
