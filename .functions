@@ -65,12 +65,12 @@ o() {
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
-tre() {
+function tre() {
 	tree -aC -I '.git' --dirsfirst "$@" | less -FRNX
 }
 
 # Get colors in manual pages
-man() {
+function man() {
 	env \
 		LESS_TERMCAP_mb="$(printf '\e[1;31m')" \
 		LESS_TERMCAP_md="$(printf '\e[1;31m')" \
@@ -83,7 +83,7 @@ man() {
 }
 
 # Restart the gpg agent
-gpg-reload(){
+function gpg-reload(){
     pkill scdaemon
     pkill gpg-agent
 	gpg-connect-agent /bye >/dev/null 2>&1
@@ -92,7 +92,7 @@ gpg-reload(){
 }
 
 # Restarts the bluethood-daemon 
-bt-reload(){
+function bt-reload(){
 	systemctl stop bluetooth.target
 	pkill bluedevil-monolithic
 	sudo pkill bluetoothd
@@ -117,12 +117,12 @@ function reset_master() {
     git fetch origin && git reset --hard origin/master
 }
 
-function go_doc() {
+function godoc() {
     godoc -http="localhost:6060"
 }
 
 # go to a folder easily in your gopath
-gogo(){
+function gogo(){
 	local d=$1
 
 	if [[ -z $d ]]; then
@@ -148,7 +148,7 @@ gogo(){
 	cd "${path[0]}" || return 1
 }
 
-golistdeps(){
+function golistdeps(){
 	(
 	if [[ -n "$1" ]]; then
 		gogo "$@"
