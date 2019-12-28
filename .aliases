@@ -76,7 +76,7 @@ alias dm='docker-machine'
 
 # Start tmux with uniq name
 [ -f "$HOME/.tmux.conf" ] && \
-      alias tmuxnew='tmux new -s $(whoami)-$(date "+%Y-%m-%d_%H%M%S")'
+      alias tmuxnew='tmux new -s LOCAL'
 
 # untar
 alias untar='tar xvf'
@@ -100,5 +100,7 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
+# IBM Cloud cli
+alias ic="ibmcloud"
 
 # EOF
