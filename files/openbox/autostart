@@ -8,6 +8,3 @@ tint2 &
 
 # starts conky
 sleep 2 && conky &
-
-# start nautilus
-nautilus -n &
