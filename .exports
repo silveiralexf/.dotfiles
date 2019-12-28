@@ -26,12 +26,18 @@ export PATH="${PATH}:${HOME}/.cargo/bin::";
 # Python/Miniconda
 export PATH="$PATH:$HOME/miniconda3/bin::";
 
+# Add $HOME/.npm/bin to path
+export PATH="$HOME/.npm/bin:$PATH"
+
 # Java exports (1.8.0_171) / Maven
 export JAVA_HOME="/opt/jdk1.8.0_171";
 export JRE_HOME="/opt/jdk1.8.0_171/jre";
 export PATH="$PATH:/opt/jdk1.8.0_171/bin:/opt/jdk1.8.0_171/jre/bin::";
 export PATH="$PATH:/opt/apache-maven-3.5.4/bin::";
 [ -f /etc/bash_completion.d/mvn ] && source /etc/bash_completion.d/mvn
+
+# DBVisualizer Java Home
+export DBVIS_JAVA_HOME=/usr/java/ibm_sdk80/jre
 
 # don't put duplicate lines or lines starting with space in bash history
 export HISTCONTROL="ignoredups:erasedups";
@@ -41,8 +47,7 @@ export HISTSIZE=50000000;
 export HISTFILESIZE="$HISTSIZE";
 
 # Make some commands not show up in history
-export HISTIGNORE="&:ls:cd -:cd:date:* --help:exit:pwd:history:clear:mount:umount:[ \t]*";
-
+# export HISTIGNORE="&:ls:cd -:cd:date:* --help:exit:pwd:history:clear:mount:umount:[ \t]*";
 
 # AppImage export to PATH
 export PATH="$PATH:$HOME/AppImage::"
