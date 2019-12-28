@@ -55,9 +55,9 @@ fs() {
 # location
 o() {
 	if [ $# -eq 0 ]; then
-		xdg-open .	> /dev/null 2>&1
+		exo-open .	> /dev/null 2>&1
 	else
-		xdg-open "$@" > /dev/null 2>&1
+		exo-open "$@" > /dev/null 2>&1
 	fi
 }
 
@@ -117,7 +117,7 @@ function reset_master() {
     git fetch origin && git reset --hard origin/master
 }
 
-function godoc() {
+function go_doc() {
     godoc -http="localhost:6060"
 }
 
