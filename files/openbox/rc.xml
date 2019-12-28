@@ -327,9 +327,14 @@
      <command>/usr/bin/mynotes</command>
    </action>
   </keybind>
+  <keybind key="W-O">
+   <action name="Execute">
+     <command>/usr/bin/launcher</command>
+   </action>
+  </keybind>
   <keybind key="W-T">
    <action name="Execute">
-     <command>terminator</command>
+     <command>/usr/local/bin/st -t "Simple Terminal" -f "mono:pixelsize=18:antialias=true:autohint=true"</command>
    </action>
   </keybind>  
 <keybind key="W-Right">
