@@ -74,9 +74,21 @@ alias dm='docker-machine'
 [ -f "$HOME/Downloads/bfg-1.13.0.jar" ] && \
       alias bfg='java -jar $HOME/Downloads/bfg-1.13.0.jar'
 
-# Start tmux with uniq name
-[ -f "$HOME/.tmux.conf" ] && \
-      alias tmuxnew='tmux new -s LOCAL'
+
+# Creates a new tmux session
+alias tn='tmux new -s LOCAL-$(date "+%H%M%S")'
+
+# Attaches tmux to the last session; creates a new session if none exists.
+alias t='tmux attach || tn'
+
+# Attaches tmux to a session (example: ta portal)
+alias ta='tmux attach -t'
+
+# Creates a new tmux session
+alias tn='tmux new -s LOCAL-$(date "+%H%M%S")'
+
+# Lists all ongoing tmux sessions
+alias tl='tmux list-sessions'
 
 # untar
 alias untar='tar xvf'
