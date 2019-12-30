@@ -319,17 +319,17 @@
 
   <keybind key="W-A">
    <action name="Execute">
-     <command>/usr/bin/passmenu</command>
+     <command>/usr/bin/dmenu-pass --pass</command>
    </action>
   </keybind>
   <keybind key="W-Q">
    <action name="Execute">
-     <command>/usr/bin/mynotes</command>
+     <command>/usr/bin/dmenu-pass --notes</command>
    </action>
   </keybind>
   <keybind key="W-O">
    <action name="Execute">
-     <command>/usr/bin/launcher</command>
+     <command>/usr/bin/dmenu-pass --apps</command>
    </action>
   </keybind>
   <keybind key="W-T">
