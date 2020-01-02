@@ -43,6 +43,9 @@ main() {
     # Copy TMUX conf file if TMUX is found on server
     [ -f "$(whereis tmux | awk '{ print $2 }')" ] && cp "$BASEDIR/files/tmux.conf" "$HOME/.tmux.conf"
 
+    # Copy htop profile
+    [ -f "$(whereis htop | awk '{ print $2 }')" ] && cp "$BASEDIR/files/htoprc" "$HOME/.config/htop/htoprc"
+
     # Copy gitconfig if none is found
     [ -f "$BASEDIR/files/gitconfig" ] || cp "$BASEDIR/files/gitconfig" "$HOME/.gitconfig"
 
