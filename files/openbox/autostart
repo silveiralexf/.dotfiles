@@ -8,3 +8,6 @@ tint2 &
 
 # starts conky
 sleep 2 && conky &
+
+# wallpaper
+sh ~/.fehbg &
