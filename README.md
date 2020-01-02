@@ -1,6 +1,6 @@
 # dotfiles
 
-## How to Install these dotfiles?
+## How to Install this dotfiles?
 
 Clone the repository to your `$HOME` and execute the installation script as shown below:
 
