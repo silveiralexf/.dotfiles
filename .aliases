@@ -66,6 +66,9 @@ alias kevents='kubectl get events --sort-by='\''.metadata.creationTimestamp'\'''
 # docker-machine quick alias
 alias dm='docker-machine'
 
+# In case old habits kick in
+alias docker='podman'
+
 # BFG - Removes large or troublesome blobs like git-filter-branch does,
 # but faster, and written in Scala
 #
