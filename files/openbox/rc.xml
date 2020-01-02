@@ -333,6 +333,11 @@
      <command>/usr/bin/dmenu-launch --apps</command>
    </action>
   </keybind>
+  <keybind key="W-F">
+   <action name="Execute">
+     <command>/usr/bin/dmenu-launch --search</command>
+   </action>
+  </keybind>
   <keybind key="W-T">
    <action name="Execute">
      <command>/usr/local/bin/st -t "Simple Terminal" -f "mono:pixelsize=18:antialias=true:autohint=true"</command>
