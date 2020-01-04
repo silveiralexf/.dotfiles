@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-scale "$HOME/.dotfiles/images/darth-vader-wallpaper-hd.png'
+feh --no-fehbg --bg-scale ~/.dotfiles/images/darth-vader-wallpaper-hd.jpg
