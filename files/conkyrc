@@ -1,110 +1,68 @@
 # .conkyrc
- 
-# Create own window instead of using desktop (required in nautilus)
+background yes
+font Zekton:size=10:style=Bold
+xftfont Zekton:size=10:style=Bold
+use_xft yes
+xftalpha 0.1
+update_interval 1.0
+total_run_times 0
 own_window yes
 own_window_type override
 own_window_transparent yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
- 
-# Use double buffering (reduces flicker, may not work for everyone)
 double_buffer yes
- 
-# fiddle with window
-use_spacer right
-
-# Use Xft?
-use_xft yes
-xftfont DejaVu Sans:size=12
-xftalpha 0.8
-text_buffer_size 2048
- 
-# Update interval in seconds
-update_interval 3.0
- 
-# Minimum size of text area
-# minimum_size 250 5
- 
-# Draw shades?
 draw_shades no
- 
-# Text stuff
-draw_outline no # amplifies text if yes
+draw_outline no
 draw_borders no
-uppercase no # set to yes if you want all text to be in uppercase
- 
-# Stippled borders?
-stippled_borders 3
- 
-# border margins
-border_inner_margin 9
- 
-# border width
-border_width 10
- 
-# Default colors and also border colors, grey90 == #e5e5e5
-default_color grey
- 
-own_window_colour brown
-own_window_transparent yes
- 
-# Text alignment, other possible values are commented
+draw_graph_borders no
+minimum_size 320 5
+maximum_width 420
+default_color d7d7d7
+default_shade_color black
+default_outline_color black
 alignment top_left
-#alignment top_right
-#alignment bottom_left
-#alignment bottom_right
-gap_x 1500
- 
-# Gap between borders of screen and text
-gap_x 10
+gap_x 2
 gap_y 10
- 
-# stuff after 'TEXT' will be formatted on screen
+no_buffers yes
+cpu_avg_samples 2
+override_utf8_locale no
+uppercase no # set to yes if you want all text to be in uppercase
+use_spacer no
 
 TEXT
+${font Zekton:style=Bold:pixelsize=24}${alignc}${time %H:%M:%S}${font Zekton:size=12:style=Bold}
+${font Zekton:style=Bold:pixelsize=14}${alignc}${time %A - %D}${font Zekton:size=12:style=Bold}
+SYSTEM ${hr 1 }
 
-# Calendar and Time
-${voffset -10}${alignc 46}${color0}${font Arial Black:size=25}${time %H:%M}${font Arial Black:size=12}.${time %S}${font}${color}
-${color2}${alignc 15}${time %A}   ${time %d-%B-%Y}${color}
-# System
-$color
-${color orange}SYSTEM ${hr 2}$color
-$nodename $sysname on $machine
-Uptime: $uptime
- 
-# CPU
-${color orange}CPU ${hr 2}$color
-${freq}MHz   Load: ${loadavg}
-#${cpugraph 000000 ffffff}
+Hostname: $alignr$nodename
+Kernel: $alignr$kernel
+Uptime: $alignr$uptime
+Processes: ${alignr}$processes ($running_processes running)
+Load: ${alignr}$loadavg
+CPU ${alignc} ${freq}MHz / ${acpitemp}C ${alignr}(${cpu cpu1}%)
+${cpubar 4 cpu1}
+${cpugraph}
+RAM ${alignr}$mem / $memmax ($memperc%)
+${membar 4}
+SWAP ${alignr}$swap / $swapmax ($swapperc%)
+${swapbar 4}
+DISK: $alignr ${fs_used /} / ${fs_size /} ($alignr${fs_free_perc /}%)
+${fs_bar 4 /}
 
-Core 1: ${cpu cpu1}% ${cpubar cpu1}
-Core 2: ${cpu cpu2}% ${cpubar cpu2}
-Core 3: ${cpu cpu3}% ${cpubar cpu3}
-Core 4: ${cpu cpu4}% ${cpubar cpu4}
- 
-#MEMORY AND DISK
-${color orange}MEMORY / DISK ${hr 2}$color
-RAM:    $mem / $memmax   ${membar 6}$color
-Swap:   $swap / $swapmax   ${swapbar 6}$color
-Disk:   ${fs_used /} / ${fs_size /}   ${fs_bar 6 /}$color
+Highest CPU $alignr CPU% MEM%
+${top name 1}$alignr${top cpu 1}${top mem 1}
+${top name 2}$alignr${top cpu 2}${top mem 2}
+${top name 3}$alignr${top cpu 3}${top mem 3}
+${top name 3}$alignr${top cpu 4}${top mem 4}
+${top name 3}$alignr${top cpu 5}${top mem 5}
 
-# PROCESSES
-${color orange}Processes ${hr 2}$color
-Total Processes: $processes
-Running Processes: $running_processes
+Highest MEM $alignr CPU% MEM%
+${top_mem name 1}$alignr${top_mem cpu 1}${top_mem mem 1}
+${top_mem name 2}$alignr${top_mem cpu 2}${top_mem mem 2}
+${top_mem name 3}$alignr${top_mem cpu 3}${top_mem mem 3}
+${top_mem name 3}$alignr${top_mem cpu 4}${top_mem mem 4}
+${top_mem name 3}$alignr${top_mem cpu 5}${top_mem mem 5}
 
-CPU%	MEM%	 NAME
-${top cpu 1}	${top mem 1}         ${top name 1} 
-${top cpu 2}	${top mem 2}         ${top name 2} 
-${top cpu 3}	${top mem 3}         ${top name 3} 
-${top cpu 4}	${top mem 4}         ${top name 4} 
-${top cpu 5}	${top mem 5}         ${top name 5} 
-${top cpu 6}	${top mem 6}         ${top name 6} 
-${top cpu 7}	${top mem 7}         ${top name 7} 
-${top cpu 8}	${top mem 8}         ${top name 8} 
-${top cpu 9}	${top mem 9}         ${top name 9} 
-${top cpu 10}	${top mem 10} 		 ${top name 10}
- 
-# Reminders
-${color orange}REMINDERS ${hr 2}$color
-${font Verana:size=12}${color4}${execi 30 cat $HOME/git/notes/todo.md}${color}
-${execi 10000 transset"}
+CALENDAR ${hr 2}
+${font DejaVu Sans:pixelsize=15:style=Bold}${alignc}${execi 60 date +"%B %Y" | tr "[:lower:]" "[:upper:]"}${font Snap.se:size=8 }${font}
+${font DejaVu Sans Mono:size=15}${execpi 60 DJS=`date +%_d`; cal | sed '1d' | sed '/./!d' | sed 's/$/                    /' | fold -w 21 | sed -n '/^.\{21\}/p' | sed 's/^/${alignc} /' | sed /" $DJS "/s/" $DJS "/" "'${color1}'"$DJS"'${color0}'" "/}${font}
