@@ -101,9 +101,10 @@ if [ "$color_prompt" = yes ]; then
     
     CURRENTUSER=$(whoami)
     if [ "$CURRENTUSER" = "root" ]; then
-        PS1='\[\e\031[01;31m\][$(whoami)]\[\e[0m\] \$ '
+		PS1="\[\e[31m\][\[\e[m\]\[\e[31m\]\u\[\e[m\]\[\e[31m\]]\[\e[m\]\[\e[31m\]\\$\[\e[m\] "
     else
-    	PS1='\[\e\033[01;32m\][$(whoami)]\[\e[0m\] \$ '
+		PS1="\[\e[32m\][\[\e[m\]\[\e[32m\]\u\[\e[m\]\[\e[32m\]]\[\e[m\]\[\e[32m\]\\$\[\e[m\] "
+
     fi
 # else
 #     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
