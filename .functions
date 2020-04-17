@@ -8,6 +8,15 @@ function len {
     printf %s $1 | wc -c
 }
 
+# Decode string from command line
+function decode {
+    printf %s $1 | base64 -d
+}
+
+# Encode string from command line
+function encode {
+    printf %s $1 | base64 -w0
+}
 # Convert epoch time to human readable format from command line
 function epoch {
     date -d @$(($1))
