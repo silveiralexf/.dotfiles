@@ -6,11 +6,17 @@ export PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin:/usr/local/bin:/usr/sbin:/sb
 # Gpg TTY
 export GPG_TTY="$(tty)";
 
-# Git 2.1.3 path
+# Git path
 export PATH="$PATH:/usr/local/git/bin::";
+
+# Snap path
+export PATH="$PATH:/snap/bin::"
 
 # Python/Miniconda
 export PATH="$PATH:$HOME/miniconda3/bin::";
+
+# Python Anaconda
+export PATH="$PATH:$HOME/anaconda3/bin::";
 
 # Golang exports
 export GOROOT="/usr/local/go";
@@ -22,9 +28,6 @@ export GOPRIVATE="github.ibm.com"
 
 # Rust / Cargo
 export PATH="${PATH}:${HOME}/.cargo/bin::";
-
-# Python/Miniconda
-export PATH="$PATH:$HOME/miniconda3/bin::";
 
 # Add $HOME/.npm/bin to path
 export PATH="$HOME/.npm/bin:$PATH"
@@ -121,5 +124,12 @@ fi
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -f /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+
+
+# Start tmux by default
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    tmux attach -t default || tmux new -s default 2>/dev/null
+fi
 
 # EOF
