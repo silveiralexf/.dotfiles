@@ -157,6 +157,10 @@ function gogo(){
 	cd "${path[0]}" || return 1
 }
 
+function gotest(){
+    find $1 -name '*.go' -printf '%h\n' | sort -u | xargs -n1 -P1 go test -v ;
+}
+
 function golistdeps(){
 	(
 	  if [[ -n "$1" ]]; then
@@ -171,11 +175,11 @@ function tunnel() {
 }
 
 function ssht(){
-  ssh $* -t 'tmux a || tmux || /bin/bash'
+    ssh $* -t 'tmux a || tmux || /bin/bash'
 }
 
 function randompass() {
-	openssl rand -base64 32
+    openssl rand -base64 18
 }
 
 # EOF
