@@ -1,0 +1,6 @@
+
+# Source bash dotfiles
+if [ -f $HOME/.dotfiles/files/bashrc ]; then
+   source $HOME/.dotfiles/files/bashrc
+fi
+
