@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-scale ~/.dotfiles/images/darth-vader-wallpaper-hd.jpg
+feh --no-fehbg --bg-scale ~/.dotfiles/images/talk-is-cheap.png
