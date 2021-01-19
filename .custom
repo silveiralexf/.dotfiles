@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# Enable cdspell for spell-checking
+shopt -s cdspell
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# Fix keyboard US International layout for supporting multiple languages
+# use this only when using Brazilian-Portuguese should be used along with English
+command -v setxkbmap &>/dev/null && setxkbmap -model pc104 -layout us_intl
+
+# EOF

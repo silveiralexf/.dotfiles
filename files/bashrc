@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# sourcing the others
+for file in $HOME/.dotfiles/.{exports,aliases,functions,custom,private}; do
+	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
+		source "$file"
+	fi
+done
+unset file
+
+# Put handlers on PATH
+[ -d "$HOME/.dotfiles/handlers" ] && export PATH="$PATH:$HOME/.dotfiles/handlers::";
+
+# Put utils on PATH
+[ -d "$HOME/.dotfiles/utils" ] && export PATH="$PATH:$HOME/.dotfiles/utils::";
+
+# Fuzzy search sourcing
+[ -f "$HOME/.dotfiles/files/fzf.bash" ] && source "$HOME/.dotfiles/files/fzf.bash"
+
+# Select commands from Pet snippet list
+function pet-select() {
+  BUFFER=$(pet search --query "$READLINE_LINE")
+  READLINE_LINE=$BUFFER
+  READLINE_POINT=${#BUFFER}
+}
+
+# Add Previous command to Pet
+function prev() {
+  PREV=$(echo `history | tail -n2 | head -n1` | sed 's/[0-9]* //')
+  sh -c "pet new $(printf %q "$PREV")"
+}
+
+# Keybinding: Execute commands from Pet selection (CTRL-X + CTRL-X)
+bind -x '"\C-x\C-x": pet-select'
+
+# Keybinding: Fuzzy Vim Open files from current directory (CTRL-X + CTRL-O)
+bind -x '"\C-x\C-o": vim $(fzf --height 40%)'
+
+# Keybinding: Fuzzy search from current directory (CTRL-X + CTRL-F)
+bind -x '"\C-x\C-f": fzf --height 40%'
+
+# EOF
