@@ -1,2 +1,3 @@
 #!/bin/bash
-xautolock -time 5 -locker "i3lock -i $HOME/.dotfiles/images/i3lock_bg.png -e -f"
+BGIMAGE="$HOME/.dotfiles/images/system_locked.png"
+xautolock -time 10 -locker "i3lock -i $BGIMAGE -e -f -t"
