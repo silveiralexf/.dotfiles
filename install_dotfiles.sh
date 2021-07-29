@@ -19,7 +19,7 @@ main() {
 
     # Add dotfiles to PATH by updating $HOME/.bashrc
     if [ -f "$BASEDIR/files/dotfiles.source" ]; then
-        grep -q ^"# Source bash dotfiles" ~/.bashrc ||\
+        grep -q ^"# Source bash dotfiles" ~/.bashrc || \
         cat "$BASEDIR/files/dotfiles.source" >> "$HOME/.bashrc"
     else
         msg_missing_util
