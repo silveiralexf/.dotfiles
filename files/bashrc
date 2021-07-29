@@ -26,7 +26,7 @@ function pet-select() {
 
 # Add Previous command to Pet
 function prev() {
-  PREV=$(echo `history | tail -n2 | head -n1` | sed 's/[0-9]* //')
+  PREV=$(echo $(history | tail -n2 | head -n1) | sed 's/[0-9]* //')
   sh -c "pet new $(printf %q "$PREV")"
 }
 
@@ -34,9 +34,12 @@ function prev() {
 bind -x '"\C-x\C-x": pet-select'
 
 # Keybinding: Fuzzy Vim Open files from current directory (CTRL-X + CTRL-O)
-bind -x '"\C-x\C-o": vim $(fzf --height 40%)'
+bind -x '"\C-x\C-o": vim "$(fzf --height 40%)"'
 
 # Keybinding: Fuzzy search from current directory (CTRL-X + CTRL-F)
 bind -x '"\C-x\C-f": fzf --height 40%'
+
+# Keybinding: Clear screen on vi-mode
+bind -m vi-insert "\C-l":clear-screen
 
 # EOF

@@ -32,6 +32,7 @@ _die() {
 _i3_get_app_tree() {
     i3-msg -t get_tree | \
         egrep -o "(class\":\".[^\"]+\"|title\":\"[^\"]+)" | \
+        egrep -vi 'Polybar' | \
         sed 's/"//g;s/class://g;s/title://g' | \
         while read -r line; read -r line2; do  \
             printf "%s\\n" "═ ${line} :: ${line2}"; \
