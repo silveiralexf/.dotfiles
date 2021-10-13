@@ -1,0 +1,17 @@
+session_name: vpn
+windows:
+  - window_name: local
+    layout: tiled
+    shell_command_before:
+      - cd /home/silveiralexf/
+
+    panes:
+      - shell_command:
+          - rp vpn
+          - pass keys/ff/intranet/felipe.silveira@farfetch.com -c
+          - sudo systemctl restart openvpn@client
+          - systemctl status openvpn@client -l
+      - shell_command:
+          - rp syslog
+          - clear
+          - tail -f /var/log/syslog
