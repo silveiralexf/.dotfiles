@@ -9,6 +9,15 @@ export GPG_TTY="$(tty)";
 # Git path
 export PATH="$PATH:/usr/local/git/bin::";
 
+# Put handlers on PATH
+[ -d "$HOME/.dotfiles/handlers" ] && export PATH="$PATH:$HOME/.dotfiles/handlers::";
+
+# Put utils on PATH
+[ -d "$HOME/.dotfiles/utils" ] && export PATH="$PATH:$HOME/.dotfiles/utils::";
+
+# Format time output just like bash would
+export TIMEFMT=$'real\t%E\nuser\t%U\nsys\t%S'
+
 # Snap path
 export PATH="$PATH:/snap/bin::"
 
@@ -18,15 +27,21 @@ export PATH="$PATH:$HOME/miniconda3/bin::";
 # Python Anaconda
 export PATH="$PATH:$HOME/anaconda3/bin::";
 
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
 # Golang exports
 export GOROOT="/usr/local/go";
 export GOPATH="$HOME/go";
 export GOBIN="$GOPATH/bin";
 export PATH="$PATH:$GOBIN:$GOROOT/bin::";
 export GO111MODULE="on";
-export GOPRIVATE="github.ibm.com"
+export GOPRIVATE="gitlab.fftech.info"
 
 # Rust / Cargo
+source "${HOME}/.cargo/env"
 export PATH="${PATH}:${HOME}/.cargo/bin::";
 
 # Add $HOME/.npm/bin to path
@@ -62,21 +77,19 @@ export QT_SCREEN_SCALE_FACTORS=DP1=1.5 #;DP1=1.5;DP2=1.5;HDMI1=1.5;HDMI2=1.5;VIR
 # Adding /opt/bin path to path to use docker-compose
 export PATH="$PATH:/opt/bin::";
 
-# ipm-cli
-export PATH="$PATH:/opt/ipm-cli::";
-
+# Enable Docker build kit by default
+export DOCKER_BUILDKIT=1
 
 # update cdpath
-export CDPATH="${CDPATH}:${GOPATH}/src/golang.org:${GOPATH}/src:${GOPATH}/src/github.com:${GOPATH}/src/github.ibm.com"
+export CDPATH="${CDPATH}:${GOPATH}/src/golang.org:${GOPATH}/src:${GOPATH}/src/github.com:${GOPATH}/gitlab.fftech.info:${GOPATH}/src/github.ibm.com"
 
 # GoFish source
-command -v gofish &>/dev/null && eval "$(gofish tank)"
+# command -v gofish &>/dev/null && eval "$(gofish tank)"
 
 # CLI auto-completes
-command -v kubectl &> /dev/null && source <(kubectl completion bash)
-command -v helm &> /dev/null && source <(helm completion bash)
-[ -f /usr/local/ibmcloud/bx/bash_autocomplete ] && source /usr/local/ibmcloud/bx/bash_autocomplete
-[ -f /etc/bash_completion.d/mvn ] && source /etc/bash_completion.d/mvn
+command -v kubectl &> /dev/null && source <(kubectl completion zsh)
+command -v helm &> /dev/null && source <(helm completion zsh)
+# [ -f /etc/bash_completion.d/mvn ] && source /etc/bash_completion.d/mvn
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -99,19 +112,20 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# disabled on zsh
+# if [ "$color_prompt" = yes ]; then
+#     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     
-    CURRENTUSER=$(whoami)
-    if [ "$CURRENTUSER" = "root" ]; then
-		PS1="\[\e[31m\][\[\e[m\]\[\e[31m\]\u\[\e[m\]\[\e[31m\]]\[\e[m\]\[\e[31m\]\\$\[\e[m\] "
-    else
-		PS1="\[\e[32m\][\[\e[m\]\[\e[32m\]\u\[\e[m\]\[\e[32m\]]\[\e[m\]\[\e[32m\]\\$\[\e[m\] "
+#     CURRENTUSER=$(whoami)
+#     if [ "$CURRENTUSER" = "root" ]; then
+# 		PS1="\[\e[31m\][\[\e[m\]\[\e[31m\]\u\[\e[m\]\[\e[31m\]]\[\e[m\]\[\e[31m\]\\$\[\e[m\] "
+#     else
+# 		PS1="\[\e[32m\][\[\e[m\]\[\e[32m\]\u\[\e[m\]\[\e[32m\]]\[\e[m\]\[\e[32m\]\\$\[\e[m\] "
 
-    fi
-# else
-#     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
+#     fi
+# # else
+# #     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+# fi
 
 unset color_prompt force_color_prompt
 
@@ -129,5 +143,32 @@ fi
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 	(exec tmux attach -t default) || (exec tmux new -s default 2>/dev/null)
 fi
+
+# gitmux
+export PROMPT_COMMAND='tmux set -g status-right "$(gitmux $PWD)" &> /dev/null'
+
+# get some colors on commands with grc
+[[ -s "/etc/grc.zsh" ]] && source "/etc/grc.zsh"
+
+export FONTCONFIG_PATH=/etc/fonts
+
+# Select commands from Pet snippet list
+function pet-select() {
+  BUFFER=$(pet search --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle redisplay
+}
+zle -N pet-select
+stty -ixon
+bindkey '^s' pet-select
+
+# Add Previous command to Pet
+function prev() {
+  PREV=$(echo $(history | tail -n2 | head -n1) | sed 's/[0-9]* //')
+  sh -c "pet new $(printf %q "$PREV")"
+}
+
+
+
 
 # EOF

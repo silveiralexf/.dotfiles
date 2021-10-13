@@ -5,7 +5,9 @@ alias more=less
 alias ls='ls --color=tty'
 alias ll='ls -ltr'
 alias lsh='ls -lhXG' # Long human readable
+alias sl='ls' # fix annoyingly common typo
 alias bashrc='source ~/.bashrc'
+alias zshrc='source ~/.zshrc'
 alias dos2unix='perl -pi -e "tr/\r//d"'
 alias unix2dos='perl -pi -e "s/\n$/\r\n/g"'
 alias mac2unix='perl -pi -e "tr/\r/\n/d"'
@@ -28,10 +30,10 @@ alias h="history"
 alias singlemonitor='xrandr -s 0 && kill $(ps -ef | grep "polybar main-right" | grep -v grep | awk "{ print $2 }") &>/dev/null'
 
 # Dual monitor (righ/left)
-alias dualmonitor-left='xrandr --auto --output eDP-1 --mode 1920x1080 --left-of HDMI-2'
-alias dualmonitor-right='xrandr --auto --output eDP-1 --mode 1920x1080 --right-of HDMI-2'
-alias dualmonitor-above='xrandr --auto --output eDP-1 --mode 1920x1080 --below HDMI-2'
-alias dualmonitor-below='xrandr --auto --output eDP-1 --mode 1920x1080 --above HDMI-2'
+alias dualmonitor-left='xrandr --auto --output eDP-1 --mode 1920x1080 --left-of HDMI-1'
+alias dualmonitor-right='xrandr --auto --output eDP-1 --mode 1920x1080 --right-of HDMI-1'
+alias dualmonitor-above='xrandr --auto --output eDP-1 --mode 1920x1080 --below HDMI-1'
+alias dualmonitor-below='xrandr --auto --output eDP-1 --mode 1920x1080 --above HDMI-1'
 
 # reset feh-background
 alias nobg='xsetroot -solid "#000000"'
@@ -56,6 +58,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+alias tail='grc tail'
 
 # cat syntax highlight
 alias pcat='source-highlight --failsafe -f esc --lang-def=makefile.lang --style-file=esc.style -i '
@@ -119,7 +123,7 @@ alias hosts='sudo vim /etc/hosts'
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
 # Enable aliases to be sudo'ed
-alias sudo='sudo '
+# alias sudo='sudo '
 
 # IBM Cloud cli
 alias ic="ibmcloud"
@@ -132,5 +136,12 @@ alias oplogin='eval $(op signin ibm)'
 
 # silversearch hidden files
 alias ag='ag --hidden'
+
+
+# the fuck aliases
+eval "$(thefuck --alias)"
+eval "$(thefuck --alias FUCK)"
+eval "$(thefuck --alias fuck)"
+
 
 # EOF

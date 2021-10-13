@@ -79,17 +79,17 @@ function tre() {
 }
 
 # Get colors in manual pages
-function man() {
-	env \
-		LESS_TERMCAP_mb="$(printf '\e[1;31m')" \
-		LESS_TERMCAP_md="$(printf '\e[1;31m')" \
-		LESS_TERMCAP_me="$(printf '\e[0m')" \
-		LESS_TERMCAP_se="$(printf '\e[0m')" \
-		LESS_TERMCAP_so="$(printf '\e[1;44;33m')" \
-		LESS_TERMCAP_ue="$(printf '\e[0m')" \
-		LESS_TERMCAP_us="$(printf '\e[1;32m')" \
-		man "$@"
-}
+#function man() {
+#	env \
+#		LESS_TERMCAP_mb="$(printf '\e[1;31m')" \
+#		LESS_TERMCAP_md="$(printf '\e[1;31m')" \
+#		LESS_TERMCAP_me="$(printf '\e[0m')" \
+#		LESS_TERMCAP_se="$(printf '\e[0m')" \
+#		LESS_TERMCAP_so="$(printf '\e[1;44;33m')" \
+#		LESS_TERMCAP_ue="$(printf '\e[0m')" \
+#		LESS_TERMCAP_us="$(printf '\e[1;32m')" \
+#		grc man "$@"
+#}
 
 # Restart the gpg agent
 function gpg-reload(){
@@ -192,4 +192,13 @@ function rp () {                      \
  };                                            \
 
 
+export bgnotify_threshold=4  ## set your own notification threshold
+function bgnotify_formatted {
+  ## $1=exit_status, $2=command, $3=elapsed_time
+  [ $1 -eq 0 ] && title="Holy Smokes Batman!" || title="Holy Graf Zeppelin!"
+  bgnotify "$title -- after $3 s" "$2";
+}
+
+
 # EOF
+

@@ -1,0 +1,18 @@
+session_name: monitoringcharts
+windows:
+  - window_name: dev
+    layout: tiled
+    shell_command_before:
+      - cd /home/silveiralexf/git/gitlab.fftech.info/helm/monitoringcharts
+    panes:
+      - shell_command:
+          - rp code
+          - eval $(minikube -p minikube docker-env)
+          - code .
+          - clear
+          - git status
+      - shell_command:
+          - rp minikube
+          - eval $(minikube -p minikube docker-env)
+          - clear
+          - minikube start --extra-config=apiserver.authorization-mode=RBAC,Node
