@@ -1,0 +1,12 @@
+session_name: promlens
+windows:
+  - window_name: promlens
+    layout: tiled
+    shell_command_before:
+      - cd /home/silveiralexf/
+
+    panes:
+      - shell_command:
+         - rp promlens
+         - clear
+         - docker run -p 8080:8080 promlabs/promlens --web.default-prometheus-url="http://we1-dev-infrastructure-monitoring-prometheus-apps-1.afftech.info:9090"

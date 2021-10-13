@@ -1,0 +1,20 @@
+session_name: oslo2grafana
+windows:
+  - window_name: dev
+    layout: tiled
+    shell_command_before:
+      - cd /home/silveiralexf/go/src/gitlab.fftech.info/vteams/o11y/oslo2grafana
+    panes:
+      - shell_command:
+          - rp code
+          - code .
+          - clear
+          - git status
+      - shell_command:
+          - rp run
+          - clear
+          - make tests
+      - shell_command:
+          - rp package
+          - clear
+          - cd ${HOME}/git/gitlab.fftech.info/infrastructure/packages/oslo2grafana

@@ -1,0 +1,29 @@
+session_name: fflive-ne1-cde
+windows:
+  - window_name: vpn
+    layout: tiled
+    shell_command_before:
+      - cd /home/silveiralexf/work/workarea
+    panes:
+      - shell_command:
+          - rp vpn
+          - sudo openvpn /etc/openvpn/ff/live-cde-westeurope1.ovpn
+      - shell_command:
+          - rp syslog
+          - clear
+          - tail -f /var/log/syslog
+  - window_name: jump-hosts
+    layout: tiled
+    shell_command_before:
+      - cd /home/silveiralexf/work/workarea
+    panes:
+      - shell_command:
+          - rp ne1-prd-infrastructure-jumpbox-mgt-1
+          - clear
+          - ssh ne1-prd-infrastructure-jumpbox-mgt-1 -o ServerAliveInterval=60 -l felipe.silveira@fflive.local
+      - shell_command:
+          - rp ne1-prd-infrastructure-jumpbox-mgt-2
+          - clear
+          - ssh ne1-prd-infrastructure-jumpbox-mgt-2 -o ServerAliveInterval=60 -l felipe.silveira@fflive.local
+
+
