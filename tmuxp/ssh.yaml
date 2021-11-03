@@ -1,0 +1,12 @@
+session_name: ssh
+windows:
+  - window_name: local
+    layout: tiled
+    shell_command_before:
+      - cd /home/silveiralexf/
+
+    panes:
+      - shell_command:
+          - clear
+      - shell_command:
+          - clear
