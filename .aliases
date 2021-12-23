@@ -30,10 +30,10 @@ alias h="history"
 alias singlemonitor='xrandr -s 0 && kill $(ps -ef | grep "polybar main-right" | grep -v grep | awk "{ print $2 }") &>/dev/null'
 
 # Dual monitor (righ/left)
-alias dualmonitor-left='xrandr --auto --output eDP-1 --mode 1920x1080 --left-of HDMI-1'
-alias dualmonitor-right='xrandr --auto --output eDP-1 --mode 1920x1080 --right-of HDMI-1'
-alias dualmonitor-above='xrandr --auto --output eDP-1 --mode 1920x1080 --below HDMI-1'
-alias dualmonitor-below='xrandr --auto --output eDP-1 --mode 1920x1080 --above HDMI-1'
+alias dualmonitor-left='xrandr --auto --output eDP-1 --mode 1920x1080 --left-of DP-2-2'
+alias dualmonitor-right='xrandr --auto --output eDP-1 --mode 1920x1080 --right-of DP-2-2'
+alias dualmonitor-above='xrandr --auto --output eDP-1 --mode 1920x1080 --below DP-2-2'
+alias dualmonitor-below='xrandr --auto --output eDP-1 --mode 1920x1080 --above DP-2-2'
 
 # reset feh-background
 alias nobg='xsetroot -solid "#000000"'
