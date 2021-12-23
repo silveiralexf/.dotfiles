@@ -40,10 +40,6 @@ export PATH="$PATH:$GOBIN:$GOROOT/bin::";
 export GO111MODULE="on";
 export GOPRIVATE="gitlab.fftech.info"
 
-# Rust / Cargo
-source "${HOME}/.cargo/env"
-export PATH="${PATH}:${HOME}/.cargo/bin::";
-
 # Add $HOME/.npm/bin to path
 export PATH="$HOME/.npm/bin:$PATH"
 
@@ -145,7 +141,7 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
 fi
 
 # gitmux
-export PROMPT_COMMAND='tmux set -g status-right "$(gitmux $PWD)" &> /dev/null'
+#export PROMPT_COMMAND='tmux set -g status-right "$(gitmux $PWD)" &> /dev/null'
 
 # get some colors on commands with grc
 [[ -s "/etc/grc.zsh" ]] && source "/etc/grc.zsh"
