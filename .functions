@@ -64,9 +64,9 @@ fs() {
 # location
 o() {
 	if [ $# -eq 0 ]; then
-		exo-open .	> /dev/null 2>&1
+		xdg-open .	> /dev/null 2>&1
 	else
-		exo-open "$@" > /dev/null 2>&1
+		xdg-open "$@" > /dev/null 2>&1
 	fi
 }
 

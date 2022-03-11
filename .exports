@@ -9,6 +9,17 @@ export GPG_TTY="$(tty)";
 # Git path
 export PATH="$PATH:/usr/local/git/bin::";
 
+# pyCharm
+PATH=$PATH:/opt/pycharm-community-2021.3.1
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# speedscale env vars
+export SPEEDSCALE_HOME=/home/silveiralexf/.speedscale
+export PATH=$SPEEDSCALE_HOME:$PATH
+
 # Put handlers on PATH
 [ -d "$HOME/.dotfiles/handlers" ] && export PATH="$PATH:$HOME/.dotfiles/handlers::";
 
@@ -42,13 +53,21 @@ export GOPRIVATE="gitlab.fftech.info"
 
 # Add $HOME/.npm/bin to path
 export PATH="$HOME/.npm/bin:$PATH"
+export PATH="$HOME/.npm/bin/bin:$PATH"
 
 # Java exports (1.8.0_171) / Maven
-export JAVA_HOME="/opt/jdk1.8.0_171";
-export JRE_HOME="/opt/jdk1.8.0_171/jre";
-export PATH="$PATH:/opt/jdk1.8.0_171/bin:/opt/jdk1.8.0_171/jre/bin::";
-export PATH="$PATH:/opt/apache-maven-3.5.4/bin::";
+#export JAVA_HOME="/opt/jdk1.8.0_171";
+#export JRE_HOME="/opt/jdk1.8.0_171/jre";
+export JAVA_HOME="/home/silveiralexf/.jdks/temurin-1.8.0_322"
+export JRE_HOME="${JAVA_HOME}/jre"
+#export GROOVY_HOME="/opt/groovy-4.0.0"
+export PATH="$PATH:$JAVA_HOME/bin:$JRE_HOME/bin::";
+export PATH="$PATH:/opt/apache-maven-3.6.3/bin::";
 [ -f /etc/bash_completion.d/mvn ] && source /etc/bash_completion.d/mvn
+
+
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # DBVisualizer Java Home
 export DBVIS_JAVA_HOME=/usr/java/ibm_sdk80/jre
@@ -142,6 +161,9 @@ fi
 
 # gitmux
 #export PROMPT_COMMAND='tmux set -g status-right "$(gitmux $PWD)" &> /dev/null'
+
+# tmuxp
+export DISABLE_AUTO_TITLE='true'
 
 # get some colors on commands with grc
 [[ -s "/etc/grc.zsh" ]] && source "/etc/grc.zsh"
