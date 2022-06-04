@@ -51,6 +51,9 @@ export PATH="$PATH:$GOBIN:$GOROOT/bin::";
 export GO111MODULE="on";
 export GOPRIVATE="gitlab.fftech.info"
 
+# Dotnet Exports
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 # Add $HOME/.npm/bin to path
 export PATH="$HOME/.npm/bin:$PATH"
 export PATH="$HOME/.npm/bin/bin:$PATH"
