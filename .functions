@@ -100,7 +100,7 @@ function gpg-reload(){
     gpgconf --reload gpg-agent
 }
 
-# Restarts the bluethood-daemon 
+# Restarts the bluethood-daemon
 function bt-reload(){
 	systemctl stop bluetooth.target
 	pkill bluedevil-monolithic
@@ -179,7 +179,8 @@ function ssht(){
 }
 
 function tpl() {
-	find "${HOME}/.tmuxp/" | awk -F "/" '{ print $5 }' | grep yaml | sed 's/\.yaml//g' | sort -n
+	#find "${HOME}/.tmuxp/" | awk -F "/" '{ print $5 }' | grep yaml | sed 's/\.yaml//g' | sort -n
+	tmuxp load -y $(ls ~/.tmuxp | sed 's/.yaml//g' | fzf --reverse --multi --height 50%)
 }
 
 function randompass() {
