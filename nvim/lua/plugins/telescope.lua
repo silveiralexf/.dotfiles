@@ -1,36 +1,5 @@
 return {
   {
-    "nvim-telescope/telescope.nvim",
-    keys = {
-      {
-        "<leader>fp",
-        function()
-          require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
-        end,
-        desc = "Find Plugin File",
-      },
-    },
-    opts = {
-      defaults = {
-        layout_strategy = "horizontal",
-        layout_config = { prompt_position = "top" },
-        sorting_strategy = "ascending",
-        winblend = 0,
-      },
-    },
-    extensions = {
-      ["ui-select"] = {
-        require("telescope.themes").get_dropdown({
-          initial_mode = "normal",
-        }),
-        require("telescope.sorters").get_fzy_sorter({}),
-      },
-    },
-    setup = function()
-      vim.cmd([[packadd nvim-telescope/telescope]])
-    end,
-  },
-  {
     "telescope.nvim",
     dependencies = {
       "nvim-telescope/telescope-fzf-native.nvim",
@@ -104,6 +73,39 @@ return {
 
     setup = function()
       vim.cmd([[packadd telescope]])
+    end,
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    keys = {
+      {
+        "<leader>fp",
+        function()
+          require("telescope.builtin").find_files({
+            cwd = require("lazy.core.config").options.root,
+          })
+        end,
+        desc = "Find Plugin File",
+      },
+    },
+    opts = {
+      defaults = {
+        layout_strategy = "horizontal",
+        layout_config = { prompt_position = "top" },
+        sorting_strategy = "ascending",
+        winblend = 0,
+      },
+    },
+    extensions = {
+      ["ui-select"] = {
+        require("telescope.themes").get_dropdown({
+          initial_mode = "normal",
+        }),
+        require("telescope.sorters").get_fzy_sorter({}),
+      },
+    },
+    setup = function()
+      vim.cmd([[packadd nvim-telescope/telescope]])
     end,
   },
 }
