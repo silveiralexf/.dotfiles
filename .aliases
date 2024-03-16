@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/zsh
 
 # BAU stuff, shortcuts and some string manipulation handlers
 alias more=less
 alias ls='ls --color=tty'
 alias ll='ls -ltr'
 alias lsh='ls -lhXG' # Long human readable
-alias sl='ls' # fix annoyingly common typo
+alias sl='ls'        # fix annoyingly common typo
 alias bashrc='source ~/.bashrc'
 alias zshrc='source ~/.zshrc'
 alias dos2unix='perl -pi -e "tr/\r//d"'
@@ -25,75 +25,70 @@ alias prettyjson='python -m json.tool'
 alias dl="cd ~/Downloads"
 alias g="git"
 alias h="history"
+alias python="python3"
+alias pip="pip3"
+#alias docker="podman"
 
-# Single monitor
-alias singlemonitor='xrandr -s 0 && kill $(ps -ef | grep "polybar main-right" | grep -v grep | awk "{ print $2 }") &>/dev/null'
-
-# Dual monitor (righ/left)
-alias dualmonitor-left='xrandr --auto --output eDP-1 --mode 1920x1080 --left-of DP-1-2'
-alias dualmonitor-right='xrandr --auto --output eDP-1 --mode 1920x1080 --right-of DP-1-2'
-alias dualmonitor-above='xrandr --auto --output eDP-1 --mode 1920x1080 --below DP-1-2'
-alias dualmonitor-below='xrandr --auto --output eDP-1 --mode 1920x1080 --above DP-1-2'
+# Dual monitor (righ/left) -- 
+# NOTE: as I've been mostly using MacOS no longer needed
+#alias dualmonitor-left='xrandr --auto --output eDP-1 --mode 1920x1080 --left-of DP-1-2'
+#alias dualmonitor-right='xrandr --auto --output eDP-1 --mode 1920x1080 --right-of DP-1-2'
+#alias dualmonitor-above='xrandr --auto --output eDP-1 --mode 1920x1080 --below DP-1-2'
+#alias dualmonitor-below='xrandr --auto --output eDP-1 --mode 1920x1080 --above DP-1-2'
 
 # Triple monitor
-alias triple-monitor='xrandr --auto --output eDP-1 --mode 1920x1080 --below DP-2-1 --output DP-2-1 --left-of DP-2-2'
+# NOTE: as I've been mostly using MacOS no longer needed
+#alias triple-monitor='xrandr --auto --output eDP-1 --mode 1920x1080 --below DP-2-1 --output DP-2-1 --left-of DP-2-2'
 #alias triple-monitor='xrandr --auto --output eDP-1 --mode 1920x1080 --below DP-1-2 --output DP-1-1 --left-of DP-1-2'
 #alias triple-monitor='xrandr --auto --output eDP-1 --mode 1920x1080 --below DP-2-2 --output DP-2-1 --left-of DP-2-2'
 
 # reset feh-background
-alias nobg='xsetroot -solid "#000000"'
+# NOTE: as I've been mostly using MacOS no longer needed
+#alias nobg='xsetroot -solid "#000000"'
 
 # Vim / Vi setup
 set -o vi
-if command -v vim &> /dev/null 2>&0 ; then 
-    export EDITOR=vim
-    alias vi="vim"
-else 
-    export EDITOR=vi
-    alias vim="vi"
+if command -v vim &>/dev/null 2>&0; then
+	export EDITOR=vim
+	alias vi="vim"
+else
+	export EDITOR=vi
+	alias vim="vi"
 fi
 
 # Neovim
 alias vim="nvim"
 alias vi="nvim"
 
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	alias ls='ls --color=auto'
+	alias dir='dir --color=auto'
+	alias vdir='vdir --color=auto'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
 fi
-
-alias tail='grc tail'
 
 # cat syntax highlight
 alias pcat='source-highlight --failsafe -f esc --lang-def=makefile.lang --style-file=esc.style -i '
 
 # Source Kubectl aliases (https://github.com/ahmetb/kubectl-aliases)
-[ -f "$HOME/.dotfiles/files/kubectl_aliases" ] && source "$HOME/.dotfiles/files/kubectl_aliases"
+[ -f "${HOME}/.dotfiles/files/kubectl_aliases" ] && source "${HOME}/.dotfiles/files/kubectl_aliases"
 
 # Change Kubernetes namespace context
-alias kcd='kubectl config set-context $(kubectl config current-context) --namespace '
+alias kcd='kubectl config set-context --current --namespace '
 
 # Get events in a sorted manner
 alias kevents='kubectl get events --sort-by='\''.metadata.creationTimestamp'\'''
-
-# docker-machine quick alias
-alias dm='docker-machine'
 
 # BFG - Removes large or troublesome blobs like git-filter-branch does,
 # but faster, and written in Scala
 #
 # --> Download it from 'https://rtyley.github.io/bfg-repo-cleaner/'
 #     and place it on the directory of your choice.
-[ -f "$HOME/Downloads/bfg-1.13.0.jar" ] && \
-      alias bfg='java -jar $HOME/Downloads/bfg-1.13.0.jar'
-
+[ -f "${HOME}/Downloads/bfg-1.14.0.jar" ] && alias bfg='java -jar ${HOME}/Downloads/bfg-1.14.0.jar'
 
 # Creates a new tmux session
 alias tn='tmux new -s LOCAL-$(date "+%H%M%S")'
@@ -135,23 +130,14 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 # Enable aliases to be sudo'ed
 # alias sudo='sudo '
 
-# IBM Cloud cli
-alias ic="ibmcloud"
-
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
-
-# 1password login short-hand
-alias oplogin='eval $(op signin ibm)'
+#alias pbcopy='xclip -selection clipboard'
+#alias pbpaste='xclip -selection clipboard -o'
 
 # silversearch hidden files
 alias ag='ag --hidden'
 
-
-# the fuck aliases
-eval "$(thefuck --alias)"
-eval "$(thefuck --alias FUCK)"
-eval "$(thefuck --alias fuck)"
-
+# Git Aliases
+#alias rebase="git pull origin master --rebase; git add -A; git rebase --continue; git push origin $(git rev-parse --abbrev-ref HEAD) -f"
+alias lg='lazygit'
 
 # EOF

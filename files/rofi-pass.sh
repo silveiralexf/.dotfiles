@@ -838,9 +838,10 @@ main () {
 	fi
 
 	# set help color
-	if [[ $help_color == "" ]]; then
-		help_color=$(rofi -dump-xresources | grep 'rofi.color.normal' | gawk -F ',' '/,/{gsub(/ /, "", $2); print $2}')
-	fi
+	# if [[ $help_color == "" ]]; then
+	# 	ls
+	# 	#help_color=$(rofi -dump-xresources | grep 'rofi.color.normal' | gawk -F ',' '/,/{gsub(/ /, "", $2); print $2}')
+	# fi
 
 	# check for BROWSER variable, use xdg-open as fallback
 	if [[ -z $BROWSER ]]; then

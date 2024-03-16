@@ -96,7 +96,7 @@ def dmenu_setup(args):
                             )\
                         ),
                     suffix=".gpg",
-                    font='Dejavu Sans Mono:medium:size=18',
+                    font='Dejavu Sans Mono:medium:size=20',
                     nb='#191919', nf='#ff0000', sb='#ff9318', sf='#191919',
                   )
     if args.apps:
@@ -104,7 +104,7 @@ def dmenu_setup(args):
                     target='apps',
                     prefix="/usr/share/applications",
                     suffix=".desktop",
-                    font='Dejavu Sans Mono:medium:size=18',
+                    font='Dejavu Sans Mono:medium:size=20',
                     nb='#191919', nf='#2e9ef4', sb='#2e9ef4', sf='#191919',
                   )
     if args.notes:
@@ -112,7 +112,7 @@ def dmenu_setup(args):
                     target='notes',
                     prefix=os.path.expanduser('~/notes'),
                     suffix=".md",
-                    font='Dejavu Sans Mono:medium:size=18',
+                    font='Dejavu Sans Mono:medium:size=20',
                     nb='#191919', nf='#2aa198', sb='#2aa198', sf='#191919',
                    )
     if args.search:
@@ -120,7 +120,7 @@ def dmenu_setup(args):
                     target='search',
                     prefix=os.path.expanduser('~/work'),
                     suffix="",
-                    font='Dejavu Sans Mono:medium:size=18',
+                    font='Dejavu Sans Mono:medium:size=20',
                     nb='#191919', nf='#2aa198', sb='#11D91E', sf='#191919',
                    )
     
