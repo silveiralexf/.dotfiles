@@ -1,3 +1,14 @@
 .fzf/
 .private
 .tmuxp/
+
+# LazyVim
+./nvim/tt.*
+./nvim/.tests
+./nvim/doc/tags
+./nvim/debug
+./nvim/.repro
+./nvim/foo.*
+./nvim/*.log
+./nvim/data
+
