@@ -23,6 +23,17 @@ return {
           },
         },
       },
+      {
+        "neovim/nvim-lspconfig",
+        opts = {
+          codelens = {
+            enabled = true,
+          },
+          servers = {
+            ruff_lsp = {},
+          },
+        },
+      },
     },
   },
 }
