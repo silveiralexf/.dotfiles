@@ -50,11 +50,23 @@ return {
         require("telescope").load_extension("undo")
       end,
     },
+    {
+      "xiyaowong/telescope-emoji.nvim",
+      keys = {
+        { "<leader>se", "<cmd>Telescope emoji<cr>", desc = "Telescope search emoji" },
+      },
+      config = function()
+        require("telescope").load_extension("emoji")
+      end,
+    },
     opts = {
       pickers = {
         find_files = {
           hidden = true,
         },
+        lsp_references = { include_declaration = false, show_line = false },
+        lsp_implementations = { show_line = false },
+        -- live_grep = { glob_pattern = { "!api/*", "!go.sum" } },
       },
       defaults = {
         layout_strategy = "horizontal",
@@ -94,6 +106,10 @@ return {
         layout_config = { prompt_position = "top" },
         sorting_strategy = "ascending",
         winblend = 0,
+        path_display = { shorten = 7, exclude = { 1, -1 } },
+        prompt_prefix = "🔭 ",
+        selection_caret = " ",
+        vimgrep_arguments = { "rg", "--vimgrep", "--smart-case", "-M", "200" },
       },
     },
     extensions = {
@@ -102,6 +118,11 @@ return {
           initial_mode = "normal",
         }),
         require("telescope.sorters").get_fzy_sorter({}),
+      },
+      ["emoji"] = {
+        action = function(emoji)
+          vim.api.nvim_put({ emoji.value }, "b", false, true)
+        end,
       },
     },
     setup = function()
