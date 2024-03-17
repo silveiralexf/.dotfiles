@@ -86,7 +86,7 @@ return {
     },
     keys = {
       {
-        "º",
+        "§",
         function()
           require("neo-tree.command").execute({
             position = "left",
@@ -98,7 +98,7 @@ return {
         desc = "Explorer NeoTree",
       },
       {
-        "\\º",
+        "\\§",
         function()
           require("neo-tree.command").execute({
             position = "left",
@@ -119,6 +119,27 @@ return {
         modes = {
           search = {
             enabled = false,
+          },
+        },
+      },
+    },
+    {
+      "folke/zen-mode.nvim",
+      keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } },
+      desc = "ZenMode",
+      opts = {
+        plugins = {
+          options = {
+            laststatus = 0,
+          },
+          tmux = { enabled = true },
+        },
+        window = {
+          height = 1,
+          width = 200,
+          options = {
+            signcolumn = "number",
+            foldcolumn = "0",
           },
         },
       },
