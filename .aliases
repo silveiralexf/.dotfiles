@@ -77,6 +77,9 @@ alias pcat='source-highlight --failsafe -f esc --lang-def=makefile.lang --style-
 # Source Kubectl aliases (https://github.com/ahmetb/kubectl-aliases)
 [ -f "${HOME}/.dotfiles/files/kubectl_aliases" ] && source "${HOME}/.dotfiles/files/kubectl_aliases"
 
+# Shortuct for kubectl
+alias k='kubectl'
+
 # Change Kubernetes namespace context
 alias kcd='kubectl config set-context --current --namespace '
 
