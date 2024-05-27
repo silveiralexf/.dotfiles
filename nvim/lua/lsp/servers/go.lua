@@ -10,6 +10,7 @@ return {
             -- Workaround for the lack of a DAP strategy in neotest-go: https://github.com/nvim-neotest/neotest-go/issues/12
             { "<leader>td", "<cmd>lua require('dap-go').debug_test()<CR>", desc = "Debug Nearest (Go)" },
           },
+          root_dir = vim.fs.dirname(vim.fs.find({ "go.work", "go.mod" }, { upward = true })[1]),
           settings = {
             gopls = {
               gofumpt = true,
@@ -42,7 +43,15 @@ return {
               usePlaceholders = true,
               completeUnimported = true,
               staticcheck = true,
-              directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+              directoryFilters = {
+                "-.git",
+                "-.cache/**",
+                "-.gocache/**",
+                "-.vscode",
+                "-.idea",
+                "-.vscode-test",
+                "-node_modules",
+              },
               semanticTokens = true,
             },
           },
@@ -50,10 +59,17 @@ return {
       },
       setup = {
         gopls = function()
-          -- workaround for gopls not supporting semanticTokensProvider
-          -- https://github.com/golang/go/issues/54531#issuecomment-1464982242
           require("lazyvim.util").lsp.on_attach(function(client, _)
             if client.name == "gopls" then
+              if client.config.capabilities == nil then
+                client.config.capabilities = {
+                  workspace = {
+                    didChangeWatchedFiles = {
+                      dynamicRegistration = true,
+                    },
+                  },
+                }
+              end
               if not client.server_capabilities.semanticTokensProvider then
                 local semantic = client.config.capabilities.textDocument.semanticTokens
                 client.server_capabilities.semanticTokensProvider = {
@@ -67,7 +83,6 @@ return {
               end
             end
           end)
-          -- end workaround
         end,
       },
     },
