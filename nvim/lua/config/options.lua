@@ -8,3 +8,27 @@ vim.o.foldlevelstart = -1
 vim.o.laststatus = 3 -- Display the status line always. Improves window picker behaviour
 vim.o.swapfile = false
 vim.o.termguicolors = true
+
+vim.opt.guicursor = ""
+vim.opt.nu = true
+vim.opt.relativenumber = true
+
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+
+vim.opt.wrap = false
+
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.isfname:append("@-@")
+
+vim.opt.updatetime = 50
+
+vim.opt.colorcolumn = "80"
