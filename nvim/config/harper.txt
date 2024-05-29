@@ -25,6 +25,7 @@ config
 cwd
 dap
 ddp
+dotfiles
 env
 eslintrc
 filetype

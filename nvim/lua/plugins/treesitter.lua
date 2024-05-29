@@ -14,6 +14,7 @@ return {
         "go",
         "typescript",
         "vimdoc",
+        "markdown",
       },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -40,7 +41,7 @@ return {
     })
 
     local treesitter_parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-    treesitter_parser_config.templ = {
+    treesitter_parser_config.templ = { --@class
       install_info = {
         url = "https://github.com/vrischmann/tree-sitter-templ.git",
         files = { "src/parser.c", "src/scanner.c" },

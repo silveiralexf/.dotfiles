@@ -11,4 +11,3 @@ ln -s ~/.dotfiles/scripts/pass-user.sh ~/pass-user.sh
 ln -s ~/.dotfiles/config/pet-config.toml ~/.config/pet/config.toml
 ln -s ~/.dotfiles/config/zshrc ~/.zshrc
 ```
-

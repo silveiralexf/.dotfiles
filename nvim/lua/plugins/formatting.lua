@@ -5,7 +5,7 @@ return {
       formatters_by_ft = {
         yaml = { "yamlfmt" },
         toml = { "taplo" },
-        markdown = { "markdownlint-cli2" },
+        markdown = { "markdown" },
         python = { "ruff_format" },
         hcl = { "terraform_fmt" },
       },
