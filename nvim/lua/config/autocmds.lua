@@ -1,5 +1,6 @@
 -- Autocmds are automatically loaded on the VeryLazy event
--- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
+-- Default autocmds that are always set:
+-- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
 vim.cmd([[highlight ColorColumn guibg=#FF8C00]])
@@ -9,6 +10,53 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     -- require('ufo').detach()
     vim.opt_local.foldenable = false
+  end,
+})
+
+-- Always attach LSP when available
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client.supports_method("textDocument/implementation") then
+      vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
+        buffer = 0,
+        desc = "Go to definition",
+      })
+    end
+  end,
+})
+
+-- Create an event handler for Tiltfiles
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "bzl",
+  callback = function(ev)
+    vim.lsp.start({
+      name = "bzl",
+      root_dir = vim.fs.root(ev.buf, { "Tiltfile", "bzl" }),
+      codelens = { enable = true },
+      cmd = { "tilt", "lsp", "start" },
+      docs = {
+        description = [[
+https://docs.stack.build/docs/cli/installation
+
+https://docs.stack.build/docs/vscode/starlark-language-server
+]],
+      },
+    })
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.gohtml", "*.go.html" },
+  callback = function()
+    vim.opt_local.filetype = "gohtmltmpl"
+  end,
+})
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.gotmpl", "*.go.tmpl", "*.tmpl" },
+  callback = function()
+    vim.opt_local.filetype = "gotexttmpl"
   end,
 })
 
@@ -49,6 +97,64 @@ vim.api.nvim_create_autocmd("LspAttach", {
           c.stop()
         end
       end
+    end
+  end,
+})
+
+-- Markdown preview with Glow
+local function render_markdown_with_glow()
+  local tempfile = vim.fn.tempname() .. ".md"
+  vim.cmd("write! " .. tempfile)
+
+  vim.cmd("enew")
+  local bufnr = vim.api.nvim_get_current_buf()
+
+  local command = "terminal glow -p " .. tempfile
+
+  vim.cmd(command)
+
+  vim.cmd("startinsert!")
+
+  vim.api.nvim_create_autocmd("TermClose", {
+    buffer = bufnr,
+    callback = function()
+      ---@diagnostic disable-next-line: undefined-field
+      vim.loop.fs_unlink(tempfile)
+      pcall(vim.api.nvim_buf_delete, bufnr, { force = true })
+    end,
+  })
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.keymap.set("n", "<leader>ug", render_markdown_with_glow, {
+      silent = true,
+      buffer = true,
+      desc = "render markdown with glow",
+    })
+  end,
+})
+
+-- Wrap and check for spell in text filetypes.
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("wrap_spell", { clear = true }),
+  pattern = { "gitcommit", "markdown" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end,
+})
+
+-- Go to last loc when opening a buffer.
+vim.api.nvim_create_autocmd("BufReadPost", {
+  group = vim.api.nvim_create_augroup("last_loc", { clear = true }),
+  callback = function()
+    local mark = vim.api.nvim_buf_get_mark(0, '"')
+    local lcount = vim.api.nvim_buf_line_count(0)
+    if mark[1] > 0 and mark[1] <= lcount then
+      -- Protected call to catch errors.
+      pcall(vim.api.nvim_win_set_cursor, 0, mark)
     end
   end,
 })

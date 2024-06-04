@@ -1,0 +1,47 @@
+version: "3"
+dotenv: [".env"]
+vars:
+  SHELL: /usr/bin/env bash -o pipefail
+includes:
+  macos:install:
+    taskfile: ./tasks/macos/install/Taskfile.yml
+  macos:install:brew:
+    taskfile: ./tasks/macos/install/brew/Taskfile.yml
+  macos:install:core:
+    taskfile: ./tasks/macos/install/core/Taskfile.yml
+  macos:install:docker:
+    taskfile: ./tasks/macos/install/docker/Taskfile.yml
+  macos:install:k8s:
+    taskfile: ./tasks/macos/install/k8s/Taskfile.yml
+  macos:install:go:
+    taskfile: ./tasks/macos/install/go/Taskfile.yml
+  macos:install:java:
+    taskfile: ./tasks/macos/install/java/Taskfile.yml
+  macos:install:npm:
+    taskfile: ./tasks/macos/install/npm/Taskfile.yml
+  macos:install:python:
+    taskfile: ./tasks/macos/install/python/Taskfile.yml
+  macos:install:rust:
+    taskfile: ./tasks/macos/install/rust/Taskfile.yml
+tasks:
+  default:
+    cmds:
+      - task: list
+    silent: true
+  list:
+    desc: Lists available commands
+    cmds:
+      - task -l
+  hooks:
+    desc: Setup git hooks locally
+    cmds:
+      - cp scripts/hooks/* .git/hooks/
+    silent: true
+  precommit:
+    desc: Verifies and fix requirements for new commits
+    cmds:
+      - scripts/hooks/pre-commit
+  changelog:
+    desc: Generates rudimentary changelog
+    cmds:
+      - scripts/changelog.sh

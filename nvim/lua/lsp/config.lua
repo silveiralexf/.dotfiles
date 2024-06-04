@@ -1,0 +1,111 @@
+return {
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "L3MON4D3/LuaSnip",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+      "hrsh7th/nvim-cmp",
+      "j-hui/fidget.nvim",
+      "neovim/nvim-lspconfig",
+      "saadparwaiz1/cmp_luasnip",
+      "williamboman/mason-lspconfig",
+      "williamboman/mason.nvim",
+    },
+
+    config = function()
+      local cmp = require("cmp")
+      local cmp_defaults = require("cmp_nvim_lsp").default_capabilities
+      local client_cap = vim.lsp.protocol.make_client_capabilities
+      local capabilities = vim.tbl_deep_extend("force", {}, client_cap(), cmp_defaults())
+      require("fidget").setup({})
+      require("mason").setup()
+      require("mason-lspconfig").setup({
+        ensure_installed = {
+          "angularls",
+          "bashls",
+          "bzl",
+          "clangd",
+          "cmake",
+          "docker_compose_language_service",
+          "dockerls",
+          "eslint",
+          "golangci_lint_ls",
+          "gopls",
+          "groovyls",
+          "helm_ls",
+          "jdtls",
+          "jsonls",
+          "lua_ls",
+          "pylsp",
+          "rust_analyzer",
+          "terraformls",
+          "tflint",
+          "vuels",
+          "yamlls",
+          "zls",
+        },
+
+        handlers = {
+          function(server_name) -- default handler (optional)
+            require("lspconfig")[server_name].setup({
+              capabilities = capabilities,
+            })
+          end,
+        },
+      })
+
+      local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
+      cmp.setup({
+        snippet = {
+          expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+          end,
+        },
+        mapping = cmp.mapping.preset.insert({
+          ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+          ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+          ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+          ["<C-Space>"] = cmp.mapping.complete(),
+        }),
+        sources = cmp.config.sources({
+          { name = "nvim_lsp" },
+          { name = "luasnip" }, -- For luasnip users.
+        }, { { name = "buffer" } }),
+      })
+
+      vim.diagnostic.config({
+        update_in_insert = true,
+        float = {
+          border = "rounded",
+          focusable = false,
+          header = "",
+          prefix = "",
+          source = "if_many",
+          style = "minimal",
+        },
+      })
+      vim.filetype.add({
+        filename = {
+          [".kube/config"] = "yaml",
+          ["gitconfig"] = "gitconfig",
+        },
+        extension = {
+          bzl = "bzl",
+          rasi = "rasi",
+          templ = "templ",
+        },
+        pattern = {
+          [".*/hypr/.*%.conf"] = "hyprlang",
+          [".*/kitty/*.conf"] = "bash",
+          [".*/mako/config"] = "dosini",
+          [".*/waybar/config"] = "jsonc",
+          [".*Tiltfile.*"] = "bzl",
+        },
+      })
+    end,
+  },
+}

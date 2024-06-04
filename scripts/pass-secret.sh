@@ -1,7 +1,9 @@
 #!/bin/sh
 
+EXCLUSIONS='docker-credential-helpers'
+
 menu() {
-	cd ~/.password-store && find . -name "*.gpg" | sed 's/.gpg//g'
+	cd ~/.password-store && find . -name "*.gpg" | grep -vE "${EXCLUSIONS}" | sed 's/.gpg//g'
 }
 
 main() {

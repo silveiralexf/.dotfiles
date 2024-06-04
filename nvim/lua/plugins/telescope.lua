@@ -79,7 +79,7 @@ return {
         },
         width = 0.80,
         height = 0.85,
-        preview_cutoff = 120,
+        preview_cutoff = 160,
       },
     },
 

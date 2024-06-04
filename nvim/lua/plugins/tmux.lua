@@ -30,7 +30,7 @@ return {
         --sync_registers = true,
         sync_registers = false, -- avoid lagging when sync register
 
-        -- syncs deletes with tmux clipboard as well, it is adviced to
+        -- syncs deletes with tmux clipboard as well, it is advised to
         -- do so. Nvim does not allow syncing registers 0 and 1 without
         -- overwriting the unnamed register. Thus, ddp would not be possible.
         sync_deletes = true,
