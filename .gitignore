@@ -1,6 +1,6 @@
 .fzf/
-.private
 .tmuxp/
+*.dec
 
 # LazyVim
 ./nvim/tt.*
@@ -12,3 +12,10 @@
 ./nvim/*.log
 ./nvim/data
 
+# Node
+node_modules/
+package.json
+package-lock.json
+
+# BFG
+..bfg-report/

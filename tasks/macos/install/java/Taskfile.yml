@@ -1,0 +1,27 @@
+version: "3"
+tasks:
+  all:
+    desc: Install all Java requirements and tools
+    cmds:
+      - task: all:sdkman
+      - task: all:maven
+      - task: all:bfg
+  all:sdkman:
+    desc: Install SDKMan and Java Latest LTS
+    cmds:
+      - zsh -l -c "source ${HOME}/.zshrc && sdk version || curl -s https://get.sdkman.io | bash"
+      - zsh -l -c "source ${HOME}/.zshrc && sdk install java && sdk use java 21.0.3-tem"
+      - java -version
+  all:maven:
+    desc: Install Maven
+    cmds:
+      - test mvn || sdk install maven
+      - zsh -l -c "source ${HOME}/.zshrc && mvn -version"
+  all:bfg:
+    vars:
+      BFG_DOWNLOAD_URL: "https://repo1.maven.org/maven2/com/madgag/bfg/1.14.0/bfg-1.14.0.jar"
+      BFG_PATH: "${HOME}/Downloads/bfg-1.14.0.jar"
+    desc: Install BFG Repo-Cleaner
+    cmds:
+      - test -f "{{.BFG_PATH}}" || curl -fsSL --output {{.BFG_PATH}} {{.BFG_DOWNLOAD_URL}}
+      - java -jar {{.BFG_PATH}} --version

@@ -11,13 +11,20 @@ return {
             Lua = {
               diagnostics = {
                 globals = {
-                  "vim",
+                  "after_each",
+                  "before_each",
+                  "describe",
+                  "it",
                   "require",
+                  "vim",
                 },
               },
             },
           },
         },
+      },
+      setup = {
+        lua_ls = function() end,
       },
     },
   },

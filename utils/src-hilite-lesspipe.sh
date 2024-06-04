@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 for source in "$@"; do
 	case $source in

@@ -5,4 +5,3 @@ cmd - return : "${HOME}/pass-secret.sh"
 
 # opens unix pass  to extract user
 cmd + alt - return : "${HOME}/pass-user.sh"
-

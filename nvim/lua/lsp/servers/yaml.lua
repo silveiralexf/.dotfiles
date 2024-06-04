@@ -50,6 +50,16 @@ return {
                   name = "Argo CD Application",
                   fileMatch = "argocd-application.yaml",
                 },
+                Taskfile = {
+                  url = "https://raw.githubusercontent.com/go-task/task/blob/main/website/static/schema.json",
+                  name = "Taskfile",
+                  fileMatch = {
+                    "{t,T}askfile.{yml,yaml}",
+                    "{t,T}askfiles/*.{yml,yaml}",
+                    "{t,T}asks/*.{yml,yaml}",
+                    "taskfiles/*.y*ml",
+                  },
+                },
               }),
             },
           },

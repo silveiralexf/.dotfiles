@@ -1,0 +1,27 @@
+# default_stages: [commit]
+fail_fast: true
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: detect-private-key
+      - id: check-merge-conflict
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+        exclude_types:
+          - "json"
+      - id: end-of-file-fixer
+        exclude_types:
+          - "json"
+      - id: check-added-large-files
+      - id: check-yaml
+      - id: check-json
+  - repo: https://github.com/lunarmodules/luacheck
+    rev: v1.2.0
+    hooks:
+      - id: luacheck
+        name: Luacheck
+        description: Lint and static analysis of Lua code
+        entry: luacheck
+        language: lua
+        types: [lua]

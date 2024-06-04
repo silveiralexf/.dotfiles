@@ -1,0 +1,34 @@
+version: "3"
+tasks:
+  all:
+    desc: Install NvM, Node and all NPM packages required
+    cmds:
+      - task: all:deps
+      - task: all:packages
+  all:deps:
+    desc: Install dependencies
+    cmds:
+      - task: all:deps:nvm
+      - task: all:deps:node
+      - task: all:deps:npm
+  all:deps:nvm:
+    desc: Install Node Version Manager
+    cmds:
+      - zsh -l -c "source ${HOME}/.zshrc && nvm version" || curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+  all:deps:node:
+    desc: Install NodeJS itself
+    cmds:
+      - node -v || zsh -l -c "source ${HOME}/.zshrc && nvm install --lts"
+      - node -v
+  all:deps:npm:
+    desc: Install NPM itself
+    cmds:
+      - npm -v || zsh -l -c "source ${HOME}/.zshrc && nvm install-latest-npm"
+      - npm -v
+  all:packages:
+    desc: Install all globally required NPM packages
+    cmds:
+      - for:
+          - prettier
+          - neovim
+        cmd: npm install -g {{.ITEM}}

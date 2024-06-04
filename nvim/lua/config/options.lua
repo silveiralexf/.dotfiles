@@ -5,17 +5,21 @@ vim.o.foldcolumn = "1"
 vim.o.foldenable = true
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = -1
-vim.o.laststatus = 3 -- Display the status line always. Improves window picker behaviour
+
+-- Always display status line. Improves window picker behavior
+vim.o.laststatus = 3
+
 vim.o.swapfile = false
 vim.o.termguicolors = true
-
 vim.opt.guicursor = ""
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
 vim.opt.expandtab = true
-vim.opt.smartindent = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 0
 
+vim.opt.smartindent = true
 vim.opt.wrap = false
 
 vim.opt.backup = false
@@ -31,4 +35,4 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "160"

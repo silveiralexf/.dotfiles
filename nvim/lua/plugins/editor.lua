@@ -1,12 +1,12 @@
 return {
   {
-    "stevearc/aerial.nvim",
-    opts = {
-      layout = {
-        width = 50,
-      },
-    },
+    "ibhagwan/fzf-lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("fzf-lua").setup({})
+    end,
   },
+
   {
     "sindrets/diffview.nvim",
     event = "VeryLazy",
@@ -113,12 +113,20 @@ return {
     },
   },
   {
+    "stevearc/aerial.nvim",
+    opts = {
+      layout = {
+        width = 50,
+      },
+    },
+  },
+  {
     "folke/flash.nvim",
     opts = {
       search = {
         modes = {
           search = {
-            enabled = false,
+            enabled = true,
           },
         },
       },
@@ -145,4 +153,68 @@ return {
       },
     },
   },
+  {
+    "m4xshen/smartcolumn.nvim",
+    opts = {
+      disabled_filetypes = {
+        "Outline",
+        "aerial",
+        "alpha",
+        "help",
+        "lazy",
+        "markdown",
+        "mason",
+        "neo-tree",
+        "noice", ---@diagnostic disable-line
+        "text",
+        "spectre_panel",
+      },
+      custom_colorcolumn = {
+        python = { "160", "200" },
+      },
+    },
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = function(_, opts)
+      local trouble = require("trouble")
+      local symbols = trouble.statusline({
+        mode = "lsp_document_symbols",
+        groups = {},
+        title = false,
+        filter = { range = true },
+        format = "{kind_icon}{symbol.name:Normal}",
+        -- The following line is needed to fix the background color
+        -- Set it to the lualine section you want to use
+        hl_group = "lualine_c_normal",
+      })
+      table.insert(opts.sections.lualine_c, {
+        symbols.get,
+        cond = symbols.has,
+      })
+    end,
+  },
+  { "kosayoda/nvim-lightbulb" },
+  config = function()
+    require("nvim-lightbulb").setup({
+      --ignore = { "null-ls" },
+      status_test = {
+        enabled = true,
+        text = "💡",
+        text_unavailable = "no actions",
+      },
+      float = {
+        enabled = true,
+      },
+      line = {
+        enabled = true,
+        statusline = {
+          enabled = true,
+          text = "💡",
+          text_unavailable = "no actions",
+        },
+      },
+    })
+    vim.cmd([[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]])
+  end,
 }

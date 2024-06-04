@@ -1,0 +1,20 @@
+version: "3"
+tasks:
+  all:
+    desc: Setup Kubernetes related tooling
+    cmds:
+      - task: kustomize
+      - task: k3d
+      - task: tilt
+  kustomize:
+    desc: Install Kustomize
+    cmds:
+      - test kustomize || curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
+  k3d:
+    desc: Install K3d
+    cmds:
+      - test k3d || curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
+  tilt:
+    desc: Install Tilt
+    cmds:
+      - test tilt || curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash

@@ -1,0 +1,57 @@
+version: "3"
+tasks:
+  all:
+    desc: Brew install all packages
+    cmds:
+      - task: all:deps
+      - task: all:regular
+      - task: all:custom
+  all:deps:
+    desc: Install Brew itself along with some important libs
+    cmds:
+      - brew --version || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      - brew list | grep -w readline || brew install readline zlib
+      - brew list | grep -w zlib || brew install zlib
+  all:regular:
+    desc: Brew install regular recipes
+    cmds:
+      - for:
+          - coreutils
+          - moreutils
+          - wget
+          - terminal-notifier
+          - xz
+          - gnu-sed
+          - jq
+          - yq
+          - imagemagick
+          - tmux
+          - tmuxp
+          - pipx
+          - gpg
+          - pass
+          - lazygit
+          - choose-gui
+          - sops
+          - htop
+          - iftop
+          - source-highlight
+          - the_silver_searcher
+          - ripgrep
+          - font-hack-nerd-font
+          - knqyf263/pet/pet
+          - go-task/tap/go-task
+          - pre-commit
+          - grc
+          - luarocks
+          - luajit
+          - viu
+          - chafa
+          - aquasecurity/trivy/trivy
+        cmd: brew list {{.ITEM}} || brew install {{.ITEM}}
+  all:custom:
+    desc: Brew install recipes with custom steps
+    cmds:
+      - brew list skhd || brew install koekeishiya/formulae/skhd && skhd --start-service
+      - command -v /Applications/Amethyst.app/Contents/MacOS/Amethyst || brew install --cask amethyst
+      - test ueberzug || brew install jstkdng/programs/ueberzugpp

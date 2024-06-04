@@ -1,0 +1,247 @@
+#!/bin/zsh
+
+# Read The Freaking Manual (or Google it)
+function rtfm() { "$@" --help 2>/dev/null || man "$@" 2>/dev/null || google-chrome "http://www.google.com/search?q=$@"; }
+
+# Count chars of a string from command line
+function len {
+	printf %s "$1" | wc -c
+}
+
+# Decode string from command line
+function decode {
+	printf %s "$1" | base64 -d
+}
+
+# Encode string from command line
+function encode {
+	printf %s "$1" | base64 | tr -d "\n"
+}
+# Convert epoch time to human readable format from command line
+function epoch {
+	date -d @$(($1))
+}
+
+# Response time of URL (Timeconnect, timetransfer, timetoal)
+function curltime {
+	echo "time_connect, time_starttransfer, time_total"
+	curl -o /dev/null -s -w "%{time_connect} + %{time_starttransfer} = %{time_total}\n" "$1"
+}
+
+# Create a new directory and enter it
+mkd() {
+	mkdir -p "$@"
+	cd "$@" || exit
+}
+
+# Make a temporary directory and enter it
+tmpd() {
+	local dir
+	if [ $# -eq 0 ]; then
+		dir=$(mktemp -d)
+	else
+		dir=$(mktemp -d -t "${1}.XXXXXXXXXX")
+	fi
+	cd "$dir" || exit
+}
+
+# Determine size of a file or total size of a directory
+fs() {
+	if du -b /dev/null >/dev/null 2>&1; then
+		local arg=-sbh
+	else
+		local arg=-sh
+	fi
+	# shellcheck disable=SC2199
+	if [[ -n "$@" ]]; then
+		du $arg -- "$@"
+	else
+		du $arg -- .[^.]* *
+	fi
+}
+
+# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
+# the `.git` directory, listing directories first. The output gets piped into
+# `less` with options to preserve color and line numbers, unless the output is
+# small enough for one screen.
+function tre() {
+	tree -aC -I '.git' --dirsfirst "$@" | less -FRNX
+}
+
+# Get colors in manual pages
+function man() {
+	env \
+		LESS_TERMCAP_mb="$(printf '\e[1;31m')" \
+		LESS_TERMCAP_md="$(printf '\e[1;31m')" \
+		LESS_TERMCAP_me="$(printf '\e[0m')" \
+		LESS_TERMCAP_se="$(printf '\e[0m')" \
+		LESS_TERMCAP_so="$(printf '\e[1;44;33m')" \
+		LESS_TERMCAP_ue="$(printf '\e[0m')" \
+		LESS_TERMCAP_us="$(printf '\e[1;32m')" \
+		grc man "$@"
+}
+
+# Restart the gpg agent
+function gpg-reload() {
+	pkill scdaemon
+	pkill gpg-agent
+	gpg-connect-agent /bye >/dev/null 2>&1
+	gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
+	gpgconf --reload gpg-agent
+}
+
+# Restarts the bluethood-daemon
+function bt-reload() {
+	systemctl stop bluetooth.target
+	pkill bluedevil-monolithic
+	sudo pkill bluetoothd
+	systemctl start bluetooth.target
+	nohup bluedevil-monolithic &>/dev/null &
+}
+
+function parse_git_dirty() {
+	[[ $(git status 2>/dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+}
+
+function parse_git_branch() {
+	git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+}
+
+function git_undo() {
+	git reset --soft HEAD^
+}
+
+function reset_master() {
+	git checkout master
+	git fetch origin && git reset --hard origin/master
+}
+
+function go_doc() {
+	godoc -http="localhost:6060"
+}
+
+# go to a folder easily in your gopath
+function gogo() {
+	local d=$1
+
+	if [[ -z $d ]]; then
+		echo "You need to specify a project name."
+		return 1
+	fi
+
+	if [[ "$d" == github* ]]; then
+		d=$(echo "$d" | sed 's/.*\///')
+	fi
+	local d=${d%/}
+
+	# search for the project dir in the GOPATH
+	$mapfile < <(find "${GOPATH}/src" \( -type d -o -type l \) -iname "$d" | awk '{print length, $0;}' | sort -n | awk '{print $2}')
+}
+
+# function gotest(){
+#     find $1 -name '*.go' -printf '%h\n' | sort -u | xargs -n1 -P1 grc go test -cover -v -count=1 ;
+# }
+
+function golistdeps() {
+	(
+		if [[ -n "$1" ]]; then
+			gogo "$@"
+		fi
+		go list -e -f '{{join .Deps "\n"}}' ./... | xargs go list -e -f '{{if not .Standard}}{{.ImportPath}}{{end}}'
+	)
+}
+
+function tunnel() {
+	ssh "$1" -L "$2:$3" -N
+}
+
+function ssht() {
+	ssh "$*" -t 'tmux a || tmux || /bin/bash'
+}
+
+function tmuxrun() {
+	tmuxp load -y ~/.tmuxp/_workarea.yaml
+	tmuxp load -y ~/.tmuxp/_configs.yaml
+	tmuxp load -y ~/.tmuxp/asf-k8s.yaml
+	tmuxp load -y ~/.tmuxp/cicd-k8s.yaml
+	tmuxp load -y ~/.tmuxp/cicd-operator.yaml
+	tmuxp load -y ~/.tmuxp/cicd-argoworkflows-operator.yaml
+	tmuxp load -y ~/.tmuxp/cicd-jenkins-operator.yaml
+	tmuxp load -y ~/.tmuxp/cicd-sharedlibs.yaml
+	tmuxp load -y ~/.tmuxp/cicd-docker.yaml
+	tmuxp load -y ~/.tmuxp/cicd-compliance.yaml
+	tmuxp load -y ~/.tmuxp/core-argoplugins.yaml
+	tmuxp load -y ~/.tmuxp/core-blueprints.yaml
+	tmuxp load -y ~/.tmuxp/core-argocd-plugins.yaml
+	tmuxp load -y ~/.tmuxp/core-scmoperator.yaml
+	tmuxp load -y ~/.tmuxp/core-saltstack.yaml
+	tmuxp load -y ~/.tmuxp/o11y.yaml
+	tmuxp load -y ~/.tmuxp/jump-boxes.yaml
+	tmuxp load -y ~/.tmuxp/zzz_silveiralexf_go.yaml
+	tmuxp load -y ~/.tmuxp/zzz_silveiralexf_stuff.yaml
+}
+
+function tpl() {
+	#find "${HOME}/.tmuxp/" | awk -F "/" '{ print $5 }' | grep yaml | sed 's/\.yaml//g' | sort -n
+	tmuxp load -y $(ls ~/.tmuxp | sed 's/.yaml//g' | fzf --reverse --multi --height 50%)
+}
+
+function randompass() {
+	openssl rand -base64 18
+}
+
+function rp() {
+	pane_name=$1
+	printf "\033]2;%s\033\\r" "${pane_name}"
+}
+
+# Select commands from Pet snippet list
+function pet-select() {
+	BUFFER=$(pet search --query "$LBUFFER")
+	CURSOR=$#BUFFER
+	zle redisplay
+}
+zle -N pet-select
+stty -ixon
+bindkey '^s' pet-select
+
+# Add Previous command to Pet
+function prev() {
+	PREV=$(echo $(history | tail -n2 | head -n1) | sed 's/[0-9]* //')
+	sh -c "pet new $(printf %q "$PREV")"
+}
+
+# export private settings
+function getsecrets() {
+	sops_path=$(which sops)
+	enc_file="${HOME}/.dotfiles/.private"
+	dec_file="${enc_file}.dec"
+
+	if [[ -x $sops_path ]]; then
+		sops -d "${enc_file}" >"${dec_file}" &&
+			chmod +x "${dec_file}" &&
+			source "${dec_file}"
+		rm -rf "${dec_file}"
+	else
+		printf "WARNING: SOPS not found, nothing done!\n"
+		return 1
+	fi
+	return 0
+}
+
+function openui() {
+	CONTAINER_NAME="open-webui"
+	docker stop "${CONTAINER_NAME}"
+	docker rm "${CONTAINER_NAME}"
+	docker run -d \
+		--network=host \
+		-e PORT=9876 \
+		-e WEBUI_AUTH=false \
+		-e OLLAMA_BASE_URL=http://127.0.0.1:11434 \
+		-v open-webui:/app/backend/data \
+		--name "${CONTAINER_NAME}" \
+		--restart always ghcr.io/open-webui/open-webui:main
+	docker logs "${CONTAINER_NAME}"
+}
+
+# EOF
