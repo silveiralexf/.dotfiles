@@ -1,5 +1,6 @@
 CLI
 DAP
+EOL
 EslintFixA
 JSON
 LSP
