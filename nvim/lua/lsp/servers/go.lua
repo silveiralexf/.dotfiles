@@ -7,8 +7,13 @@ return {
       servers = {
         gopls = {
           keys = {
-            -- Workaround for the lack of a DAP strategy in neotest-go: https://github.com/nvim-neotest/neotest-go/issues/12
-            { "<leader>td", "<cmd>lua require('dap-go').debug_test()<CR>", desc = "Debug Nearest (Go)" },
+            -- Workaround for the lack of a DAP strategy in neotest-go
+            -- https://github.com/nvim-neotest/neotest-go/issues/12
+            {
+              "<leader>td",
+              "<cmd>lua require('dap-go').debug_test()<CR>",
+              desc = "Debug Nearest (Go)",
+            },
           },
           root_dir = vim.fs.dirname(vim.fs.find({ "go.work", "go.mod" }, { upward = true })[1]),
           settings = {
