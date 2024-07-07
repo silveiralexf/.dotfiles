@@ -27,8 +27,12 @@ tasks:
       - npm -v
   all:packages:
     desc: Install all globally required NPM packages
+    dotenv:
+      - ~/.zshrc
     cmds:
       - for:
-          - prettier
+          - bun
           - neovim
-        cmd: npm install -g {{.ITEM}}
+          - npm-groovy-lint
+          - yarn
+        cmd: npm list -g | grep {{.ITEM}} || npm install -g {{.ITEM}}

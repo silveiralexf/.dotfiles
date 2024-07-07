@@ -119,14 +119,14 @@ return {
         function()
           require("neotest").output.open({ enter = true, auto_close = true })
         end,
-        desc = "[t]est [o]utput",
+        desc = "[t]est [o]output",
       },
       {
         "<leader>tO",
         function()
           require("neotest").output_panel.toggle()
         end,
-        desc = "[t]est [O]utput panel",
+        desc = "[t]est [O]output panel",
       },
       {
         "<leader>tt",

@@ -61,14 +61,14 @@ esac
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
-	if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-		# We have color support; assume it's compliant with Ecma-48
-		# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-		# a case would tend to support setf rather than setaf.)
-		color_prompt=yes
-	else
-		color_prompt=
-	fi
+  if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
+  else
+    color_prompt=
+  fi
 fi
 
 # get some colors on commands with grc
@@ -76,10 +76,10 @@ fi
 
 # Syntax highlight for LESS command
 if command -v source-highlight &>/dev/null 2>&0; then
-	export PAGER="less"
-	export LESS="-R"
-	[ -f "$HOME/.dotfiles/utils/src-hilite-lesspipe.sh" ] &&
-		export LESSOPEN="| $HOME/.dotfiles/utils/src-hilite-lesspipe.sh %s"
+  export PAGER="less"
+  export LESS="-R"
+  [ -f "$HOME/.dotfiles/utils/src-hilite-lesspipe.sh" ] &&
+    export LESSOPEN="| $HOME/.dotfiles/utils/src-hilite-lesspipe.sh %s"
 fi
 
 # make less more friendly for non-text input files, see lesspipe(1)
@@ -166,7 +166,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 # This loads nvm bash_completion
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] &&
-	\. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+  \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
 # Dotnet
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
@@ -181,8 +181,12 @@ export PATH="${PATH}:${HOME}/.tfenv/bin"
 
 # Rancher
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
-export LIMA_HOME="$HOME/Library/Application Support/rancher-desktop/"
 export PATH="${PATH}:/Applications/Rancher Desktop.app/Contents/Resources/resources/darwin/lima/bin"
+export LIMA_HOME="${HOME}/Library/Application Support/rancher-desktop/lima"
+#export COLIMA_VM="default"
+#export COLIMA_VM_SOCKET="${HOME}/.colima/${COLIMA_VM}/docker.sock"
+#export DOCKER_HOST="unix://${COLIMA_VM_SOCKET}"
+
 # -----------------------------------------------------------------------------
 # EOF
 # -----------------------------------------------------------------------------

@@ -3,8 +3,6 @@ dotenv: [".env"]
 vars:
   SHELL: /usr/bin/env bash -o pipefail
 includes:
-  macos:install:
-    taskfile: ./tasks/macos/install/Taskfile.yml
   macos:install:brew:
     taskfile: ./tasks/macos/install/brew/Taskfile.yml
   macos:install:core:
@@ -45,3 +43,15 @@ tasks:
     desc: Generates rudimentary changelog
     cmds:
       - scripts/changelog.sh
+  macos:install:all:
+    desc: Install all MacOS required tools
+    cmds:
+      - task: macos:install:brew:all
+      - task: macos:install:core:all
+      - task: macos:install:docker:all
+      - task: macos:install:go:all
+      - task: macos:install:k8s:all
+      - task: macos:install:java:all
+      - task: macos:install:npm:all
+      - task: macos:install:python:all
+      - task: macos:install:rust:all

@@ -7,24 +7,27 @@ tasks:
       - task: all:modules
   all:deps:
     desc: Download and Install Go installer
+    status:
+      - go version
     cmds:
-      - go version || curl -o /tmp/golang.pkg https://dl.google.com/go/go1.21.3.darwin-amd64.pkg | open /tmp/golang.pkg
+      - curl -o /tmp/golang.pkg https://dl.google.com/go/go1.21.3.darwin-amd64.pkg | open /tmp/golang.pkg
   all:modules:
     desc: Install required go modules
     cmds:
       - for:
-          - golang.org/x/tools/gopls@latest
-          - golang.org/x/tools/cmd/goimports@latest
-          - github.com/google/yamlfmt/cmd/yamlfmt@latest
-          - mvdan.cc/sh/v3/cmd/shfmt@latest
+          - github.com/air-verse/air@latest
+          - github.com/boyter/scc/v3@latest
           - github.com/derailed/k9s@latest
           - github.com/golangci/golangci-lint/cmd/golangci-lint@v1.57.2
-          - github.com/boyter/scc/v3@latest
-          - golang.org/x/vuln/cmd/govulncheck@latest
-          - golang.org/x/tools/cmd/present@latest
-          - github.com/air-verse/air@latest
+          - github.com/google/yamlfmt/cmd/yamlfmt@latest
+          - github.com/kubecolor/kubecolor@latest
           - github.com/swaggo/swag/cmd/swag@latest
+          - golang.org/x/tools/cmd/goimports@latest
+          - golang.org/x/tools/cmd/present@latest
+          - golang.org/x/tools/gopls@v0.16.1
+          - golang.org/x/vuln/cmd/govulncheck@latest
+          - mvdan.cc/sh/v3/cmd/shfmt@latest
+          - sigs.k8s.io/controller-runtime/tools/setup-envtest@latest
           - sigs.k8s.io/controller-tools/cmd/controller-gen@v0.14.0
           - sigs.k8s.io/kustomize/kustomize/v5@v5.3.0
-          - sigs.k8s.io/controller-runtime/tools/setup-envtest@latest
         cmd: go install {{.ITEM}}

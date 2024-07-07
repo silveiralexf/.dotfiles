@@ -24,6 +24,7 @@ return {
       ensure_installed = {
         "bash",
         "c",
+        "cmake",
         "diff",
         "go",
         "gotmpl",
@@ -39,6 +40,7 @@ return {
         "lua",
         "luadoc",
         "luap",
+        "make",
         "markdown",
         "markdown_inline",
         "printf",
