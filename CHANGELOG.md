@@ -1,8 +1,13 @@
 # CHANGELOG
 
 
+### [2024-07-07]
+ * [[2444e39]](https://github.com/silveiralexf/.dotfiles/2444e39436cb6c68b869bdbf5f79f2522e85cd31) chore: reorg tasks (silveiralexf@gmail.com)
+
+
+
 ### [2024-07-02]
- * [[09a525e]](https://github.com/silveiralexf/.dotfiles/09a525e56a7e2c32fe3e16e749c68832962e6d99) chore: refactoring stuff up (silveiralexf@gmail.com)
+ * [[f0ed659]](https://github.com/silveiralexf/.dotfiles/f0ed659bbe1562f4f1dd5445e61d289c17daf160) chore: refactoring stuff up (silveiralexf@gmail.com)
 
 
 

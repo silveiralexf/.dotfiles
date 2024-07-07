@@ -7,11 +7,18 @@ tasks:
       - task: all:regular
       - task: all:custom
   all:deps:
-    desc: Install Brew itself along with some important libs
+    desc: Install Brew itself along with some important libs and repos
+    vars:
+      DOWNLOAD_URL: "https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
+    status:
+      - brew --version
     cmds:
-      - brew --version || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      - /bin/bash -c "$(curl -fsSL {{.DOWNLOAD_URL}})"
       - brew list | grep -w readline || brew install readline zlib
       - brew list | grep -w zlib || brew install zlib
+      - brew tap fluxcd/tap
+      - brew tap knqyf263/pet
+      - brew tap aquasecurity/trivy
   all:regular:
     desc: Brew install regular recipes
     cmds:
@@ -48,10 +55,33 @@ tasks:
           - viu
           - chafa
           - aquasecurity/trivy/trivy
+          - ueberzugpp
+          - erlang
         cmd: brew list {{.ITEM}} || brew install {{.ITEM}}
   all:custom:
     desc: Brew install recipes with custom steps
+    dotenv:
+      - ~/.zshrc
     cmds:
-      - brew list skhd || brew install koekeishiya/formulae/skhd && skhd --start-service
-      - command -v /Applications/Amethyst.app/Contents/MacOS/Amethyst || brew install --cask amethyst
-      - test ueberzug || brew install jstkdng/programs/ueberzugpp
+      - test -f /Applications/Amethyst.app/Contents/MacOS/Amethyst || brew install --cask amethyst
+      - test -f $(which skhd) || brew install koekeishiya/formulae/skhd && skhd --start-service
+      - task: all:custom:colima
+      - task: all:custom:packer
+  all:custom:colima:
+    desc: Brew install Colima
+    dotenv:
+      - ~/.zshrc
+    status:
+      - command -v $(which colima)
+    cmds:
+      - brew install colima
+      - brew services start colima
+  all:custom:packer:
+    desc: Install Packer
+    dotenv:
+      - ~/.zshrc
+    status:
+      - command -v $(which packer)
+    cmds:
+      - brew tap hashicorp/tap
+      - brew install hashicorp/tap/packer

@@ -3,21 +3,34 @@ tasks:
   all:
     desc: Setup shell, core settings and tools
     cmds:
+      - task: rosetta
       - task: fzf
       - task: kitty
       - task: nvim
       - task: links
+  rosetta:
+    desc: Install Rosetta2
+    status:
+      - test -f /usr/libexec/rosetta/oahd
+    cmds:
+      - /usr/sbin/softwareupdate --install-rosetta --agree-to-license
   fzf:
     desc: Install FuzzyFinder
+    status:
+      - test -d "${HOME}/.fzf"
     cmds:
-      - test -d "${HOME}/.fzf" || git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+      - git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
       - ~/.fzf/install --bin
   kitty:
     desc: Install Kitty terminal
+    status:
+      - which kitty
     cmds:
-      - test kitty || curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+      - curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
   nvim:
     desc: Install NVIM nightly build
+    status:
+      - nvim --version | grep LuaJIT
     vars:
       NVIM_INSTALLER: ~/Downloads/nvim-macos-arm64.tar.gz
       NVIM_INSTALL_PATH: /opt/nvim

@@ -7,15 +7,16 @@ tasks:
       - task: all:packages
   all:deps:
     desc: Install pipx
+    status:
+      - pipx --version
     cmds:
-      - pipx --version || brew install pipx
+      - brew install pipx
       - pipx --version
   all:packages:
     desc: Install required Python packages
     cmds:
       - for:
-          - pynvim
           - checkov
           - ruff
           - awsume
-        cmd: pipx list | grep -w {{.ITEM}} || pipx install {{.ITEM}}
+        cmd: zsh -l -c "source ${HOME}/.zshrc ; pipx list | grep -w {{.ITEM}} || pipx install {{.ITEM}}"

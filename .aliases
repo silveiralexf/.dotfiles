@@ -32,11 +32,11 @@ alias pip3="pipx"
 # Vim / Vi setup
 set -o vi
 if command -v vim &>/dev/null 2>&0; then
-	export EDITOR=vim
-	alias vi="vim"
+  export EDITOR=vim
+  alias vi="vim"
 else
-	export EDITOR=vi
-	alias vim="vi"
+  export EDITOR=vi
+  alias vim="vi"
 fi
 
 # Neovim
@@ -45,13 +45,13 @@ alias vi="nvim"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-	alias ls='ls --color=auto'
-	alias dir='dir --color=auto'
-	alias vdir='vdir --color=auto'
-	alias grep='grep --color=auto'
-	alias fgrep='fgrep --color=auto'
-	alias egrep='egrep --color=auto'
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias dir='dir --color=auto'
+  alias vdir='vdir --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
 fi
 
 # cat syntax highlight
@@ -61,6 +61,7 @@ alias pcat='source-highlight --failsafe -f esc --lang-def=makefile.lang --style-
 [ -f "${HOME}/.dotfiles/files/kubectl_aliases" ] && source "${HOME}/.dotfiles/files/kubectl_aliases"
 
 # Shortuct for kubectl
+alias kubectl="kubecolor"
 alias k='kubectl'
 
 # Change Kubernetes namespace context
@@ -73,8 +74,9 @@ alias kevents='kubectl get events --sort-by='\''.metadata.creationTimestamp'\'''
 # but faster, and written in Scala
 #
 # --> Download it from 'https://rtyley.github.io/bfg-repo-cleaner/'
-#     and place it on the directory of your choice.
-[ -f "${HOME}/Downloads/bfg-1.14.0.jar" ] && alias bfg='java -jar ${HOME}/Downloads/bfg-1.14.0.jar'
+mkdir -p ${HOME}/.local/bin
+BFG_PATH="${HOME}/.local/bin/bfg-1.14.0.jar"
+[ -f "${BFG_PATH}" ] && alias bfg='java -jar ${BFG_PATH}'
 
 # Creates a new tmux session
 alias tn='tmux new -s LOCAL-$(date "+%H%M%S")'
@@ -99,8 +101,8 @@ alias untar='tar xvf'
 
 # @janmoesens ProTip™s (borrowed from jessfraz dotfiles)
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	# shellcheck disable=SC2139,SC2140
-	alias "$method"="lwp-request -m \"$method\""
+  # shellcheck disable=SC2139,SC2140
+  alias "$method"="lwp-request -m \"$method\""
 done
 
 # Shortcut for launching chrome from the terminal

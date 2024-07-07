@@ -7,8 +7,10 @@ tasks:
       - task: all:crates
   all:deps:
     desc: Install rustc and cargo
+    status:
+      - cargo -V
     cmds:
-      - cargo -V || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+      - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   all:crates:
     desc: Install required cargo packages
     cmds:
