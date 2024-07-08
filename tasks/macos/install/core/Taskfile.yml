@@ -42,10 +42,11 @@ tasks:
   links:
     desc: Setup shell config links
     cmds:
-      - mkdir -p ~/.config/pet ~/.config/skhd ~/.config/kitty
+      - mkdir -p ~/.config/pet ~/.config/skhd ~/.config/kitty ~/.tmux/plugins/tmux-fzf
       - rm ~/.zshrc && ln -s ~/.dotfiles/config/zshrc ~/.zshrc
       - test -d ~/.config/nvim || ln -s ~/.dotfiles/nvim ~/.config/nvim
       - test -f ~/.tmux.conf || ln -s ~/.dotfiles/config/tmux.conf ~/.tmux.conf
+      - test -f ~/.tmux/plugins/tmux-fzf/plugin.tmux || ln -s ~/.dotfiles/scripts/tmux-fzf-plugin.tmux ~/.tmux/plugins/tmux-fzf/plugin.tmux
       - test -f ~/.config/kitty/kitty.conf || ln -s ~/.dotfiles/config/kitty.conf ~/.config/kitty/kitty.conf
       - test -f ~/pass-secret.sh || ln -s ~/.dotfiles/scripts/pass-secret.sh ~/pass-secret.sh
       - test -f ~/pass-user.sh || ln -s ~/.dotfiles/scripts/pass-user.sh ~/pass-user.sh
