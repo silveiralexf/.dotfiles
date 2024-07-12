@@ -162,12 +162,11 @@ return {
         "alpha",
         "help",
         "lazy",
-        "markdown",
         "mason",
         "neo-tree",
         "noice", ---@diagnostic disable-line
-        "text",
         "spectre_panel",
+        "text",
       },
       custom_colorcolumn = {
         python = { "160", "200" },

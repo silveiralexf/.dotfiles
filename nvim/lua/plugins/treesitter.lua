@@ -49,6 +49,7 @@ return {
         "regex",
         "rust",
         "templ",
+        "terraform",
         "toml",
         "tsx",
         "typescript",

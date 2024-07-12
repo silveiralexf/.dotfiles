@@ -15,9 +15,13 @@ vim.opt.guicursor = ""
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+vim.opt.textwidth = 120
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 0
+
+vim.opt.spelllang = "en_us"
+vim.opt.spell = true
 
 vim.opt.smartindent = true
 vim.opt.wrap = false
