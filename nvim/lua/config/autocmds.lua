@@ -27,6 +27,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+vim.lsp.start_client({
+  name = "terraformls",
+  cmd = { "terraform-ls", "serve" },
+  root_dir = vim.fs.dirname(vim.fs.find({ "*.hcl", "*.tf" }, { upward = true })[1]),
+})
+
 -- Create an event handler for Tiltfiles
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "bzl",

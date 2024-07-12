@@ -1,35 +1,40 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    opts = {
-      codelens = {
-        enabled = true,
-      },
-      servers = {
-        terraformls = {
-          init_options = {
-            terraform = {
-              path = "/opt/homebrew/bin/terraform",
-            },
-          },
-          capabilities = {
-            experimental = {
-              prefillRequiredFields = true,
-              showReferencesCommandId = "client.showReferences",
-              referenceCountCodeLens = true,
-              refreshModuleProviders = true,
-              refreshModuleCalls = true,
-              refreshTerraformVersion = true,
-            },
-          },
-          settings = {
+    config = function()
+      require("lspconfig").setup({
+        cmd = {
+          "terraform-ls",
+          "serve",
+        },
+        opts = {
+          servers = {
             terraformls = {
-              timeout = 60,
+              init_options = {
+                terraform = {
+                  path = "/opt/homebrew/bin/terraform",
+                },
+              },
+              capabilities = {
+                experimental = {
+                  prefillRequiredFields = true,
+                  showReferencesCommandId = "client.showReferences",
+                  referenceCountCodeLens = true,
+                  refreshModuleProviders = true,
+                  refreshModuleCalls = true,
+                  refreshTerraformVersion = true,
+                },
+              },
+              settings = {
+                terraformls = {
+                  timeout = 60,
+                },
+              },
             },
           },
         },
-      },
-    },
+      })
+    end,
   },
   {
     "Afourcat/treesitter-terraform-doc.nvim",

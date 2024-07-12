@@ -1,8 +1,13 @@
 # CHANGELOG
 
 
+### [2024-07-12]
+ * [[5d8522a]](https://github.com/silveiralexf/.dotfiles/5d8522a2fa0b891a0948f7da3ec0be4c6d841dfa) chore: tweaks, and more tweaks 🔨🔨🔨 (silveiralexf@gmail.com)
+
+
+
 ### [2024-07-08]
- * [[6b3e500]](https://github.com/silveiralexf/.dotfiles/6b3e500619ddd292558ebc857ae5cc7d732f6098) chore: add tmux pane switch plugin (silveiralexf@gmail.com)
+ * [[70f85f9]](https://github.com/silveiralexf/.dotfiles/70f85f916353d49a9a416fcbe6bc7027d763fbe4) chore: add tmux pane switch plugin (silveiralexf@gmail.com)
 
 
 

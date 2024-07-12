@@ -21,6 +21,8 @@ return {
         "shellcheck",
         "shfmt",
         "stylua",
+        "tflint",
+        "terraform-ls",
         "tree-sitter-cli",
         "zls",
       })

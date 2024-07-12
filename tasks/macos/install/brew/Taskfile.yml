@@ -19,6 +19,7 @@ tasks:
       - brew tap fluxcd/tap
       - brew tap knqyf263/pet
       - brew tap aquasecurity/trivy
+      - brew tap arl/arl
   all:regular:
     desc: Brew install regular recipes
     cmds:
@@ -34,6 +35,7 @@ tasks:
           - imagemagick
           - tmux
           - tmuxp
+          - gitmux
           - pipx
           - gpg
           - pass

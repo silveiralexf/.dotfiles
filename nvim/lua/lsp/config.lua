@@ -103,7 +103,10 @@ return {
           [".*/kitty/*.conf"] = "bash",
           [".*/mako/config"] = "dosini",
           [".*/waybar/config"] = "jsonc",
+          ["Tiltfile"] = "bzl",
           [".*Tiltfile.*"] = "bzl",
+          [".*.hcl"] = "hcl",
+          [".*.tf"] = "hcl",
         },
       })
     end,
