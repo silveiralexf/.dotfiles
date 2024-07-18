@@ -1,3 +1,5 @@
+[![wakatime](https://wakatime.com/badge/github/silveiralexf/.dotfiles.svg)](https://wakatime.com/badge/github/silveiralexf/.dotfiles)
+
 # dotfiles
 
 Some folks like gaming, I like messing with dotfiles, don't judge ;-P
