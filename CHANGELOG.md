@@ -2,6 +2,9 @@
 
 
 ### [2024-07-18]
+ * [[1e9af37]](https://github.com/silveiralexf/.dotfiles/1e9af37abc43cabc2e4997af2defab8181cc9e1c) chore(functions): adjust openui launcher for rancher (silveiralexf@gmail.com)
+
+
  * [[d9624d1]](https://github.com/silveiralexf/.dotfiles/d9624d111d95f8e3cb0dbcbfc698ed1d52c75367) chore(nvim): always upgrade bash to latest (silveiralexf@gmail.com)
 
 
