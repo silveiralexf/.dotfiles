@@ -1,6 +1,7 @@
 .fzf/
 .tmuxp/
 *.dec
+*.spl
 
 # LazyVim
 ./nvim/tt.*
