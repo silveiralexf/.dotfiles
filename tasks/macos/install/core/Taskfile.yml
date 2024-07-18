@@ -42,8 +42,9 @@ tasks:
   links:
     desc: Setup shell config links
     cmds:
-      - mkdir -p ~/.config/pet ~/.config/skhd ~/.config/kitty ~/.tmux/plugins/tmux-fzf
+      - mkdir -p ~/.config/pet ~/.config/skhd ~/.config/kitty ~/.tmux/plugins/tmux-fzf ~/git ~/go
       - rm ~/.zshrc && ln -s ~/.dotfiles/config/zshrc ~/.zshrc
+      - test -d ~/go/src || ln -s ~/git ~/go/src
       - test -d ~/.config/nvim || ln -s ~/.dotfiles/nvim ~/.config/nvim
       - test -f ~/.tmux.conf || ln -s ~/.dotfiles/config/tmux.conf ~/.tmux.conf
       - test -f ~/.tmux/plugins/tmux-fzf/plugin.tmux || ln -s ~/.dotfiles/scripts/tmux-fzf-plugin.tmux ~/.tmux/plugins/tmux-fzf/plugin.tmux
