@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPO_URL="https://github.com/silveiralexf/.dotfiles"
+REPO_URL="https://github.com/silveiralexf/.dotfiles/commit"
 printf "# CHANGELOG\n\n" >CHANGELOG.md
 git --no-pager log \
   --no-merges \
