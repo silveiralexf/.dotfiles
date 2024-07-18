@@ -24,6 +24,7 @@ tasks:
     desc: Brew install regular recipes
     cmds:
       - for:
+          - bash
           - coreutils
           - moreutils
           - wget
