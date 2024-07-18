@@ -2,7 +2,7 @@
 
 
 ### [2024-07-12]
- * [[5d8522a]](https://github.com/silveiralexf/.dotfiles/5d8522a2fa0b891a0948f7da3ec0be4c6d841dfa) chore: tweaks, and more tweaks 🔨🔨🔨 (silveiralexf@gmail.com)
+ * [[9f508bf]](https://github.com/silveiralexf/.dotfiles/9f508bf5de8555f11309a22bb574896ce319512c) chore: tweaks, and more tweaks (silveiralexf@gmail.com)
 
 
 
