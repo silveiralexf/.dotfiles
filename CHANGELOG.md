@@ -2,6 +2,9 @@
 
 
 ### [2024-07-18]
+ * [[187c3fd]](https://github.com/silveiralexf/.dotfiles/187c3fd92f84ea31c4bb0badb7f300af4be9d344) chore(nvim): add dictionary file to spell (silveiralexf@gmail.com)
+
+
  * [[ae68537]](https://github.com/silveiralexf/.dotfiles/ae685370372b536f41e26b38f89c237c2052eda1) chore(nvim): add new filetypes to lspconfig (silveiralexf@gmail.com)
 
 
