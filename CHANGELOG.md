@@ -2,6 +2,9 @@
 
 
 ### [2024-07-18]
+ * [[d9624d1]](https://github.com/silveiralexf/.dotfiles/d9624d111d95f8e3cb0dbcbfc698ed1d52c75367) chore(nvim): always upgrade bash to latest (silveiralexf@gmail.com)
+
+
  * [[187c3fd]](https://github.com/silveiralexf/.dotfiles/187c3fd92f84ea31c4bb0badb7f300af4be9d344) chore(nvim): add dictionary file to spell (silveiralexf@gmail.com)
 
 
