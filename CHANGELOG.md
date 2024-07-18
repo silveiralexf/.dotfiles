@@ -1,6 +1,11 @@
 # CHANGELOG
 
 
+### [2024-07-18]
+ * [[ae68537]](https://github.com/silveiralexf/.dotfiles/ae685370372b536f41e26b38f89c237c2052eda1) chore(nvim): add new filetypes to lspconfig (silveiralexf@gmail.com)
+
+
+
 ### [2024-07-12]
  * [[9f508bf]](https://github.com/silveiralexf/.dotfiles/9f508bf5de8555f11309a22bb574896ce319512c) chore: tweaks, and more tweaks (silveiralexf@gmail.com)
 
