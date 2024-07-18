@@ -2,6 +2,9 @@
 
 
 ### [2024-07-18]
+ * [[9009091]](https://github.com/silveiralexf/.dotfiles/commit/90090913cbea1f89f29a0bc13071125f1c403a29) fix(docs): adjust incorrect changelog links (silveiralexf@gmail.com)
+
+
  * [[de882a3]](https://github.com/silveiralexf/.dotfiles/commit/de882a3ef9ef59128bd93c014502c4f31ffd1aad) chore(deps): update to latest's (silveiralexf@gmail.com)
 
 
