@@ -2,6 +2,9 @@
 
 
 ### [2024-07-18]
+ * [[cf2255d]](https://github.com/silveiralexf/.dotfiles/commit/cf2255d5651968efc872ba8122fcd111bd8165c5) chore(docs): add wakatime badge to readme (silveiralexf@gmail.com)
+
+
  * [[9009091]](https://github.com/silveiralexf/.dotfiles/commit/90090913cbea1f89f29a0bc13071125f1c403a29) fix(docs): adjust incorrect changelog links (silveiralexf@gmail.com)
 
 
