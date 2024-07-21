@@ -21,6 +21,8 @@ includes:
     taskfile: ./tasks/macos/install/python/Taskfile.yml
   macos:install:rust:
     taskfile: ./tasks/macos/install/rust/Taskfile.yml
+  macos:install:hammerspoon:
+    taskfile: ./tasks/macos/install/hammerspoon/Taskfile.yml
 tasks:
   default:
     cmds:
