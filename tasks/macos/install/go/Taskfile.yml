@@ -22,6 +22,7 @@ tasks:
           - github.com/google/yamlfmt/cmd/yamlfmt@latest
           - github.com/kubecolor/kubecolor@latest
           - github.com/swaggo/swag/cmd/swag@latest
+          - github.com/yannh/kubeconform/cmd/kubeconform@latest
           - golang.org/x/tools/cmd/goimports@latest
           - golang.org/x/tools/cmd/present@latest
           - golang.org/x/tools/gopls@v0.16.1
