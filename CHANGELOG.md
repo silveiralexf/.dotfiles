@@ -2,6 +2,9 @@
 
 
 ### [2024-07-21]
+ * [[9dcc534]](https://github.com/silveiralexf/.dotfiles/commit/9dcc534fee6d2fe6f0607ad6d6bcbaa78127209e) chore(deps): bump lazy (silveiralexf@gmail.com)
+
+
  * [[6fc90da]](https://github.com/silveiralexf/.dotfiles/commit/6fc90da6b77b94ce9b4638f1cfe075a11e53b9b4) chore(nvim): update spell dict, formatting (silveiralexf@gmail.com)
 
 
