@@ -2,6 +2,9 @@
 
 
 ### [2024-07-21]
+ * [[6fc90da]](https://github.com/silveiralexf/.dotfiles/commit/6fc90da6b77b94ce9b4638f1cfe075a11e53b9b4) chore(nvim): update spell dict, formatting (silveiralexf@gmail.com)
+
+
  * [[0dd99ff]](https://github.com/silveiralexf/.dotfiles/commit/0dd99fff5d5e9bb340c988c6ad3dc604a8ad947b) feat(hs): add hammerspoon configs (silveiralexf@gmail.com)
 
 
