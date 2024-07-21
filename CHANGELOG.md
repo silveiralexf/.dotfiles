@@ -2,6 +2,9 @@
 
 
 ### [2024-07-18]
+ * [[5e00344]](https://github.com/silveiralexf/.dotfiles/commit/5e003444120f2dd3e2fc9d16058c068f33d19967) chore(nvim): link go src to git to avoid duplicates (silveiralexf@gmail.com)
+
+
  * [[cf2255d]](https://github.com/silveiralexf/.dotfiles/commit/cf2255d5651968efc872ba8122fcd111bd8165c5) chore(docs): add wakatime badge to readme (silveiralexf@gmail.com)
 
 
