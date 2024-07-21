@@ -97,7 +97,7 @@ return {
         desc = "Explorer NeoTree",
       },
       {
-        "\\§",
+        "\\t",
         function()
           require("neo-tree.command").execute({
             position = "left",
