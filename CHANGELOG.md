@@ -2,6 +2,9 @@
 
 
 ### [2024-07-21]
+ * [[c9fa7e3]](https://github.com/silveiralexf/.dotfiles/commit/c9fa7e3885ffd51b847d9f5278045562e86c0c5c) chore(tasks): add kubeconform install task (silveiralexf@gmail.com)
+
+
  * [[9dcc534]](https://github.com/silveiralexf/.dotfiles/commit/9dcc534fee6d2fe6f0607ad6d6bcbaa78127209e) chore(deps): bump lazy (silveiralexf@gmail.com)
 
 
