@@ -6,7 +6,6 @@ return {
       require("fzf-lua").setup({})
     end,
   },
-
   {
     "sindrets/diffview.nvim",
     event = "VeryLazy",

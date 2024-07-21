@@ -1,6 +1,11 @@
 # CHANGELOG
 
 
+### [2024-07-21]
+ * [[0dd99ff]](https://github.com/silveiralexf/.dotfiles/commit/0dd99fff5d5e9bb340c988c6ad3dc604a8ad947b) feat(hs): add hammerspoon configs (silveiralexf@gmail.com)
+
+
+
 ### [2024-07-18]
  * [[5e00344]](https://github.com/silveiralexf/.dotfiles/commit/5e003444120f2dd3e2fc9d16058c068f33d19967) chore(nvim): link go src to git to avoid duplicates (silveiralexf@gmail.com)
 
