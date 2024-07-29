@@ -1,7 +1,7 @@
 return {
   {
-    "aserowy/tmux.nvim",
-    keys = { "<M-h>", "<M-j>", "<M-k>", "<M-l>", "<C-h>", "<C-j>", "<C-k>", "<C-l>" },
+    'aserowy/tmux.nvim',
+    keys = { '<M-h>', '<M-j>', '<M-k>', '<M-l>', '<C-h>', '<C-j>', '<C-k>', '<C-l>' },
     opts = {
       copy_sync = {
         -- enables copy sync. by default, all registers are synchronized.

@@ -2,6 +2,9 @@
 
 
 ### [2024-07-29]
+ * [[f8ede27]](https://github.com/silveiralexf/.dotfiles/commit/f8ede278af5655f1ca1fb7067cdf5594d7e58679) feat: add hammerspoon (silveiralexf@gmail.com)
+
+
  * [[ec5c3ae]](https://github.com/silveiralexf/.dotfiles/commit/ec5c3ae76505b928794f9e35e6984d5d95a89d6e) chore(lua): consolidate lint and editor configs (silveiralexf@gmail.com)
 
 

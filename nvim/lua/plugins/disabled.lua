@@ -1,7 +1,7 @@
 -- List of disabled plugins
 return {
   {
-    "akinsho/bufferline.nvim",
+    'akinsho/bufferline.nvim',
     enabled = false,
   },
   -- {
@@ -9,7 +9,7 @@ return {
   --   enabled = false,
   -- },
   {
-    "DavidAnson/markdownlint",
+    'DavidAnson/markdownlint',
     enabled = false,
   },
 }

@@ -1,36 +1,36 @@
 return {
   {
-    "nvim-neotest/neotest",
-    event = "VeryLazy",
+    'nvim-neotest/neotest',
+    event = 'VeryLazy',
     dependencies = {
-      "nvim-neotest/nvim-nio",
-      "nvim-lua/plenary.nvim",
-      "antoinemadec/FixCursorHold.nvim",
-      "nvim-treesitter/nvim-treesitter",
+      'nvim-neotest/nvim-nio',
+      'nvim-lua/plenary.nvim',
+      'antoinemadec/FixCursorHold.nvim',
+      'nvim-treesitter/nvim-treesitter',
 
-      "nvim-neotest/neotest-plenary",
-      "nvim-neotest/neotest-vim-test",
+      'nvim-neotest/neotest-plenary',
+      'nvim-neotest/neotest-vim-test',
 
       {
-        "fredrikaverpil/neotest-golang",
+        'fredrikaverpil/neotest-golang',
         dependencies = {
           {
-            "leoluz/nvim-dap-go",
+            'leoluz/nvim-dap-go',
             opts = {},
           },
         },
-        branch = "main",
+        branch = 'main',
       },
     },
     opts = function(_, opts)
       opts.adapters = opts.adapters or {}
-      opts.adapters["neotest-golang"] = {
+      opts.adapters['neotest-golang'] = {
         go_test_args = {
-          "-v",
-          "-race",
-          "-count=1",
-          "-timeout=60s",
-          "-coverprofile=" .. vim.fn.getcwd() .. "/coverage.out",
+          '-v',
+          '-race',
+          '-count=1',
+          '-timeout=60s',
+          '-coverprofile=' .. vim.fn.getcwd() .. '/coverage.out',
         },
         dap_go_enabled = true,
       }
@@ -39,21 +39,21 @@ return {
       if opts.adapters then
         local adapters = {}
         for name, config in pairs(opts.adapters or {}) do
-          if type(name) == "number" then
-            if type(config) == "string" then
+          if type(name) == 'number' then
+            if type(config) == 'string' then
               config = require(config)
             end
             adapters[#adapters + 1] = config
           elseif config ~= false then
             local adapter = require(name)
-            if type(config) == "table" and not vim.tbl_isempty(config) then
+            if type(config) == 'table' and not vim.tbl_isempty(config) then
               local meta = getmetatable(adapter)
               if adapter.setup then
                 adapter.setup(config)
               elseif meta and meta.__call then
                 adapter(config)
               else
-                error("Adapter " .. name .. " does not support setup")
+                error('Adapter ' .. name .. ' does not support setup')
               end
             end
             adapters[#adapters + 1] = adapter
@@ -62,261 +62,261 @@ return {
         opts.adapters = adapters
       end
 
-      require("neotest").setup(opts)
+      require('neotest').setup(opts)
     end,
     keys = {
       {
-        "<leader>ta",
+        '<leader>ta',
         function()
-          require("neotest").run.attach()
+          require('neotest').run.attach()
         end,
-        desc = "[t]est [a]ttach",
+        desc = '[t]est [a]ttach',
       },
       {
-        "<leader>tf",
+        '<leader>tf',
         function()
-          require("neotest").run.run(vim.fn.expand("%"))
+          require('neotest').run.run(vim.fn.expand('%'))
         end,
-        desc = "[t]est run [f]ile",
+        desc = '[t]est run [f]ile',
       },
       {
-        "<leader>tA",
+        '<leader>tA',
         function()
-          require("neotest").run.run(vim.uv.cwd())
+          require('neotest').run.run(vim.uv.cwd())
         end,
-        desc = "[t]est [A]ll files",
+        desc = '[t]est [A]ll files',
       },
       {
-        "<leader>tS",
+        '<leader>tS',
         function()
-          require("neotest").run.run({ suite = true })
+          require('neotest').run.run({ suite = true })
         end,
-        desc = "[t]est [S]uite",
+        desc = '[t]est [S]uite',
       },
       {
-        "<leader>tn",
+        '<leader>tn',
         function()
-          require("neotest").run.run()
+          require('neotest').run.run()
         end,
-        desc = "[t]est [n]earest",
+        desc = '[t]est [n]earest',
       },
       {
-        "<leader>tl",
+        '<leader>tl',
         function()
-          require("neotest").run.run_last()
+          require('neotest').run.run_last()
         end,
-        desc = "[t]est [l]ast",
+        desc = '[t]est [l]ast',
       },
       {
-        "<leader>ts",
+        '<leader>ts',
         function()
-          require("neotest").summary.toggle()
+          require('neotest').summary.toggle()
         end,
-        desc = "[t]est [s]ummary",
+        desc = '[t]est [s]ummary',
       },
       {
-        "<leader>to",
+        '<leader>to',
         function()
-          require("neotest").output.open({ enter = true, auto_close = true })
+          require('neotest').output.open({ enter = true, auto_close = true })
         end,
-        desc = "[t]est [o]output",
+        desc = '[t]est [o]output',
       },
       {
-        "<leader>tO",
+        '<leader>tO',
         function()
-          require("neotest").output_panel.toggle()
+          require('neotest').output_panel.toggle()
         end,
-        desc = "[t]est [O]output panel",
+        desc = '[t]est [O]output panel',
       },
       {
-        "<leader>tt",
+        '<leader>tt',
         function()
-          require("neotest").run.stop()
+          require('neotest').run.stop()
         end,
-        desc = "[t]est [t]erminate",
+        desc = '[t]est [t]erminate',
       },
       {
-        "<leader>td",
+        '<leader>td',
         function()
-          require("neotest").run.run({ suite = false, strategy = "dap" })
+          require('neotest').run.run({ suite = false, strategy = 'dap' })
         end,
-        desc = "Debug nearest test",
+        desc = 'Debug nearest test',
       },
     },
   },
 
   -- DAP setup
   {
-    "mfussenegger/nvim-dap",
-    event = "VeryLazy",
+    'mfussenegger/nvim-dap',
+    event = 'VeryLazy',
     dependencies = {
       {
-        "rcarriga/nvim-dap-ui",
+        'rcarriga/nvim-dap-ui',
         dependencies = {
-          "nvim-neotest/nvim-nio",
+          'nvim-neotest/nvim-nio',
         },
         opts = {},
         config = function(_, opts)
           -- setup dap config by VsCode launch.json file
           -- require("dap.ext.vscode").load_launchjs()
-          local dap = require("dap")
-          local dapui = require("dapui")
+          local dap = require('dap')
+          local dapui = require('dapui')
           dapui.setup(opts)
-          dap.listeners.after.event_initialized["dapui_config"] = function()
+          dap.listeners.after.event_initialized['dapui_config'] = function()
             dapui.open({})
           end
-          dap.listeners.before.event_terminated["dapui_config"] = function()
+          dap.listeners.before.event_terminated['dapui_config'] = function()
             dapui.close({})
           end
-          dap.listeners.before.event_exited["dapui_config"] = function()
+          dap.listeners.before.event_exited['dapui_config'] = function()
             dapui.close({})
           end
         end,
         keys = {
           {
-            "<leader>du",
+            '<leader>du',
             function()
-              require("dapui").toggle({})
+              require('dapui').toggle({})
             end,
-            desc = "[d]ap [u]i",
+            desc = '[d]ap [u]i',
           },
           {
-            "<leader>de",
+            '<leader>de',
             function()
-              require("dapui").eval()
+              require('dapui').eval()
             end,
-            desc = "[d]ap [e]val",
+            desc = '[d]ap [e]val',
           },
         },
       },
       {
-        "theHamsta/nvim-dap-virtual-text",
+        'theHamsta/nvim-dap-virtual-text',
         opts = {},
       },
       {
-        "leoluz/nvim-dap-go",
+        'leoluz/nvim-dap-go',
         opts = {},
       },
     },
     keys = {
       {
-        "<leader>db",
+        '<leader>db',
         function()
-          require("dap").toggle_breakpoint()
+          require('dap').toggle_breakpoint()
         end,
-        desc = "toggle [d]ebug [b]reakpoint",
+        desc = 'toggle [d]ebug [b]reakpoint',
       },
       {
-        "<leader>dB",
+        '<leader>dB',
         function()
-          require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+          require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))
         end,
-        desc = "[d]ebug [B]reakpoint",
+        desc = '[d]ebug [B]reakpoint',
       },
       {
-        "<leader>dc",
+        '<leader>dc',
         function()
-          require("dap").continue()
+          require('dap').continue()
         end,
-        desc = "[d]ebug [c]ontinue (start here)",
+        desc = '[d]ebug [c]ontinue (start here)',
       },
       {
-        "<leader>dC",
+        '<leader>dC',
         function()
-          require("dap").run_to_cursor()
+          require('dap').run_to_cursor()
         end,
-        desc = "[d]ebug [C]ursor",
+        desc = '[d]ebug [C]ursor',
       },
       {
-        "<leader>dg",
+        '<leader>dg',
         function()
-          require("dap").goto_()
+          require('dap').goto_()
         end,
-        desc = "[d]ebug [g]o to line",
+        desc = '[d]ebug [g]o to line',
       },
       {
-        "<leader>do",
+        '<leader>do',
         function()
-          require("dap").step_over()
+          require('dap').step_over()
         end,
-        desc = "[d]ebug step [o]ver",
+        desc = '[d]ebug step [o]ver',
       },
       {
-        "<leader>dO",
+        '<leader>dO',
         function()
-          require("dap").step_out()
+          require('dap').step_out()
         end,
-        desc = "[d]ebug step [O]ut",
+        desc = '[d]ebug step [O]ut',
       },
       {
-        "<leader>di",
+        '<leader>di',
         function()
-          require("dap").step_into()
+          require('dap').step_into()
         end,
-        desc = "[d]ebug [i]nto",
+        desc = '[d]ebug [i]nto',
       },
       {
-        "<leader>dj",
+        '<leader>dj',
         function()
-          require("dap").down()
+          require('dap').down()
         end,
-        desc = "[d]ebug [j]ump down",
+        desc = '[d]ebug [j]ump down',
       },
       {
-        "<leader>dk",
+        '<leader>dk',
         function()
-          require("dap").up()
+          require('dap').up()
         end,
-        desc = "[d]ebug [k]ump up",
+        desc = '[d]ebug [k]ump up',
       },
       {
-        "<leader>dl",
+        '<leader>dl',
         function()
-          require("dap").run_last()
+          require('dap').run_last()
         end,
-        desc = "[d]ebug [l]ast",
+        desc = '[d]ebug [l]ast',
       },
       {
-        "<leader>dp",
+        '<leader>dp',
         function()
-          require("dap").pause()
+          require('dap').pause()
         end,
-        desc = "[d]ebug [p]ause",
+        desc = '[d]ebug [p]ause',
       },
       {
-        "<leader>dr",
+        '<leader>dr',
         function()
-          require("dap").repl.toggle()
+          require('dap').repl.toggle()
         end,
-        desc = "[d]ebug [r]epl",
+        desc = '[d]ebug [r]epl',
       },
       {
-        "<leader>dR",
+        '<leader>dR',
         function()
-          require("dap").clear_breakpoints()
+          require('dap').clear_breakpoints()
         end,
-        desc = "[d]ebug [R]emove breakpoints",
+        desc = '[d]ebug [R]emove breakpoints',
       },
       {
-        "<leader>ds",
+        '<leader>ds',
         function()
-          require("dap").session()
+          require('dap').session()
         end,
-        desc = "[d]ebug [s]ession",
+        desc = '[d]ebug [s]ession',
       },
       {
-        "<leader>dt",
+        '<leader>dt',
         function()
-          require("dap").terminate()
+          require('dap').terminate()
         end,
-        desc = "[d]ebug [t]erminate",
+        desc = '[d]ebug [t]erminate',
       },
       {
-        "<leader>dw",
+        '<leader>dw',
         function()
-          require("dap.ui.widgets").hover()
+          require('dap.ui.widgets').hover()
         end,
-        desc = "[d]ebug [w]idgets",
+        desc = '[d]ebug [w]idgets',
       },
     },
   },

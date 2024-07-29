@@ -1,6 +1,6 @@
 return {
   {
-    "sainnhe/sonokai",
+    'sainnhe/sonokai',
     -- lazy = false,
     -- priority = 1000,
     -- config = function()
@@ -11,9 +11,9 @@ return {
     -- end,
   },
   {
-    "LazyVim/LazyVim",
+    'LazyVim/LazyVim',
     opts = {
-      colorscheme = { "tokyonight-night" },
+      colorscheme = { 'tokyonight-night' },
     },
   },
 }

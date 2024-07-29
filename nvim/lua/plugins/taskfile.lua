@@ -1,5 +1,5 @@
 return {
   {
-    "mistweaverco/Taskfile.nvim",
+    'mistweaverco/Taskfile.nvim',
   },
 }
