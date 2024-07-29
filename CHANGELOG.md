@@ -2,6 +2,9 @@
 
 
 ### [2024-07-29]
+ * [[3827df2]](https://github.com/silveiralexf/.dotfiles/commit/3827df247722b624f173bb5b068cc503e0ed0b25) chore: reorg config files and scripts (silveiralexf@gmail.com)
+
+
  * [[67f41a9]](https://github.com/silveiralexf/.dotfiles/commit/67f41a9a2c13713ad8b5de55cb38e8c940076a6f) chore(terminal): replace kitty with wezterm (silveiralexf@gmail.com)
 
 

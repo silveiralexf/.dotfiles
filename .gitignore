@@ -1,7 +1,14 @@
+# Spelling, sops, personal tmux profiles, fzf binaries
 .fzf/
 .tmuxp/
 *.dec
 *.spl
+
+# Hammerspoon Spoons
+hammerspoon/Spoons/
+
+# BFG
+..bfg-report/
 
 # LazyVim
 ./nvim/tt.*
@@ -18,8 +25,46 @@ node_modules/
 package.json
 package-lock.json
 
-# BFG
-..bfg-report/
+# Compiled Lua, Luarocks
+luac.out
+/luarocks.bat
+/lua.bat
+/lua_modules
+/.luarocks
+*.src.rock
 
-# Hammerspoon Spoons
-hammerspoon/Spoons/
+# Object files
+*.o
+*.os
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+*.def
+*.exp
+
+# Shared objects
+*.dll
+*.so
+*.so.*
+*.dylib
+.DS_Store
+
+# Executables and binaries in general
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+*.zip
+*.tar.gz
