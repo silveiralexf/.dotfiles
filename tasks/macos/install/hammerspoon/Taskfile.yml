@@ -1,14 +1,14 @@
 version: "3"
 tasks:
   all:
-    desc: Install Hammerspoon's plugins
+    desc: Install Hammerspoon plugins
     cmds:
       - task: all:spoons
   all:spoons:
     desc: Install Spoons
     status:
-      - test -d ~/.dotfiles/hammerspoon/Spoons/Ki.spoon
-      - test -d ~/.dotfiles/hammerspoon/Spoons/VimMode.spoon
-      - test -d ~/.dotfiles/hammerspoon/Spoons/SpoonInstall.spoon
+      - test -d ${DOTFILES_HOME}/hammerspoon/Spoons/Ki.spoon
+      - test -d ${DOTFILES_HOME}/hammerspoon/Spoons/VimMode.spoon
+      - test -d ${DOTFILES_HOME}/hammerspoon/Spoons/SpoonInstall.spoon
     cmds:
       - bash <(curl -s https://raw.githubusercontent.com/dbalatero/VimMode.spoon/master/bin/installer)

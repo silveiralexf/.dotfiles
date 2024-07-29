@@ -2,6 +2,9 @@
 
 
 ### [2024-07-29]
+ * [[ec5c3ae]](https://github.com/silveiralexf/.dotfiles/commit/ec5c3ae76505b928794f9e35e6984d5d95a89d6e) chore(lua): consolidate lint and editor configs (silveiralexf@gmail.com)
+
+
  * [[3827df2]](https://github.com/silveiralexf/.dotfiles/commit/3827df247722b624f173bb5b068cc503e0ed0b25) chore: reorg config files and scripts (silveiralexf@gmail.com)
 
 
