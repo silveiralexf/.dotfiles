@@ -27,9 +27,8 @@ task: Available tasks for this project:
 * macos:install:brew:all:regular:             Brew install regular recipes
 * macos:install:core:all:                     Setup shell, core settings and tools
 * macos:install:core:fzf:                     Install FuzzyFinder
-* macos:install:core:kitty:                   Install Kitty terminal
-* macos:install:core:links:                   Setup shell config links
 * macos:install:core:nvim:                    Install NVIM nightly build
+* macos:install:core:profile:                 Setup shell profile settings
 * macos:install:core:rosetta:                 Install Rosetta2
 * macos:install:docker:all:                   Install Docker and container related tooling
 * macos:install:docker:buildx:                Install Docker Buildx
@@ -37,6 +36,8 @@ task: Available tasks for this project:
 * macos:install:go:all:                       Install Go and all required modules/utils
 * macos:install:go:all:deps:                  Download and Install Go installer
 * macos:install:go:all:modules:               Install required go modules
+* macos:install:hammerspoon:all:              Install Hammerspoon plugins
+* macos:install:hammerspoon:all:spoons:       Install Spoons
 * macos:install:java:all:                     Install all Java requirements and tools
 * macos:install:java:all:bfg:                 Install BFG Repo-Cleaner
 * macos:install:java:all:maven:               Install Maven

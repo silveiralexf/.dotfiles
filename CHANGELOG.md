@@ -2,6 +2,9 @@
 
 
 ### [2024-07-29]
+ * [[7e560cd]](https://github.com/silveiralexf/.dotfiles/commit/7e560cd58a7bc366f2440869fcf78c988369876f) chore(tasks): add dotfile dirs as global vars (silveiralexf@gmail.com)
+
+
  * [[8f0311e]](https://github.com/silveiralexf/.dotfiles/commit/8f0311ef6f47c8b5324b82bcf6659ae70dc03895) chore(deps): bump lazy (silveiralexf@gmail.com)
 
 
