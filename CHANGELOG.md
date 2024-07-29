@@ -2,6 +2,9 @@
 
 
 ### [2024-07-29]
+ * [[14d0a10]](https://github.com/silveiralexf/.dotfiles/commit/14d0a10f35bae1044000bef1fcb19d5c152827ca) style(lua): lint/format all files with same settings (silveiralexf@gmail.com)
+
+
  * [[f8ede27]](https://github.com/silveiralexf/.dotfiles/commit/f8ede278af5655f1ca1fb7067cdf5594d7e58679) feat: add hammerspoon (silveiralexf@gmail.com)
 
 
