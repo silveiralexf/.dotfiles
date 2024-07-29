@@ -2,6 +2,11 @@ version: "3"
 dotenv: [".env"]
 vars:
   SHELL: /usr/bin/env bash -o pipefail
+  DOTFILES_HOME: "${HOME}/.dotfiles"
+  DOTFILES_CONFIG: "${DOTFILES_HOME}/etc/config"
+  DOTFILES_PROFILE: "${DOTFILES_HOME}/etc/profile"
+  DOTFILES_RC: "${DOTFILES_HOME}/etc/rc"
+  DOTFILES_SCRIPTS: "${DOTFILES_HOME}/scripts"
 includes:
   macos:install:brew:
     taskfile: ./tasks/macos/install/brew/Taskfile.yml
