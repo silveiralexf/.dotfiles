@@ -5,9 +5,8 @@ tasks:
     cmds:
       - task: rosetta
       - task: fzf
-      - task: kitty
       - task: nvim
-      - task: links
+      - task: profile
   rosetta:
     desc: Install Rosetta2
     status:
@@ -21,12 +20,6 @@ tasks:
     cmds:
       - git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
       - ~/.fzf/install --bin
-  kitty:
-    desc: Install Kitty terminal
-    status:
-      - which kitty
-    cmds:
-      - curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
   nvim:
     desc: Install NVIM nightly build
     status:
@@ -39,18 +32,36 @@ tasks:
       - nvim -version || curl -fsSL -o {{.NVIM_INSTALLER}} {{.NVIM_DOWNLOAD_URL}}
       - test nvim || sudo tar xzvf {{.NVIM_INSTALLER}} -C {{.NVIM_INSTALL_PATH}}
       - nvim -v || sudo chmod +x {{.NVIM_INSTALL_PATH}}/bin/nvim
-  links:
-    desc: Setup shell config links
+  profile:
+    desc: Setup shell profile settings
     cmds:
-      - mkdir -p ~/.config/pet ~/.config/skhd ~/.config/kitty ~/.tmux/plugins/tmux-fzf ~/git ~/go
-      - rm ~/.zshrc && ln -s ~/.dotfiles/config/zshrc ~/.zshrc
-      - test -d ~/go/src || ln -s ~/git ~/go/src
-      - test -d ~/.config/nvim || ln -s ~/.dotfiles/nvim ~/.config/nvim
-      - test -f ~/.tmux.conf || ln -s ~/.dotfiles/config/tmux.conf ~/.tmux.conf
-      - test -f ~/.tmux/plugins/tmux-fzf/plugin.tmux || ln -s ~/.dotfiles/scripts/tmux-fzf-plugin.tmux ~/.tmux/plugins/tmux-fzf/plugin.tmux
-      - test -f ~/.config/kitty/kitty.conf || ln -s ~/.dotfiles/config/kitty.conf ~/.config/kitty/kitty.conf
-      - test -f ~/pass-secret.sh || ln -s ~/.dotfiles/scripts/pass-secret.sh ~/pass-secret.sh
-      - test -f ~/pass-user.sh || ln -s ~/.dotfiles/scripts/pass-user.sh ~/pass-user.sh
-      - test -f ~/.config/pet/config.toml ||  ln -s ~/.dotfiles/config/pet-config.toml ~/.config/pet/config.toml
-      - test -f  ~/.amethyst.yml || ln -s ~/.dotfiles/config/amethyst.yml ~/.amethyst.yml
-      - test -f ~/.skhdrc || ln -s ~/.dotfiles/config/skhd/skhdrc ~/.skhdrc
+      - task: profile:createdirs
+      - task: profile:links
+      - task: profile:setup
+  profile:links:
+    cmds:
+      - test -L ~/go/src                              || ln -s ~/git ~/go/src
+      - test -L ~/.config/nvim                        || ln -s ${DOTFILES_HOME}/nvim ~/.config/nvim
+      - test -L ~/.tmux.conf                          || ln -s ${DOTFILES_CONFIG}/tmux.conf ~/.tmux.conf
+      - test -f ~/.tmux/plugins/tmux-fzf/plugin.tmux  || ln -s ${DOTFILES_SCRIPTS}/tmux-fzf-plugin.tmux ~/.tmux/plugins/tmux-fzf/plugin.tmux
+      - test -L ~/pass-secret.sh                      || ln -s ${DOTFILES_SCRIPTS}/pass-secret.sh ~/pass-secret.sh
+      - test -L ~/pass-user.sh                        || ln -s ${DOTFILES_SCRIPTS}/pass-user.sh ~/pass-user.sh
+      - test -L ~/.config/pet/config.toml             || ln -s ${DOTFILES_CONFIG}/pet-config.toml ~/.config/pet/config.toml
+      - test -L  ~/.amethyst.yml                      || ln -s ${DOTFILES_CONFIG}/amethyst.yml ~/.amethyst.yml
+      - test -L ~/.skhdrc                             || ln -s ${DOTFILES_CONFIG}/skhd/skhdrc ~/.skhdrc
+  profile:createdirs:
+    cmds:
+      - for:
+          - ~/.config/pet
+          - ~/.config/skhd
+          - ~/.tmux/plugins/tmux-fzf
+          - ~/git
+          - ~/go
+        cmd: mkdir -p {{.ITEM}}
+  profile:setup:
+    status:
+      - diff ~/.zshrc ${DOTFILES_RC}/zshrc
+      - test -L ~/.zshrc
+    cmds:
+      - mv ~/.zshrc ~/.zshrc_$(date -date +"%Y%m%d%s").bak || true
+      - ln -s ${DOTFILES_RC}/zshrc ~/.zshrc
