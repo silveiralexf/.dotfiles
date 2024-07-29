@@ -1,38 +1,38 @@
 return {
   {
-    "ibhagwan/fzf-lua",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    'ibhagwan/fzf-lua',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      require("fzf-lua").setup({})
+      require('fzf-lua').setup({})
     end,
   },
   {
-    "sindrets/diffview.nvim",
-    event = "VeryLazy",
+    'sindrets/diffview.nvim',
+    event = 'VeryLazy',
     dependencies = {
       {
-        "nvim-lua/plenary.nvim",
+        'nvim-lua/plenary.nvim',
         lazy = true,
       },
       {
-        "nvim-tree/nvim-web-devicons",
+        'nvim-tree/nvim-web-devicons',
         lazy = true,
       },
     },
     config = true,
   },
   {
-    "norcalli/nvim-colorizer.lua",
-    event = "VeryLazy",
+    'norcalli/nvim-colorizer.lua',
+    event = 'VeryLazy',
     config = function()
-      require("colorizer").setup({ "*" })
+      require('colorizer').setup({ '*' })
     end,
   },
   {
-    "nvim-neo-tree/neo-tree.nvim",
+    'nvim-neo-tree/neo-tree.nvim',
     dependencies = {
       {
-        "s1n7ax/nvim-window-picker",
+        's1n7ax/nvim-window-picker',
         lazy = true,
         opts = {
           show_prompt = false,
@@ -43,13 +43,13 @@ return {
           highlights = {
             statusline = {
               focused = {
-                fg = "#ededed",
-                bg = "#ff9e00",
+                fg = '#ededed',
+                bg = '#ff9e00',
                 bold = true,
               },
               unfocused = {
-                fg = "#ededed",
-                bg = "#ee4592",
+                fg = '#ededed',
+                bg = '#ee4592',
                 bold = true,
               },
             },
@@ -69,50 +69,50 @@ return {
         git_status = {
           symbols = {
             -- Change type
-            added = "󰹍", -- or "✚", but this is redundant info if you use git_status_colors on the name
-            modified = "󱢒", -- or "", but this is redundant info if you use git_status_colors on the namz
-            deleted = "󰹌", -- this can only be used in the git_status source
-            renamed = "󰁕", -- this can only be used in the git_status source
+            added = '󰹍', -- or "✚", but this is redundant info if you use git_status_colors on the name
+            modified = '󱢒', -- or "", but this is redundant info if you use git_status_colors on the namz
+            deleted = '󰹌', -- this can only be used in the git_status source
+            renamed = '󰁕', -- this can only be used in the git_status source
             -- Status type
-            untracked = "󰹎",
-            ignored = "",
-            unstaged = "󰌩",
-            staged = "",
-            conflict = "",
+            untracked = '󰹎',
+            ignored = '',
+            unstaged = '󰌩',
+            staged = '',
+            conflict = '',
           },
         },
       },
     },
     keys = {
       {
-        "§",
+        '§',
         function()
-          require("neo-tree.command").execute({
-            position = "left",
-            source = "filesystem",
+          require('neo-tree.command').execute({
+            position = 'left',
+            source = 'filesystem',
             toggle = true,
             focused = true,
           })
         end,
-        desc = "Explorer NeoTree",
+        desc = 'Explorer NeoTree',
       },
       {
-        "\\t",
+        '\\§',
         function()
-          require("neo-tree.command").execute({
-            position = "left",
+          require('neo-tree.command').execute({
+            position = 'left',
             reveal = true,
-            source = "filesystem",
+            source = 'filesystem',
             toggle = true,
             focused = true,
           })
         end,
-        desc = "Explorer NeoTree",
+        desc = 'Explorer NeoTree',
       },
     },
   },
   {
-    "stevearc/aerial.nvim",
+    'stevearc/aerial.nvim',
     opts = {
       layout = {
         width = 50,
@@ -120,7 +120,7 @@ return {
     },
   },
   {
-    "folke/flash.nvim",
+    'folke/flash.nvim',
     opts = {
       search = {
         modes = {
@@ -131,9 +131,9 @@ return {
       },
     },
     {
-      "folke/zen-mode.nvim",
-      keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } },
-      desc = "ZenMode",
+      'folke/zen-mode.nvim',
+      keys = { { '<leader>z', '<cmd>ZenMode<cr>', desc = 'ZenMode' } },
+      desc = 'ZenMode',
       opts = {
         plugins = {
           options = {
@@ -145,46 +145,46 @@ return {
           height = 1,
           width = 200,
           options = {
-            signcolumn = "number",
-            foldcolumn = "0",
+            signcolumn = 'number',
+            foldcolumn = '0',
           },
         },
       },
     },
   },
   {
-    "m4xshen/smartcolumn.nvim",
+    'm4xshen/smartcolumn.nvim',
     opts = {
       disabled_filetypes = {
-        "Outline",
-        "aerial",
-        "alpha",
-        "help",
-        "lazy",
-        "mason",
-        "neo-tree",
-        "noice", ---@diagnostic disable-line
-        "spectre_panel",
-        "text",
+        'Outline',
+        'aerial',
+        'alpha',
+        'help',
+        'lazy',
+        'mason',
+        'neo-tree',
+        'noice', ---@diagnostic disable-line
+        'spectre_panel',
+        'text',
       },
       custom_colorcolumn = {
-        python = { "160", "200" },
+        python = { '160', '200' },
       },
     },
   },
   {
-    "nvim-lualine/lualine.nvim",
+    'nvim-lualine/lualine.nvim',
     opts = function(_, opts)
-      local trouble = require("trouble")
+      local trouble = require('trouble')
       local symbols = trouble.statusline({
-        mode = "lsp_document_symbols",
+        mode = 'lsp_document_symbols',
         groups = {},
         title = false,
         filter = { range = true },
-        format = "{kind_icon}{symbol.name:Normal}",
+        format = '{kind_icon}{symbol.name:Normal}',
         -- The following line is needed to fix the background color
         -- Set it to the lualine section you want to use
-        hl_group = "lualine_c_normal",
+        hl_group = 'lualine_c_normal',
       })
       table.insert(opts.sections.lualine_c, {
         symbols.get,
@@ -192,14 +192,14 @@ return {
       })
     end,
   },
-  { "kosayoda/nvim-lightbulb" },
+  { 'kosayoda/nvim-lightbulb' },
   config = function()
-    require("nvim-lightbulb").setup({
+    require('nvim-lightbulb').setup({
       --ignore = { "null-ls" },
       status_test = {
         enabled = true,
-        text = "💡",
-        text_unavailable = "no actions",
+        text = '💡',
+        text_unavailable = 'no actions',
       },
       float = {
         enabled = true,
@@ -208,8 +208,8 @@ return {
         enabled = true,
         statusline = {
           enabled = true,
-          text = "💡",
-          text_unavailable = "no actions",
+          text = '💡',
+          text_unavailable = 'no actions',
         },
       },
     })

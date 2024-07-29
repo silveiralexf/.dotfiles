@@ -1,41 +1,41 @@
 return {
   {
-    "neovim/nvim-lspconfig",
+    'neovim/nvim-lspconfig',
     config = function()
-      require("lspconfig").setup({
+      require('lspconfig').setup({
         opts = {
           codelens = {
             enabled = true,
           },
           servers = {
             helm_ls = {
-              logLevel = "info",
+              logLevel = 'info',
               valuesFiles = {
-                mainValuesFile = "values.yaml",
-                lintOverlayValuesFile = "values.lint.yaml",
-                additionalValuesFilesGlobPattern = "values*.yaml",
+                mainValuesFile = 'values.yaml',
+                lintOverlayValuesFile = 'values.lint.yaml',
+                additionalValuesFilesGlobPattern = 'values*.yaml',
               },
-              command = "helm_ls",
+              command = 'helm_ls',
               filetypes = {
-                "helm",
-                "helmfile",
-                "*helpers.tpl",
+                'helm',
+                'helmfile',
+                '*helpers.tpl',
               },
               root_patterns = {
-                "Chart.lock",
-                "Chart.yaml",
+                'Chart.lock',
+                'Chart.yaml',
               },
               args = {
-                "serve",
+                'serve',
               },
               yamlls = {
                 enabled = true,
                 diagnosticsLimit = 50,
                 showDiagnosticsDirectly = false,
-                path = "yaml-language-server",
+                path = 'yaml-language-server',
                 config = {
                   schemas = {
-                    kubernetes = "templates/**",
+                    kubernetes = 'templates/**',
                   },
                   completion = true,
                   hover = true,
@@ -48,7 +48,7 @@ return {
     end,
   },
   {
-    "towolf/vim-helm",
-    event = "VeryLazy",
+    'towolf/vim-helm',
+    event = 'VeryLazy',
   },
 }

@@ -1,6 +1,6 @@
 return {
   {
-    "neovim/nvim-lspconfig",
+    'neovim/nvim-lspconfig',
     opts = {
       codelens = {
         enabled = true,
@@ -17,14 +17,14 @@ return {
           settings = {
             python = {
               analysis = {
-                typeCheckingMode = "off",
+                typeCheckingMode = 'off',
               },
             },
           },
         },
       },
       {
-        "neovim/nvim-lspconfig",
+        'neovim/nvim-lspconfig',
         opts = {
           codelens = {
             enabled = true,

@@ -1,4 +1,4 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 --- @diagnostic disable-next-line: undefined-field
 if not vim.loop.fs_stat(lazypath) then
   -- bootstrap lazy.nvim
@@ -12,24 +12,24 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
-require("lazy").setup({
+require('lazy').setup({
   spec = {
     -- add LazyVim and import its plugins
-    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { 'LazyVim/LazyVim', import = 'lazyvim.plugins' },
     -- import any extras modules here
-    { import = "lazyvim.plugins.extras.lang.docker" },
-    { import = "lazyvim.plugins.extras.lang.go" },
-    { import = "lazyvim.plugins.extras.lang.helm" },
-    { import = "lazyvim.plugins.extras.lang.json" },
-    { import = "lazyvim.plugins.extras.lang.rust" },
-    { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.linting.eslint" },
-    { import = "lazyvim.plugins.extras.ui.mini-animate" },
-    { import = "lazyvim.plugins.extras.vscode" },
-    { import = "lazyvim.plugins.extras.dap.core" },
+    { import = 'lazyvim.plugins.extras.lang.docker' },
+    { import = 'lazyvim.plugins.extras.lang.go' },
+    { import = 'lazyvim.plugins.extras.lang.helm' },
+    { import = 'lazyvim.plugins.extras.lang.json' },
+    { import = 'lazyvim.plugins.extras.lang.rust' },
+    { import = 'lazyvim.plugins.extras.lang.typescript' },
+    { import = 'lazyvim.plugins.extras.linting.eslint' },
+    { import = 'lazyvim.plugins.extras.ui.mini-animate' },
+    { import = 'lazyvim.plugins.extras.vscode' },
+    { import = 'lazyvim.plugins.extras.dap.core' },
     -- import/override with your plugins
-    { import = "plugins" },
-    { import = "lsp" },
+    { import = 'plugins' },
+    { import = 'lsp' },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom
@@ -44,39 +44,39 @@ require("lazy").setup({
     -- version = "*", -- try installing the latest stable version for plugins
     -- that support semver
   },
-  install = { colorscheme = { "tokyonight", "tokyonight-night", "habamax", "gruvbox", "catppuccin" } },
+  install = { colorscheme = { 'tokyonight', 'tokyonight-night', 'habamax', 'gruvbox', 'catppuccin' } },
 
   ui = {
     -- a number <1 is a percentage., >1 is a fixed size
     size = { width = 0.8, height = 0.8 },
     wrap = false, -- wrap the lines in the ui
     -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
-    border = "none",
+    border = 'none',
     -- The backdrop opacity. 0 is fully opaque, 100 is fully transparent.
     backdrop = 60,
     title = nil, ---@type string only works when border is not "none"
-    title_pos = "center", ---@type "center" | "left" | "right"
+    title_pos = 'center', ---@type "center" | "left" | "right"
     -- Show pills on top of the Lazy window
     pills = true, ---@type boolean
     icons = {
-      cmd = "⌘",
-      config = "🛠",
-      event = "📅",
-      ft = "📂",
-      init = "⚙",
-      keys = "🗝",
-      plugin = "🔌",
-      runtime = "💻",
-      require = "🌙",
-      source = "📄",
-      start = "🚀",
-      task = "📌",
-      lazy = "💤 ",
+      cmd = '⌘',
+      config = '🛠',
+      event = '📅',
+      ft = '📂',
+      init = '⚙',
+      keys = '🗝',
+      plugin = '🔌',
+      runtime = '💻',
+      require = '🌙',
+      source = '📄',
+      start = '🚀',
+      task = '📌',
+      lazy = '💤 ',
       list = {
-        "●",
-        "➜",
-        "★",
-        "‒",
+        '●',
+        '➜',
+        '★',
+        '‒',
       },
     },
   },
@@ -88,11 +88,11 @@ require("lazy").setup({
     rtp = {
       -- disable some rtp plugins
       disabled_plugins = {
-        "gzip",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
-        "zipPlugin",
+        'gzip',
+        'tarPlugin',
+        'tohtml',
+        'tutor',
+        'zipPlugin',
       },
     },
   },

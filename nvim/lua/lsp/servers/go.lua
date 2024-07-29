@@ -1,8 +1,8 @@
 return {
   {
-    "neovim/nvim-lspconfig",
+    'neovim/nvim-lspconfig',
     config = function()
-      require("lspconfig").setup({
+      require('lspconfig').setup({
         opts = {
           servers = {
             gopls = {
@@ -39,13 +39,13 @@ return {
                   completeUnimported = true,
                   staticcheck = true,
                   directoryFilters = {
-                    "-.git",
-                    "-.cache/**",
-                    "-.gocache/**",
-                    "-.vscode",
-                    "-.idea",
-                    "-.vscode-test",
-                    "-node_modules",
+                    '-.git',
+                    '-.cache/**',
+                    '-.gocache/**',
+                    '-.vscode',
+                    '-.idea',
+                    '-.vscode-test',
+                    '-node_modules',
                   },
                   semanticTokens = true,
                 },
@@ -55,18 +55,18 @@ return {
                 -- Workaround for the lack of a DAP strategy in neotest-go
                 -- https://github.com/nvim-neotest/neotest-go/issues/12
                 {
-                  "<leader>td",
+                  '<leader>td',
                   "<cmd>lua require('dap-go').debug_test()<CR>",
-                  desc = "Debug Nearest (Go)",
+                  desc = 'Debug Nearest (Go)',
                 },
               },
-              root_dir = vim.fs.dirname(vim.fs.find({ "go.work", "go.mod" }, { upward = true })[1]),
+              root_dir = vim.fs.dirname(vim.fs.find({ 'go.work', 'go.mod' }, { upward = true })[1]),
             },
           },
           setup = {
             gopls = function()
-              require("lazyvim.util").lsp.on_attach(function(client, _)
-                if client.name == "gopls" then
+              require('lazyvim.util').lsp.on_attach(function(client, _)
+                if client.name == 'gopls' then
                   if client.config.capabilities == nil then
                     client.config.capabilities = {
                       workspace = {

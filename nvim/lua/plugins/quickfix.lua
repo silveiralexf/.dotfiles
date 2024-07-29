@@ -1,6 +1,6 @@
 return {
   {
-    "kevinhwang91/nvim-bqf",
+    'kevinhwang91/nvim-bqf',
     auto_enable = {
       description = [[Enable nvim-bqf in quickfix window automatically]],
       default = true,
@@ -26,7 +26,7 @@ return {
       border = {
         description = [[The border for preview window,
                 `:h nvim_open_win() | call search('border:')`]],
-        default = "rounded",
+        default = 'rounded',
       },
       show_title = {
         description = [[Show the window title]],
@@ -74,30 +74,30 @@ return {
     filter = {
       fzf = {
         action_for = {
-          ["ctrl-t"] = {
+          ['ctrl-t'] = {
             description = [[Press ctrl-t to open up the item in a new tab]],
-            default = "tabedit",
+            default = 'tabedit',
           },
-          ["ctrl-v"] = {
+          ['ctrl-v'] = {
             description = [[Press ctrl-v to open up the item in a new vertical split]],
-            default = "vsplit",
+            default = 'vsplit',
           },
-          ["ctrl-x"] = {
+          ['ctrl-x'] = {
             description = [[Press ctrl-x to open up the item in a new horizontal split]],
-            default = "split",
+            default = 'split',
           },
-          ["ctrl-q"] = {
+          ['ctrl-q'] = {
             description = [[Press ctrl-q to toggle sign for the selected items]],
-            default = "signtoggle",
+            default = 'signtoggle',
           },
-          ["ctrl-c"] = {
+          ['ctrl-c'] = {
             description = [[Press ctrl-c to close quickfix window and abort fzf]],
-            default = "closeall",
+            default = 'closeall',
           },
         },
         extra_opts = {
-          description = "Extra options for fzf",
-          default = { "--bind", "ctrl-o:toggle-all" },
+          description = 'Extra options for fzf',
+          default = { '--bind', 'ctrl-o:toggle-all' },
         },
       },
     },

@@ -1,62 +1,62 @@
 return {
   {
-    "telescope.nvim",
+    'telescope.nvim',
     dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
+      'nvim-telescope/telescope-fzf-native.nvim',
+      build = 'make',
       config = function()
-        require("telescope").load_extension("fzf")
+        require('telescope').load_extension('fzf')
       end,
     },
     {
-      "nvim-telescope/telescope-project.nvim",
-      event = "VeryLazy",
+      'nvim-telescope/telescope-project.nvim',
+      event = 'VeryLazy',
       config = function()
-        require("telescope").load_extension("project")
+        require('telescope').load_extension('project')
       end,
     },
     {
-      "ThePrimeagen/git-worktree.nvim",
-      event = "VeryLazy",
+      'ThePrimeagen/git-worktree.nvim',
+      event = 'VeryLazy',
       keys = {
         { -- lazy style key map
-          "<leader>cw",
-          "<cmd>Telescope git_worktree<cr>",
-          desc = "undo history",
+          '<leader>cw',
+          '<cmd>Telescope git_worktree<cr>',
+          desc = 'undo history',
         },
       },
       config = function()
-        require("telescope").load_extension("git_worktree")
+        require('telescope').load_extension('git_worktree')
       end,
     },
     {
-      "nvim-telescope/telescope-ui-select.nvim",
-      event = "VeryLazy",
+      'nvim-telescope/telescope-ui-select.nvim',
+      event = 'VeryLazy',
       config = function()
-        require("telescope").load_extension("ui-select")
+        require('telescope').load_extension('ui-select')
       end,
     },
     {
-      "debugloop/telescope-undo.nvim",
-      event = "VeryLazy",
+      'debugloop/telescope-undo.nvim',
+      event = 'VeryLazy',
       keys = {
         { -- lazy style key map
-          "<leader>cu",
-          "<cmd>Telescope undo<cr>",
-          desc = "undo history",
+          '<leader>cu',
+          '<cmd>Telescope undo<cr>',
+          desc = 'undo history',
         },
       },
       config = function()
-        require("telescope").load_extension("undo")
+        require('telescope').load_extension('undo')
       end,
     },
     {
-      "xiyaowong/telescope-emoji.nvim",
+      'xiyaowong/telescope-emoji.nvim',
       keys = {
-        { "<leader>se", "<cmd>Telescope emoji<cr>", desc = "Telescope search emoji" },
+        { '<leader>se', '<cmd>Telescope emoji<cr>', desc = 'Telescope search emoji' },
       },
       config = function()
-        require("telescope").load_extension("emoji")
+        require('telescope').load_extension('emoji')
       end,
     },
     opts = {
@@ -69,10 +69,10 @@ return {
         -- live_grep = { glob_pattern = { "!api/*", "!go.sum" } },
       },
       defaults = {
-        layout_strategy = "horizontal",
-        sorting_strategy = "ascending",
+        layout_strategy = 'horizontal',
+        sorting_strategy = 'ascending',
         layout_config = {
-          prompt_position = "top",
+          prompt_position = 'top',
         },
         vertical = {
           mirror = false,
@@ -88,40 +88,40 @@ return {
     end,
   },
   {
-    "nvim-telescope/telescope.nvim",
+    'nvim-telescope/telescope.nvim',
     keys = {
       {
-        "<leader>fp",
+        '<leader>fp',
         function()
-          require("telescope.builtin").find_files({
-            cwd = require("lazy.core.config").options.root,
+          require('telescope.builtin').find_files({
+            cwd = require('lazy.core.config').options.root,
           })
         end,
-        desc = "Find Plugin File",
+        desc = 'Find Plugin File',
       },
     },
     opts = {
       defaults = {
-        layout_strategy = "horizontal",
-        layout_config = { prompt_position = "top" },
-        sorting_strategy = "ascending",
+        layout_strategy = 'horizontal',
+        layout_config = { prompt_position = 'top' },
+        sorting_strategy = 'ascending',
         winblend = 0,
         path_display = { shorten = 7, exclude = { 1, -1 } },
-        prompt_prefix = "🔭 ",
-        selection_caret = " ",
-        vimgrep_arguments = { "rg", "--vimgrep", "--smart-case", "-M", "200" },
+        prompt_prefix = '🔭 ',
+        selection_caret = ' ',
+        vimgrep_arguments = { 'rg', '--vimgrep', '--smart-case', '-M', '200' },
       },
     },
     extensions = {
-      ["ui-select"] = {
-        require("telescope.themes").get_dropdown({
-          initial_mode = "normal",
+      ['ui-select'] = {
+        require('telescope.themes').get_dropdown({
+          initial_mode = 'normal',
         }),
-        require("telescope.sorters").get_fzy_sorter({}),
+        require('telescope.sorters').get_fzy_sorter({}),
       },
-      ["emoji"] = {
+      ['emoji'] = {
         action = function(emoji)
-          vim.api.nvim_put({ emoji.value }, "b", false, true)
+          vim.api.nvim_put({ emoji.value }, 'b', false, true)
         end,
       },
     },

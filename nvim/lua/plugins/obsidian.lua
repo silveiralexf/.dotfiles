@@ -1,17 +1,17 @@
 return {
   {
-    "epwalsh/obsidian.nvim",
+    'epwalsh/obsidian.nvim',
     config = function()
-      require("obsidian").setup({
-        version = "*",
+      require('obsidian').setup({
+        version = '*',
         lazy = true,
         dependencies = {
-          "nvim-lua/plenary",
+          'nvim-lua/plenary',
         },
         workspaces = {
           {
-            name = "000.zettelkasten",
-            path = "~/.workspace/",
+            name = '000.zettelkasten',
+            path = '~/.workspace/',
           },
         },
       })

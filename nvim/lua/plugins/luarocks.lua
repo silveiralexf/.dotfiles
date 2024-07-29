@@ -1,17 +1,17 @@
 return {
   {
-    "vhyrro/luarocks.nvim",
+    'vhyrro/luarocks.nvim',
     priority = 1000,
     config = true,
   },
   {
-    "camspiers/luarocks",
+    'camspiers/luarocks',
     dependencies = {
-      "rcarriga/nvim-notify", -- Optional dependency
+      'rcarriga/nvim-notify', -- Optional dependency
     },
     opts = {
       rocks = {
-        "fzy",
+        'fzy',
       },
     },
   },
