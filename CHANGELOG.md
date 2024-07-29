@@ -1,6 +1,11 @@
 # CHANGELOG
 
 
+### [2024-07-29]
+ * [[b58b2b9]](https://github.com/silveiralexf/.dotfiles/commit/b58b2b90a8f6525514f3b7c8aabe9c3277e8a132) chore(images): add image backdrops (silveiralexf@gmail.com)
+
+
+
 ### [2024-07-21]
  * [[fd1352f]](https://github.com/silveiralexf/.dotfiles/commit/fd1352fcc9fcc7b2f3ee82396f072f70d95ab4b7) feat: new keyboard layout (silveiralexf@gmail.com)
 
