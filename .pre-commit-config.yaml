@@ -14,6 +14,7 @@ repos:
         exclude_types:
           - "json"
       - id: check-added-large-files
+        args: ["--maxkb=2000"]
       - id: check-yaml
       - id: check-json
   - repo: https://github.com/lunarmodules/luacheck
