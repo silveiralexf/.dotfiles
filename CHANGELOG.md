@@ -2,6 +2,9 @@
 
 
 ### [2024-07-29]
+ * [[7484f08]](https://github.com/silveiralexf/.dotfiles/commit/7484f087bb7e733b79eb9f80081749dbaa1cb7f1) chore(docs): readme and spelling updates (silveiralexf@gmail.com)
+
+
  * [[7e560cd]](https://github.com/silveiralexf/.dotfiles/commit/7e560cd58a7bc366f2440869fcf78c988369876f) chore(tasks): add dotfile dirs as global vars (silveiralexf@gmail.com)
 
 
