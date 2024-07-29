@@ -58,17 +58,17 @@ fi
 alias pcat='source-highlight --failsafe -f esc --lang-def=makefile.lang --style-file=esc.style -i '
 
 # Source Kubectl aliases (https://github.com/ahmetb/kubectl-aliases)
-[ -f "${HOME}/.dotfiles/files/kubectl_aliases" ] && source "${HOME}/.dotfiles/files/kubectl_aliases"
+[ -f "${DOTFILES_CONFIG}/kubectl_aliases.txt" ] && source "${DOTFILES_CONFIG}/kubectl_aliases.txt"
 
 # Shortuct for kubectl
 alias kubectl="kubecolor"
 alias k='kubectl'
-
-# Change Kubernetes namespace context
+alias kc='k ctx'
 alias kcd='kubectl config set-context --current --namespace '
-
-# Get events in a sorted manner
 alias kevents='kubectl get events --sort-by='\''.metadata.creationTimestamp'\'''
+
+# Launch Monokle from CLI
+alias Monokle='/Applications/Monokle.app/Contents/MacOS/Monokle'
 
 # BFG - Removes large or troublesome blobs like git-filter-branch does,
 # but faster, and written in Scala
@@ -119,12 +119,6 @@ alias hosts='sudo vim /etc/hosts'
 
 # URL-encode strings (borrowed from jessfraz dotfiles)
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
-
-# Enable aliases to be sudo'ed
-# alias sudo='sudo '
-
-#alias pbcopy='xclip -selection clipboard'
-#alias pbpaste='xclip -selection clipboard -o'
 
 # silversearch hidden files
 alias ag='ag --hidden'

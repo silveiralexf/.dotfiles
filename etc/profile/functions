@@ -198,7 +198,7 @@ function prev() {
 # export private settings
 function getsecrets() {
   sops_path=$(which sops)
-  enc_file="${HOME}/.dotfiles/.private"
+  enc_file="${DOTFILES_PROFILE}/private"
   dec_file="${enc_file}.dec"
 
   if [[ -x $sops_path ]]; then

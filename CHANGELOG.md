@@ -2,6 +2,9 @@
 
 
 ### [2024-07-29]
+ * [[67f41a9]](https://github.com/silveiralexf/.dotfiles/commit/67f41a9a2c13713ad8b5de55cb38e8c940076a6f) chore(terminal): replace kitty with wezterm (silveiralexf@gmail.com)
+
+
  * [[b58b2b9]](https://github.com/silveiralexf/.dotfiles/commit/b58b2b90a8f6525514f3b7c8aabe9c3277e8a132) chore(images): add image backdrops (silveiralexf@gmail.com)
 
 
