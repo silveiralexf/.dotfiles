@@ -4,19 +4,21 @@ local wezterm = require('wezterm')
 local act = wezterm.action
 
 local mod = {}
-
+local keyboard = {}
 if platform.is_mac then
   mod.CMD = 'SUPER'
   mod.CMD_REV = 'SUPER|SHIFT'
   mod.CTRL = 'CTRL'
   mod.CTRL_REV = 'CTRL|SHIFT'
   mod.LEADER = 'ALT'
+  keyboard.COMPOSED_KEYS = true -- when curly brackets are opt + shift + 8/9, not ctrl
 else
-  mod.CMD = 'ALT' -- to not conflict with other key shortcuts
+  mod.CMD = 'ALT' -- to avoid conflicting with other key shortcuts
   mod.CMD_REV = 'ALT|SHIFT'
   mod.CTRL = 'CTRL'
   mod.CTRL_REV = 'CTRL|SHIFT'
   mod.LEADER = 'ALT|CTRL'
+  keyboard.COMPOSED_KEYS = false
 end
 
 local keys = {
@@ -90,13 +92,27 @@ local keys = {
   -- tabs --
   -- tabs: spawn+close
   { key = 't', mods = mod.CMD, action = act.SpawnTab('DefaultDomain') },
-  { key = 'w', mods = mod.LEADER, action = act.CloseCurrentTab({ confirm = false }) },
+  { key = 'w', mods = mod.CMD, action = act.CloseCurrentPane({ confirm = false }) },
 
   -- tabs: navigation
   { key = 'LeftArrow', mods = mod.CMD, action = act.ActivateTabRelative(-1) },
   { key = 'RightArrow', mods = mod.CMD, action = act.ActivateTabRelative(1) },
   { key = 'LeftArrow', mods = mod.CMD_REV, action = act.MoveTabRelative(-1) },
   { key = 'RightArrow', mods = mod.CMD_REV, action = act.MoveTabRelative(1) },
+
+  -- tabs: renaming
+  { -- TODO: still needs work: formatting, detection, hovering, etc...
+    key = 'r',
+    mods = mod.CMD,
+    action = act.PromptInputLine({
+      description = 'Enter new name for tab',
+      action = wezterm.action_callback(function(window, _, line)
+        if line then
+          window:active_tab():set_title(line)
+        end
+      end),
+    }),
+  },
 
   -- window --
   -- spawn windows
@@ -132,35 +148,7 @@ local keys = {
     }),
   },
 
-  -- panes --
-  -- panes: split panes
-  { key = 'w', mods = mod.CMD, action = act.CloseCurrentPane({ confirm = false }) },
-  { -- TODO: this still needs work
-    key = 'r',
-    mods = mod.CMD,
-    action = act.PromptInputLine({
-      description = 'Enter new name for tab',
-      action = wezterm.action_callback(function(window, _, line)
-        if line then
-          window:active_tab():set_title(line)
-        end
-      end),
-    }),
-  },
-
-  -- panes: navigation
-  { key = 'k', mods = mod.LEADER, action = act.ActivatePaneDirection('Up') },
-  { key = 'j', mods = mod.LEADER, action = act.ActivatePaneDirection('Down') },
-  { key = 'h', mods = mod.LEADER, action = act.ActivatePaneDirection('Left') },
-  { key = 'l', mods = mod.LEADER, action = act.ActivatePaneDirection('Right') },
-  {
-    key = 'p',
-    mods = mod.LEADER,
-    action = act.PaneSelect({ alphabet = '1234567890', mode = 'SwapWithActiveKeepFocus' }),
-  },
-
-  -- key-tables --
-
+  -- font --
   -- font: resize with single stroke
   { mods = mod.CMD, key = '+', action = act.IncreaseFontSize },
   { mods = mod.CMD, key = '-', action = act.DecreaseFontSize },
@@ -201,4 +189,6 @@ return {
   keys = keys,
   key_tables = key_tables,
   mouse_bindings = mouse_bindings,
+  send_composed_key_when_left_alt_is_pressed = keyboard.COMPOSED_KEYS,
+  send_composed_key_when_right_alt_is_pressed = keyboard.COMPOSED_KEYS,
 }

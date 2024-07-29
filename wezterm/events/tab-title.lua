@@ -38,7 +38,7 @@ local _set_tab_idx = function(tabs, tab)
   return tab_idx
 end
 
-local _set_title = function(process_name, base_title, max_width, inset, override)
+local _set_title = function(process_name, base_title, max_width, inset)
   local title
   inset = inset or 6
 
@@ -77,14 +77,14 @@ local _push = function(bg, fg, attribute, text)
 end
 
 M.setup = function()
-  wezterm.on('format-tab-title', function(tab, tabs, _panes, _config, hover, max_width)
+  wezterm.on('format-tab-title', function(tab, tabs, _, _, hover, max_width)
     __cells__ = {}
 
     local bg
     local fg
     local process_name = _set_process_name(tab.active_pane.foreground_process_name)
     local is_admin = _check_if_admin(tab.active_pane.title)
-    local title = _set_title(process_name, tab.active_pane.title, max_width, (is_admin and 8), _)
+    local title = _set_title(process_name, tab.active_pane.title, max_width, (is_admin and 8))
 
     local tab_idx = _set_tab_idx(tabs, tab)
 
