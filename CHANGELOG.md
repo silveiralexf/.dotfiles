@@ -2,7 +2,7 @@
 
 
 ### [2024-07-21]
- * [[2c69b81]](https://github.com/silveiralexf/.dotfiles/commit/2c69b819c996bc8a3b15d8bdf834148f1a273352) feat: new keyboard layout (silveiralexf@gmail.com)
+ * [[fd1352f]](https://github.com/silveiralexf/.dotfiles/commit/fd1352fcc9fcc7b2f3ee82396f072f70d95ab4b7) feat: new keyboard layout (silveiralexf@gmail.com)
 
 
  * [[bf5aafe]](https://github.com/silveiralexf/.dotfiles/commit/bf5aafe6d72dabcf6ca64224a6aad6292a8643f7) chore(secrets): update private credentials file (silveiralexf@gmail.com)
