@@ -2,6 +2,9 @@
 
 
 ### [2024-07-29]
+ * [[8f0311e]](https://github.com/silveiralexf/.dotfiles/commit/8f0311ef6f47c8b5324b82bcf6659ae70dc03895) chore(deps): bump lazy (silveiralexf@gmail.com)
+
+
  * [[14d0a10]](https://github.com/silveiralexf/.dotfiles/commit/14d0a10f35bae1044000bef1fcb19d5c152827ca) style(lua): lint/format all files with same settings (silveiralexf@gmail.com)
 
 
