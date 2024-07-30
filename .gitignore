@@ -4,9 +4,6 @@
 *.dec
 *.spl
 
-# Hammerspoon Spoons
-hammerspoon/Spoons/
-
 # BFG
 ..bfg-report/
 

@@ -2,6 +2,9 @@
 
 
 ### [2024-07-30]
+ * [[a3750bc]](https://github.com/silveiralexf/.dotfiles/commit/a3750bcd94098384ec1964d9d766042adf2b489e) chore(nvim): add telescope media preview (silveiralexf@gmail.com)
+
+
  * [[cc8d5ff]](https://github.com/silveiralexf/.dotfiles/commit/cc8d5ff241c4f3a357dce797281be778011c9cc4) chore(setup): add nerdfonts to install tasks (silveiralexf@gmail.com)
 
 
