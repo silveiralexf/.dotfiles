@@ -1,6 +1,11 @@
 # CHANGELOG
 
 
+### [2024-07-30]
+ * [[966c65f]](https://github.com/silveiralexf/.dotfiles/commit/966c65f6b54a378b91ba4f0a6ea3540912fef12e) chore: fix tmux glitches with lazygit and wezterm (silveiralexf@gmail.com)
+
+
+
 ### [2024-07-29]
  * [[5db7097]](https://github.com/silveiralexf/.dotfiles/commit/5db7097b94a8a91bd00bde8f83e5b196e12b1479) chore(wezterm): small tweaks (silveiralexf@gmail.com)
 

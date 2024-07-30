@@ -6,6 +6,7 @@ tasks:
       - task: all:deps
       - task: all:regular
       - task: all:custom
+      - task: all:fonts
   all:deps:
     desc: Install Brew itself along with some important libs and repos
     vars:
@@ -52,15 +53,18 @@ tasks:
           - font-hack-nerd-font
           - knqyf263/pet/pet
           - go-task/tap/go-task
+          - bufbuild/buf/buf
           - pre-commit
           - grc
           - luarocks
           - luajit
+          - markdown-toc
           - viu
           - chafa
           - aquasecurity/trivy/trivy
           - ueberzugpp
           - erlang
+          - php
         cmd: brew list {{.ITEM}} || brew install {{.ITEM}}
   all:custom:
     desc: Brew install recipes with custom steps
@@ -89,3 +93,11 @@ tasks:
     cmds:
       - brew tap hashicorp/tap
       - brew install hashicorp/tap/packer
+  all:fonts:
+    desc: Install Nerd-Fonts
+    cmds:
+      - |
+        set -e
+        for FONT in $(cat ${DOTFILES_HOME}/etc/lists/fonts.txt); do
+          brew install "${FONT}"
+        done
