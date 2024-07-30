@@ -1,7 +1,7 @@
 ## Inspirations
 
 # opens unix pass to extract password
-cmd - return : "${HOME}/pass-secret.sh"
+cmd - return : "${DOTFILES_SCRIPTS}/pass-secret.sh"
 
 # opens unix pass  to extract user
-cmd + alt - return : "${HOME}/pass-user.sh"
+cmd + alt - return : "${DOTFILES_SCRIPTS}/pass-user.sh"

@@ -50,7 +50,6 @@ export PATH="${PATH}:/opt/nvim/bin"
 
 # Color settings
 export COLORTERM=truecolor
-export TERM=tmux-256color
 
 # get some colors on commands with grc
 [[ -s "/etc/grc.zsh" ]] && source "/etc/grc.zsh"
