@@ -2,6 +2,9 @@
 
 
 ### [2024-07-30]
+ * [[f65d382]](https://github.com/silveiralexf/.dotfiles/commit/f65d3824ccbf251513eb1a507c2cd7fd30121690) chore(wezterm): more tweaks and tab customizations (silveiralexf@gmail.com)
+
+
  * [[172282f]](https://github.com/silveiralexf/.dotfiles/commit/172282ffc4128dcce442a80c33925966358e359f) refactor(hammerspoon): change structure and add commands (silveiralexf@gmail.com)
 
 
