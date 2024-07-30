@@ -2,6 +2,9 @@
 
 
 ### [2024-07-30]
+ * [[172282f]](https://github.com/silveiralexf/.dotfiles/commit/172282ffc4128dcce442a80c33925966358e359f) refactor(hammerspoon): change structure and add commands (silveiralexf@gmail.com)
+
+
  * [[a3750bc]](https://github.com/silveiralexf/.dotfiles/commit/a3750bcd94098384ec1964d9d766042adf2b489e) chore(nvim): add telescope media preview (silveiralexf@gmail.com)
 
 

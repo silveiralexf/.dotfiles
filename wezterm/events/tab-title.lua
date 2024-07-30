@@ -20,6 +20,7 @@ local colors = {
    hover     = { bg = '#587d8c', fg = '#1c1b19' },
 }
 
+-- TODO: Needs work, pane titles are still clunky
 local _set_process_name = function(s)
   local a = string.gsub(s, '(.*[/\\])(.*)', '%2')
   return a:gsub('%.exe$', '')
@@ -42,9 +43,9 @@ local _set_title = function(process_name, base_title, max_width, inset)
   local title
   inset = inset or 6
 
-  if process_name:len() == 0 or process_name == '' then
-    title = '❓' .. title
-  elseif process_name:len() < 4 or process_name == 'zsh' then
+  if process_name:len() == 0 then
+    title = '❓' .. process_name
+  elseif process_name:len() < 4 or process_name == 'zsh' or process_name == 'bash' then
     title = '⚠️ ~ ' .. process_name
   else
     title = base_title
@@ -58,6 +59,7 @@ local _set_title = function(process_name, base_title, max_width, inset)
   return title
 end
 
+-- TODO: Needs further work
 local _check_if_admin = function(p)
   if p:match('^Administrator: ') then
     return true

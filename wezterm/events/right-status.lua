@@ -60,9 +60,13 @@ local _push = function(text, icon, fg, bg, separate)
   end
 end
 
+local _set_workspace = function(active_workspace_name)
+  _push(active_workspace_name, '📡', colors.date_fg, colors.date_bg, false)
+end
+
 local _set_date = function()
   local date = wezterm.strftime('%a %D %H:%M')
-  _push(date, nf.fa_calendar, colors.date_fg, colors.date_bg, true)
+  _push(date, '📆', colors.date_fg, colors.date_bg, true)
 end
 
 local _set_battery = function()
@@ -88,6 +92,7 @@ end
 M.setup = function()
   wezterm.on('update-right-status', function(window)
     __cells__ = {}
+    _set_workspace(string.format('wokspace: %s %s', wezterm.mux.get_active_workspace(), SEPARATOR_CHAR))
     _set_date()
     _set_battery()
 
