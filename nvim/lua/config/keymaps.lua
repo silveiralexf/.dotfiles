@@ -10,6 +10,7 @@ end
 map('n', '<leader><tab>v', '<cmd>vnew<cr>', { desc = 'New vertically split pane' })
 map('n', '<leader>s', '<cmd>TelescopeSearch<cr>', { desc = 'TelescopeSearch' })
 map('n', '<leader>f', '<cmd>TelescopeFind<cr>', { desc = 'TelescopeFind' })
+map('n', '<leader>fM', '<cmd>Telescope media_files<cr>', { desc = 'TelescopeFindMedia' })
 map('n', '<leader>k', '<cmd>WhichKey<cr>', { desc = 'Whichkey' })
 map('n', '<leader>F', '<cmd>FzfLua<cr>', { desc = 'FuzzyLuaFinder' })
 map('n', '<leader>t', '<cmd>NeoTest<cr>', { desc = 'NeoTest' })

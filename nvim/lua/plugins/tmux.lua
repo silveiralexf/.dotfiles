@@ -4,7 +4,7 @@ return {
     keys = { '<M-h>', '<M-j>', '<M-k>', '<M-l>', '<C-h>', '<C-j>', '<C-k>', '<C-l>' },
     opts = {
       copy_sync = {
-        -- enables copy sync. by default, all registers are synchronized.
+        -- enables copy sync. By default, all registers are synchronized.
         -- to control which registers are synced, see the `sync_*` options.
         enable = true,
 
