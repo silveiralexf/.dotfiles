@@ -57,7 +57,11 @@ return {
       },
       config = function()
         require('telescope').load_extension('emoji')
+        require('telescope').load_extension('media_files')
       end,
+    },
+    {
+      'nvim-telescope/telescope-media-files.nvim',
     },
     opts = {
       pickers = {
@@ -123,6 +127,13 @@ return {
         action = function(emoji)
           vim.api.nvim_put({ emoji.value }, 'b', false, true)
         end,
+      },
+      ['media_files'] = {
+        media_files = {
+          filetypes = { 'png', 'webp', 'jpg', 'jpeg' },
+          -- find command (defaults to `fd`)
+          find_cmd = 'rg',
+        },
       },
     },
     setup = function()

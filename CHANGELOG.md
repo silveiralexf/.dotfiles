@@ -2,6 +2,9 @@
 
 
 ### [2024-07-30]
+ * [[cc8d5ff]](https://github.com/silveiralexf/.dotfiles/commit/cc8d5ff241c4f3a357dce797281be778011c9cc4) chore(setup): add nerdfonts to install tasks (silveiralexf@gmail.com)
+
+
  * [[966c65f]](https://github.com/silveiralexf/.dotfiles/commit/966c65f6b54a378b91ba4f0a6ea3540912fef12e) chore: fix tmux glitches with lazygit and wezterm (silveiralexf@gmail.com)
 
 
