@@ -8,7 +8,7 @@ return {
   scrollback_lines = 5000,
 
   hyperlink_rules = {
-    -- Matches: a URL in parens: (URL)
+    -- Matches: a URL in parenthesis: (URL)
     {
       regex = '\\((\\w+://\\S+)\\)',
       format = '$1',
@@ -37,7 +37,7 @@ return {
       regex = '\\b\\w+://\\S+[)/a-zA-Z0-9-]+',
       format = '$0',
     },
-    -- implicit mailto link
+    -- implicit mail-to link
     {
       regex = '\\b\\w+@[\\w-]+(\\.[\\w-]+)+\\b',
       format = 'mailto:$0',
