@@ -2,6 +2,9 @@
 
 
 ### [2024-07-29]
+ * [[5db7097]](https://github.com/silveiralexf/.dotfiles/commit/5db7097b94a8a91bd00bde8f83e5b196e12b1479) chore(wezterm): small tweaks (silveiralexf@gmail.com)
+
+
  * [[7484f08]](https://github.com/silveiralexf/.dotfiles/commit/7484f087bb7e733b79eb9f80081749dbaa1cb7f1) chore(docs): readme and spelling updates (silveiralexf@gmail.com)
 
 
