@@ -2,6 +2,9 @@
 
 
 ### [2024-08-01]
+ * [[6aa94be]](https://github.com/silveiralexf/.dotfiles/commit/6aa94bebec839d445599160332b862bb161c9e9d) chore(nvim): add new words to spell (silveiralexf@gmail.com)
+
+
  * [[1db1c98]](https://github.com/silveiralexf/.dotfiles/commit/1db1c987c98b9055112643e57e5aeb74ddf33f07) chore(secrets): update encrypted credentials (silveiralexf@gmail.com)
 
 
