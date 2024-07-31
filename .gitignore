@@ -23,12 +23,14 @@ package.json
 package-lock.json
 
 # Compiled Lua, Luarocks
-luac.out
-/luarocks.bat
+*.src.rock
+/.luarocks
+/lua
 /lua.bat
 /lua_modules
-/.luarocks
-*.src.rock
+/luarocks
+/luarocks.bat
+luac.out
 
 # Object files
 *.o

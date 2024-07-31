@@ -2,6 +2,9 @@
 
 
 ### [2024-08-01]
+ * [[7f05fa5]](https://github.com/silveiralexf/.dotfiles/commit/7f05fa559c1cf69abff6fbaa3137b4804de05870) chore(tasks): add new utils (silveiralexf@gmail.com)
+
+
  * [[3b484d4]](https://github.com/silveiralexf/.dotfiles/commit/3b484d4dfca0b62301f066dc54e97b3365bdcfcc) chore(tmux): new bindings and adjust status and colors (silveiralexf@gmail.com)
 
 
