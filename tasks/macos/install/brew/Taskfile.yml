@@ -65,6 +65,7 @@ tasks:
           - ueberzugpp
           - erlang
           - php
+          - vlc
         cmd: brew list {{.ITEM}} || brew install {{.ITEM}}
   all:custom:
     desc: Brew install recipes with custom steps

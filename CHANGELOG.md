@@ -1,6 +1,11 @@
 # CHANGELOG
 
 
+### [2024-08-01]
+ * [[3b484d4]](https://github.com/silveiralexf/.dotfiles/commit/3b484d4dfca0b62301f066dc54e97b3365bdcfcc) chore(tmux): new bindings and adjust status and colors (silveiralexf@gmail.com)
+
+
+
 ### [2024-07-30]
  * [[a8dce4b]](https://github.com/silveiralexf/.dotfiles/commit/a8dce4b657d24a34b5fd724fdb3d2f164c25e81a) chore(deps): bump lazy (silveiralexf@gmail.com)
 
