@@ -159,15 +159,16 @@ function ssht() {
   ssh "$*" -t 'tmux a || tmux || /bin/bash'
 }
 
+# Tmux load profile schemes on default socket
 function tmuxrun() {
   for tgt in $(ls ~/.tmuxp/); do
     tmuxp load -y "~/.tmuxp/${tgt}"
   done
 }
 
+# Tmux load single profile on default socket
 function tpl() {
-  #find "${HOME}/.tmuxp/" | awk -F "/" '{ print $5 }' | grep yaml | sed 's/\.yaml//g' | sort -n
-  tmuxp load -y $(ls ~/.tmuxp | sed 's/.yaml//g' | fzf --reverse --multi --height 50%)
+  tmuxp load -y $(cd ~/.tmuxp/ && ls | sed 's/.yaml//g' | fzf --reverse --multi --height 51%)
 }
 
 function randompass() {
