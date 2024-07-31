@@ -2,6 +2,9 @@
 
 
 ### [2024-08-01]
+ * [[34ec681]](https://github.com/silveiralexf/.dotfiles/commit/34ec6819e4e672f94b97825907249802811d8fd4) chore(deps): bump lazy (silveiralexf@gmail.com)
+
+
  * [[6aa94be]](https://github.com/silveiralexf/.dotfiles/commit/6aa94bebec839d445599160332b862bb161c9e9d) chore(nvim): add new words to spell (silveiralexf@gmail.com)
 
 
