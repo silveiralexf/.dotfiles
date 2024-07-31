@@ -1,9 +1,15 @@
 require('utils.pass')
 require('utils.launchers')
 
-local HammerSpoonLoader = require('config')
+-- hs.loadSpoon('ShiftIt')
+-- spoon.ShiftIt:bindHotkeys({})
 
-return HammerSpoonLoader
-  :init()
-  :append(require('config.keymaps')) --
-  .options
+HammerSpoonLoader = require('config')
+return {
+  {
+    HammerSpoonLoader
+      :init()
+      :append(require('config.keymaps')) --
+      .options,
+  },
+}
