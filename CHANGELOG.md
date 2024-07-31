@@ -2,6 +2,9 @@
 
 
 ### [2024-08-01]
+ * [[c70a0de]](https://github.com/silveiralexf/.dotfiles/commit/c70a0de6b32a837ab4978a7f4e70b0189c154901) chore(git): ignore luarocks files (silveiralexf@gmail.com)
+
+
  * [[7f05fa5]](https://github.com/silveiralexf/.dotfiles/commit/7f05fa559c1cf69abff6fbaa3137b4804de05870) chore(tasks): add new utils (silveiralexf@gmail.com)
 
 
