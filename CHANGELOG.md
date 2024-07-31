@@ -2,6 +2,9 @@
 
 
 ### [2024-07-30]
+ * [[a8dce4b]](https://github.com/silveiralexf/.dotfiles/commit/a8dce4b657d24a34b5fd724fdb3d2f164c25e81a) chore(deps): bump lazy (silveiralexf@gmail.com)
+
+
  * [[f65d382]](https://github.com/silveiralexf/.dotfiles/commit/f65d3824ccbf251513eb1a507c2cd7fd30121690) chore(wezterm): more tweaks and tab customizations (silveiralexf@gmail.com)
 
 

@@ -79,16 +79,13 @@ BFG_PATH="${HOME}/.local/bin/bfg-1.14.0.jar"
 [ -f "${BFG_PATH}" ] && alias bfg='java -jar ${BFG_PATH}'
 
 # Creates a new tmux session
-alias tn='tmux new -s LOCAL-$(date "+%H%M%S")'
+alias tn='tmux new -s 000_DEFAULT-$(date "+%H%M%S")'
 
 # Attaches tmux to the last session; creates a new session if none exists.
 alias t='tmux attach || tn'
 
 # Attaches tmux to a session (example: ta portal)
 alias ta='tmux attach -t'
-
-# Creates a new tmux session
-alias tn='tmux new -s LOCAL-$(date "+%H%M%S")'
 
 # Lists all ongoing tmux sessions
 alias tl='tmux list-sessions'
@@ -107,8 +104,6 @@ done
 
 # Shortcut for launching chrome from the terminal
 alias google-chrome='"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --kiosk'
-
-alias icat='kitten icat'
 
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
