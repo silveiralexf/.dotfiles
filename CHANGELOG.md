@@ -2,6 +2,9 @@
 
 
 ### [2024-08-01]
+ * [[1db1c98]](https://github.com/silveiralexf/.dotfiles/commit/1db1c987c98b9055112643e57e5aeb74ddf33f07) chore(secrets): update encrypted credentials (silveiralexf@gmail.com)
+
+
  * [[c70a0de]](https://github.com/silveiralexf/.dotfiles/commit/c70a0de6b32a837ab4978a7f4e70b0189c154901) chore(git): ignore luarocks files (silveiralexf@gmail.com)
 
 
