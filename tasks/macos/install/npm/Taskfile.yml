@@ -34,5 +34,7 @@ tasks:
           - bun
           - neovim
           - npm-groovy-lint
+          - prettier
+          - terminalizer
           - yarn
         cmd: npm list -g | grep {{.ITEM}} || npm install -g {{.ITEM}}
