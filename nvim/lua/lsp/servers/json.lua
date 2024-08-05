@@ -196,7 +196,7 @@ return {
                 --extra = {
                 --{
                 --  description = "My other custom JSON schema",
-                --  fileMatch = { "bar.json", ".baar.json" },
+                --  fileMatch = { "bar.json", ".bar.json" },
                 --  name = "bar.json",
                 --  url = "https://example.com/schema/bar.json",
                 --},

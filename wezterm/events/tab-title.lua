@@ -4,10 +4,10 @@ local wezterm = require('wezterm')
 
 local nf = wezterm.nerdfonts
 
-local GLYPH_SEMI_CIRCLE_LEFT = nf.ple_left_half_circle_thick --[[ '' ]]
-local GLYPH_SEMI_CIRCLE_RIGHT = nf.ple_right_half_circle_thick --[[ '' ]]
-local GLYPH_CIRCLE = nf.fa_circle --[[ '' ]]
-local GLYPH_ADMIN = nf.md_shield_half_full --[[ '󰞀' ]]
+local ICON_SEMI_CIRCLE_LEFT = nf.ple_left_half_circle_thick --[[ '' ]]
+local ICON_SEMI_CIRCLE_RIGHT = nf.ple_right_half_circle_thick --[[ '' ]]
+local ICON_CIRCLE = nf.fa_circle --[[ '' ]]
+local ICON_ADMIN = nf.md_shield_half_full --[[ '󰞀' ]]
 
 local M = {}
 
@@ -22,8 +22,7 @@ local colors = {
 
 -- TODO: Needs work, pane titles are still clunky
 local _set_process_name = function(s)
-  local a = string.gsub(s, '(.*[/\\])(.*)', '%2')
-  return a:gsub('%.exe$', '')
+  return string.gsub(s, '(.*[/\\])(.*)', '%2')
 end
 
 local _set_tab_idx = function(tabs, tab)
@@ -113,12 +112,12 @@ M.setup = function()
     end
 
     -- Left semi-circle
-    _push('rgba(0, 0, 0, 0.4)', bg, { Intensity = 'Bold' }, GLYPH_SEMI_CIRCLE_LEFT)
+    _push('rgba(0, 0, 0, 0.4)', bg, { Intensity = 'Bold' }, ICON_SEMI_CIRCLE_LEFT)
 
     --
     -- Admin Icon
     if is_admin then
-      _push(bg, fg, { Intensity = 'Bold' }, ' ' .. GLYPH_ADMIN)
+      _push(bg, fg, { Intensity = 'Bold' }, ' ' .. ICON_ADMIN)
     end
 
     -- Title
@@ -126,14 +125,14 @@ M.setup = function()
 
     -- Unseen output alert
     if has_unseen_output then
-      _push(bg, '#FFA066', { Intensity = 'Bold' }, ' ' .. GLYPH_CIRCLE)
+      _push(bg, '#FFA066', { Intensity = 'Bold' }, ' ' .. ICON_CIRCLE)
     end
 
     -- Right padding
     _push(bg, fg, { Intensity = 'Bold' }, ' ')
 
     -- Right semi-circle
-    _push('rgba(0, 0, 0, 0.4)', bg, { Intensity = 'Bold' }, GLYPH_SEMI_CIRCLE_RIGHT)
+    _push('rgba(0, 0, 0, 0.4)', bg, { Intensity = 'Bold' }, ICON_SEMI_CIRCLE_RIGHT)
 
     return __cells__
   end)

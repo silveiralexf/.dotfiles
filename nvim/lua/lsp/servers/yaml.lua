@@ -39,7 +39,8 @@ return {
                 select = {
                   '.github/workflows/*.{yml,yaml}',
                   'kustomization.yaml',
-                  'docker-compose.yml',
+                  '.*docker-compose.{yml,yaml}',
+                  '*.compose.{yml,yaml}',
                   'https://json.schemastore.org/github-workflow.json',
                 },
 

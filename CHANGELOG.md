@@ -1,7 +1,15 @@
 # CHANGELOG
 
 
+### [2024-08-05]
+ * [[32e89cb]](https://github.com/silveiralexf/.dotfiles/commit/32e89cba320cba27651280ee718afbdb8fd50a46) feat(docs): improve overall documentation (silveiralexf@gmail.com)
+
+
+
 ### [2024-08-01]
+ * [[d308b58]](https://github.com/silveiralexf/.dotfiles/commit/d308b581ab5028f80c376e0cf78b27d8b2b6d361) feat(hammerspoon): add shiftIt spoon [WIP] (silveiralexf@gmail.com)
+
+
  * [[34ec681]](https://github.com/silveiralexf/.dotfiles/commit/34ec6819e4e672f94b97825907249802811d8fd4) chore(deps): bump lazy (silveiralexf@gmail.com)
 
 

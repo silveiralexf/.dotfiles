@@ -9,7 +9,7 @@ require('events.new-tab-button').setup()
 
 return WezTermLoader:init()
   :append(require('config.appearance'))
-  :append(require('config.bindings'))
+  :append(require('config.keymaps'))
   :append(require('config.fonts'))
   :append(require('config.general'))
   :append(require('config.launch')).options

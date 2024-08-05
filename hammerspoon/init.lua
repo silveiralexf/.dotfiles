@@ -1,5 +1,5 @@
-require('utils.pass')
 require('utils.launchers')
+require('plugins.HammerPass')
 
 -- hs.loadSpoon('ShiftIt')
 -- spoon.ShiftIt:bindHotkeys({})

@@ -73,7 +73,6 @@ tasks:
       - ~/.zshrc
     cmds:
       - test -f /Applications/Amethyst.app/Contents/MacOS/Amethyst || brew install --cask amethyst
-      - test -f $(which skhd) || brew install koekeishiya/formulae/skhd && skhd --start-service
       - task: all:custom:colima
       - task: all:custom:packer
   all:custom:colima:

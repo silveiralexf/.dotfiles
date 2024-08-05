@@ -1,4 +1,18 @@
-PasswordStoreDir = '~/.password-store'
+local HammerPass = {
+  hs = hs,
+}
+
+HammerPass.__index = HammerPass
+
+-- Metadata
+HammerPass.name = 'HammerspoonShiftIt'
+HammerPass.version = '1.1'
+HammerPass.author = 'Peter Klijn'
+HammerPass.homepage = 'https://github.com/peterklijn/hammerspoon-shiftit'
+HammerPass.license = 'https://github.com/peterklijn/hammerspoon-shiftit/blob/master/LICENSE.md'
+
+-- default password store directory
+HammerPass.StoreBaseDir = '~/.password-store'
 
 function StrEndsWith(str, ending)
   if str:len() < ending:len() then
@@ -42,13 +56,15 @@ end
 function ChoosePassword()
   local c = hs.chooser.new(CopyPassword)
   local files = {}
-  ListPasswordFiles(PasswordStoreDir, files)
+  ListPasswordFiles(HammerPass.StoreBaseDir, files)
   local choices = {}
   for _, entry in ipairs(files) do
     local file, dir = entry[1], entry[2]
-    local dir_name = dir:sub(PasswordStoreDir:len() + 2, dir:len())
+    local dir_name = dir:sub(HammerPass.StoreBaseDir:len() + 2, dir:len())
     table.insert(choices, { ['text'] = dir_name, ['subText'] = file, ['uuid'] = file })
   end
   c:choices(choices)
   c:show()
 end
+
+return HammerPass

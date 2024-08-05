@@ -19,7 +19,8 @@ return {
         javascriptreact = { { 'prettierd', 'prettier' } },
         json = { { 'prettierd', 'prettier' } },
         lua = { 'stylua' },
-        markdown = { 'markdownlint-cli2' },
+        --markdown = { 'markdownlint-cli2' },
+        markdown = { 'prettierd' },
         proto = { 'buf' },
         python = { 'ruff_format' },
         rust = { 'rustfmt' },
@@ -38,7 +39,7 @@ return {
         ['terraform-vars'] = { 'terraform_fmt' },
       },
       formatters = {
-        markdown = { 'markdownlint-cli2' },
+        markdown = { 'prettierd' },
         npm_groovy_lint = {
           command = 'npm-groovy-lint',
           args = { '--failon', 'error', '--format', '$FILENAME' },

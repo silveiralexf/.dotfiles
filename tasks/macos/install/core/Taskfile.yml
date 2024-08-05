@@ -42,19 +42,13 @@ tasks:
     cmds:
       - test -L ~/go/src                              || ln -s ~/git ~/go/src
       - test -L ~/.config/nvim                        || ln -s ${DOTFILES_HOME}/nvim ~/.config/nvim
-      - test -L ~/.tmux.conf                          || ln -s ${DOTFILES_CONFIG}/tmux.conf ~/.tmux.conf
-      - test -f ~/.tmux/plugins/tmux-fzf/plugin.tmux  || ln -s ${DOTFILES_SCRIPTS}/tmux-fzf-plugin.tmux ~/.tmux/plugins/tmux-fzf/plugin.tmux
-      - test -L ~/pass-secret.sh                      || ln -s ${DOTFILES_SCRIPTS}/pass-secret.sh ~/pass-secret.sh
-      - test -L ~/pass-user.sh                        || ln -s ${DOTFILES_SCRIPTS}/pass-user.sh ~/pass-user.sh
+      - test -L ~/.tmux.conf                          || ln -s ${DOTFILES_CONFIG}/tmux/tmux.conf ~/.tmux.conf
       - test -L ~/.config/pet/config.toml             || ln -s ${DOTFILES_CONFIG}/pet-config.toml ~/.config/pet/config.toml
       - test -L  ~/.amethyst.yml                      || ln -s ${DOTFILES_CONFIG}/amethyst.yml ~/.amethyst.yml
-      - test -L ~/.skhdrc                             || ln -s ${DOTFILES_CONFIG}/skhd/skhdrc ~/.skhdrc
   profile:createdirs:
     cmds:
       - for:
           - ~/.config/pet
-          - ~/.config/skhd
-          - ~/.tmux/plugins/tmux-fzf
           - ~/git
           - ~/go
         cmd: mkdir -p {{.ITEM}}
