@@ -38,6 +38,7 @@ return {
           'helm_ls',
           'jdtls',
           'jsonls',
+          'marksman',
           'lua_ls',
           'pylsp',
           'rust_analyzer',
@@ -99,7 +100,7 @@ return {
           templ = 'templ',
         },
         pattern = {
-          ['.*.hcl'] = 'hcl',
+          ['.*.hcl'] = 'terraformls',
           ['.*.tf'] = 'hcl',
           ['.*Tiltfile.*'] = 'bzl',
           ['.monokle'] = 'json',

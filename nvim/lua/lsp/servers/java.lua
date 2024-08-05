@@ -3,7 +3,7 @@ return {
     'neovim/nvim-lspconfig',
     opts = function()
       return {
-        -- How to find the root dir for a given filename. The default comes from
+        -- How to find the root dir for a given file name. The default comes from
         -- lspconfig which provides a function specifically for java projects.
         root_dir = require('lspconfig.server_configurations.jdtls').default_config.root_dir,
 

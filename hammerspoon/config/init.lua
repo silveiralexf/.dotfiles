@@ -16,7 +16,7 @@ end
 function HammerSpoonLoader:append(new_options)
   for k, v in pairs(new_options) do
     if self.options[k] ~= nil then
-      hs.alert.show('Duplicate config option detected: ', { old = self.options[k], new = new_options[k] })
+      hs.alert.show('[HammerSpoon] Duplicate config option detected: ', { old = self.options[k], new = new_options[k] })
       goto continue
     end
     self.options[k] = v

@@ -1,18 +1,31 @@
-[![wakatime](https://wakatime.com/badge/github/silveiralexf/.dotfiles.svg)](https://wakatime.com/badge/github/silveiralexf/.dotfiles)
+<!-- markdownlint-disable MD041 -->
 
 # dotfiles
 
-Some folks like gaming, I like messing with dotfiles, don't judge ;-P
+[![wakatime](https://wakatime.com/badge/github/silveiralexf/.dotfiles.svg)](https://wakatime.com/badge/github/silveiralexf/.dotfiles)
 
-## Setup
+## 💻 What's in here?
 
-Various tooling and tasks are automated within the [Taskfile runner](https://github.com/go-task/task/).
+| Name                                   | Description                                                                        |
+| -------------------------------------- | ---------------------------------------------------------------------------------- |
+| [nvim](./nvim/README.md)               | LazyVim Configs                                                                    |
+| [wezterm](./wezterm/README.md)         | Wezterm configs                                                                    |
+| [hammerspoon](./hammerspoon/README.md) | Hammerspoon configs, custom shortcuts/keybindings, and personal Spoons             |
+| [tmux](./tmux/README.md)               | Tmux configs and plugins                                                           |
+| [etc](./etc/config)                    | Shell profile, rcfiles, aliases, exports and functions and config files in general |
+| [scripts](./scritps/)                  | Misc scripts for every-day stuff                                                   |
+| [tasks](./tasks/)                      | Taskfiles to automate install and configuration steps                              |
 
-Configurations are done inside [Taskfile.yml](./Taskfile.yml).
+## 🔨 How to Install?
 
-A list of tasks available can be viewed with `task -l`, as shown below:
+Install steps and setup configuration are automated with [Taskfile runner](https://github.com/go-task/task/).
 
-```sh
+This is the only requirement that needs to be manually installed, all the
+remaining dependencies are controlled and customized from the main [Taskfile.yml](./Taskfile.yml).
+
+Run `task -l` to view the complete list of tasks currently available:
+
+```bash
 task: Available tasks for this project:
 * changelog:                                  Generates rudimentary changelog
 * hooks:                                      Setup git hooks locally

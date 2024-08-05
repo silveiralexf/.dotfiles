@@ -16,6 +16,7 @@ vim.api.nvim_create_autocmd('FileType', {
 -- Always attach LSP when available
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
+    local bufnr = args.buf
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if client and client.supports_method('textDocument/implementation') then
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = 0 })
@@ -23,14 +24,30 @@ vim.api.nvim_create_autocmd('LspAttach', {
         buffer = 0,
         desc = 'Go to definition',
       })
+      if client and client.supports_method('textDocument/completion') then
+        vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
+      end
+      if client and client.supports_method('textDocument/definition') then
+        vim.bo[bufnr].tagfunc = 'v:lua.vim.lsp.tagfunc'
+      end
     end
   end,
 })
 
-vim.lsp.start_client({
-  name = 'terraformls',
-  cmd = { 'terraform-ls', 'serve' },
-  root_dir = vim.fs.dirname(vim.fs.find({ '*.hcl', '*.tf' }, { upward = true })[1]),
+-- Handler for Terraform
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  pattern = { '*.tf', '*.hcl', '*.tfvars' },
+  group = vim.api.nvim_create_augroup('FixTerraformCommentString', { clear = true }),
+  callback = function(args)
+    vim.opt_local.filetype = 'terraform'
+    vim.lsp.start_client({
+      name = 'terraformls',
+      cmd = { 'terraform-ls', 'serve' },
+      root_dir = vim.fs.dirname(vim.fs.find({ '*.hcl', '*.tf', '*.tfvars' }, { upward = true })[1]),
+    })
+    vim.lsp.buf.formatting_sync()
+    vim.bo[args.buf].commentstring = '# %s'
+  end,
 })
 
 -- Create an event handler for Tiltfiles
@@ -142,7 +159,7 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- Wrap and check for spell in text filetypes.
+-- Wrap and check for spell in text file types.
 vim.api.nvim_create_autocmd('FileType', {
   group = vim.api.nvim_create_augroup('wrap_spell', { clear = true }),
   pattern = { 'gitcommit', 'markdown' },

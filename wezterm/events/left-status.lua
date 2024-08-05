@@ -3,10 +3,10 @@ local wezterm = require('wezterm')
 local nf = wezterm.nerdfonts
 local M = {}
 
-local GLYPH_SEMI_CIRCLE_LEFT = nf.ple_left_half_circle_thick --[[ '' ]]
-local GLYPH_SEMI_CIRCLE_RIGHT = nf.ple_right_half_circle_thick --[[ '' ]]
-local GLYPH_KEY_TABLE = nf.md_table_key --[[ '󱏅' ]]
-local GLYPH_KEY = nf.md_key --[[ '󰌆' ]]
+local ICON_SEMI_CIRCLE_LEFT = nf.ple_left_half_circle_thick --[[ '' ]]
+local ICON_SEMI_CIRCLE_RIGHT = nf.ple_right_half_circle_thick --[[ '' ]]
+local ICON_KEY_TABLE = nf.md_table_key --[[ '󱏅' ]]
+local ICON_KEY = nf.md_key --[[ '󰌆' ]]
 
 local colors = {
   glyph_semi_circle = { bg = 'rgba(0, 0, 0, 0.4)', fg = '#fab387' },
@@ -31,17 +31,17 @@ M.setup = function()
 
     local name = window:active_key_table()
     if name then
-      _push(GLYPH_SEMI_CIRCLE_LEFT, colors.glyph_semi_circle.fg, colors.glyph_semi_circle.bg)
-      _push(GLYPH_KEY_TABLE, colors.text.fg, colors.text.bg)
+      _push(ICON_SEMI_CIRCLE_LEFT, colors.glyph_semi_circle.fg, colors.glyph_semi_circle.bg)
+      _push(ICON_KEY_TABLE, colors.text.fg, colors.text.bg)
       _push(' ' .. string.upper(name), colors.text.fg, colors.text.bg)
-      _push(GLYPH_SEMI_CIRCLE_RIGHT, colors.glyph_semi_circle.fg, colors.glyph_semi_circle.bg)
+      _push(ICON_SEMI_CIRCLE_RIGHT, colors.glyph_semi_circle.fg, colors.glyph_semi_circle.bg)
     end
 
     if window:leader_is_active() then
-      _push(GLYPH_SEMI_CIRCLE_LEFT, colors.glyph_semi_circle.fg, colors.glyph_semi_circle.bg)
-      _push(GLYPH_KEY, colors.text.fg, colors.text.bg)
+      _push(ICON_SEMI_CIRCLE_LEFT, colors.glyph_semi_circle.fg, colors.glyph_semi_circle.bg)
+      _push(ICON_KEY, colors.text.fg, colors.text.bg)
       _push(' ', colors.text.fg, colors.text.bg)
-      _push(GLYPH_SEMI_CIRCLE_RIGHT, colors.glyph_semi_circle.fg, colors.glyph_semi_circle.bg)
+      _push(ICON_SEMI_CIRCLE_RIGHT, colors.glyph_semi_circle.fg, colors.glyph_semi_circle.bg)
     end
 
     window:set_left_status(wezterm.format(__cells__))

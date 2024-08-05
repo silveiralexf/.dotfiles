@@ -131,8 +131,7 @@ return {
       ['media_files'] = {
         media_files = {
           filetypes = { 'png', 'webp', 'jpg', 'jpeg' },
-          -- find command (defaults to `fd`)
-          find_cmd = 'rg',
+          find_cmd = { 'rg', '--vimgrep', '--smart-case', '-M', '200' },
         },
       },
     },
