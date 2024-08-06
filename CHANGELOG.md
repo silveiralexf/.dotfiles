@@ -2,7 +2,7 @@
 
 
 ### [2024-08-05]
- * [[32e89cb]](https://github.com/silveiralexf/.dotfiles/commit/32e89cba320cba27651280ee718afbdb8fd50a46) feat(docs): improve overall documentation (silveiralexf@gmail.com)
+ * [[adcc582]](https://github.com/silveiralexf/.dotfiles/commit/adcc58207700cd8abfe3d1a8311c0dc81e048b5e) feat(docs): improve overall documentation (silveiralexf@gmail.com)
 
 
 
