@@ -1,21 +1,22 @@
 return {
   {
     'neovim/nvim-lspconfig',
-    opts = {
-      codelens = {
-        enabled = true,
-      },
-      servers = {
-        yamlls = {
-          capabilities = {
-            textDocument = {
-              foldingRange = {
-                dynamicRegistration = false,
-                lineFoldingOnly = true,
+    config = function()
+      require('lspconfig').setup({
+        opts = {
+          codelens = true,
+        },
+        servers = {
+          yamlls = {
+            capabilities = {
+              textDocument = {
+                foldingRange = {
+                  dynamicRegistration = true,
+                  lineFoldingOnly = true,
+                },
               },
             },
           },
-          -- lazy-load schema-store when needed
           on_new_config = function(new_config)
             new_config.settings.yaml.schemas = new_config.settings.yaml.schemas or {}
             vim.list_extend(new_config.settings.yaml.schemas, require('schemastore').yaml.schemas())
@@ -64,7 +65,19 @@ return {
             },
           },
         },
-      },
-    },
+        settings = {
+          yaml = {
+            schemaStore = {
+              -- You must disable built-in schemaStore support if you want to use
+              -- this plugin and its advanced options like `ignore`.
+              enable = false,
+              -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+              url = '',
+            },
+            schemas = require('schemastore').yaml.schemas(),
+          },
+        },
+      })
+    end,
   },
 }

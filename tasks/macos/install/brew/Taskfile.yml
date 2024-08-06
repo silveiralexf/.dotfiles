@@ -25,47 +25,48 @@ tasks:
     desc: Brew install regular recipes
     cmds:
       - for:
+          - aquasecurity/trivy/trivy
           - bash
-          - coreutils
-          - moreutils
-          - wget
-          - terminal-notifier
-          - xz
-          - gnu-sed
-          - jq
-          - yq
-          - imagemagick
-          - wezterm
-          - tmux
-          - tmuxp
-          - gitmux
-          - pipx
-          - gpg
-          - pass
-          - lazygit
+          - bufbuild/buf/buf
+          - chafa
           - choose-gui
-          - sops
+          - coreutils
+          - erlang
+          - font-hack-nerd-font
+          - gitmux
+          - gnu-sed
+          - go-task/tap/go-task
+          - gpg
+          - grc
           - htop
           - iftop
-          - source-highlight
-          - the_silver_searcher
-          - ripgrep
-          - font-hack-nerd-font
+          - imagemagick
+          - jq
           - knqyf263/pet/pet
-          - go-task/tap/go-task
-          - bufbuild/buf/buf
-          - pre-commit
-          - grc
-          - luarocks
+          - kubent
+          - lazygit
           - luajit
+          - luarocks
           - markdown-toc
-          - viu
-          - chafa
-          - aquasecurity/trivy/trivy
-          - ueberzugpp
-          - erlang
+          - moreutils
+          - pass
           - php
+          - pipx
+          - pre-commit
+          - ripgrep
+          - sops
+          - source-highlight
+          - terminal-notifier
+          - the_silver_searcher
+          - tmux
+          - tmuxp
+          - ueberzugpp
+          - viu
           - vlc
+          - wezterm
+          - wget
+          - xz
+          - yq
         cmd: brew list {{.ITEM}} || brew install {{.ITEM}}
   all:custom:
     desc: Brew install recipes with custom steps
