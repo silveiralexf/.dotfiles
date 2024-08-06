@@ -2,6 +2,9 @@
 
 
 ### [2024-08-06]
+ * [[20587bd]](https://github.com/silveiralexf/.dotfiles/commit/20587bd48e2296b3c29aec84d39b808b88dfb90f) chore(nvim): disable spell check (silveiralexf@gmail.com)
+
+
  * [[3a2266a]](https://github.com/silveiralexf/.dotfiles/commit/3a2266ad3eb57555ddf3718c6a9bc92d8b4e3837) feat(nvim): improve kustomize support (silveiralexf@gmail.com)
 
 
