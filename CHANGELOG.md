@@ -1,6 +1,11 @@
 # CHANGELOG
 
 
+### [2024-08-06]
+ * [[3a2266a]](https://github.com/silveiralexf/.dotfiles/commit/3a2266ad3eb57555ddf3718c6a9bc92d8b4e3837) feat(nvim): improve kustomize support (silveiralexf@gmail.com)
+
+
+
 ### [2024-08-05]
  * [[adcc582]](https://github.com/silveiralexf/.dotfiles/commit/adcc58207700cd8abfe3d1a8311c0dc81e048b5e) feat(docs): improve overall documentation (silveiralexf@gmail.com)
 

@@ -21,7 +21,7 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 0
 
 vim.opt.spelllang = 'en_us'
-vim.opt.spell = true
+vim.opt.spell = false
 
 vim.opt.smartindent = true
 vim.opt.wrap = false
