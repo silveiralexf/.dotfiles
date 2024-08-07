@@ -7,6 +7,7 @@ local function map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+-- Primary Leader keybindings
 map('n', '<leader><tab>v', '<cmd>vnew<cr>', { desc = 'New vertically split pane' })
 map('n', '<leader>s', '<cmd>TelescopeSearch<cr>', { desc = 'TelescopeSearch' })
 map('n', '<leader>f', '<cmd>TelescopeFind<cr>', { desc = 'TelescopeFind' })
@@ -35,16 +36,8 @@ end, {
   desc = 'ObsidianFollowLink',
 })
 
---map("n", "<tab>h", "<cmd>tabprev<cr>", { desc = "Previous tab" })
---map("n", "<tab>l", "<cmd>tabnex<cr>", { desc = "Next tab" })
---map("n", "<tab>n", "<cmd>tabnew<cr>", { desc = "New tab" })
-
+-- Custom Leaders keybindings
 map('n', '\\f', '<cmd>Neotree focus<cr>', { desc = 'Focus on Neotree' })
-
--- map("n", "\\e", function()
---   require("vim.diagnostic").open_float()
--- end, { desc = "Show Diagnostics" })
-
 map('n', '\\w', function()
   local wp = require('window-picker')
   local picked_window_id = wp.pick_window() or vim.api.nvim_get_current_win()

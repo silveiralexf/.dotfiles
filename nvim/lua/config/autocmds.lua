@@ -3,8 +3,10 @@
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
+-- [Vim/Preferences] Default color for margin
 vim.cmd([[highlight ColorColumn guibg=#FF8C00]])
 
+-- [Vim/NeoTree] Disable folding on neotree buffers
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'neo-tree', 'Outline' },
   callback = function()
@@ -13,7 +15,29 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- Always attach LSP when available
+-- [Vim/Preferences] Go to last loc when opening a buffer.
+-- this is a slight modification of LazyVim's default AutoCmd
+vim.api.nvim_create_autocmd('BufReadPost', {
+  group = vim.api.nvim_create_augroup('last_loc', { clear = true }),
+  callback = function(event)
+    local exclude = { 'gitcommit' }
+    local buf = event.buf
+    if vim.tbl_contains(exclude, vim.bo[buf].filetype) or vim.b[buf].lazyvim_last_loc then
+      return
+    end
+    vim.b[buf].lazyvim_last_loc = true
+    -- local mark = vim.api.nvim_buf_get_mark(0, '"')
+    -- local lcount = vim.api.nvim_buf_line_count(0)
+    local mark = vim.api.nvim_buf_get_mark(buf, '"')
+    local lcount = vim.api.nvim_buf_line_count(buf)
+    if mark[1] > 0 and mark[1] <= lcount then
+      -- Protected call to catch errors.
+      pcall(vim.api.nvim_win_set_cursor, 0, mark)
+    end
+  end,
+})
+
+-- [Vim/LSP] Always attach LSP when available
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local bufnr = args.buf
@@ -34,7 +58,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- Handler for Terraform
+-- [Terraform] Handler for language server
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   pattern = { '*.tf', '*.hcl', '*.tfvars' },
   group = vim.api.nvim_create_augroup('FixTerraformCommentString', { clear = true }),
@@ -50,7 +74,7 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   end,
 })
 
--- Create an event handler for Tiltfiles
+-- [Tilt] Handler for Tiltfiles
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'bzl',
   callback = function(ev)
@@ -70,20 +94,7 @@ https://docs.stack.build/docs/vscode/starlark-language-server
   end,
 })
 
-vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  pattern = { '*.gohtml', '*.go.html' },
-  callback = function()
-    vim.opt_local.filetype = 'gohtmltmpl'
-  end,
-})
-vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  pattern = { '*.gotmpl', '*.go.tmpl', '*.tmpl' },
-  callback = function()
-    vim.opt_local.filetype = 'gotexttmpl'
-  end,
-})
-
--- Go auto organize imports
+-- [Golang] Setup auto-organize imports
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = '*.go',
   callback = function()
@@ -102,7 +113,23 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
--- Setup Vue/Volar without conflicting with TypeScript server
+-- [Golang] Set filetype for Go template files
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = { '*.gotmpl', '*.go.tmpl', '*.tmpl' },
+  callback = function()
+    vim.opt_local.filetype = 'gotexttmpl'
+  end,
+})
+
+-- [Golang] Set filetype for Go HTML template files
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = { '*.gohtml', '*.go.html' },
+  callback = function()
+    vim.opt_local.filetype = 'gohtmltmpl'
+  end,
+})
+
+-- [TypeScript/VUE]Setup Vue/Volar without conflicting with TypeScript server
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('LspAttachConflicts', { clear = true }),
   desc = 'Prevent tsserver and volar conflict',
@@ -124,7 +151,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- Markdown preview with Glow
+--
+-- [Markdown] Preview with Glow
+--
 local function render_markdown_with_glow()
   local tempfile = vim.fn.tempname() .. '.md'
   vim.cmd('write! ' .. tempfile)
@@ -148,6 +177,7 @@ local function render_markdown_with_glow()
   })
 end
 
+-- [Markdown] Preview with Glow keybindings
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'markdown',
   callback = function()
@@ -159,25 +189,12 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- Wrap and check for spell in text file types.
+-- [Spell] Wrap and check for spell in text file types.
 vim.api.nvim_create_autocmd('FileType', {
   group = vim.api.nvim_create_augroup('wrap_spell', { clear = true }),
   pattern = { 'gitcommit', 'markdown' },
   callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.spell = true
-  end,
-})
-
--- Go to last loc when opening a buffer.
-vim.api.nvim_create_autocmd('BufReadPost', {
-  group = vim.api.nvim_create_augroup('last_loc', { clear = true }),
-  callback = function()
-    local mark = vim.api.nvim_buf_get_mark(0, '"')
-    local lcount = vim.api.nvim_buf_line_count(0)
-    if mark[1] > 0 and mark[1] <= lcount then
-      -- Protected call to catch errors.
-      pcall(vim.api.nvim_win_set_cursor, 0, mark)
-    end
   end,
 })

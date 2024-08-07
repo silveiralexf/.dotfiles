@@ -1,7 +1,15 @@
 # CHANGELOG
 
 
+### [2024-08-07]
+ * [[65d47c6]](https://github.com/silveiralexf/.dotfiles/commit/65d47c67bf1c297b62f5bddfa694d826f9f228d0) chore(nvim): organize autocmds (silveiralexf@gmail.com)
+
+
+
 ### [2024-08-06]
+ * [[9ce899b]](https://github.com/silveiralexf/.dotfiles/commit/9ce899b7b14c9f7a45c9266a743ee62f2cdc7d3e) chore(deps): bump lazy packages (silveiralexf@gmail.com)
+
+
  * [[20587bd]](https://github.com/silveiralexf/.dotfiles/commit/20587bd48e2296b3c29aec84d39b808b88dfb90f) chore(nvim): disable spell check (silveiralexf@gmail.com)
 
 
