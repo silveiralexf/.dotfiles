@@ -2,7 +2,7 @@
 
 
 ### [2024-08-07]
- * [[65d47c6]](https://github.com/silveiralexf/.dotfiles/commit/65d47c67bf1c297b62f5bddfa694d826f9f228d0) chore(nvim): organize autocmds (silveiralexf@gmail.com)
+ * [[83e921c]](https://github.com/silveiralexf/.dotfiles/commit/83e921c6bd340b8de6fc4ce5e6f26f2d4395b18a) chore(nvim): organize autocmds (silveiralexf@gmail.com)
 
 
 
