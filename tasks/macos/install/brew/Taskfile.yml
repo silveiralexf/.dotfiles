@@ -32,7 +32,10 @@ tasks:
           - choose-gui
           - coreutils
           - erlang
+          - fd
+          - ffmpegthumbnailer
           - font-hack-nerd-font
+          - font-symbols-only-nerd-font
           - gitmux
           - gnu-sed
           - go-task/tap/go-task
@@ -47,13 +50,16 @@ tasks:
           - lazygit
           - luajit
           - luarocks
+          - maczip
           - markdown-toc
           - moreutils
           - pass
           - php
           - pipx
+          - poppler
           - pre-commit
           - ripgrep
+          - sevenzip
           - sops
           - source-highlight
           - terminal-notifier
@@ -66,8 +72,18 @@ tasks:
           - wezterm
           - wget
           - xz
+          - yazi
           - yq
+          - zoxide
         cmd: brew list {{.ITEM}} || brew install {{.ITEM}}
+  all:fonts:
+    desc: Install Nerd-Fonts
+    cmds:
+      - |
+        set -e
+        for FONT in $(cat ${DOTFILES_HOME}/etc/lists/fonts.txt); do
+          brew install "${FONT}"
+        done
   all:custom:
     desc: Brew install recipes with custom steps
     dotenv:
@@ -75,7 +91,6 @@ tasks:
     cmds:
       - test -f /Applications/Amethyst.app/Contents/MacOS/Amethyst || brew install --cask amethyst
       - task: all:custom:colima
-      - task: all:custom:packer
   all:custom:colima:
     desc: Brew install Colima
     dotenv:
@@ -85,20 +100,3 @@ tasks:
     cmds:
       - brew install colima
       - brew services start colima
-  all:custom:packer:
-    desc: Install Packer
-    dotenv:
-      - ~/.zshrc
-    status:
-      - command -v $(which packer)
-    cmds:
-      - brew tap hashicorp/tap
-      - brew install hashicorp/tap/packer
-  all:fonts:
-    desc: Install Nerd-Fonts
-    cmds:
-      - |
-        set -e
-        for FONT in $(cat ${DOTFILES_HOME}/etc/lists/fonts.txt); do
-          brew install "${FONT}"
-        done

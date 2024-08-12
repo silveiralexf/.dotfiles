@@ -1,6 +1,11 @@
 # CHANGELOG
 
 
+### [2024-08-12]
+ * [[b15b053]](https://github.com/silveiralexf/.dotfiles/commit/b15b053a0d9bce6292604c5eaf439e65547954f9) chore(nvim): remove unused (silveiralexf@gmail.com)
+
+
+
 ### [2024-08-07]
  * [[83e921c]](https://github.com/silveiralexf/.dotfiles/commit/83e921c6bd340b8de6fc4ce5e6f26f2d4395b18a) chore(nvim): organize autocmds (silveiralexf@gmail.com)
 
