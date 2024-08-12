@@ -104,6 +104,9 @@ export GOBIN="${GOPATH}/bin"
 export PATH="$PATH:$GOBIN:$GOROOT/bin"
 export PATH="${PATH}:/usr/local/go/bin"
 
+# Lua
+eval "$(luarocks path --bin)"
+
 # Rust
 source "${HOME}/.cargo/env"
 

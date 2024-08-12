@@ -1,4 +1,4 @@
 {
-  "diagnostics.globals": ["vim", "args", "hs", "spoon"],
+  "diagnostics.globals": ["args", "hs", "spoon", "ui", "vim", "ya"],
   "workspace.checkThirdParty": false
 }
