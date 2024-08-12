@@ -12,6 +12,7 @@ return {
     opts = {
       rocks = {
         'fzy',
+        'jsregexp',
       },
     },
   },

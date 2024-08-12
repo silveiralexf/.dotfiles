@@ -19,7 +19,7 @@ return {
       -- Sample keybind for prompt menu.
       -- Note that the <c-u> is important for selections to work properly.
       {
-        '<leader>Op',
+        '\\Op',
         ":<c-u>lua require('ollama').prompt()<cr>",
         desc = 'Ollama prompt',
         mode = { 'n', 'v' },
@@ -28,7 +28,7 @@ return {
       -- Sample keybind for direct prompting.
       -- Note that the <c-u> is important for selections to work properly.
       {
-        '<leader>Og',
+        '\\Og',
         ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>",
         desc = 'Ollama Generate Code',
         mode = { 'n', 'v' },

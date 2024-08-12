@@ -1,6 +1,11 @@
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
+
+-- Runtime Path
+vim.opt.rtp:append(os.getenv('HOME') .. '/.luarocks/share/lua/5.1')
+vim.opt.rtp:append(os.getenv('HOME') .. '/.luarocks/lib/luarocks/rocks-5.1')
+
 vim.o.foldcolumn = '1'
 vim.o.foldenable = true
 vim.o.foldlevel = 99

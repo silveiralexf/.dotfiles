@@ -1,5 +1,5 @@
-local backdrops = require('utils.backdrops')
-local platform = require('utils.platform')()
+local backdrops = require('extensions.backdrops')
+local platform = require('extensions.platform')()
 local wezterm = require('wezterm')
 local act = wezterm.action
 
