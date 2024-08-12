@@ -12,6 +12,7 @@
 | [wezterm](./wezterm/README.md)         | Wezterm configs                                                                    |
 | [hammerspoon](./hammerspoon/README.md) | Hammerspoon configs, custom shortcuts/keybindings, and personal Spoons             |
 | [tmux](./tmux/README.md)               | Tmux configs and plugins                                                           |
+| [yazi](./yazi/README.md)               | Yazi configs                                                                       |
 | [etc](./etc/config)                    | Shell profile, rcfiles, aliases, exports and functions and config files in general |
 | [scripts](./scritps/)                  | Misc scripts for every-day stuff                                                   |
 | [tasks](./tasks/)                      | Taskfiles to automate install and configuration steps                              |

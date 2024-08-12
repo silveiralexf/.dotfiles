@@ -2,7 +2,7 @@
 
 
 ### [2024-08-12]
- * [[c5e218e]](https://github.com/silveiralexf/.dotfiles/commit/c5e218eb994bcde8d8884d61cb413ae323a8b492) chore(repo): reorg package names for consistency (silveiralexf@gmail.com)
+ * [[e024be7]](https://github.com/silveiralexf/.dotfiles/commit/e024be796abed6939e2f6fff2959aff967b1387b) chore(repo): reorg package names for consistency (silveiralexf@gmail.com)
 
 
  * [[79a348b]](https://github.com/silveiralexf/.dotfiles/commit/79a348bf79d18454612a5e3c53d2fcc3b3220ffb) feat(nvim): add yazi support (silveiralexf@gmail.com)
