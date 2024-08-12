@@ -20,7 +20,7 @@ return {
       event = 'VeryLazy',
       keys = {
         { -- lazy style key map
-          '<leader>cw',
+          '<leader>gw',
           '<cmd>Telescope git_worktree<cr>',
           desc = 'undo history',
         },

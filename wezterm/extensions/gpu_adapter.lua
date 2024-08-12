@@ -1,4 +1,4 @@
-local platform = require('utils.platform')()
+local platform = require('extensions.platform')()
 local wezterm = require('wezterm')
 
 ---@alias WeztermGPUBackend 'Vulkan'|'Metal'|'Gl'|'Dx12'

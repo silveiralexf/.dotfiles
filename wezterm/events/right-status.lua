@@ -1,4 +1,4 @@
-local umath = require('utils.math')
+local umath = require('extensions.math')
 local wezterm = require('wezterm')
 
 local nf = wezterm.nerdfonts

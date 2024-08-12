@@ -2,6 +2,12 @@
 
 
 ### [2024-08-12]
+ * [[c5e218e]](https://github.com/silveiralexf/.dotfiles/commit/c5e218eb994bcde8d8884d61cb413ae323a8b492) chore(repo): reorg package names for consistency (silveiralexf@gmail.com)
+
+
+ * [[79a348b]](https://github.com/silveiralexf/.dotfiles/commit/79a348bf79d18454612a5e3c53d2fcc3b3220ffb) feat(nvim): add yazi support (silveiralexf@gmail.com)
+
+
  * [[b15b053]](https://github.com/silveiralexf/.dotfiles/commit/b15b053a0d9bce6292604c5eaf439e65547954f9) chore(nvim): remove unused (silveiralexf@gmail.com)
 
 

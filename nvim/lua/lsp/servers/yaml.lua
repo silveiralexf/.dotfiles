@@ -1,3 +1,26 @@
+-- local cfg = require('yaml-companion').setup({
+--   -- Additional schemas available in Telescope picker
+--   schemas = {
+--   },
+--
+--   -- Pass any additional options that will be merged in the final LSP config
+--   -- Defaults: https://github.com/someone-stole-my-name/yaml-companion.nvim/blob/main/lua/yaml-companion/config.lua
+--   lspconfig = {
+--     settings = {
+--       yaml = {
+--         validate = true,
+--         schemaStore = {
+--           enable = false,
+--           url = '',
+--         },
+--         schemas = {
+--           ['https://json.schemastore.org/github-workflow.json'] = '.github/workflows/*.{yml,yaml}',
+--         },
+--       },
+--     },
+--   },
+-- })
+--
 return {
   {
     'neovim/nvim-lspconfig',
@@ -47,8 +70,8 @@ return {
 
                 -- additional schemas (not in the catalog)
                 extra = {
-                  url = 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json',
                   name = 'Argo CD Application',
+                  url = 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json',
                   fileMatch = 'argocd-application.yaml',
                 },
                 Taskfile = {
@@ -59,6 +82,14 @@ return {
                     '{t,T}askfiles/*.{yml,yaml}',
                     '{t,T}asks/*.{yml,yaml}',
                     'taskfiles/*.y*ml',
+                  },
+                  {
+                    name = 'Flux GitRepository',
+                    uri = 'https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/gitrepository-source-v1.json',
+                  },
+                  {
+                    name = 'RabbitMQ Cluster',
+                    uri = 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/rabbitmq.com/rabbitmqcluster_v1beta1.json',
                   },
                 },
               }),

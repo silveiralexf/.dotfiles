@@ -1,15 +1,12 @@
-local HammerPass = {
-  hs = hs,
-}
-
+local HammerPass = {}
 HammerPass.__index = HammerPass
 
 -- Metadata
-HammerPass.name = 'HammerspoonShiftIt'
+HammerPass.name = 'HammerPass'
 HammerPass.version = '1.1'
-HammerPass.author = 'Peter Klijn'
-HammerPass.homepage = 'https://github.com/peterklijn/hammerspoon-shiftit'
-HammerPass.license = 'https://github.com/peterklijn/hammerspoon-shiftit/blob/master/LICENSE.md'
+HammerPass.author = 'Felipe Silveira'
+HammerPass.homepage = 'https://github.com/silveiralexf/.dotfiles/blob/master/hammerspoon/extensions/HammerPass.lua'
+HammerPass.license = 'https://github.com/silveiralexf/.dotfiles/blob/master/LICENSE'
 
 -- default password store directory
 HammerPass.StoreBaseDir = '~/.password-store'
