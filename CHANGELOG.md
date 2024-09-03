@@ -2,7 +2,7 @@
 
 
 ### [2024-09-03]
- * [[d7dad15]](https://github.com/silveiralexf/.dotfiles/commit/d7dad15afc6571de4a8184e2646250a350eb47c8) docs(nvim): update readme (silveiralexf@gmail.com)
+ * [[16836db]](https://github.com/silveiralexf/.dotfiles/commit/16836db26dc51567152e442d21a4752f8a03d741) docs(nvim): update readme (silveiralexf@gmail.com)
 
 
  * [[8f30e64]](https://github.com/silveiralexf/.dotfiles/commit/8f30e641cf79510d9066ec5ffa9f1a909f0c30a1) chore(repo): add new commit msg tag for deps (silveiralexf@gmail.com)
