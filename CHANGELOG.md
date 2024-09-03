@@ -2,6 +2,9 @@
 
 
 ### [2024-09-03]
+ * [[56fe6cb]](https://github.com/silveiralexf/.dotfiles/commit/56fe6cb1af7571b2c2b501202bf20bd77ecd2e44) deps(nvim): bump lazy and llama version (silveiralexf@gmail.com)
+
+
  * [[d16547c]](https://github.com/silveiralexf/.dotfiles/commit/d16547c76716d008f0518efd2446a105e8322805) perf(wezterm): cache settings for performance (silveiralexf@gmail.com)
 
 
