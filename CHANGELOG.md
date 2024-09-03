@@ -2,6 +2,9 @@
 
 
 ### [2024-09-03]
+ * [[a566bc0]](https://github.com/silveiralexf/.dotfiles/commit/a566bc0a00a782ce6d45d7cc8832f77cf1dd0c9c) chore(nvim): colorscheme and formatting tweaks (silveiralexf@gmail.com)
+
+
  * [[c4f61cb]](https://github.com/silveiralexf/.dotfiles/commit/c4f61cb295447950dd455a1ea0700558eb4843ff) chore(tasks): add protobuf lsp install (silveiralexf@gmail.com)
 
 
