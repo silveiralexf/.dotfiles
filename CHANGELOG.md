@@ -1,6 +1,11 @@
 # CHANGELOG
 
 
+### [2024-09-03]
+ * [[72b8dd6]](https://github.com/silveiralexf/.dotfiles/commit/72b8dd6ca32a1a307bffcfe44aabbf9041ca8ed1) chore: remove pipx aliases (silveiralexf@gmail.com)
+
+
+
 ### [2024-08-12]
  * [[9ea06b0]](https://github.com/silveiralexf/.dotfiles/commit/9ea06b09ff926534e5759e0976b00a3f211238ad) docs(yazi): add placeholder for docs (silveiralexf@gmail.com)
 
