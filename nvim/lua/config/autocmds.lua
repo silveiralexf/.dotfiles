@@ -6,6 +6,39 @@
 -- [Vim/Preferences] Default color for margin
 vim.cmd([[highlight ColorColumn guibg=#FF8C00]])
 
+-- [Vim/ColorScheme] SonokaiCustom
+vim.cmd([[
+    fu! s:sonokai_custom() abort
+        hi CursorLineNr guibg=#242424
+        hi Directory guifg=White
+        hi IndentBlanklineChar guifg=#444444
+        hi MatchParen guifg=red guibg=none gui=underline,bold
+        hi Pmenu ctermfg=81 ctermbg=16 guifg=#66D9EF guibg=#202020
+        hi PmenuSel guifg=#000000
+        hi Whitespace guifg=red " gui=underline
+        hi! PmenuThumb guibg=#66D9EF
+        hi! TSVariableBuiltin gui=bold
+        hi! link PmenuSbar Pmenu
+        hi! link TSConstant Purple
+        hi! link TSInclude Green
+        hi! link TSParameter Orange
+        hi! link TSTag Blue
+        " hi! link TSType Red
+        " hi! link TSVariableBuiltin Red
+        " hi LineNr guibg=#202020
+        " hi SignColumn guibg=#202020
+        " hi ColorColumn guibg=#111111
+
+        exec 'hi! TSVariableBuiltin gui=bold guifg=' .. synIDattr(hlID('Purple'), 'fg')
+        exec 'hi! TSInclude gui=bold guifg=' .. synIDattr(hlID('Green'), 'fg')
+        exec 'hi! TSConstant gui=bold guifg=' .. synIDattr(hlID('Purple'), 'fg')
+    endf
+    augroup SonokaiCustom
+        autocmd!
+        autocmd ColorScheme sonokai call s:sonokai_custom()
+    augroup END
+]])
+
 -- [Vim/NeoTree] Disable folding on neotree buffers
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'neo-tree', 'Outline' },
@@ -58,6 +91,38 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+-- -- [Golang] Set filetype for Go template files
+-- vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+--   pattern = { 'proto' },
+--   callback = function()
+--     vim.opt_local.filetype = 'proto'
+--   end,
+-- })
+--
+-- -- [ProtoBuf] Handler for protofiles
+-- vim.api.nvim_create_autocmd('FileType', {
+--   pattern = 'proto',
+--   callback = function(args)
+--     vim.lsp.start({
+--       name = 'proto',
+--       root_dir = vim.fs.root(args.buf, { '*.proto' }),
+--       cmd = { 'protols' },
+--     })
+--
+--     local active_clients = vim.lsp.get_clients()
+--     local client = vim.lsp.get_client_by_id(args.data.client_id)
+--     local bufnr = args.buf
+--
+--     if client ~= nil and client.name == 'proto' then
+--       for _, c in ipairs(active_clients) do
+--         if c.name == 'clangd' then
+--           vim.lsp.buf_detach_client(bufnr, c.id)
+--         end
+--       end
+--     end
+--   end,
+-- })
+--
 -- [Terraform] Handler for language server
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   pattern = { '*.tf', '*.hcl', '*.tfvars' },
@@ -123,11 +188,31 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 
 -- [Golang] Set filetype for Go HTML template files
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = { 'kustomization.yaml' },
+  callback = function()
+    vim.opt_local.filetype = 'yaml'
+  end,
+})
+
+-- [Golang] Set filetype for Go HTML template files
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   pattern = { '*.gohtml', '*.go.html' },
   callback = function()
     vim.opt_local.filetype = 'gohtmltmpl'
   end,
 })
+-- vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+--   pattern = {
+--     '.*/templates/.*%.tpl',
+--     '.*/templates/.*%.ya?ml',
+--     'helmfile.*%.ya?ml',
+--     '*.gohtml',
+--     '*.gotmpl',
+--   },
+--   callback = function()
+--     vim.opt_local.filetype = 'gotmpl'
+--   end,
+-- })
 
 -- [TypeScript/VUE]Setup Vue/Volar without conflicting with TypeScript server
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -197,4 +282,14 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.opt_local.wrap = true
     vim.opt_local.spell = true
   end,
+})
+
+-- [User Commands]
+vim.api.nvim_create_user_command('InsertDate', 'r!date "+\\%Y-\\%m-\\%d"', {})
+
+vim.api.nvim_create_augroup('LspStopByFormat', { clear = true })
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+  pattern = { 'kustomization.yaml' },
+  command = 'LspStop',
+  group = 'LspStopByFormat',
 })
