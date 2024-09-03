@@ -2,6 +2,9 @@
 
 
 ### [2024-09-03]
+ * [[9aaf8ea]](https://github.com/silveiralexf/.dotfiles/commit/9aaf8ea48f695496ccacff32927c55ed1d2ba447) chore(nvim): give bufferline another shot (silveiralexf@gmail.com)
+
+
  * [[080333b]](https://github.com/silveiralexf/.dotfiles/commit/080333b633f76c8a19ad232bae5847d89c624b06) perf(nvim): disable neovim to avoid hanging on wezterm (silveiralexf@gmail.com)
 
 
