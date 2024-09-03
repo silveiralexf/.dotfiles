@@ -5,6 +5,23 @@ return {
   exit_behavior_messaging = 'Verbose',
   status_update_interval = 1000,
 
+  -- This should be set to at least the sum of the number of lines in the panes in a tab.
+  -- eg: if you have an 80x24 terminal split left/right then you should set this to at least 2x24 = 48
+  -- Setting it smaller than that will harm performance
+  line_quad_cache_size = 1024,
+
+  -- Should also be set >= number of lines as above.
+  -- Values are relatively small, may not need adjustment.
+  line_state_cache_size = 1024,
+
+  -- Should also be set >= number of lines as above.
+  -- Values are relatively small, may not need adjustment.
+  line_to_ele_shape_cache_size = 1024,
+
+  -- should be >= the number of different attributed runs on the screen.
+  -- hard to suggest a min size: try reducing until you notice performance getting bad.
+  shape_cache_size = 1024,
+
   hyperlink_rules = {
     -- Matches: a URL in parenthesis: (URL)
     {

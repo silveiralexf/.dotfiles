@@ -2,6 +2,9 @@
 
 
 ### [2024-09-03]
+ * [[9868106]](https://github.com/silveiralexf/.dotfiles/commit/986810630120ed5146bc87837f9be71d60941aa9) chore(nvim): add hidden search on telescope and exclude new patterns (silveiralexf@gmail.com)
+
+
  * [[5b62350]](https://github.com/silveiralexf/.dotfiles/commit/5b62350e6c0218b87191191577c69606fe27585e) test(nvim): treesitter tweaks to validate (silveiralexf@gmail.com)
 
 
