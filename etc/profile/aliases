@@ -26,8 +26,6 @@ alias dl="cd ~/Downloads"
 alias g="git"
 alias h="history"
 alias python="python3"
-alias pip="pipx"
-alias pip3="pipx"
 
 # Vim / Vi setup
 set -o vi
