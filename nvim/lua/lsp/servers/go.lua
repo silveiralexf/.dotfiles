@@ -8,7 +8,17 @@ return {
             gopls = {
               settings = {
                 gopls = {
+                  filetypes = { 'go', 'gomod', 'gowork' },
                   gofumpt = true,
+                  build = {
+                    templateExtensions = {
+                      'gohtml',
+                      'html',
+                      'gotmpl',
+                      'tmpl',
+                    },
+                  },
+
                   codelenses = {
                     gc_details = false,
                     generate = true,

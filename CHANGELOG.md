@@ -2,6 +2,9 @@
 
 
 ### [2024-09-03]
+ * [[656e8b0]](https://github.com/silveiralexf/.dotfiles/commit/656e8b0957aa672176ad4e96b87cbf8b76ecd748) chore(nvim): change hlsearch to true (silveiralexf@gmail.com)
+
+
  * [[e177321]](https://github.com/silveiralexf/.dotfiles/commit/e177321b423f0c5eead0bbccbbc589551e7849f1) chore(nvim): add lazy extras for better lsp support (silveiralexf@gmail.com)
 
 

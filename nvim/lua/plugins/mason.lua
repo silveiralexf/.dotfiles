@@ -21,9 +21,10 @@ return {
         'shellcheck',
         'shfmt',
         'stylua',
-        'tflint',
         'terraform-ls',
+        'tflint',
         'tree-sitter-cli',
+        'yamlfix',
         'zls',
       })
     end,
