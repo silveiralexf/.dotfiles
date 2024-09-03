@@ -2,6 +2,9 @@
 
 
 ### [2024-09-03]
+ * [[e177321]](https://github.com/silveiralexf/.dotfiles/commit/e177321b423f0c5eead0bbccbbc589551e7849f1) chore(nvim): add lazy extras for better lsp support (silveiralexf@gmail.com)
+
+
  * [[ec91c5f]](https://github.com/silveiralexf/.dotfiles/commit/ec91c5f0a293a1459288ac6c9fe74c805c752436) chore(nvim): add FzfLua keybindings (silveiralexf@gmail.com)
 
 

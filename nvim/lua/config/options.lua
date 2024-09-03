@@ -5,7 +5,6 @@
 -- Runtime Path
 vim.opt.rtp:append(os.getenv('HOME') .. '/.luarocks/share/lua/5.1')
 vim.opt.rtp:append(os.getenv('HOME') .. '/.luarocks/lib/luarocks/rocks-5.1')
-
 vim.o.foldcolumn = '1'
 vim.o.foldenable = true
 vim.o.foldlevel = 99
@@ -35,7 +34,7 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
 vim.opt.undofile = true
 
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.scrolloff = 8
