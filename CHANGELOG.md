@@ -2,6 +2,9 @@
 
 
 ### [2024-09-03]
+ * [[5b62350]](https://github.com/silveiralexf/.dotfiles/commit/5b62350e6c0218b87191191577c69606fe27585e) test(nvim): treesitter tweaks to validate (silveiralexf@gmail.com)
+
+
  * [[a566bc0]](https://github.com/silveiralexf/.dotfiles/commit/a566bc0a00a782ce6d45d7cc8832f77cf1dd0c9c) chore(nvim): colorscheme and formatting tweaks (silveiralexf@gmail.com)
 
 

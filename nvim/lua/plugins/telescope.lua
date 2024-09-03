@@ -70,7 +70,10 @@ return {
         },
         lsp_references = { include_declaration = false, show_line = false },
         lsp_implementations = { show_line = false },
-        -- live_grep = { glob_pattern = { "!api/*", "!go.sum" } },
+        live_grep = {
+          additional_args = { '--hidden' },
+          glob_pattern = { '!go.sum', '!node_modules/**', '!.git/**' },
+        },
       },
       defaults = {
         layout_strategy = 'horizontal',
