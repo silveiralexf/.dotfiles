@@ -2,6 +2,9 @@
 
 
 ### [2024-08-12]
+ * [[9ea06b0]](https://github.com/silveiralexf/.dotfiles/commit/9ea06b09ff926534e5759e0976b00a3f211238ad) docs(yazi): add placeholder for docs (silveiralexf@gmail.com)
+
+
  * [[e024be7]](https://github.com/silveiralexf/.dotfiles/commit/e024be796abed6939e2f6fff2959aff967b1387b) chore(repo): reorg package names for consistency (silveiralexf@gmail.com)
 
 
