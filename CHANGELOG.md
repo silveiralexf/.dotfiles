@@ -2,6 +2,9 @@
 
 
 ### [2024-09-03]
+ * [[d16547c]](https://github.com/silveiralexf/.dotfiles/commit/d16547c76716d008f0518efd2446a105e8322805) perf(wezterm): cache settings for performance (silveiralexf@gmail.com)
+
+
  * [[9868106]](https://github.com/silveiralexf/.dotfiles/commit/986810630120ed5146bc87837f9be71d60941aa9) chore(nvim): add hidden search on telescope and exclude new patterns (silveiralexf@gmail.com)
 
 
