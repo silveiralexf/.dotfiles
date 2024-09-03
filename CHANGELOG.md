@@ -2,6 +2,9 @@
 
 
 ### [2024-09-03]
+ * [[d78d56b]](https://github.com/silveiralexf/.dotfiles/commit/d78d56b7206caf14792b048a8a611d921194ead2) deps(nvim): bump lazy and add words to spell (silveiralexf@gmail.com)
+
+
  * [[9aaf8ea]](https://github.com/silveiralexf/.dotfiles/commit/9aaf8ea48f695496ccacff32927c55ed1d2ba447) chore(nvim): give bufferline another shot (silveiralexf@gmail.com)
 
 

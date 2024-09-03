@@ -36,8 +36,8 @@ task: Available tasks for this project:
 * macos:install:brew:all:                     Brew install all packages
 * macos:install:brew:all:custom:              Brew install recipes with custom steps
 * macos:install:brew:all:custom:colima:       Brew install Colima
-* macos:install:brew:all:custom:packer:       Install Packer
 * macos:install:brew:all:deps:                Install Brew itself along with some important libs and repos
+* macos:install:brew:all:fonts:               Install Nerd-Fonts
 * macos:install:brew:all:regular:             Brew install regular recipes
 * macos:install:core:all:                     Setup shell, core settings and tools
 * macos:install:core:fzf:                     Install FuzzyFinder
