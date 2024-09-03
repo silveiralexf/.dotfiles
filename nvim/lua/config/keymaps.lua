@@ -12,12 +12,12 @@ map('n', '<leader><tab>v', '<cmd>vnew<cr>', { desc = 'New vertically split pane'
 map('n', '<leader>f', '<cmd>TelescopeFind<cr>', { desc = 'TelescopeFind' })
 map('n', '<leader>fM', '<cmd>Telescope media_files<cr>', { desc = 'TelescopeFindMedia' })
 map('n', '<leader>k', '<cmd>WhichKey<cr>', { desc = 'Whichkey' })
-map('n', '<leader>F', '<cmd>FzfLua<cr>', { desc = 'FuzzyLuaFinder' })
+map('n', '\\f', '<cmd>FzfLua files<cr>', { desc = 'FuzzyLuaFinder files' })
+map('n', '\\g', '<cmd>FzfLua live_grep<cr>', { desc = 'FuzzyLuaFinder livegrep' })
 map('n', '<leader>t', '<cmd>NeoTest<cr>', { desc = 'NeoTest' })
 
 -- Custom Leaders keybindings
 map('n', '\\ ', '<cmd>Yazi<cr>', { desc = 'Yazi File Manager' })
-map('n', '\\f', '<cmd>Neotree focus<cr>', { desc = 'Focus on Neotree' })
 map('n', '\\d', '<cmd>diffthis<cr>', { desc = 'Diff this' })
 map('n', '\\w', function()
   local wp = require('window-picker')
