@@ -18,4 +18,5 @@ tasks:
           - taplo-cli
           - git-delta
           - fd-find
+          - protols
         cmd: cargo install --list | grep -w {{.ITEM}} || cargo install {{.ITEM}}

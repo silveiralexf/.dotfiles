@@ -2,6 +2,12 @@
 
 
 ### [2024-09-03]
+ * [[62f582e]](https://github.com/silveiralexf/.dotfiles/commit/62f582ea113b4abfad1e072a100da6ce739a6a5a) chore(nvim): add protobuf lsp install (silveiralexf@gmail.com)
+
+
+ * [[eb03072]](https://github.com/silveiralexf/.dotfiles/commit/eb030720eb72e76d93b0c964badd8eb1567da00f) chore(nvim): improvements on lsp settings (silveiralexf@gmail.com)
+
+
  * [[656e8b0]](https://github.com/silveiralexf/.dotfiles/commit/656e8b0957aa672176ad4e96b87cbf8b76ecd748) chore(nvim): change hlsearch to true (silveiralexf@gmail.com)
 
 
