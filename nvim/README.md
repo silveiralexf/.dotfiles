@@ -1,8 +1,11 @@
 # nvim
 
+<a href="https://dotfyle.com/silveiralexf/dotfiles-nvim"><img src="https://dotfyle.com/silveiralexf/dotfiles-nvim/badges/plugins?style=flat" alt="badge-plugins" /></a>
+<a href="https://dotfyle.com/silveiralexf/dotfiles-nvim"><img src="https://dotfyle.com/silveiralexf/dotfiles-nvim/badges/plugin-manager?style=flat" alt="badge-plugin-manager-name" /></a>
+
 My personal Neovim configurations.
 
-![preview](../images/nvim.png)
+![preview](../images/nvim_screenshot.png)
 
 Check the reference below on how things are organized:
 
@@ -65,23 +68,32 @@ nvim .
 All LSPs listed below are fully configured with syntax-highlighting,
 auto-completion, formatting, linting and different tweaks:
 
-- bash
+- angularls
+- bashls
+- clangd
 - cmake
-- docker
-- go
-- groovy
-- helm
-- java
-- javascript
-- json
-- lua
-- markdown
-- python
-- rust
-- terraform
-- vue
-- yaml
-- zig
+- docker_compose_language_service
+- dockerls
+- eslint
+- golangci_lint_ls
+- gopls
+- groovyls
+- helm_ls
+- html
+- jdtls
+- jsonls
+- lua_ls
+- marksman
+- pylsp
+- rust_analyzer
+- taplo
+- terraformls
+- tflint
+- tsserver
+- volar
+- vuels
+- yamlls
+- zls
 
 ### References & Inspirations
 

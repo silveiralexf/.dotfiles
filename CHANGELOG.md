@@ -2,6 +2,12 @@
 
 
 ### [2024-09-03]
+ * [[d7dad15]](https://github.com/silveiralexf/.dotfiles/commit/d7dad15afc6571de4a8184e2646250a350eb47c8) docs(nvim): update readme (silveiralexf@gmail.com)
+
+
+ * [[8f30e64]](https://github.com/silveiralexf/.dotfiles/commit/8f30e641cf79510d9066ec5ffa9f1a909f0c30a1) chore(repo): add new commit msg tag for deps (silveiralexf@gmail.com)
+
+
  * [[56fe6cb]](https://github.com/silveiralexf/.dotfiles/commit/56fe6cb1af7571b2c2b501202bf20bd77ecd2e44) deps(nvim): bump lazy and llama version (silveiralexf@gmail.com)
 
 
