@@ -2,6 +2,9 @@
 
 
 ### [2024-09-03]
+ * [[080333b]](https://github.com/silveiralexf/.dotfiles/commit/080333b633f76c8a19ad232bae5847d89c624b06) perf(nvim): disable neovim to avoid hanging on wezterm (silveiralexf@gmail.com)
+
+
  * [[16836db]](https://github.com/silveiralexf/.dotfiles/commit/16836db26dc51567152e442d21a4752f8a03d741) docs(nvim): update readme (silveiralexf@gmail.com)
 
 
