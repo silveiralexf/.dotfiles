@@ -2,6 +2,9 @@
 
 
 ### [2024-09-03]
+ * [[ec91c5f]](https://github.com/silveiralexf/.dotfiles/commit/ec91c5f0a293a1459288ac6c9fe74c805c752436) chore(nvim): add FzfLua keybindings (silveiralexf@gmail.com)
+
+
  * [[72b8dd6]](https://github.com/silveiralexf/.dotfiles/commit/72b8dd6ca32a1a307bffcfe44aabbf9041ca8ed1) chore: remove pipx aliases (silveiralexf@gmail.com)
 
 
