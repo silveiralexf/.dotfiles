@@ -1,7 +1,7 @@
 -- vim: ft=lua tw=80
 
 std = 'luajit'
-globals = { 'vim', 'LazyVim' }
+globals = { 'vim', 'LazyVim', 'YaziConfig' }
 cache = true
 include_files = { 'nvim/*.lua', 'nvim/*/*.lua', 'nvim/*/*/*.lua', '*.luacheckrc' }
 exclude_files = { 'src/luacheck/vendor' }
