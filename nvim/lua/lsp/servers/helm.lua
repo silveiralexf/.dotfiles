@@ -29,13 +29,25 @@ return {
                 'serve',
               },
               yamlls = {
+                LazyVim.lsp.on_attach(function(_, buffer)
+                  if vim.bo[buffer].filetype == 'helm' then
+                    vim.schedule(function()
+                      vim.cmd('LspStop ++force yamlls')
+                    end)
+                  end
+                end),
                 enabled = true,
                 diagnosticsLimit = 50,
                 showDiagnosticsDirectly = false,
                 path = 'yaml-language-server',
                 config = {
                   schemas = {
-                    kubernetes = 'templates/**',
+                    kubernetes = {
+                      -- 'templates/**',
+                      'Chart.yaml',
+                      'values.local.yaml',
+                      'values.yaml',
+                    },
                   },
                   completion = true,
                   hover = true,

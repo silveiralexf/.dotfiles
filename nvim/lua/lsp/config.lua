@@ -38,17 +38,18 @@ return {
           'helm_ls',
           'jdtls',
           'jsonls',
-          'marksman',
           'lua_ls',
+          'marksman',
           'pylsp',
           'rust_analyzer',
+          'svelte',
           'terraformls',
           'tflint',
+          'tsserver',
           'vuels',
           'yamlls',
           'zls',
         },
-
         handlers = {
           function(server_name) -- default handler (optional)
             require('lspconfig')[server_name].setup({
@@ -106,6 +107,20 @@ return {
           ['.monokle'] = 'json',
           ['PROJECT'] = 'yaml',
           ['Tiltfile'] = 'bzl',
+          ['commit-msg'] = 'bash',
+          ['pre-commit'] = 'bash',
+        },
+      })
+    end,
+  },
+  {
+    'neovim/nvim-lspconfig',
+    opts = function(_, opts)
+      LazyVim.extend(opts.servers.vtsls, 'settings.vtsls.tsserver.globalPlugins', {
+        {
+          name = 'typescript-svelte-plugin',
+          location = LazyVim.get_pkg_path('svelte-language-server', '/node_modules/typescript-svelte-plugin'),
+          enableForWorkspaceTypeScriptVersions = true,
         },
       })
     end,
