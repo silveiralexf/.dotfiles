@@ -34,7 +34,6 @@ require('lazy').setup({
     { import = 'lazyvim.plugins.extras.lang.toml' },
     { import = 'lazyvim.plugins.extras.lang.typescript' },
     { import = 'lazyvim.plugins.extras.linting.eslint' },
-    { import = 'lazyvim.plugins.extras.ui.mini-animate' },
     { import = 'lazyvim.plugins.extras.vscode' },
     { import = 'lazyvim.plugins.extras.formatting.prettier' },
     -- import/override with your plugins
