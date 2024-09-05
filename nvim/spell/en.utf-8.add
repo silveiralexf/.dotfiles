@@ -280,3 +280,7 @@ img
 src
 dotfyle
 silveiralexf
+TOML
+CSV
+yq
+jq

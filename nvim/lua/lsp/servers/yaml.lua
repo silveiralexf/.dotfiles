@@ -54,7 +54,7 @@ return {
               validate = true,
               schemaStore = {
                 -- Must disable built-in schemaStore support to use
-                enable = false,
+                enable = true,
                 -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
                 url = '',
               },

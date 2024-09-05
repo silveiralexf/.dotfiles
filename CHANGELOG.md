@@ -2,6 +2,9 @@
 
 
 ### [2024-09-03]
+ * [[075d4b6]](https://github.com/silveiralexf/.dotfiles/commit/075d4b6447f8fd36997be4314406971bb86bc34e) docs(tasks): update readme again (silveiralexf@gmail.com)
+
+
  * [[d78d56b]](https://github.com/silveiralexf/.dotfiles/commit/d78d56b7206caf14792b048a8a611d921194ead2) deps(nvim): bump lazy and add words to spell (silveiralexf@gmail.com)
 
 

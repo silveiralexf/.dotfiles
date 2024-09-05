@@ -19,7 +19,7 @@ require('lazy').setup({
     -- import any extras modules here
     { import = 'lazyvim.plugins.extras.dap.core' },
     { import = 'lazyvim.plugins.extras.lang.angular' },
-    { import = 'lazyvim.plugins.extras.lang.ansible' },
+    -- { import = 'lazyvim.plugins.extras.lang.ansible' },
     { import = 'lazyvim.plugins.extras.lang.docker' },
     { import = 'lazyvim.plugins.extras.lang.erlang' },
     { import = 'lazyvim.plugins.extras.lang.git' },
