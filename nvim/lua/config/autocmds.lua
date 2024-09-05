@@ -123,6 +123,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 --   end,
 -- })
 --
+
 -- [Terraform] Handler for language server
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   pattern = { '*.tf', '*.hcl', '*.tfvars' },
@@ -158,6 +159,18 @@ https://docs.stack.build/docs/vscode/starlark-language-server
     })
   end,
 })
+
+-- vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+--   pattern = {
+--     '.*/tasks/{t,T}askfile.*%.ya?ml',
+--   },
+--   callback = function()
+--     vim.opt_local.filetype = 'yaml'
+--     vim.lsp.stop({
+--       name = 'ansiblels',
+--     })
+--   end,
+-- })
 
 -- [Golang] Setup auto-organize imports
 vim.api.nvim_create_autocmd('BufWritePre', {
