@@ -2,6 +2,9 @@
 
 
 ### [2024-09-18]
+ * [[f86dce8]](https://github.com/silveiralexf/.dotfiles/commit/f86dce827956edf293fdeca187ff8a2a88be6cf1) feat(nvim): add gohtml parser with prettier go-template plugin (silveiralexf@gmail.com)
+
+
  * [[ef66f86]](https://github.com/silveiralexf/.dotfiles/commit/ef66f86f0a9dd8a94ee3076b78fb01d53987eb89) feat(nvim): add yaml companion and yamlfmt as formatter (silveiralexf@gmail.com)
 
 
