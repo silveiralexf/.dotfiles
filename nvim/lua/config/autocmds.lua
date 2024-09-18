@@ -91,38 +91,37 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- -- [Golang] Set filetype for Go template files
--- vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
---   pattern = { 'proto' },
---   callback = function()
---     vim.opt_local.filetype = 'proto'
---   end,
--- })
---
--- -- [ProtoBuf] Handler for protofiles
--- vim.api.nvim_create_autocmd('FileType', {
---   pattern = 'proto',
---   callback = function(args)
---     vim.lsp.start({
---       name = 'proto',
---       root_dir = vim.fs.root(args.buf, { '*.proto' }),
---       cmd = { 'protols' },
---     })
---
---     local active_clients = vim.lsp.get_clients()
---     local client = vim.lsp.get_client_by_id(args.data.client_id)
---     local bufnr = args.buf
---
---     if client ~= nil and client.name == 'proto' then
---       for _, c in ipairs(active_clients) do
---         if c.name == 'clangd' then
---           vim.lsp.buf_detach_client(bufnr, c.id)
---         end
---       end
---     end
---   end,
--- })
---
+-- [Golang] Set filetype for Proto files
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = { 'proto' },
+  callback = function()
+    vim.opt_local.filetype = 'proto'
+  end,
+})
+
+-- [ProtoBuf] Handler for protofiles
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'proto',
+  callback = function(args)
+    vim.lsp.start({
+      name = 'proto',
+      root_dir = vim.fs.root(args.buf, { '*.proto' }),
+      cmd = { 'protols' },
+    })
+
+    local active_clients = vim.lsp.get_clients()
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    local bufnr = args.buf
+
+    if client ~= nil and client.name == 'proto' then
+      for _, c in ipairs(active_clients) do
+        if c.name == 'clangd' then
+          vim.lsp.buf_detach_client(bufnr, c.id)
+        end
+      end
+    end
+  end,
+})
 
 -- [Terraform] Handler for language server
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
@@ -159,18 +158,6 @@ https://docs.stack.build/docs/vscode/starlark-language-server
     })
   end,
 })
-
--- vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
---   pattern = {
---     '.*/tasks/{t,T}askfile.*%.ya?ml',
---   },
---   callback = function()
---     vim.opt_local.filetype = 'yaml'
---     vim.lsp.stop({
---       name = 'ansiblels',
---     })
---   end,
--- })
 
 -- [Golang] Setup auto-organize imports
 vim.api.nvim_create_autocmd('BufWritePre', {
@@ -211,21 +198,9 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   pattern = { '*.gohtml', '*.go.html' },
   callback = function()
-    vim.opt_local.filetype = 'gohtmltmpl'
+    vim.opt_local.filetype = 'html'
   end,
 })
--- vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
---   pattern = {
---     '.*/templates/.*%.tpl',
---     '.*/templates/.*%.ya?ml',
---     'helmfile.*%.ya?ml',
---     '*.gohtml',
---     '*.gotmpl',
---   },
---   callback = function()
---     vim.opt_local.filetype = 'gotmpl'
---   end,
--- })
 
 -- [TypeScript/VUE]Setup Vue/Volar without conflicting with TypeScript server
 vim.api.nvim_create_autocmd('LspAttach', {
