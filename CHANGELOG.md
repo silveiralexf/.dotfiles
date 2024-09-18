@@ -2,6 +2,12 @@
 
 
 ### [2024-09-18]
+ * [[c689171]](https://github.com/silveiralexf/.dotfiles/commit/c68917135aa6229c08a06dec212d5519aea9ff95) chore(nvim): add html/htmlx lsp with templating configs (silveiralexf@gmail.com)
+
+
+ * [[6ee4598]](https://github.com/silveiralexf/.dotfiles/commit/6ee459881aa8f45e0e35bd7749f12951977d4cdf) chore(nvim): restore protoc autocmd (silveiralexf@gmail.com)
+
+
  * [[6bcc413]](https://github.com/silveiralexf/.dotfiles/commit/6bcc4137dc4d56b2bfd8486ef9b92d0eebac8ffd) chore: update private profile (silveiralexf@gmail.com)
 
 
