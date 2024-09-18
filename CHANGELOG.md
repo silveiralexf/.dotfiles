@@ -2,6 +2,9 @@
 
 
 ### [2024-09-18]
+ * [[3074939]](https://github.com/silveiralexf/.dotfiles/commit/3074939314301e662d246f3110122ea0b0a30755) chore(nvim): disable bufferline again (silveiralexf@gmail.com)
+
+
  * [[45b33d4]](https://github.com/silveiralexf/.dotfiles/commit/45b33d485ed823830c2c9b4165fbfbc3ca566644) chore(nvim): add html/htmlx lsp with templating configs (silveiralexf@gmail.com)
 
 
