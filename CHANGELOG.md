@@ -2,6 +2,9 @@
 
 
 ### [2024-09-18]
+ * [[ff730ac]](https://github.com/silveiralexf/.dotfiles/commit/ff730ac7fd4cd364dfdce414815dfd3a263ed64e) chore(nvim): bump and reorganize neotree into dedicated config (silveiralexf@gmail.com)
+
+
  * [[f86dce8]](https://github.com/silveiralexf/.dotfiles/commit/f86dce827956edf293fdeca187ff8a2a88be6cf1) feat(nvim): add gohtml parser with prettier go-template plugin (silveiralexf@gmail.com)
 
 

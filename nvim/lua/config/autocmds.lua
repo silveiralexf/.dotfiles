@@ -39,15 +39,6 @@ vim.cmd([[
     augroup END
 ]])
 
--- [Vim/NeoTree] Disable folding on neotree buffers
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'neo-tree', 'Outline' },
-  callback = function()
-    -- require('ufo').detach()
-    vim.opt_local.foldenable = false
-  end,
-})
-
 -- [Vim/Preferences] Go to last loc when opening a buffer.
 -- this is a slight modification of LazyVim's default AutoCmd
 vim.api.nvim_create_autocmd('BufReadPost', {
