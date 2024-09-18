@@ -13,8 +13,8 @@ max_height = 1000
 
 [opener]
 edit = [
-  { run = '${EDITOR:=vi} "$@"', desc = "$EDITOR", block = true },
-  { run = 'vi "$@"', orphan = true },
+  { run = '${EDITOR:=nvim} "$@"', desc = "$EDITOR", block = true },
+  { run = 'nvim "$@"', orphan = true },
 ]
 play = [
   { run = 'vlc "$@"' },

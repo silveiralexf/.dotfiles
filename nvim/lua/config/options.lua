@@ -45,3 +45,7 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = '160'
 vim.o.showtabline = 2
+
+-- don't start netrw by default
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
