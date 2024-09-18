@@ -1,4 +1,13 @@
 {
-  "diagnostics.globals": ["args", "hs", "spoon", "ui", "vim", "ya"],
+  "diagnostics.globals": [
+    "args",
+    "hs",
+    "spoon",
+    "ui",
+    "vim",
+    "ya",
+    "YaziConfig",
+    "Linemode"
+  ],
   "workspace.checkThirdParty": false
 }

@@ -19,4 +19,5 @@ tasks:
           - git-delta
           - fd-find
           - protols
+          - htmx-lsp
         cmd: cargo install --list | grep -w {{.ITEM}} || cargo install {{.ITEM}}
