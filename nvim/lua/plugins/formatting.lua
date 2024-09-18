@@ -16,8 +16,13 @@ return {
             stdin = false,
           },
           svelte = { 'prettier' },
+          yamlfmt = {
+            prepend_args = {
+              '-formatter',
+              'include_document_start=false,trim_trailing_whitespace=true,retain_line_breaks=true,scan_folded_as_literal=true',
+            },
+          },
         }
-
         opts.formatters_by_ft = opts.formatters_by_ft or {}
         opts.formatters_by_ft = {
           bash = { 'prettierd' },
@@ -45,8 +50,8 @@ return {
           toml = { 'taplo' },
           typescript = { 'prettierd' },
           typescriptreact = { 'prettierd' },
-          -- yaml = { 'yamlfmt' },
-          yaml = { 'yamlfix' },
+          yaml = { 'yamlfmt' },
+          -- yaml = { 'yamlfix' },
           zsh = { 'shfmt' },
           ['*.md'] = { 'codespell' },
           ['_'] = { 'trim_whitespace' },
