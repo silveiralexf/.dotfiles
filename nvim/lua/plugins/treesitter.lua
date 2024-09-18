@@ -21,6 +21,7 @@ return {
       auto_install = true,
       highlight = { enable = true },
       indent = { enable = true },
+      additional_vim_regex_highlighting = { 'ruby' },
       textobjects = {
         move = {
           enable = true,
@@ -75,6 +76,25 @@ return {
       if type(opts.ensure_installed) == 'table' then
         opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
       end
+
+      -- For detecting go template files
+      -- NOTE: this requires prettier-plugin-go-template
+      -- e.g: npm install --save-dev prettier prettier-plugin-go-template
+      local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+      parser_configs['gotmpl'] = {
+        install_info = {
+          url = 'https://github.com/ngalaiko/tree-sitter-go-template',
+          files = { 'src/parser.c' },
+        },
+        filetype = {
+          'gotmpl',
+          'gohtmltmpl',
+          'gohtml',
+        },
+        used_by = { 'gohtmltmpl', 'gotexttmpl', 'gotmpl', 'gotxttmpl', 'gohtml' },
+      }
+
+      require('nvim-treesitter.install').prefer_git = true
       require('nvim-treesitter.configs').setup(opts)
       opts.incremental_selection = {
         enable = true,
