@@ -2,7 +2,7 @@
 
 
 ### [2024-09-18]
- * [[c689171]](https://github.com/silveiralexf/.dotfiles/commit/c68917135aa6229c08a06dec212d5519aea9ff95) chore(nvim): add html/htmlx lsp with templating configs (silveiralexf@gmail.com)
+ * [[45b33d4]](https://github.com/silveiralexf/.dotfiles/commit/45b33d485ed823830c2c9b4165fbfbc3ca566644) chore(nvim): add html/htmlx lsp with templating configs (silveiralexf@gmail.com)
 
 
  * [[6ee4598]](https://github.com/silveiralexf/.dotfiles/commit/6ee459881aa8f45e0e35bd7749f12951977d4cdf) chore(nvim): restore protoc autocmd (silveiralexf@gmail.com)
