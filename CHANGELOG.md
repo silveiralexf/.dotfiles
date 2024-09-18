@@ -2,6 +2,9 @@
 
 
 ### [2024-09-18]
+ * [[ef66f86]](https://github.com/silveiralexf/.dotfiles/commit/ef66f86f0a9dd8a94ee3076b78fb01d53987eb89) feat(nvim): add yaml companion and yamlfmt as formatter (silveiralexf@gmail.com)
+
+
  * [[5e4e257]](https://github.com/silveiralexf/.dotfiles/commit/5e4e257210bc157ba8c8b1db56f9d438c5908ab0) fix(nvim): remove zig formatting with null-ls for now (silveiralexf@gmail.com)
 
 
