@@ -1,31 +1,8 @@
--- local cfg = require('yaml-companion').setup({
---   -- Additional schemas available in Telescope picker
---   schemas = {
---   },
---
---   -- Pass any additional options that will be merged in the final LSP config
---   -- Defaults: https://github.com/someone-stole-my-name/yaml-companion.nvim/blob/main/lua/yaml-companion/config.lua
---   lspconfig = {
---     settings = {
---       yaml = {
---         validate = true,
---         schemaStore = {
---           enable = false,
---           url = '',
---         },
---         schemas = {
---           ['https://json.schemastore.org/github-workflow.json'] = '.github/workflows/*.{yml,yaml}',
---         },
---       },
---     },
---   },
--- })
---
 return {
   {
     'neovim/nvim-lspconfig',
     config = function()
-      require('lspconfig').setup({
+      require('lspconfig')['yamlls']['yaml-companion'].setup({
         opts = {
           codelens = true,
         },
@@ -58,7 +35,7 @@ return {
                 -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
                 url = '',
               },
-              schemas = require('schemastore').yaml.schemas({
+              schemas = require('schemastore')['yaml-companion'].yaml.schemas({
                 -- select subset from the JSON schema catalog
                 select = {
                   '.github/workflows/*.{yml,yaml}',
@@ -73,16 +50,6 @@ return {
                   name = 'Argo CD Application',
                   url = 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json',
                   fileMatch = 'argocd-application.yaml',
-                },
-                Taskfile = {
-                  url = 'https://raw.githubusercontent.com/go-task/task/blob/main/website/static/schema.json',
-                  name = 'Taskfile',
-                  fileMatch = {
-                    '{t,T}askfile.{yml,yaml}',
-                    '{t,T}askfiles/*.{yml,yaml}',
-                    '{t,T}asks/*.{yml,yaml}',
-                    'taskfiles/*.y*ml',
-                  },
                   {
                     name = 'Flux GitRepository',
                     uri = 'https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/gitrepository-source-v1.json',
@@ -90,6 +57,23 @@ return {
                   {
                     name = 'RabbitMQ Cluster',
                     uri = 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/rabbitmq.com/rabbitmqcluster_v1beta1.json',
+                  },
+                  {
+                    name = 'GitHub Workflows',
+                    uri = 'https://json.schemastore.org/github-workflow.json',
+                    fileMatch = '.github/workflows/*.{yml,yaml}',
+                  },
+                  {
+                    name = 'Taskfile',
+                    uri = 'https://raw.githubusercontent.com/go-task/task/blob/main/website/static/schema.json',
+                    fileMatch = {
+                      'Taskfile.bootstrap.yaml',
+                      '{t,T}askfile.{yml,yaml}',
+                      '{t,T}askfiles/*.{yml,yaml}',
+                      '{t,T}asks/*.{yml,yaml}',
+                      'taskfiles/*.y*ml',
+                      'tasks/*/{t,T}askfile.*.y*ml',
+                    },
                   },
                 },
               }),

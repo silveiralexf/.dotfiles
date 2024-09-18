@@ -2,6 +2,9 @@
 
 
 ### [2024-09-18]
+ * [[5e4e257]](https://github.com/silveiralexf/.dotfiles/commit/5e4e257210bc157ba8c8b1db56f9d438c5908ab0) fix(nvim): remove zig formatting with null-ls for now (silveiralexf@gmail.com)
+
+
  * [[3074939]](https://github.com/silveiralexf/.dotfiles/commit/3074939314301e662d246f3110122ea0b0a30755) chore(nvim): disable bufferline again (silveiralexf@gmail.com)
 
 
