@@ -1,6 +1,11 @@
 # CHANGELOG
 
 
+### [2024-09-05]
+ * [[f9ddbaf]](https://github.com/silveiralexf/.dotfiles/commit/f9ddbaf9f918b9bdf239523fca570685b8bfa026) chore: tweaks, and more tweaks (silveiralexf@gmail.com)
+
+
+
 ### [2024-09-03]
  * [[075d4b6]](https://github.com/silveiralexf/.dotfiles/commit/075d4b6447f8fd36997be4314406971bb86bc34e) docs(tasks): update readme again (silveiralexf@gmail.com)
 
