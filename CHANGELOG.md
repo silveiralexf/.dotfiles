@@ -2,6 +2,9 @@
 
 
 ### [2024-09-19]
+ * [[6525ff6]](https://github.com/silveiralexf/.dotfiles/commit/6525ff66a1f9c06280f5e740dfa62a7346c9aba9) chore(nvim): go back to yazi default theme settings (silveiralexf@gmail.com)
+
+
  * [[feca2bf]](https://github.com/silveiralexf/.dotfiles/commit/feca2bffd4ff4fc1c3c52d5d39eed1cdae944650) chore(nvim): remove unused vim plugins and customize gitsigns (silveiralexf@gmail.com)
 
 
