@@ -9,29 +9,32 @@ end
 
 -- Primary Leader keybindings
 map('n', '<leader><tab>v', '<cmd>vnew<cr>', { desc = 'New vertically split pane' })
-map('n', '<leader>f', '<cmd>TelescopeFind<cr>', { desc = 'TelescopeFind' })
 map('n', '<leader>fM', '<cmd>Telescope media_files<cr>', { desc = 'TelescopeFindMedia' })
 map('n', '<leader>k', '<cmd>WhichKey<cr>', { desc = 'Whichkey' })
-map('n', '\\f', '<cmd>FzfLua files<cr>', { desc = 'FuzzyLuaFinder files' })
-map('n', '\\g', '<cmd>FzfLua live_grep<cr>', { desc = 'FuzzyLuaFinder livegrep' })
-map('n', '<leader>t', '<cmd>NeoTest<cr>', { desc = 'NeoTest' })
+map('n', '<leader>t', '', { desc = 'NeoTest' })
 
 -- Custom Leaders keybindings
-map('n', '\\d', '<cmd>diffthis<cr>', { desc = 'Diff this' })
-map('n', '\\w', function()
-  local wp = require('window-picker')
-  local picked_window_id = wp.pick_window() or vim.api.nvim_get_current_win()
-  vim.api.nvim_set_current_win(picked_window_id)
-end, { desc = 'Pick window' })
 map('n', '\\K', '<cmd>Kustomize<cr>', { desc = 'Kustomize' })
+
+-- FzfLua
+map('n', '\\z', '<cmd>FzfLua<cr>', { desc = 'FuzzyLuaFinder' })
+map('n', '\\zg', '<cmd>FzfLua live_grep<cr>', { desc = 'FuzzyLuaFinder livegrep' })
+map('n', '\\zf', '<cmd>FzfLua files<cr>', { desc = 'FuzzyLuaFinder files' })
+map('n', '\\zk', '<cmd>FzfLua builtin<cr>', { desc = 'Which Key' })
+map('n', '\\zc', '<cmd>FzfLua lsp_code_actions<cr>', { desc = 'LSP Code Actions' })
+map('n', '\\zt', '<cmd>FzfLua builtin<cr>', { desc = 'Tmux Buffers' })
+
 -- GitSigns
 map('n', '\\g', '', { desc = 'GitSigns' })
 map('v', '\\g', '', { desc = 'GitSigns' })
 map('n', '\\gtD', '<cmd>diffthis<cr>', { desc = 'Toggle select for diff' })
 
+-- Ollama
 map('n', '\\O', '<cmd>Ollama<cr>', { desc = 'Ollama' })
 map('v', '\\O', '<cmd>Ollama<cr>', { desc = 'Ollama' })
 map('n', '\\Oc', '<cmd>Llama<cr>', { desc = 'Ollama-Chat' })
+
+-- Obsidian
 map('n', '\\o', '<cmd>Obsidian<cr>', { desc = 'Obsidian' })
 map('n', '\\of', '<cmd>ObsidianSearch<cr>', { desc = 'ObsidianSearch' })
 map('n', '\\on', '<cmd>ObsidianNew<cr>', { desc = 'ObsidianNew' })
