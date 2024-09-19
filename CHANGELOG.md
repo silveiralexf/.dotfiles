@@ -2,6 +2,9 @@
 
 
 ### [2024-09-19]
+ * [[aa0fc5f]](https://github.com/silveiralexf/.dotfiles/commit/aa0fc5fce36c71d1d27f12c9187031ac7a1d7754) chore(nvim): update keybindings (silveiralexf@gmail.com)
+
+
  * [[6525ff6]](https://github.com/silveiralexf/.dotfiles/commit/6525ff66a1f9c06280f5e740dfa62a7346c9aba9) chore(nvim): go back to yazi default theme settings (silveiralexf@gmail.com)
 
 
