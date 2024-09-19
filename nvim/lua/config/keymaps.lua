@@ -17,7 +17,6 @@ map('n', '\\g', '<cmd>FzfLua live_grep<cr>', { desc = 'FuzzyLuaFinder livegrep' 
 map('n', '<leader>t', '<cmd>NeoTest<cr>', { desc = 'NeoTest' })
 
 -- Custom Leaders keybindings
-map('n', '\\ ', '<cmd>Yazi<cr>', { desc = 'Yazi File Manager' })
 map('n', '\\d', '<cmd>diffthis<cr>', { desc = 'Diff this' })
 map('n', '\\w', function()
   local wp = require('window-picker')
