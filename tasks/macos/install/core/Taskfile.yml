@@ -45,10 +45,12 @@ tasks:
       - test -L ~/.tmux.conf                          || ln -s ${DOTFILES_CONFIG}/tmux/tmux.conf ~/.tmux.conf
       - test -L ~/.config/pet/config.toml             || ln -s ${DOTFILES_CONFIG}/pet-config.toml ~/.config/pet/config.toml
       - test -L  ~/.amethyst.yml                      || ln -s ${DOTFILES_CONFIG}/amethyst.yml ~/.amethyst.yml
+      - test -L ~/.config/terminalizer                || ln -s ${DOTFILES_CONFIG}/terminalizer.yaml ~/.config/terminalizer/config.yaml
   profile:createdirs:
     cmds:
       - for:
           - ~/.config/pet
+          - ~/.config/terminalizer
           - ~/git
           - ~/go
         cmd: mkdir -p {{.ITEM}}
