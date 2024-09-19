@@ -2,6 +2,9 @@
 
 
 ### [2024-09-19]
+ * [[2c90675]](https://github.com/silveiralexf/.dotfiles/commit/2c906757d22ec3ccc2c248702e60a80663e4dd5f) chore(yazi): add keybind for yazi to copy files (silveiralexf@gmail.com)
+
+
  * [[aa0fc5f]](https://github.com/silveiralexf/.dotfiles/commit/aa0fc5fce36c71d1d27f12c9187031ac7a1d7754) chore(nvim): update keybindings (silveiralexf@gmail.com)
 
 
