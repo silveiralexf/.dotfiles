@@ -1,6 +1,11 @@
 # CHANGELOG
 
 
+### [2024-09-19]
+ * [[feca2bf]](https://github.com/silveiralexf/.dotfiles/commit/feca2bffd4ff4fc1c3c52d5d39eed1cdae944650) chore(nvim): remove unused vim plugins and customize gitsigns (silveiralexf@gmail.com)
+
+
+
 ### [2024-09-18]
  * [[0b97cbe]](https://github.com/silveiralexf/.dotfiles/commit/0b97cbec1592834da22d4f76b7c8afcc2270990d) chore: clean-up unused, small tweaks, and bump deps (silveiralexf@gmail.com)
 
