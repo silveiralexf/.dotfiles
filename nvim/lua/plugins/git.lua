@@ -1,61 +1,95 @@
 return {
   {
     'lewis6991/gitsigns.nvim',
-    keys = {
-      { '<leader>ght', require('gitsigns').toggle_current_line_blame, { desc = 'Toggle git current line blame' } },
-      { '<leader>ghT', require('gitsigns').toggle_deleted, { desc = 'Toggle git deleted lines' } },
-      { ']g', require('gitsigns').next_hunk, { desc = 'Next git hunk' } },
-      { '[g', require('gitsigns').prev_hunk, { desc = 'Prev git hunk' } },
-    },
     opts = function(_, opts)
       opts.current_line_blame = true
     end,
+    config = function()
+      require('gitsigns').setup({
+        signs = {
+          add = { text = '┃' },
+          change = { text = '┃' },
+          delete = { text = '┃' },
+          topdelete = { text = '‾' },
+          changedelete = { text = '~' },
+          untracked = { text = '┆' },
+        },
+        signs_staged = {
+          add = { text = '┃' },
+          change = { text = '┃' },
+          delete = { text = '_' },
+          topdelete = { text = '‾' },
+          changedelete = { text = '~' },
+          untracked = { text = '┆' },
+        },
+        signs_staged_enable = true,
+        signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
+        numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
+        linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
+        word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
+        watch_gitdir = {
+          follow_files = true,
+        },
+        on_attach = function(bufnr)
+          local gitsigns = require('gitsigns')
+
+          local function map(mode, l, r, opts)
+            opts = opts or {}
+            opts.buffer = bufnr
+            vim.keymap.set(mode, l, r, opts)
+          end
+
+          -- Navigation
+          map('n', ']c', function()
+            if vim.wo.diff then
+              vim.cmd.normal({ ']c', bang = true })
+            else
+              gitsigns.nav_hunk('next')
+            end
+          end, { desc = 'Next hunk' })
+
+          map('n', '[c', function()
+            if vim.wo.diff then
+              vim.cmd.normal({ '[c', bang = true })
+            else
+              gitsigns.nav_hunk('prev')
+            end
+          end, { desc = 'Previous hunk' })
+
+          -- Actions
+          map('n', '\\gs', gitsigns.stage_hunk, { desc = 'stage hunk' })
+          map('n', '\\gr', gitsigns.reset_hunk, { desc = 'reset hunk' })
+
+          map('v', '\\gs', function()
+            gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+          end, { desc = 'stage hunk' })
+
+          map('v', '\\gr', function()
+            gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+          end, { desc = 'reset hunk' })
+
+          map('n', '\\gS', gitsigns.stage_buffer, { desc = 'stage buffer' })
+          map('n', '\\gu', gitsigns.undo_stage_hunk, { desc = 'undo stage hunk' })
+          map('n', '\\gR', gitsigns.reset_buffer, { desc = 'reset buffer' })
+          map('n', '\\gp', gitsigns.preview_hunk, { desc = 'preview hunk' })
+          map('n', '\\gP', gitsigns.preview_hunk_inline, { desc = 'review hunk inline' })
+
+          map('n', '\\gb', function()
+            gitsigns.blame_line({ full = true })
+          end, { desc = 'git blame line' })
+
+          map('n', '\\gtb', gitsigns.toggle_current_line_blame, { desc = 'toggle line blame' })
+          map('n', '\\gd', gitsigns.diffthis, { desc = 'diff this' })
+
+          map('n', '\\gD', function()
+            gitsigns.diffthis('~')
+          end, { desc = 'Diff this and stage changes' })
+
+          map('n', '\\gtd', gitsigns.toggle_deleted, { desc = 'toggle deleted' })
+          -- Text object
+          map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+        end,
+      })
+    end,
   },
-  {
-    'NeogitOrg/neogit',
-    event = 'VeryLazy',
-    dependencies = {
-      'nvim-lua/plenary.nvim', -- required
-      'sindrets/diffview.nvim', -- optional - Diff integration
-
-      -- Only one of these is needed, not both.
-      'nvim-telescope/telescope.nvim', -- optional
-    },
-    config = true,
-  },
-  'tpope/vim-fugitive',
-  config = function()
-    vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
-
-    local ThePrimeagen_Fugitive = vim.api.nvim_create_augroup('ThePrimeagen_Fugitive', {})
-
-    local autocmd = vim.api.nvim_create_autocmd
-    autocmd('BufWinEnter', {
-      group = ThePrimeagen_Fugitive,
-      pattern = '*',
-      callback = function()
-        if vim.bo.ft ~= 'fugitive' then
-          return
-        end
-
-        local bufnr = vim.api.nvim_get_current_buf()
-        local opts = { buffer = bufnr, remap = false }
-        vim.keymap.set('n', '<leader>p', function()
-          vim.cmd.Git('push')
-        end, opts)
-
-        -- rebase always
-        vim.keymap.set('n', '<leader>P', function()
-          vim.cmd.Git({ 'pull', '--rebase' })
-        end, opts)
-
-        -- NOTE: It allows me to easily set the branch i am pushing and any tracking
-        -- needed if i did not set the branch up correctly
-        vim.keymap.set('n', '<leader>t', ':Git push -u origin ', opts)
-      end,
-    })
-
-    vim.keymap.set('n', 'gu', '<cmd>diffget //2<CR>')
-    vim.keymap.set('n', 'gh', '<cmd>diffget //3<CR>')
-  end,
 }

@@ -16,20 +16,6 @@ return {
       end,
     },
     {
-      'ThePrimeagen/git-worktree.nvim',
-      event = 'VeryLazy',
-      keys = {
-        { -- lazy style key map
-          '<leader>gw',
-          '<cmd>Telescope git_worktree<cr>',
-          desc = 'undo history',
-        },
-      },
-      config = function()
-        require('telescope').load_extension('git_worktree')
-      end,
-    },
-    {
       'nvim-telescope/telescope-ui-select.nvim',
       event = 'VeryLazy',
       config = function()

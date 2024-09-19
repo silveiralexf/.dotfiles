@@ -2,6 +2,9 @@
 
 
 ### [2024-09-18]
+ * [[0b97cbe]](https://github.com/silveiralexf/.dotfiles/commit/0b97cbec1592834da22d4f76b7c8afcc2270990d) chore: clean-up unused, small tweaks, and bump deps (silveiralexf@gmail.com)
+
+
  * [[9e5045e]](https://github.com/silveiralexf/.dotfiles/commit/9e5045e68a8dc9a5d56d692045d0ad04ee874a0c) feat(nvim): replace neotree and netrw by yazi (silveiralexf@gmail.com)
 
 
