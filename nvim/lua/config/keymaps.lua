@@ -25,6 +25,11 @@ map('n', '\\w', function()
   vim.api.nvim_set_current_win(picked_window_id)
 end, { desc = 'Pick window' })
 map('n', '\\K', '<cmd>Kustomize<cr>', { desc = 'Kustomize' })
+-- GitSigns
+map('n', '\\g', '', { desc = 'GitSigns' })
+map('v', '\\g', '', { desc = 'GitSigns' })
+map('n', '\\gtD', '<cmd>diffthis<cr>', { desc = 'Toggle select for diff' })
+
 map('n', '\\O', '<cmd>Ollama<cr>', { desc = 'Ollama' })
 map('v', '\\O', '<cmd>Ollama<cr>', { desc = 'Ollama' })
 map('n', '\\Oc', '<cmd>Llama<cr>', { desc = 'Ollama-Chat' })
