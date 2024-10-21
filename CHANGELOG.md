@@ -2,6 +2,9 @@
 
 
 ### [2024-10-21]
+ * [[ba53bae]](https://github.com/silveiralexf/.dotfiles/commit/ba53baea7f69a50570713be1ca305978d74f2045) feat: add matchup plugin (silveiralexf@gmail.com)
+
+
  * [[62ab5e2]](https://github.com/silveiralexf/.dotfiles/commit/62ab5e2ec03d11cd96ad8057e3d84d5a6de2de59) chore: remap lsp bindings (silveiralexf@gmail.com)
 
 
