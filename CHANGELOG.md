@@ -2,6 +2,9 @@
 
 
 ### [2024-10-21]
+ * [[28b0e36]](https://github.com/silveiralexf/.dotfiles/commit/28b0e366b5a7f04d0099876c747d0afbe19c2711) chore: bump deps, update dict and add lsp header to taskfile (silveiralexf@gmail.com)
+
+
  * [[93a0b36]](https://github.com/silveiralexf/.dotfiles/commit/93a0b36ce2f7a3d3394bcf1444f31066e94927ca) feat: replace install tasks with mise (silveiralexf@gmail.com)
 
 
