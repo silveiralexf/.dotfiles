@@ -1,37 +1,54 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
 version: "3"
 tasks:
   all:
     desc: Setup shell, core settings and tools
     cmds:
       - task: rosetta
+      - task: mise
       - task: fzf
       - task: nvim
       - task: profile
+
   rosetta:
     desc: Install Rosetta2
     status:
       - test -f /usr/libexec/rosetta/oahd
     cmds:
       - /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+
+  mise:
+    desc: Installs mise-en-place
+    status:
+      - mise doctor
+      - test -L ${HOME}/.config/mise/config.toml
+    cmds:
+      - curl https://mise.run | sh
+      - set -ex
+      - mkdir -p "${HOME}/.config/mise"
+      - ln -sfv "${DOTFILES_HOME}/mise/config.toml" "${HOME}/.config/mise/config.toml"
+      - mise plugin update
+      - mise install -y
+      - mise up -y
+
   fzf:
     desc: Install FuzzyFinder
     status:
       - test -d "${HOME}/.fzf"
+    deps:
+      - mise
     cmds:
-      - git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-      - ~/.fzf/install --bin
+      - mise install fzf@latest
+
   nvim:
     desc: Install NVIM nightly build
     status:
       - nvim --version | grep LuaJIT
-    vars:
-      NVIM_INSTALLER: ~/Downloads/nvim-macos-arm64.tar.gz
-      NVIM_INSTALL_PATH: /opt/nvim
-      NVIM_DOWNLOAD_URL: https://github.com/neovim/neovim/releases/download/nightly/nvim-macos-arm64.tar.gz
+    deps:
+      - mise
     cmds:
-      - nvim -version || curl -fsSL -o {{.NVIM_INSTALLER}} {{.NVIM_DOWNLOAD_URL}}
-      - test nvim || sudo tar xzvf {{.NVIM_INSTALLER}} -C {{.NVIM_INSTALL_PATH}}
-      - nvim -v || sudo chmod +x {{.NVIM_INSTALL_PATH}}/bin/nvim
+      - mise install neovim@nightly
+
   profile:
     desc: Setup shell profile settings
     cmds:
@@ -44,7 +61,7 @@ tasks:
       - test -L ~/.config/nvim                        || ln -s ${DOTFILES_HOME}/nvim ~/.config/nvim
       - test -L ~/.tmux.conf                          || ln -s ${DOTFILES_CONFIG}/tmux/tmux.conf ~/.tmux.conf
       - test -L ~/.config/pet/config.toml             || ln -s ${DOTFILES_CONFIG}/pet-config.toml ~/.config/pet/config.toml
-      - test -L  ~/.amethyst.yml                      || ln -s ${DOTFILES_CONFIG}/amethyst.yml ~/.amethyst.yml
+      - test -L ~/.amethyst.yml                       || ln -s ${DOTFILES_CONFIG}/amethyst.yml ~/.amethyst.yml
       - test -L ~/.config/terminalizer                || ln -s ${DOTFILES_CONFIG}/terminalizer.yaml ~/.config/terminalizer/config.yaml
   profile:createdirs:
     cmds:

@@ -2,6 +2,9 @@
 
 
 ### [2024-09-19]
+ * [[129c20e]](https://github.com/silveiralexf/.dotfiles/commit/129c20eb71f9fcb5765e257f69eb5a2108727be1) chore(profile): add terminalizer config to profile (silveiralexf@gmail.com)
+
+
  * [[2c90675]](https://github.com/silveiralexf/.dotfiles/commit/2c906757d22ec3ccc2c248702e60a80663e4dd5f) chore(yazi): add keybind for yazi to copy files (silveiralexf@gmail.com)
 
 

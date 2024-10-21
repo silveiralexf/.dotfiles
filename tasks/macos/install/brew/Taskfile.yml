@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
 version: "3"
 tasks:
   all:
@@ -7,6 +8,7 @@ tasks:
       - task: all:regular
       - task: all:custom
       - task: all:fonts
+
   all:deps:
     desc: Install Brew itself along with some important libs and repos
     vars:
@@ -21,10 +23,13 @@ tasks:
       - brew tap knqyf263/pet
       - brew tap aquasecurity/trivy
       - brew tap arl/arl
+      - brew tap knative-extensions/kn-plugins
+
   all:regular:
     desc: Brew install regular recipes
     cmds:
       - for:
+          - automake
           - aquasecurity/trivy/trivy
           - bash
           - bufbuild/buf/buf
@@ -36,6 +41,7 @@ tasks:
           - ffmpegthumbnailer
           - font-hack-nerd-font
           - font-symbols-only-nerd-font
+          - func
           - gitmux
           - gnu-sed
           - go-task/tap/go-task
@@ -44,10 +50,9 @@ tasks:
           - htop
           - iftop
           - imagemagick
-          - jq
+          - kamel
           - knqyf263/pet/pet
           - kubent
-          - lazygit
           - luajit
           - luarocks
           - maczip
@@ -58,12 +63,9 @@ tasks:
           - pipx
           - poppler
           - pre-commit
-          - ripgrep
           - sevenzip
-          - sops
           - source-highlight
           - terminal-notifier
-          - the_silver_searcher
           - tmux
           - tmuxp
           - ueberzugpp
@@ -73,9 +75,9 @@ tasks:
           - wget
           - xz
           - yazi
-          - yq
           - zoxide
         cmd: brew list {{.ITEM}} || brew install {{.ITEM}}
+
   all:fonts:
     desc: Install Nerd-Fonts
     cmds:
@@ -84,19 +86,11 @@ tasks:
         for FONT in $(cat ${DOTFILES_HOME}/etc/lists/fonts.txt); do
           brew install "${FONT}"
         done
+
   all:custom:
     desc: Brew install recipes with custom steps
     dotenv:
       - ~/.zshrc
     cmds:
       - test -f /Applications/Amethyst.app/Contents/MacOS/Amethyst || brew install --cask amethyst
-      - task: all:custom:colima
-  all:custom:colima:
-    desc: Brew install Colima
-    dotenv:
-      - ~/.zshrc
-    status:
-      - command -v $(which colima)
-    cmds:
-      - brew install colima
-      - brew services start colima
+

@@ -14,18 +14,8 @@ includes:
     taskfile: ./tasks/macos/install/core/Taskfile.yml
   macos:install:docker:
     taskfile: ./tasks/macos/install/docker/Taskfile.yml
-  macos:install:k8s:
-    taskfile: ./tasks/macos/install/k8s/Taskfile.yml
-  macos:install:go:
-    taskfile: ./tasks/macos/install/go/Taskfile.yml
   macos:install:java:
     taskfile: ./tasks/macos/install/java/Taskfile.yml
-  macos:install:npm:
-    taskfile: ./tasks/macos/install/npm/Taskfile.yml
-  macos:install:python:
-    taskfile: ./tasks/macos/install/python/Taskfile.yml
-  macos:install:rust:
-    taskfile: ./tasks/macos/install/rust/Taskfile.yml
   macos:install:hammerspoon:
     taskfile: ./tasks/macos/install/hammerspoon/Taskfile.yml
 tasks:

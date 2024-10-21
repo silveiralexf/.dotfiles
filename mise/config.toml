@@ -1,0 +1,66 @@
+#:schema https://raw.githubusercontent.com/jdx/mise/refs/heads/main/schema/mise.json
+
+[settings]
+experimental = true
+go_set_gobin = true
+
+[tools]
+
+# runtimes
+go = "prefix:1.22.8"
+rust = ["nightly"]
+node = ["22"]
+yarn = ["4"]
+python = ["3.11"]
+java = ["17", "19", "21"]
+maven = ["latest"]
+lua = ["5.1"]
+# tooling
+ag = ["latest"]
+checkov = ["latest"]
+fzf = ["latest"]
+git-cliff = ["latest"]
+jq = ["latest"]
+k3d = ["latest"]
+kubebuilder = ["4.2.0"]
+kustomize = ["latest"]
+lazygit = ["latest"]
+neovim = ["nightly"]
+operator-sdk = ["1.35.0"]
+ripgrep = ["latest"]
+ruff = ["latest"]
+sops = ["latest"]
+terraform = ["1.9.7"]
+tilt = ["latest"]
+yq = ["latest"]
+clickhouse = ["latest"]
+"cargo:eza" = "latest"
+"cargo:fd-find" = "latest"
+"cargo:git-cliff" = "latest"
+"cargo:git-delta" = "latest"
+"cargo:htmx-lsp " = "0.1.0"
+"cargo:protols" = "latest"
+"cargo:taplo-cli" = "latest"
+"go:github.com/air-verse/air" = "v1.52.3"
+# "go:github.com/boyter/scc/v3" = "latest"
+"go:github.com/derailed/k9s" = "latest"
+"go:github.com/golangci/golangci-lint/cmd/golangci-lint" = "v1.57.2"
+"go:github.com/google/yamlfmt/cmd/yamlfmt" = "latest"
+"go:github.com/kubecolor/kubecolor" = "latest"
+"go:github.com/swaggo/swag/cmd/swag" = "latest"
+"go:github.com/yannh/kubeconform/cmd/kubeconform" = "latest"
+"go:golang.org/x/tools/cmd/goimports" = "latest"
+"go:golang.org/x/tools/cmd/present" = "latest"
+"go:golang.org/x/tools/gopls" = "v0.16.2"
+"go:golang.org/x/vuln/cmd/govulncheck" = "latest"
+# "go:mvdan.cc/sh/v3/cmd/shfmt" = "latest"
+"go:sigs.k8s.io/controller-tools/cmd/controller-gen" = "v0.14.0"
+"go:sigs.k8s.io/kustomize/kustomize/v5" = "v5.3.0"
+"npm:bun" = "latest"
+"npm:jest" = "latest"
+"npm:neovim" = "latest"
+"npm:npm-groovy-lint" = "latest"
+"npm:prettier" = "latest"
+"npm:terminalizer" = "latest"
+"npm:yarn" = "latest"
+awscli = "latest"
