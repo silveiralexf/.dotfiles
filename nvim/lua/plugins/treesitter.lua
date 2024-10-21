@@ -1,9 +1,17 @@
 return {
   {
+    'nvim-treesitter/playground',
+    cmd = 'TSPlaygroundToggle',
+  },
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    event = 'VeryLazy',
+  },
+  {
     'nvim-treesitter/nvim-treesitter',
     version = false,
     build = ':TSUpdate',
-    event = { 'LazyFile', 'VeryLazy' },
+    event = { 'LazyFile', 'VeryLazy', 'BufReadPost', 'BufNewFile' },
     lazy = vim.fn.argc(-1) == 0,
     init = function(plugin)
       require('lazy.core.loader').add_to_rtp(plugin)
@@ -19,9 +27,9 @@ return {
     ---@diagnostic disable-next-line: missing-fields
     opts = {
       auto_install = true,
-      highlight = { enable = true },
-      indent = { enable = true },
-      additional_vim_regex_highlighting = { 'ruby' },
+      matchup = {
+        enable = true, -- mandatory, false will disable the whole extension
+      },
       textobjects = {
         move = {
           enable = true,
@@ -34,6 +42,7 @@ return {
       ensure_installed = {
         'bash',
         'c',
+        'cue',
         'cmake',
         'diff',
         'go',
@@ -105,6 +114,14 @@ return {
           node_decremental = '<bs>',
         },
       }
+    end,
+  },
+  {
+    'andymass/vim-matchup',
+    event = 'BufReadPost',
+    config = function()
+      vim.g.matchup_matchparen_offscreen = { method = 'status_manual' }
+      vim.g.matchup_matchpref = { html = { nolists = 1 } }
     end,
   },
 }

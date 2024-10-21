@@ -2,6 +2,9 @@
 
 
 ### [2024-10-21]
+ * [[62ab5e2]](https://github.com/silveiralexf/.dotfiles/commit/62ab5e2ec03d11cd96ad8057e3d84d5a6de2de59) chore: remap lsp bindings (silveiralexf@gmail.com)
+
+
  * [[fbbdeaa]](https://github.com/silveiralexf/.dotfiles/commit/fbbdeaaf3a99027243c7b82cfbfc2e2e1d4b89e9) feat: add cue and kcl support (wip) (silveiralexf@gmail.com)
 
 
