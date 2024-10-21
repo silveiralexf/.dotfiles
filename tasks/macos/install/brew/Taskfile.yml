@@ -93,4 +93,3 @@ tasks:
       - ~/.zshrc
     cmds:
       - test -f /Applications/Amethyst.app/Contents/MacOS/Amethyst || brew install --cask amethyst
-
