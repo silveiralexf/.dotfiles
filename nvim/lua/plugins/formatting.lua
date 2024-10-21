@@ -34,6 +34,8 @@ return {
           hcl = { 'terraform_fmt' },
           html = { 'prettierd' },
           java = { 'prettierd' },
+          cue = { 'cue_fmt' },
+          dagger = { 'cue_fmt' },
           javascript = { 'prettierd' },
           javascriptreact = { 'prettierd' },
           json = { 'prettierd' },
