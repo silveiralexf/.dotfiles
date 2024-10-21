@@ -5,9 +5,6 @@
 # GpG settings
 export GPG_TTY="$(tty)"
 
-# SOPS GpG fingerprint
-export SOPS_PGP_FP="477FF01AA99B50C66423ED037540CEF42CB05DAF"
-
 # Lang & Locale settings
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -78,7 +75,8 @@ export DISABLE_AUTO_TITLE='true'
 export DOCKER_BUILDKIT=1
 export BUILDKIT_COLORS=run=green:warning=yellow:error=red:cancel=255,165,0
 export BUILDKIT_PROGRESS=plain
-
+export KUBE_EDITOR=nvim
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # -----------------------------------------------------------------------------
 # Git
 # -----------------------------------------------------------------------------
@@ -107,51 +105,8 @@ export PATH="${PATH}:/usr/local/go/bin"
 # Lua
 eval "$(luarocks path --bin)"
 
-# Rust
-source "${HOME}/.cargo/env"
-
-# Java
-#export JAVA_HOME="${HOME}/Library/Java/JavaVirtualMachines/temurin-11.0.18/Contents/Home"
-#export JDK_HOME=/usr/local/lib/jvm/zulu-8/
-#export JAVA_HOME=/usr/local/lib/jvm/zulu-8/
-#export JRE_HOME="${JAVA_HOME}/jre"
-export PATH="${PATH}:${JAVA_HOME}/bin:$JRE_HOME/bin"
-export PATH="${PATH}:/opt/apache-maven-3.6.3/bin"
-[ -f /etc/bash_completion.d/mvn ] && source /etc/bash_completion.d/mvn
-
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# Python
-export PATH="${PATH}:${HOME}/miniconda3/bin"
-export PATH="${PATH}:${HOME}/anaconda3/bin"
-export PATH="${PATH}:/opt/pycharm-community-2021.3.1"
-
-# PyEnv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
-# PipX
-export PATH="${PATH}:${HOME}/.local/bin"
-
 # Ruby
 PATH="${PATH}:${HOME}/.gem/ruby/2.7.0/bin"
-
-# NodeJS
-export PATH="${PATH}:$HOME/.node_modules_global/bin"
-export PATH="${PATH}:${HOME}/.npm/bin"
-export PATH="${PATH}:${HOME}/.npm/bin/bin"
-export NVM_DIR="$HOME/.nvm"
-
-# This loads nvm
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-# This loads nvm bash_completion
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] &&
-  \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-
-# Dotnet
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # HomeBrew
 export PATH="/opt/homebrew/opt/openssl@3.0/bin:$PATH"
