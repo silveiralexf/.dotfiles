@@ -1,6 +1,11 @@
 # CHANGELOG
 
 
+### [2024-10-21]
+ * [[93a0b36]](https://github.com/silveiralexf/.dotfiles/commit/93a0b36ce2f7a3d3394bcf1444f31066e94927ca) feat: replace install tasks with mise (silveiralexf@gmail.com)
+
+
+
 ### [2024-09-19]
  * [[129c20e]](https://github.com/silveiralexf/.dotfiles/commit/129c20eb71f9fcb5765e257f69eb5a2108727be1) chore(profile): add terminalizer config to profile (silveiralexf@gmail.com)
 
