@@ -2,6 +2,9 @@
 
 
 ### [2024-10-21]
+ * [[6478eab]](https://github.com/silveiralexf/.dotfiles/commit/6478eab1af1575f1d75ab28b46a144780373c3a9) chore: remove multicursors plugin (silveiralexf@gmail.com)
+
+
  * [[28b0e36]](https://github.com/silveiralexf/.dotfiles/commit/28b0e366b5a7f04d0099876c747d0afbe19c2711) chore: bump deps, update dict and add lsp header to taskfile (silveiralexf@gmail.com)
 
 

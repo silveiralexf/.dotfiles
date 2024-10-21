@@ -33,7 +33,7 @@ return {
                 -- Must disable built-in schemaStore support to use
                 enable = true,
                 -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
-                url = '',
+                url = 'https://www.schemastore.org/api/json/catalog.json',
               },
               schemas = require('schemastore')['yaml-companion'].yaml.schemas({
                 -- select subset from the JSON schema catalog
@@ -42,6 +42,7 @@ return {
                   'kustomization.yaml',
                   '.*docker-compose.{yml,yaml}',
                   '*.compose.{yml,yaml}',
+                  'https://www.schemastore.org/api/json/catalog.json',
                   'https://json.schemastore.org/github-workflow.json',
                 },
 

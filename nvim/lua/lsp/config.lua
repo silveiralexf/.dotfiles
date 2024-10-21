@@ -45,6 +45,7 @@ return {
           'pylsp',
           'rust_analyzer',
           'svelte',
+          'taplo',
           'terraformls',
           'tflint',
           'ts_ls',
@@ -57,6 +58,10 @@ return {
             require('lspconfig')[server_name].setup({
               capabilities = capabilities,
             })
+            -- HACK: directly forcing install while not yet supported by mason-lspconfig
+            -- ref to: https://github.com/williamboman/mason-lspconfig.nvim/pull/461
+            require('lspconfig').kcl.setup({})
+            require('lspconfig').dagger.setup({})
           end,
         },
       })
