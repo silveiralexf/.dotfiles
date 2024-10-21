@@ -2,6 +2,9 @@
 
 
 ### [2024-10-21]
+ * [[fbbdeaa]](https://github.com/silveiralexf/.dotfiles/commit/fbbdeaaf3a99027243c7b82cfbfc2e2e1d4b89e9) feat: add cue and kcl support (wip) (silveiralexf@gmail.com)
+
+
  * [[6478eab]](https://github.com/silveiralexf/.dotfiles/commit/6478eab1af1575f1d75ab28b46a144780373c3a9) chore: remove multicursors plugin (silveiralexf@gmail.com)
 
 

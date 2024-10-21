@@ -13,6 +13,18 @@ map('n', '<leader>fM', '<cmd>Telescope media_files<cr>', { desc = 'TelescopeFind
 map('n', '<leader>k', '<cmd>WhichKey<cr>', { desc = 'Whichkey' })
 map('n', '<leader>t', '', { desc = 'NeoTest' })
 
+-- LSP bindings
+map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', { desc = 'lsp buf hover' })
+map('n', '§d', '<cmd>lua vim.lsp.buf.definition()<cr>', { desc = 'lsp buf definition' })
+map('n', '§D', '<cmd>lua vim.lsp.buf.declaration()<cr>', { desc = 'lsp buf declaration' })
+map('n', '§i', '<cmd>lua vim.lsp.buf.implementation()<cr>', { desc = 'lsp buf implementation' })
+map('n', '§o', '<cmd>lua vim.lsp.buf.type_definition()<cr>', { desc = 'lsp type definition' })
+map('n', '§r', '<cmd>lua vim.lsp.buf.references()<cr>', { desc = 'lsp buf references' })
+map('n', '§s', '<cmd>lua vim.lsp.buf.signature_help()<cr>', { desc = 'lsp buf signature help' })
+map('n', '§R', '<cmd>lua vim.lsp.buf.rename()<cr>', { desc = 'lsp buf rename' })
+map('n', '§f', '<cmd>lua vim.lsp.buf.format({ async = false })<cr>', { desc = 'lsp buf format' })
+map('n', '§a', '<cmd>lua vim.lsp.buf.code_action()<cr>', { desc = 'lsp buf code action' })
+
 -- Custom Leaders keybindings
 map('n', '\\K', '<cmd>Kustomize<cr>', { desc = 'Kustomize' })
 
