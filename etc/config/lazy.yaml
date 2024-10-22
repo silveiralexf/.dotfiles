@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/refs/heads/master/schema/config.json
+
+
+git:
+  skipHookPrefix: WIP
+  autoFetch: true
+  autoRefresh: true
+  fetchAll: true
+  autoStageResolvedConflicts: true
+  branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName} --}
+  allBranchesLogCmd: git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
+  overrideGpg: true
+  disableForcePushing: false
+  parseEmoji: false
+  truncateCopiedCommitHashesTo: 12
+gui:
+  scrollHeight: 2
+  scrollPastBottom: true
+  scrollOffMargin: 2
+  scrollOffBehavior: margin
+  mouseEvents: true
+  skipDiscardChangeWarning: false
+  skipStashWarning: false
+  skipNoStagedFilesWarning: false
+  skipRewordInEditorWarning: false
+  sidePanelWidth: 0.3333
+  expandFocusedSidePanel: false
+  expandedSidePanelWeight: 2
+  mainPanelSplitMode: flexible
+  enlargedSideViewLocation: left
+  language: auto
+  timeFormat: "02 Jan 06"
+  shortTimeFormat: "3:04PM"
+  showListFooter: true
+  showFileTree: true
+  showRandomTip: true
+  showCommandLog: true
+  showBottomLine: true
+  showPanelJumps: true
+  showIcons: false
+  showFileIcons: true
+  commitAuthorShortLength: 2
+  commitAuthorLongLength: 17
+  commitHashLength: 8
+  showBranchCommitHash: false
+  showDivergenceFromBaseBranch: none
+  commandLogSize: 8
+  splitDiff: auto
+  windowSize: normal
+  border: rounded
+  animateExplosion: true
+  portraitMode: auto
+  filterMode: substring
+  statusPanelView: dashboard
+  switchToFilesAfterStashPop: true
+  switchToFilesAfterStashApply: true

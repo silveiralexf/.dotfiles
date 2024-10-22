@@ -55,6 +55,7 @@ tasks:
       - task: profile:createdirs
       - task: profile:links
       - task: profile:setup
+
   profile:links:
     cmds:
       - test -L ~/go/src                              || ln -s ~/git ~/go/src
@@ -63,6 +64,10 @@ tasks:
       - test -L ~/.config/pet/config.toml             || ln -s ${DOTFILES_CONFIG}/pet-config.toml ~/.config/pet/config.toml
       - test -L ~/.amethyst.yml                       || ln -s ${DOTFILES_CONFIG}/amethyst.yml ~/.amethyst.yml
       - test -L ~/.config/terminalizer                || ln -s ${DOTFILES_CONFIG}/terminalizer.yaml ~/.config/terminalizer/config.yaml
+      - cmd: |
+          test -L ~/Library/Application\ Support/lazygit/config.yml \
+          || ln -s ~/.dotfiles/etc/config/lazy.yaml ~/Library/Application\ Support/lazygit/config.yml
+
   profile:createdirs:
     cmds:
       - for:
@@ -70,7 +75,9 @@ tasks:
           - ~/.config/terminalizer
           - ~/git
           - ~/go
+          - ~/Library/Application\ Support/lazygit
         cmd: mkdir -p {{.ITEM}}
+
   profile:setup:
     status:
       - diff ~/.zshrc ${DOTFILES_RC}/zshrc
