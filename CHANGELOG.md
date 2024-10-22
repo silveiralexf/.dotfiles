@@ -2,6 +2,9 @@
 
 
 ### [2024-10-22]
+ * [[7f6d42a]](https://github.com/silveiralexf/.dotfiles/commit/7f6d42a03d5f5f6f0d533f6078230a0178c279ea) chore(nvim): improve lua support with lazydev (silveiralexf@gmail.com)
+
+
  * [[bab6421]](https://github.com/silveiralexf/.dotfiles/commit/bab642182a4158ad43f9377b7783123125ca2d3d) chore: deps, comments, small fixes (silveiralexf@gmail.com)
 
 
