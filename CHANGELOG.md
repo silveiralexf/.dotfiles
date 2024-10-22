@@ -1,7 +1,15 @@
 # CHANGELOG
 
 
+### [2024-10-22]
+ * [[bab6421]](https://github.com/silveiralexf/.dotfiles/commit/bab642182a4158ad43f9377b7783123125ca2d3d) chore: deps, comments, small fixes (silveiralexf@gmail.com)
+
+
+
 ### [2024-10-21]
+ * [[8a35050]](https://github.com/silveiralexf/.dotfiles/commit/8a35050acc55090c922f4247665f4f6608bc85c7) deps: bump lazy to latest (silveiralexf@gmail.com)
+
+
  * [[ba53bae]](https://github.com/silveiralexf/.dotfiles/commit/ba53baea7f69a50570713be1ca305978d74f2045) feat: add matchup plugin (silveiralexf@gmail.com)
 
 
