@@ -2,10 +2,19 @@
 
 
 ### [2024-10-22]
- * [[7f6d42a]](https://github.com/silveiralexf/.dotfiles/commit/7f6d42a03d5f5f6f0d533f6078230a0178c279ea) chore(nvim): improve lua support with lazydev (silveiralexf@gmail.com)
+ * [[4b34d9f]](https://github.com/silveiralexf/.dotfiles/commit/4b34d9f1f32fb71424c9ba8e6fe5d17a5b9b6904) chore(nvim): add lazygit configs (silveiralexf@gmail.com)
 
 
- * [[bab6421]](https://github.com/silveiralexf/.dotfiles/commit/bab642182a4158ad43f9377b7783123125ca2d3d) chore: deps, comments, small fixes (silveiralexf@gmail.com)
+ * [[2a8e51d]](https://github.com/silveiralexf/.dotfiles/commit/2a8e51d7c86bf47092e56766f9b75798c799a6f1) chore(nvim): add lazygit configs (silveiralexf@gmail.com)
+
+
+ * [[b5c84cf]](https://github.com/silveiralexf/.dotfiles/commit/b5c84cff6289e17a2dc1f5839ab6dc87b3a060c1) chore(nvim): improve dap configuration and keybindings (silveiralexf@gmail.com)
+
+
+ * [[35fb255]](https://github.com/silveiralexf/.dotfiles/commit/35fb25516dd0f84d50378aba733aa139477ed8de) chore(nvim): improve lua support with lazydev (silveiralexf@gmail.com)
+
+
+ * [[fde7eb1]](https://github.com/silveiralexf/.dotfiles/commit/fde7eb16241dcff87882163753b39f011c5fdb4e) chore(nvim): deps, comments, small fixes (silveiralexf@gmail.com)
 
 
 
