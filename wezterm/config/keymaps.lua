@@ -6,6 +6,7 @@ local act = wezterm.action
 local mod = {}
 local keyboard = {}
 if platform.is_mac then
+  mod.NONE = 'NONE'
   mod.CMD = 'SUPER'
   mod.CMD_REV = 'SUPER|SHIFT'
   mod.CTRL = 'CTRL'
@@ -13,6 +14,7 @@ if platform.is_mac then
   mod.LEADER = 'ALT'
   keyboard.COMPOSED_KEYS = true -- when curly brackets are opt + shift + 8/9, not ctrl
 else
+  mod.NONE = 'NONE'
   mod.CMD = 'ALT' -- to avoid conflicting with other key shortcuts
   mod.CMD_REV = 'ALT|SHIFT'
   mod.CTRL = 'CTRL'
@@ -23,16 +25,19 @@ end
 
 local keys = {
   -- misc/useful --
-  { key = 'F1', mods = 'NONE', action = act.ActivateCommandPalette },
+  {
+    key = 'F1',
+    mods = mod.CTRL,
+    action = act.ActivateCommandPalette,
+  },
   {
     key = 'F2',
-    mods = 'NONE',
+    mods = mod.CTRL,
     action = act.ShowLauncherArgs({ flags = 'FUZZY|TABS|WORKSPACES' }),
   },
   {
     key = 'F3',
-    mods = 'NONE',
-    --    action = act.ShowLauncherArgs({ flags = 'FUZZY|WORKSPACES' }),
+    mods = mod.CTRL,
     action = act.PromptInputLine({
       description = wezterm.format({
         { Attribute = { Intensity = 'Bold' } },
@@ -54,11 +59,31 @@ local keys = {
       end),
     }),
   },
-  { key = 'F4', mods = 'NONE', action = act.ShowLauncher },
-  { key = 'F5', mods = 'NONE', action = 'ActivateCopyMode' },
-  { key = 'F11', mods = 'NONE', action = act.ToggleFullScreen },
-  { key = 'F12', mods = 'NONE', action = act.ShowDebugOverlay },
-  { key = 'f', mods = mod.CMD, action = act.Search({ CaseInSensitiveString = '' }) },
+  {
+    key = 'F4',
+    mods = mod.CTRL,
+    action = act.ShowLauncher,
+  },
+  {
+    key = 'F5',
+    mods = mod.CTRL,
+    action = 'ActivateCopyMode',
+  },
+  {
+    key = 'F11',
+    mods = mod.CTRL,
+    action = act.ToggleFullScreen,
+  },
+  {
+    key = 'F12',
+    mods = mod.CTRL,
+    action = act.ShowDebugOverlay,
+  },
+  {
+    key = 'f',
+    mods = mod.CMD,
+    action = act.Search({ CaseInSensitiveString = '' }),
+  },
   {
     key = 'u',
     mods = mod.CMD,
@@ -155,7 +180,7 @@ local keys = {
   -- font: resize interactively
   {
     key = 'f',
-    mods = 'LEADER',
+    mods = mod.LEADER,
     action = act.ActivateKeyTable({
       name = 'resize_font',
       one_shot = false,

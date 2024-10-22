@@ -33,6 +33,7 @@ tasks:
           - aquasecurity/trivy/trivy
           - bash
           - bufbuild/buf/buf
+          - btop
           - chafa
           - choose-gui
           - coreutils

@@ -1,4 +1,5 @@
 -- A slightly altered version of catppucchin mocha
+-- https://github.com/KevinSilvester/wezterm-config/blob/master/colors/custom.lua
 local mocha = {
   rosewater = '#f5e0dc',
   flamingo = '#f2cdcd',
