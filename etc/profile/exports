@@ -120,6 +120,7 @@ export PATH="${PATH}:${HOME}/.tfenv/bin"
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 export PATH="${PATH}:/Applications/Rancher Desktop.app/Contents/Resources/resources/darwin/lima/bin"
 export LIMA_HOME="${HOME}/Library/Application Support/rancher-desktop/lima"
+export PATH="${PATH}:${HOME}/.rd/bin"
 
 # -----------------------------------------------------------------------------
 # EOF
