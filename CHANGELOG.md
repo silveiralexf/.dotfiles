@@ -2,7 +2,7 @@
 
 
 ### [2024-10-22]
- * [[4b34d9f]](https://github.com/silveiralexf/.dotfiles/commit/4b34d9f1f32fb71424c9ba8e6fe5d17a5b9b6904) chore(nvim): add lazygit configs (silveiralexf@gmail.com)
+ * [[c57b9a7]](https://github.com/silveiralexf/.dotfiles/commit/c57b9a7beb91e9009ee22cd9fb275eb37b6cceb8) chore(nvim): add lazygit configs (silveiralexf@gmail.com)
 
 
  * [[2a8e51d]](https://github.com/silveiralexf/.dotfiles/commit/2a8e51d7c86bf47092e56766f9b75798c799a6f1) chore(nvim): add lazygit configs (silveiralexf@gmail.com)
