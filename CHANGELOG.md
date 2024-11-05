@@ -1,6 +1,11 @@
 # CHANGELOG
 
 
+### [2024-11-04]
+ * [[8a45d72]](https://github.com/silveiralexf/.dotfiles/commit/8a45d72540dc2cc2d5f866b20b8285d693e17400) fix(profile): add rancher bin back to path (silveiralexf@gmail.com)
+
+
+
 ### [2024-10-22]
  * [[c57b9a7]](https://github.com/silveiralexf/.dotfiles/commit/c57b9a7beb91e9009ee22cd9fb275eb37b6cceb8) chore(nvim): add lazygit configs (silveiralexf@gmail.com)
 
