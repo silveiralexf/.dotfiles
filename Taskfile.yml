@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
 version: "3"
 dotenv: [".env"]
 vars:
@@ -37,9 +38,16 @@ tasks:
     cmds:
       - scripts/hooks/pre-commit
   changelog:
-    desc: Generates rudimentary changelog
+    silent: true
+    desc: Generates CHANGELOG
     cmds:
-      - scripts/changelog.sh
+      - echo "Updating Changelog"
+      - cmd: |-
+          git cliff --context \
+          | jq '.[].commits.[] |= (. + {extra: {date: ( .committer.timestamp | strftime("%Y-%m-%d") )}} ) | sort_by(.commits.[].commit.committer.timestamp)' \
+          | jq -S 'walk(if type == "array" then sort_by(.timestamp) | reverse else . end)' \
+          | git cliff --from-context - > CHANGELOG.md
+      - cmd: git add {{.USER_WORKING_DIR}}/CHANGELOG.md
   macos:install:all:
     desc: Install all MacOS required tools
     cmds:
