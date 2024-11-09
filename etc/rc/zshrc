@@ -64,7 +64,7 @@ else
 fi
 
 #mise
-eval "$(${HOME}/.local/bin/mise activate zsh)"
+eval "$(mise activate zsh --shims)"
 
 # ZSH sqlite-history
 source "${HOME}/.oh-my-zsh/custom/plugins/zsh-histdb/sqlite-history.zsh"

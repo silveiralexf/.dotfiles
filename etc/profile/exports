@@ -111,7 +111,11 @@ PATH="${PATH}:${HOME}/.gem/ruby/2.7.0/bin"
 # HomeBrew
 export PATH="/opt/homebrew/opt/openssl@3.0/bin:$PATH"
 export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 #export PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:${PATH}"
+
+# Mise
+export PATH="$PATH:~/.local/share/mise/shims"
 
 # Terraform Env
 export PATH="${PATH}:${HOME}/.tfenv/bin"

@@ -3,11 +3,18 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2024-11-09
+
+### ⚙️ Chores
+
+- *(profile)* \[[d015f0ac](https://github.com/silveiralexf/.dotfiles/commit/d015f0ac2b8af6c0ebe945da5b2b6e37aa154809)\] fix exports for mise and brew for mason
+
+
 ## 2024-11-05
 
 ### 🚀 Features
 
-- *(docs)* \[[ba0a7e7e](https://github.com/silveiralexf/.dotfiles/commit/ba0a7e7efb00d70f54cb5fc0900433922391e54d)\] add git-cliff for changelog
+- *(docs)* \[[2129b145](https://github.com/silveiralexf/.dotfiles/commit/2129b1452aa6a7cae6c4a55caaa4d5b4e354c8a5)\] add git-cliff for changelog
 
 ### ⚙️ Chores
 
