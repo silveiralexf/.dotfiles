@@ -15,6 +15,7 @@ return {
             cwd = require('conform.util').root_file({ '.git' }),
             stdin = false,
           },
+          javascript = { 'prettierd', 'prettier' },
           svelte = { 'prettier' },
           yamlfmt = {
             prepend_args = {
@@ -27,6 +28,8 @@ return {
         opts.formatters_by_ft = {
           bash = { 'prettierd' },
           css = { { 'prettierd' } },
+          cue = { 'cue_fmt' },
+          dagger = { 'cue_fmt' },
           erb = { 'prettierd' },
           go = { 'goimports', 'gofumpt' },
           graphql = { { 'prettierd' } },
@@ -34,9 +37,7 @@ return {
           hcl = { 'terraform_fmt' },
           html = { 'prettierd' },
           java = { 'prettierd' },
-          cue = { 'cue_fmt' },
-          dagger = { 'cue_fmt' },
-          javascript = { 'prettierd' },
+          javascript = { 'prettierd', 'prettier' },
           javascriptreact = { 'prettierd' },
           json = { 'prettierd' },
           lua = { 'stylua' },
@@ -53,7 +54,6 @@ return {
           typescript = { 'prettierd' },
           typescriptreact = { 'prettierd' },
           yaml = { 'yamlfmt' },
-          -- yaml = { 'yamlfix' },
           zsh = { 'shfmt' },
           ['*.md'] = { 'codespell' },
           ['_'] = { 'trim_whitespace' },

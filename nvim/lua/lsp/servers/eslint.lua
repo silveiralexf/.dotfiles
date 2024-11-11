@@ -10,6 +10,30 @@ return {
           settings = {
             -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
             workingDirectories = { mode = 'auto' },
+            format = true,
+            showDocumentation = {
+              enable = true,
+            },
+            command = { 'vscode-eslint-language-server', '--stdio' },
+            init_options = {
+              configurationSection = { 'html', 'css', 'javascript' },
+              embeddedLanguages = {
+                css = true,
+                javascript = true,
+              },
+              provideFormatter = true,
+            },
+            filetypes = {
+              'javascript',
+              'javascriptreact',
+              'javascript.jsx',
+              'typescript',
+              'typescriptreact',
+              'typescript.tsx',
+              'vue',
+              'svelte',
+              'astro',
+            },
           },
         },
       },
@@ -21,7 +45,7 @@ return {
 
           local formatter = require('lazyvim.util').lsp.formatter({
             name = 'eslint: lsp',
-            primary = false,
+            primary = true,
             priority = 200,
             filter = 'eslint',
           })

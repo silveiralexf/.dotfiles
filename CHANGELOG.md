@@ -3,11 +3,18 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2024-11-11
+
+### ⚙️ Chores
+
+- *(nvim)* \[[966b5876](https://github.com/silveiralexf/.dotfiles/commit/966b5876e52b575f9715cc1d12e434d0bfe9b3e8)\] bump lazy and fixes for breaking changes
+
+
 ## 2024-11-09
 
 ### ⚙️ Chores
 
-- *(profile)* \[[d015f0ac](https://github.com/silveiralexf/.dotfiles/commit/d015f0ac2b8af6c0ebe945da5b2b6e37aa154809)\] fix exports for mise and brew for mason
+- *(profile)* \[[daab954b](https://github.com/silveiralexf/.dotfiles/commit/daab954bdb24986500ea3f3376eb1066a6506428)\] fix exports for mise and brew for mason
 
 
 ## 2024-11-05
