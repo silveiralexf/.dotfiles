@@ -7,12 +7,16 @@ All notable changes to this project will be documented in this file.
 
 ### 📦 Dependencies
 
-- *(nvim)* \[[e1e44cd7](https://github.com/silveiralexf/.dotfiles/commit/e1e44cd742b902a9c7ba2160bd0ececae228a086)\] bump deps and add words to spell dict
+- *(nvim)* \[[47e46ce1](https://github.com/silveiralexf/.dotfiles/commit/47e46ce136b4619b6abbe7ba6779ddc6f3817ac5)\] bump deps and add words to spell dict
+
+### 🔨 Fixes
+
+- *(profile)* \[[ef3afba4](https://github.com/silveiralexf/.dotfiles/commit/ef3afba4d3eac9eb0ccf2a3a94d3d62bd2e14176)\] add amethyst config back
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[73a00e24](https://github.com/silveiralexf/.dotfiles/commit/73a00e247a871dd30f54b38878732fc1c3ba03a1)\] update aliases and functions
-- *(nvim)* \[[553688fa](https://github.com/silveiralexf/.dotfiles/commit/553688fa728d8b07351610de6d52b90f2d22fd45)\] remove obsidian plugin and keymaps
+- *(profile)* \[[6ee23209](https://github.com/silveiralexf/.dotfiles/commit/6ee23209468754cf05cbdbfdaa6f2548895078cb)\] update aliases and functions
+- *(nvim)* \[[da683126](https://github.com/silveiralexf/.dotfiles/commit/da683126810d97492acacb2873a98cae8be1c957)\] remove obsidian plugin and keymaps
 
 
 ## 2024-11-11
