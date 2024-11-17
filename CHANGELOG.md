@@ -5,9 +5,14 @@ All notable changes to this project will be documented in this file.
 
 ## 2024-11-17
 
+### 📦 Dependencies
+
+- *(nvim)* \[[e1e44cd7](https://github.com/silveiralexf/.dotfiles/commit/e1e44cd742b902a9c7ba2160bd0ececae228a086)\] bump deps and add words to spell dict
+
 ### ⚙️ Chores
 
-- *(profile)* \[[f376da71](https://github.com/silveiralexf/.dotfiles/commit/f376da718011c812aa24a7dcf1fdf460ce8494de)\] update aliases and functions
+- *(nvim)* \[[73a00e24](https://github.com/silveiralexf/.dotfiles/commit/73a00e247a871dd30f54b38878732fc1c3ba03a1)\] update aliases and functions
+- *(nvim)* \[[553688fa](https://github.com/silveiralexf/.dotfiles/commit/553688fa728d8b07351610de6d52b90f2d22fd45)\] remove obsidian plugin and keymaps
 
 
 ## 2024-11-11
