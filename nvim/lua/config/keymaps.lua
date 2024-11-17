@@ -46,22 +46,4 @@ map('n', '\\O', '<cmd>Ollama<cr>', { desc = 'Ollama' })
 map('v', '\\O', '<cmd>Ollama<cr>', { desc = 'Ollama' })
 map('n', '\\Oc', '<cmd>Llama<cr>', { desc = 'Ollama-Chat' })
 
--- Obsidian
-map('n', '\\o', '<cmd>Obsidian<cr>', { desc = 'Obsidian' })
-map('n', '\\of', '<cmd>ObsidianSearch<cr>', { desc = 'ObsidianSearch' })
-map('n', '\\on', '<cmd>ObsidianNew<cr>', { desc = 'ObsidianNew' })
-map('n', '\\ot', '<cmd>ObsidianTags<cr>', { desc = 'ObsidianTags' })
-map('n', '\\ox', '<cmd>ObsidianExtractNote<cr>', { desc = 'ObsidianExtractNote' })
-map('n', '\\oF', function()
-  if require('obsidian').util.cursor_on_markdown_link() then
-    return '<cmd>ObsidianFollowLink<CR>'
-  else
-    return ''
-  end
-end, {
-  noremap = false,
-  expr = true,
-  desc = 'ObsidianFollowLink',
-})
-
 -- EOF
