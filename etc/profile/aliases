@@ -27,6 +27,12 @@ alias g="git"
 alias h="history"
 alias python="python3"
 
+# btop
+if command -v btop &>/dev/null 2>&0; then
+  alias top="btop"
+  alias htop="btop"
+fi
+
 # Vim / Vi setup
 set -o vi
 if command -v vim &>/dev/null 2>&0; then
