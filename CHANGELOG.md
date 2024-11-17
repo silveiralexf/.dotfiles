@@ -3,11 +3,18 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2024-11-17
+
+### ⚙️ Chores
+
+- *(profile)* \[[f376da71](https://github.com/silveiralexf/.dotfiles/commit/f376da718011c812aa24a7dcf1fdf460ce8494de)\] update aliases and functions
+
+
 ## 2024-11-11
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[966b5876](https://github.com/silveiralexf/.dotfiles/commit/966b5876e52b575f9715cc1d12e434d0bfe9b3e8)\] bump lazy and fixes for breaking changes
+- *(nvim)* \[[6695de5e](https://github.com/silveiralexf/.dotfiles/commit/6695de5e21a688f85f27b4033150010099d9af5c)\] bump lazy and fixes for breaking changes
 
 
 ## 2024-11-09

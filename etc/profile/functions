@@ -224,7 +224,7 @@ function openui() {
     -e WEBUI_AUTH=false \
     --add-host=host.lima.internal:host-gateway \
     -e OLLAMA_BASE_URL=http://host.docker.internal:11434 \
-    -v open-webui:/app/backend/data \
+    -v ${HOME}/data:/app/backend/data \
     --name "${CONTAINER_NAME}" \
     --restart always ghcr.io/open-webui/open-webui:latest
   docker logs "${CONTAINER_NAME}"
