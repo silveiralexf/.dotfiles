@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 ## 2024-11-25
 
+### 🧪 Testing
+
+- *(wezterm)* \[[8fcfc6d9](https://github.com/silveiralexf/.dotfiles/commit/8fcfc6d9cd3a43db2b7fac0df85cb3af027950fe)\] experimenting new keybindings and events for better navigation
+
 ### ⚙️ Chores
 
 - *(yazi)* \[[8b7a9278](https://github.com/silveiralexf/.dotfiles/commit/8b7a92788bd35a461d43918b77c3548fcb5f0cc8)\] rollback to catppuccin-mocha theme
