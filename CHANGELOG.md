@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 ### ⚙️ Chores
 
 - *(yazi)* \[[8b7a9278](https://github.com/silveiralexf/.dotfiles/commit/8b7a92788bd35a461d43918b77c3548fcb5f0cc8)\] rollback to catppuccin-mocha theme
+- *(mise)* \[[ef279d48](https://github.com/silveiralexf/.dotfiles/commit/ef279d48d120f163ce69334be58bddd336b9b341)\] use openjdk for java in profile
 
 
 ## 2024-11-17
