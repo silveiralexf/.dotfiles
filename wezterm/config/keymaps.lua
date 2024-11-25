@@ -26,8 +26,8 @@ end
 local keys = {
   -- misc/useful --
   {
-    key = 'F1',
-    mods = mod.CTRL,
+    mods = mod.CMD,
+    key = 'p',
     action = act.ActivateCommandPalette,
   },
   {
@@ -139,10 +139,51 @@ local keys = {
     }),
   },
 
-  -- window --
-  -- spawn windows
-  { key = 'n', mods = mod.CMD, action = act.SpawnWindow },
-
+  -- TODO: Further tests still pending as tmux alternatives
+  --
+  -- -- panes
+  -- {
+  --   mods = mod.LEADER,
+  --   key = 'z',
+  --   action = act.TogglePaneZoomState,
+  -- },
+  -- -- panes: navigation
+  -- {
+  --   mods = mod.LEADER,
+  --   key = 'LeftArrow',
+  --   action = act.ActivatePaneDirection('Prev'),
+  -- },
+  -- {
+  --   mods = mod.LEADER,
+  --   key = 'RightArrow',
+  --   action = act.ActivatePaneDirection('Next'),
+  -- },
+  -- {
+  --   mods = mod.LEADER,
+  --   key = 'UpArrow',
+  --   action = act.ActivatePaneDirection('Up'),
+  -- },
+  -- {
+  --   mods = mod.LEADER,
+  --   key = 'DownArrow',
+  --   action = act.ActivatePaneDirection('Down'),
+  -- },
+  -- -- pane splits
+  -- {
+  --   mods = mod.LEADER,
+  --   key = 'v',
+  --   action = act.SplitHorizontal({ domain = 'CurrentPaneDomain' }),
+  -- },
+  -- {
+  --   mods = mod.LEADER,
+  --   key = 's',
+  --   action = act.SplitVertical({ domain = 'CurrentPaneDomain' }),
+  -- },
+  --
+  -- -- window --
+  -- -- spawn windows
+  -- { key = 'n', mods = mod.CMD, action = act.SpawnWindow },
+  --
   -- background controls --
   {
     key = [[,]],
@@ -159,8 +200,8 @@ local keys = {
     end),
   },
   {
-    key = [[/]],
-    mods = mod.LEADER,
+    key = [[']],
+    mods = mod.CMD,
     action = act.InputSelector({
       title = 'Select Background',
       choices = backdrops:choices(),
@@ -178,8 +219,18 @@ local keys = {
   { mods = mod.CMD, key = '+', action = act.IncreaseFontSize },
   { mods = mod.CMD, key = '-', action = act.DecreaseFontSize },
   -- font: resize interactively
+  -- Modes
   {
-    key = 'f',
+    mods = mod.LEADER,
+    key = 'e',
+    action = act.ActivateKeyTable({
+      name = 'execute_mode',
+      one_shot = false,
+    }),
+  },
+
+  {
+    key = 'r',
     mods = mod.LEADER,
     action = act.ActivateKeyTable({
       name = 'resize_font',
@@ -196,6 +247,15 @@ local key_tables = {
     { key = 'r', action = act.ResetFontSize },
     { key = 'Escape', action = 'PopKeyTable' },
     { key = 'q', action = 'PopKeyTable' },
+  },
+  execute_mode = {
+    {
+      key = 'l',
+      action = act.EmitEvent('trigger-lazygit'),
+    },
+    -- Cancel the mode by pressing escape
+    { key = 'q', action = 'PopKeyTable' },
+    { key = 'Escape', action = 'PopKeyTable' },
   },
 }
 

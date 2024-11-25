@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2024-11-25
+
+### ⚙️ Chores
+
+- *(yazi)* \[[8b7a9278](https://github.com/silveiralexf/.dotfiles/commit/8b7a92788bd35a461d43918b77c3548fcb5f0cc8)\] rollback to catppuccin-mocha theme
+
+
 ## 2024-11-17
 
 ### 📦 Dependencies
