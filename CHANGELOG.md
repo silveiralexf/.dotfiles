@@ -11,7 +11,7 @@ All notable changes to this project will be documented in this file.
 
 ### 🔨 Fixes
 
-- *(profile)* \[[ef3afba4](https://github.com/silveiralexf/.dotfiles/commit/ef3afba4d3eac9eb0ccf2a3a94d3d62bd2e14176)\] add amethyst config back
+- *(profile)* \[[c91738e4](https://github.com/silveiralexf/.dotfiles/commit/c91738e4764c95ffa07fd19accc29e09499c05f8)\] add amethyst config back
 
 ### ⚙️ Chores
 
