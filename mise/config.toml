@@ -5,13 +5,10 @@ experimental = true
 go_set_gobin = true
 
 [tools]
-
-# runtimes
-go = "prefix:1.22.8"
 rust = ["nightly"]
 node = ["22"]
 yarn = ["4"]
-python = ["3.11"]
+python = "3.11.10"
 java = "openjdk-21"
 maven = ["latest"]
 lua = ["5.1"]
@@ -22,8 +19,8 @@ fzf = ["latest"]
 git-cliff = ["latest"]
 jq = ["latest"]
 k3d = ["latest"]
-kubebuilder = ["4.2.0"]
-kustomize = ["latest"]
+kubebuilder = "latest"
+kustomize = "latest"
 lazygit = ["latest"]
 neovim = ["nightly"]
 operator-sdk = ["1.35.0"]
@@ -64,3 +61,4 @@ clickhouse = ["latest"]
 "npm:terminalizer" = "latest"
 "npm:yarn" = "latest"
 awscli = "latest"
+go = "1.23.2"
