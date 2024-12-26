@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2024-12-26
+
+### ⚙️ Chores
+
+- *(profile)* \[[e65e2d27](https://github.com/silveiralexf/.dotfiles/commit/e65e2d2727af9cde226930cb792d875d41fe3f36)\] new conda function and small tweaks
+
+
 ## 2024-11-25
 
 ### 🧪 Testing
