@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 ## 2025-01-03
 
+### 🚀 Features
+
+- *(nvim)* \[[d04fd3f6](https://github.com/silveiralexf/.dotfiles/commit/d04fd3f68a666cbb5c17dc9efac5a9237e109d63)\] add ollama-copilot plugin
+
 ### 📦 Dependencies
 
 - *(mise)* \[[b1399c5f](https://github.com/silveiralexf/.dotfiles/commit/b1399c5f502116b29d383456a6003ce0503e9f8b)\] bump configs and deps
@@ -12,6 +16,7 @@ All notable changes to this project will be documented in this file.
 ### 🧪 Testing
 
 - *(profile)* \[[5c06fb73](https://github.com/silveiralexf/.dotfiles/commit/5c06fb73f3d50009bc252f079bb4883e42eef63a)\] testing asdf as alternative to mise
+- *(nvim)* \[[a5bcb6e5](https://github.com/silveiralexf/.dotfiles/commit/a5bcb6e554f33e223cbc6d9688ca3e2e42a85a5e)\] trying out neorg one more time
 
 
 ## 2024-12-26
