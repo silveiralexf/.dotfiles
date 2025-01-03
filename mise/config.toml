@@ -8,13 +8,13 @@ go_set_gobin = true
 rust = ["nightly"]
 node = ["22"]
 yarn = ["4"]
-python = "3.11.10"
+python = ["3.11"]
 java = "openjdk-21"
 maven = ["latest"]
 lua = ["5.1"]
 # tooling
 ag = ["latest"]
-checkov = ["latest"]
+# checkov = ["latest"]
 fzf = ["latest"]
 git-cliff = ["latest"]
 jq = ["latest"]
