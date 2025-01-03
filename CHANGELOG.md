@@ -9,6 +9,10 @@ All notable changes to this project will be documented in this file.
 
 - *(mise)* \[[b1399c5f](https://github.com/silveiralexf/.dotfiles/commit/b1399c5f502116b29d383456a6003ce0503e9f8b)\] bump configs and deps
 
+### 🧪 Testing
+
+- *(profile)* \[[5c06fb73](https://github.com/silveiralexf/.dotfiles/commit/5c06fb73f3d50009bc252f079bb4883e42eef63a)\] testing asdf as alternative to mise
+
 
 ## 2024-12-26
 
