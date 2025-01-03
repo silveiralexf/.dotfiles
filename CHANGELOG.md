@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2025-01-03
+
+### 📦 Dependencies
+
+- *(mise)* \[[b1399c5f](https://github.com/silveiralexf/.dotfiles/commit/b1399c5f502116b29d383456a6003ce0503e9f8b)\] bump configs and deps
+
+
 ## 2024-12-26
 
 ### ⚙️ Chores
