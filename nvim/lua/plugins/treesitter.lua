@@ -42,8 +42,8 @@ return {
       ensure_installed = {
         'bash',
         'c',
-        'cue',
         'cmake',
+        'cue',
         'diff',
         'go',
         'gotmpl',
@@ -62,6 +62,7 @@ return {
         'make',
         'markdown',
         'markdown_inline',
+        'norg_meta',
         'printf',
         'python',
         'query',
