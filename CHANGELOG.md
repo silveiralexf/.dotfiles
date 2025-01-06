@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 ## 2025-01-06
 
+### 📚 Documentation
+
+- *(readme)* \[[32283972](https://github.com/silveiralexf/.dotfiles/commit/32283972de0e61b8a42f0b3eeae9f35e0179b2ab)\] update task of lists available
+
 ### 🧪 Testing
 
 - *(nvim)* \[[ce2fc64e](https://github.com/silveiralexf/.dotfiles/commit/ce2fc64e67ca47fdda4834a2925c09d78eadb7a7)\] trying out neorg one more time
