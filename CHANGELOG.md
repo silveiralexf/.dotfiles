@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2025-01-06
+
+### 🧪 Testing
+
+- *(nvim)* \[[ce2fc64e](https://github.com/silveiralexf/.dotfiles/commit/ce2fc64e67ca47fdda4834a2925c09d78eadb7a7)\] trying out neorg one more time
+
+
 ## 2025-01-03
 
 ### 🚀 Features
@@ -16,7 +23,6 @@ All notable changes to this project will be documented in this file.
 ### 🧪 Testing
 
 - *(profile)* \[[5c06fb73](https://github.com/silveiralexf/.dotfiles/commit/5c06fb73f3d50009bc252f079bb4883e42eef63a)\] testing asdf as alternative to mise
-- *(nvim)* \[[a5bcb6e5](https://github.com/silveiralexf/.dotfiles/commit/a5bcb6e554f33e223cbc6d9688ca3e2e42a85a5e)\] trying out neorg one more time
 
 
 ## 2024-12-26
