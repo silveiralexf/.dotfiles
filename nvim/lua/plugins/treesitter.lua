@@ -62,7 +62,6 @@ return {
         'make',
         'markdown',
         'markdown_inline',
-        'norg_meta',
         'printf',
         'python',
         'query',
