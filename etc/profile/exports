@@ -1,13 +1,20 @@
 #!/bin/zsh
+
+# vi: ft=zsh
+
 # -----------------------------------------------------------------------------
 # Handlers and core OS stuff
 # -----------------------------------------------------------------------------
+
 # GpG settings
 export GPG_TTY="$(tty)"
 
 # Lang & Locale settings
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+# Man pages path
+export MANPATH="/usr/local/man:$MANPATH"
 
 # Format time output just like bash would
 export TIMEFMT=$'real\t%E\nuser\t%U\nsys\t%S'
@@ -40,6 +47,18 @@ export PATH="${PATH}:/opt/homebrew/sbin"
 export PATH="${PATH}:/opt/local/bin"
 export PATH="${PATH}:/opt/nvim/bin"
 [ -d "${DOTFILES_SCRIPTS}" ] && export PATH="$PATH:${DOTFILES_SCRIPTS}::"
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vi'
+  export VISUAL='vi'
+else
+  export EDITOR='nvim'
+  export VISUAL='nvim'
+fi
+
+# mise
+eval "$(mise activate zsh --shims)"
 
 # -----------------------------------------------------------------------------
 # Terminal colors & display
@@ -117,6 +136,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Mise
 export PATH="$PATH:~/.local/share/mise/shims"
 export PATH="$PATH:~/.local/share/mise/installs/rust/nightly/bin/"
+export PATH="$PATH:~/.local/share/mise/installs/rust/nightly/bin"
 
 # Terraform Env
 export PATH="${PATH}:${HOME}/.tfenv/bin"

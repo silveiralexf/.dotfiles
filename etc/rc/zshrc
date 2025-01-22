@@ -1,4 +1,9 @@
-#pIf you come from bash you might have to change your $PATH.
+# Amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] &&
+  builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
+# Amazon Q pre block. Keep at the top of this file.
+# If you come from bash you might have to change your $PATH.
+
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
@@ -24,18 +29,16 @@ export DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    zsh-autosuggestions
-    zsh-fzf-history-search
+  zsh-fzf-history-search
 )
 
-source ${ZSH}/oh-my-zsh.sh
+source "${ZSH}/oh-my-zsh.sh"
 
 # User configuration
 set -o vi
 zstyle ':completion:*:ssh:*' hosts
 zmodload zsh/mapfile
 
-# test
 # exports from dotfiles
 export DOTFILES_HOME="${HOME}/.dotfiles"
 export DOTFILES_CONFIG="${DOTFILES_HOME}/etc/config"
@@ -43,33 +46,12 @@ export DOTFILES_PROFILE="${DOTFILES_HOME}/etc/profile"
 export DOTFILES_RC="${DOTFILES_HOME}/etc/rc"
 export DOTFILES_SCRIPTS="${DOTFILES_HOME}/scripts"
 
+# sourcing dotfiles scripts
 source "${DOTFILES_SCRIPTS}/fzf.zsh"
 source "${DOTFILES_SCRIPTS}/histdb.zsh"
 source "${DOTFILES_PROFILE}/aliases"
 source "${DOTFILES_PROFILE}/exports"
 source "${DOTFILES_PROFILE}/functions"
-
-export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='vi'
-    export VISUAL='vi'
-else
-    export EDITOR='nvim'
-    export VISUAL='nvim'
-fi
-
-# ASDF
-. "${HOME}/.asdf/asdf.sh"
-eval "$(asdf exec direnv hook zsh)"
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
-
-#mise
-eval "$(mise activate zsh --shims)"
 
 # ZSH sqlite-history
 source "${HOME}/.oh-my-zsh/custom/plugins/zsh-histdb/sqlite-history.zsh"
@@ -77,3 +59,10 @@ autoload -Uz add-zsh-hook
 
 # Zsh Prettier
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
+# Zsh bottom
+printf '\n%.0s' {1..$LINES}
+
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] &&
+  builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
