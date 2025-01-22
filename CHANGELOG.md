@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2025-01-22
+
+### ⚙️ Chores
+
+- *(profile)* \[[f6d8ef23](https://github.com/silveiralexf/.dotfiles/commit/f6d8ef23d2aa50099d1bc399d5f1b0eda373d5b0)\] reorg and update aliases and settings
+
+
 ## 2025-01-06
 
 ### 📚 Documentation

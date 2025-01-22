@@ -5,7 +5,7 @@ experimental = true
 go_set_gobin = true
 
 [tools]
-rust = ["nightly"]
+rust = "nightly"
 node = ["22"]
 yarn = ["4"]
 python = ["3.11"]
