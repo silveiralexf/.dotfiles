@@ -5,10 +5,15 @@ All notable changes to this project will be documented in this file.
 
 ## 2025-01-22
 
+### 🔨 Fixes
+
+- *(yazi)* \[[e0ad5d3b](https://github.com/silveiralexf/.dotfiles/commit/e0ad5d3b97216091a0930f60006feef46a10d6cc)\] adjust options for last release
+
 ### ⚙️ Chores
 
 - *(profile)* \[[f6d8ef23](https://github.com/silveiralexf/.dotfiles/commit/f6d8ef23d2aa50099d1bc399d5f1b0eda373d5b0)\] reorg and update aliases and settings
 - *(mise)* \[[ac3ec1e2](https://github.com/silveiralexf/.dotfiles/commit/ac3ec1e2e7b2193699b7d68e20f28391339f1c08)\] adjust syntax for latest releases
+- *(nvim)* \[[c2703211](https://github.com/silveiralexf/.dotfiles/commit/c2703211270de89f9bae9e95cf2fc47c8bc413dd)\] give up on neorg again
 
 
 ## 2025-01-06
