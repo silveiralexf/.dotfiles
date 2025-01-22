@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### 📚 Documentation
 
-- *(readme)* \[[32283972](https://github.com/silveiralexf/.dotfiles/commit/32283972de0e61b8a42f0b3eeae9f35e0179b2ab)\] update task of lists available
+- *(readme)* \[[92a10ef3](https://github.com/silveiralexf/.dotfiles/commit/92a10ef3b5b40c94f147912cfbb956f121db92ec)\] update task of lists available
 
 ### 🧪 Testing
 

@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+# vi: ft=zsh
+
 # Read The Freaking Manual (or Google it)
 function rtfm() { "$@" --help 2>/dev/null || man "$@" 2>/dev/null || google-chrome "http://www.google.com/search?q=$@"; }
 
@@ -138,9 +140,9 @@ function gogo() {
   $mapfile < <(find "${GOPATH}/src" \( -type d -o -type l \) -iname "$d" | awk '{print length, $0;}' | sort -n | awk '{print $2}')
 }
 
-# function gotest(){
-#     find $1 -name '*.go' -printf '%h\n' | sort -u | xargs -n1 -P1 grc go test -cover -v -count=1 ;
-# }
+function gotest() {
+  find $1 -name '*.go' | grep -i 'test' | sort -u | xargs -n1 -P1 grc go test -cover -v -count=1
+}
 
 function golistdeps() {
   (
