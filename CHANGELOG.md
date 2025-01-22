@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 ### ⚙️ Chores
 
 - *(profile)* \[[f6d8ef23](https://github.com/silveiralexf/.dotfiles/commit/f6d8ef23d2aa50099d1bc399d5f1b0eda373d5b0)\] reorg and update aliases and settings
+- *(mise)* \[[ac3ec1e2](https://github.com/silveiralexf/.dotfiles/commit/ac3ec1e2e7b2193699b7d68e20f28391339f1c08)\] adjust syntax for latest releases
 
 
 ## 2025-01-06
