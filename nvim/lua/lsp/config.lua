@@ -3,23 +3,16 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       'L3MON4D3/LuaSnip',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-cmdline',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
-      'hrsh7th/nvim-cmp',
       'j-hui/fidget.nvim',
       'neovim/nvim-lspconfig',
-      'saadparwaiz1/cmp_luasnip',
+      'mason.nvim',
       'williamboman/mason-lspconfig',
       'williamboman/mason.nvim',
     },
 
-    config = function()
-      local cmp = require('cmp')
-      local cmp_defaults = require('cmp_nvim_lsp').default_capabilities
+    opts = function()
       local client_cap = vim.lsp.protocol.make_client_capabilities
-      local capabilities = vim.tbl_deep_extend('force', {}, client_cap(), cmp_defaults())
+      local capabilities = vim.tbl_deep_extend('force', {}, client_cap())
       require('fidget').setup({})
       require('mason').setup()
       require('mason-lspconfig').setup({
@@ -65,38 +58,6 @@ return {
           end,
         },
       })
-
-      local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
-      cmp.setup({
-        snippet = {
-          expand = function(args)
-            require('luasnip').lsp_expand(args.body)
-          end,
-        },
-        mapping = cmp.mapping.preset.insert({
-          ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-          ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-          ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-          ['<C-Space>'] = cmp.mapping.complete(),
-        }),
-        sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' }, -- For luasnip users.
-        }, { { name = 'buffer' } }),
-      })
-
-      vim.diagnostic.config({
-        update_in_insert = true,
-        float = {
-          border = 'rounded',
-          focusable = false,
-          header = '',
-          prefix = '',
-          source = 'if_many',
-          style = 'minimal',
-        },
-      })
       vim.filetype.add({
         filename = {
           ['.kube/config'] = 'yaml',
@@ -125,6 +86,32 @@ return {
           ['.*/templates/.*%.tpl'] = 'helm',
           ['.*/templates/.*%.ya?ml'] = 'helm',
           ['helmfile.*%.ya?ml'] = 'helm',
+        },
+      })
+      ---@class PluginLspOpts
+      vim.diagnostic.config({
+        -- options for vim.diagnostic.config()
+        ---@type vim.diagnostic.Opts
+        diagnostics = {
+          underline = true,
+          update_in_insert = false,
+          virtual_text = {
+            spacing = 4,
+            source = 'if_many',
+            prefix = '●',
+            -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
+            -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
+            -- prefix = "icons",
+          },
+        },
+        severity_sort = true,
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = LazyVim.config.icons.diagnostics.Error,
+            [vim.diagnostic.severity.WARN] = LazyVim.config.icons.diagnostics.Warn,
+            [vim.diagnostic.severity.HINT] = LazyVim.config.icons.diagnostics.Hint,
+            [vim.diagnostic.severity.INFO] = LazyVim.config.icons.diagnostics.Info,
+          },
         },
       })
     end,
