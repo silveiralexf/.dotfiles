@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 ## 2025-01-24
 
+### 🚀 Features
+
+- *(profile)* \[[c97b73ab](https://github.com/silveiralexf/.dotfiles/commit/c97b73ab458e71cfec2369b1cf8f33e2f38b2dd0)\] add powerlevel10k as zsh theme
+
 ### ⚙️ Chores
 
 - *(profile)* \[[5417728a](https://github.com/silveiralexf/.dotfiles/commit/5417728abe196eb7622bcc2a2ecda72b6595380e)\] ditch pet for snippets in command line
