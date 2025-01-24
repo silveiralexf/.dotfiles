@@ -7,7 +7,8 @@
     "vim",
     "ya",
     "YaziConfig",
-    "Linemode"
+    "Linemode",
+    "LazyVim"
   ],
   "workspace.checkThirdParty": false
 }

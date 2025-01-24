@@ -9,7 +9,6 @@ end
 
 -- Primary Leader keybindings
 map('n', '<leader><tab>v', '<cmd>vnew<cr>', { desc = 'New vertically split pane' })
-map('n', '<leader>fM', '<cmd>Telescope media_files<cr>', { desc = 'TelescopeFindMedia' })
 map('n', '<leader>k', '<cmd>WhichKey<cr>', { desc = 'Whichkey' })
 map('n', '<leader>t', '', { desc = 'NeoTest' })
 
@@ -51,4 +50,5 @@ map('n', '\\mo', '<cmd>ModelLlama<cr>', { desc = 'ModelLlama-chat' })
 map('n', '\\mq', '<cmd>ModelQ<cr>', { desc = 'ModelQ-chat' })
 map('n', '\\mg', '<cmd>ModelQgit<cr>', { desc = 'ModelQ-Git ask?' })
 map('n', '\\mh', '<cmd>ModelQhist<cr>', { desc = 'ModelQ-History ask?' })
+
 -- EOF

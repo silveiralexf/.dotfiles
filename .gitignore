@@ -8,14 +8,22 @@
 ..bfg-report/
 
 # LazyVim
-./nvim/tt.*
-./nvim/.tests
-./nvim/doc/tags
-./nvim/debug
-./nvim/.repro
-./nvim/foo.*
+*.log
 ./nvim/*.log
+./nvim/.repro
+./nvim/.tests
 ./nvim/data
+./nvim/debug
+./nvim/doc/tags
+./nvim/foo.*
+./nvim/tt.*
+.repro
+.tests
+data
+debug
+doc/tags
+foo.*
+tt.*
 
 # Node
 node_modules/
