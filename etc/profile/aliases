@@ -8,9 +8,9 @@
 
 alias more=less
 alias ls='ls --color=tty'
-alias ll='ls -ltr'
 alias lsh='ls -lhXG' # Long human readable
-alias sl='ls'        # fix annoyingly common typo
+alias ll='eza -lTr --icons'
+alias sl='ls' # fix annoyingly common typo
 alias bashrc='source ~/.bashrc'
 alias zshrc='source ~/.zshrc'
 alias dos2unix='perl -pi -e "tr/\r//d"'

@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 ## 2025-01-24
 
+### ⚙️ Chores
+
+- *(profile)* \[[5417728a](https://github.com/silveiralexf/.dotfiles/commit/5417728abe196eb7622bcc2a2ecda72b6595380e)\] ditch pet for snippets in command line
+
 ### ◀️ Revert
 
 - *(profile)* \[[8aecced0](https://github.com/silveiralexf/.dotfiles/commit/8aecced0ffd75ae30663c9393e7ffe0561ec3e91)\] rollback from mise to taskfiles
