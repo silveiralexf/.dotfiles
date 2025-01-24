@@ -10,9 +10,13 @@ All notable changes to this project will be documented in this file.
 - *(profile)* \[[c97b73ab](https://github.com/silveiralexf/.dotfiles/commit/c97b73ab458e71cfec2369b1cf8f33e2f38b2dd0)\] add powerlevel10k as zsh theme
 - *(nvim)* \[[49ec6c25](https://github.com/silveiralexf/.dotfiles/commit/49ec6c252dd0e2d6d2de3b03c43e25ffd52bd99d)\] replace ollama-copilot with modelmate plugin
 
+### 📚 Documentation
+
+- \[[423be58f](https://github.com/silveiralexf/.dotfiles/commit/423be58f7f9a6ae241612cfd3eb139b08496b9d3)\] update overall documentation
+
 ### 🔨 Fixes
 
-- *(nvim)* \[[90de6360](https://github.com/silveiralexf/.dotfiles/commit/90de6360cd2d9082996af28f403f2c97857521f5)\] adjust setup for lazy latest major breaking changes
+- *(nvim)* \[[85082d2f](https://github.com/silveiralexf/.dotfiles/commit/85082d2f24c7ef98bb3d7bb38f2dba517ced5dd3)\] adjust setup for lazy latest major breaking changes
 
 ### ⚙️ Chores
 
