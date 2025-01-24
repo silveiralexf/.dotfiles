@@ -20,7 +20,6 @@ tasks:
       - brew list | grep -w readline || brew install readline zlib
       - brew list | grep -w zlib || brew install zlib
       - brew tap fluxcd/tap
-      - brew tap knqyf263/pet
       - brew tap aquasecurity/trivy
       - brew tap arl/arl
       - brew tap knative-extensions/kn-plugins
@@ -52,7 +51,6 @@ tasks:
           - iftop
           - imagemagick
           - kamel
-          - knqyf263/pet/pet
           - kubent
           - luajit
           - luarocks
