@@ -10,27 +10,34 @@ My personal Neovim configurations.
 Check the reference below on how things are organized:
 
 ```bash
-# .dotfiles/nvim
-.
-├── init.lua                  # LazyVim entry-point
-├── lua
-│   ├── config
-│   │   ├── autocmds.lua      # Autocmds such as file types, and LSP attachment configs
-│   │   ├── keymaps.lua       # Keybindings
-│   │   ├── lazy.lua
-│   │   └── options.lua       # Vim global options
-│   ├── lsp
-│   │   ├── config.lua        # Language servers settings
-│   │   │                     #
-│   │   └── servers           # Customization per language server
-│   │  
-│   └── plugins               # Plugin customization
-│   │   │                     #
-│   │   ├── colorscheme.lua   # Color theme
-│   │   ├── editor.lua        # Editor settings
-│   │   ├── formatting.lua    # Formatting and visual options in general
-│   │   │
-└── spell                     # Spellchecker dictionary
+ .
+├──  init.lua               # LazyVim entry-point
+├──  lazy-lock.json
+├──  lazyvim.json
+├── 󰂺 README.md
+├──  lua
+│   ├──  config
+│   │   ├──  autocmds.lua    # Autocmds such as file types, LSP attach configs
+│   │   ├──  keymaps.lua     # Keybindings
+│   │   ├──  lazy.lua
+│   │   └──  options.lua     # Neovim global options
+│   │
+│   ├──  lsp
+│   │   ├──  config.lua      # Language server settings
+│   │   └──  servers         # Customization per language server
+│   │
+│   ├──  plugins             # Plugin customization
+│   │   ├──  colorscheme.lua # Color theme
+│   │   ├──  dressing.lua    # Overall aesthetics
+│   │   ├──  editor.lua      # Editor settings
+│   │   ├──  formatting.lua  # Formatting and visual options in general
+│   │   │
+│   └──  utils               # Misc utilities
+│       └──  luasnip.lua
+│
+└──  spell                   # Spellchecker dictionary
+    ├──  en.utf-8.add
+    └──  en.utf-8.add.spl
 ```
 
 ## Disclaimer
