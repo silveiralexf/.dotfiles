@@ -49,7 +49,6 @@ tasks:
       - test -L ~/go/src                              || ln -s ~/git ~/go/src
       - test -L ~/.config/nvim                        || ln -s ${DOTFILES_HOME}/nvim ~/.config/nvim
       - test -L ~/.tmux.conf                          || ln -s ${DOTFILES_CONFIG}/tmux/tmux.conf ~/.tmux.conf
-      - test -L ~/.config/pet/config.toml             || ln -s ${DOTFILES_CONFIG}/pet-config.toml ~/.config/pet/config.toml
       - test -L ~/.amethyst.yml                       || ln -s ${DOTFILES_CONFIG}/amethyst.yml ~/.amethyst.yml
       - test -L ~/.config/terminalizer                || ln -s ${DOTFILES_CONFIG}/terminalizer.yaml ~/.config/terminalizer/config.yaml
       - test -L ~~/.p10k.zsh                          || ln -s ${DOTFILES_CONFIG}/p10k.zsh ~/.p10k.zsh
@@ -60,7 +59,6 @@ tasks:
   profile:createdirs:
     cmds:
       - for:
-          - ~/.config/pet
           - ~/.config/terminalizer
           - ~/git
           - ~/go

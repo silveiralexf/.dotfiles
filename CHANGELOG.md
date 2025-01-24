@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2025-01-24
+
+### ◀️ Revert
+
+- *(profile)* \[[8aecced0](https://github.com/silveiralexf/.dotfiles/commit/8aecced0ffd75ae30663c9393e7ffe0561ec3e91)\] rollback from mise to taskfiles
+
+
 ## 2025-01-22
 
 ### 🔨 Fixes

@@ -173,29 +173,15 @@ function tpl() {
   tmuxp load -y $(cd ~/.tmuxp/ && ls | sed 's/.yaml//g' | fzf --reverse --multi --height 51%)
 }
 
-function randompass() {
-  openssl rand -base64 18
-}
-
+# Tmux pane rename
 function rp() {
   pane_name=$1
   printf "\033]2;%s\033\\r" "${pane_name}"
 }
 
-# Select commands from Pet snippet list
-function pet-select() {
-  BUFFER=$(pet search --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  zle redisplay
-}
-zle -N pet-select
-stty -ixon
-bindkey '^s' pet-select
-
-# Add Previous command to Pet
-function prev() {
-  PREV=$(echo $(history | tail -n2 | head -n1) | sed 's/[0-9]* //')
-  sh -c "pet new $(printf %q "$PREV")"
+# Generates randompass
+function randompass() {
+  openssl rand -base64 18
 }
 
 # export private settings
