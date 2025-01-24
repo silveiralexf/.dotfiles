@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+tasks:
+  all:
+    desc: Install Rust and all required crates
+    cmds:
+      - task: all:deps
+      - task: all:crates
+  all:deps:
+    desc: Install rustc and cargo
+    status:
+      - cargo -V
+    cmds:
+      - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  all:crates:
+    desc: Install required cargo packages
+    cmds:
+      - for:
+          - dutree
+          - eza
+          - fd-find
+          - git-cliff
+          - git-delta
+          - htmx-lsp
+          - neocmakelsp
+          - protols
+          - ripgrep
+          - taplo-cli
+          - yazi-cli
+          - yazi-fm
+        cmd: cargo install --list | grep -w {{.ITEM}} || cargo install {{.ITEM}}

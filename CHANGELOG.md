@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### 🔨 Fixes
 
-- *(yazi)* \[[e0ad5d3b](https://github.com/silveiralexf/.dotfiles/commit/e0ad5d3b97216091a0930f60006feef46a10d6cc)\] adjust options for last release
+- *(yazi)* \[[44dfe9a5](https://github.com/silveiralexf/.dotfiles/commit/44dfe9a5b639f17852e5dcef5a7395a91ec2863f)\] adjust options for last release
 
 ### ⚙️ Chores
 
