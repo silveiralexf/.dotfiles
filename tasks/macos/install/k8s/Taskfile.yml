@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+tasks:
+  all:
+    desc: Setup Kubernetes related tooling
+    cmds:
+      - task: kustomize
+      - task: kubebuilder
+      - task: operator-sdk
+      - task: k3d
+      - task: tilt
+  kubebuilder:
+    desc: Installs Kubebuilder
+    status:
+      - which kubebuilder
+    cmds:
+      - curl -L -o kubebuilder "https://go.kubebuilder.io/dl/latest/$(go env GOOS)/$(go env GOARCH)"
+      - chmod +x kubebuilder
+      - mv kubebuilder ~/go/bin
+  operator-sdk:
+    desc: Install Operator-SDK
+    status:
+      - which operator-sdk
+    cmds:
+      - export ARCH="$(case $(uname -m) in x86_64) echo -n amd64 ;; aarch64) echo -n arm64 ;; *) echo -n $(uname -m) ;; esac)"
+      - export OS=$(uname | awk '{print tolower($0)}')
+      - export OPERATOR_SDK_DL_URL=https://github.com/operator-framework/operator-sdk/releases/download/v1.35.0
+      - curl -LO ${OPERATOR_SDK_DL_URL}/operator-sdk_${OS}_${ARCH}
+      - chmod +x operator-sdk_${OS}_${ARCH}
+      - mv operator-sdk_${OS}_${ARCH} ~/go/bin/operator-sdk
+  kustomize:
+    desc: Install Kustomize
+    status:
+      - which kustomize
+    cmds:
+      - curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
+  k3d:
+    desc: Install K3d
+    status:
+      - which k3d
+    cmds:
+      - curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
+  tilt:
+    desc: Install Tilt
+    status:
+      - which tilt
+    cmds:
+      - curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash

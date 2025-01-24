@@ -2,7 +2,7 @@ local wezterm = require('wezterm')
 
 local M = {}
 
-local LAZY_BIN = wezterm.home_dir .. '/.local/share/mise/shims/lazygit'
+local LAZY_BIN = wezterm.home_dir .. '/opt/homebrew/bin/lazygit'
 
 M.setup = function()
   wezterm.on('trigger-lazygit', function(window, pane)

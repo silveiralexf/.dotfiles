@@ -29,11 +29,11 @@ tasks:
     desc: Brew install regular recipes
     cmds:
       - for:
-          - automake
           - aquasecurity/trivy/trivy
+          - automake
           - bash
-          - bufbuild/buf/buf
           - btop
+          - bufbuild/buf/buf
           - chafa
           - choose-gui
           - coreutils
@@ -64,6 +64,7 @@ tasks:
           - pipx
           - poppler
           - pre-commit
+          - rebar3
           - sevenzip
           - source-highlight
           - terminal-notifier
@@ -94,3 +95,14 @@ tasks:
       - ~/.zshrc
     cmds:
       - test -f /Applications/Amethyst.app/Contents/MacOS/Amethyst || brew install --cask amethyst
+      - task: all:custom:colima
+
+  all:custom:colima:
+    desc: Brew install Colima
+    dotenv:
+      - ~/.zshrc
+    status:
+      - command -v $(which colima)
+    cmds:
+      - brew install colima
+      - brew services start colima
