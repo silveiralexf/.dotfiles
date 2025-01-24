@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 ### ⚙️ Chores
 
 - *(profile)* \[[5417728a](https://github.com/silveiralexf/.dotfiles/commit/5417728abe196eb7622bcc2a2ecda72b6595380e)\] ditch pet for snippets in command line
+- *(profile)* \[[f834b16e](https://github.com/silveiralexf/.dotfiles/commit/f834b16e5356d7fc5a42191cc8cbf6a9c7f6dd4b)\] improve ls aliases
 
 ### ◀️ Revert
 
