@@ -1,10 +1,10 @@
 return {
   {
-    'silveiralexf/nvim-llama',
+    'silveiralexf/nvim-modelmate',
     config = function()
-      require('nvim-llama').setup({
+      require('nvim-modelmate').setup({
         debug = false,
-        model = 'llama3.1',
+        model = 'llama3:8b',
       })
     end,
   },
@@ -38,7 +38,7 @@ return {
     ---@diagnostic disable-next-line
     ---@type Ollama.Config
     opts = {
-      model = 'llama3',
+      model = 'llama3:8b',
       url = 'http://127.0.0.1:11434',
       stream = true,
       replace = false,
@@ -53,7 +53,7 @@ return {
         Sample_Prompt = {
           prompt = 'This is a sample prompt that receives $input and $sel(ection), among others.',
           input_label = '> ',
-          model = 'llama3',
+          model = 'llama3:8b',
           action = 'display',
         },
       },
@@ -79,22 +79,5 @@ return {
         end,
       })
     end,
-  },
-  {
-    'jacob411/Ollama-Copilot',
-    opts = {
-      model_name = 'deepseek-coder:base',
-      stream_suggestion = false,
-      filetypes = { 'python', 'lua', 'vim', 'markdown', 'go', 'helm', 'yaml', 'sh', 'bash', 'zsh', 'zig' },
-      ollama_model_opts = {
-        num_predict = 40,
-        temperature = 0.1,
-      },
-      keymaps = {
-        suggestion = '<leader>os',
-        reject = '<leader>or',
-        insert_accept = '<F12>',
-      },
-    },
   },
 }
