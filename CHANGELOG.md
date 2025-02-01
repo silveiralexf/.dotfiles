@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2025-02-01
+
+### 🔨 Fixes
+
+- *(profile)* \[[a677fc7e](https://github.com/silveiralexf/.dotfiles/commit/a677fc7eb235f765e7e543554768a9a9882cfa69)\] revert amazonQ profile settings
+
+
 ## 2025-01-24
 
 ### 🚀 Features
