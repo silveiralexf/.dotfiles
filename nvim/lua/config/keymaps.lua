@@ -29,6 +29,7 @@ map('n', '\\K', '<cmd>Kustomize<cr>', { desc = 'Kustomize' })
 
 -- FzfLua
 map('n', '\\z', '<cmd>FzfLua<cr>', { desc = 'FuzzyLuaFinder' })
+map('n', '\\zb', '<cmd>FzfLua buffers<cr>', { desc = 'FuzzyLuaFinder buffers' })
 map('n', '\\zg', '<cmd>FzfLua live_grep<cr>', { desc = 'FuzzyLuaFinder livegrep' })
 map('n', '\\zf', '<cmd>FzfLua files<cr>', { desc = 'FuzzyLuaFinder files' })
 map('n', '\\zk', '<cmd>FzfLua builtin<cr>', { desc = 'Which Key' })
@@ -45,6 +46,7 @@ map('n', '\\O', '<cmd>Ollama<cr>', { desc = 'Ollama' })
 map('v', '\\O', '<cmd>Ollama<cr>', { desc = 'Ollama' })
 map('n', '\\Oc', '<cmd>Llama<cr>', { desc = 'Ollama-Chat' })
 
+-- ModelMate
 map('n', '\\m', '', { desc = 'ModelMate' })
 map('n', '\\mo', '<cmd>ModelLlama<cr>', { desc = 'ModelLlama-chat' })
 map('n', '\\mq', '<cmd>ModelQ<cr>', { desc = 'ModelQ-chat' })
