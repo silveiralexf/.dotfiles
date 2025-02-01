@@ -9,6 +9,10 @@ All notable changes to this project will be documented in this file.
 
 - *(profile)* \[[a677fc7e](https://github.com/silveiralexf/.dotfiles/commit/a677fc7eb235f765e7e543554768a9a9882cfa69)\] revert amazonQ profile settings
 
+### ⚙️ Chores
+
+- *(nvim)* \[[f945d52a](https://github.com/silveiralexf/.dotfiles/commit/f945d52a4e4d040dca003a686ae32ba54737b416)\] add fzflua shortcut for buffers
+
 
 ## 2025-01-24
 
