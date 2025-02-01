@@ -12,11 +12,11 @@ All notable changes to this project will be documented in this file.
 
 ### 📚 Documentation
 
-- \[[423be58f](https://github.com/silveiralexf/.dotfiles/commit/423be58f7f9a6ae241612cfd3eb139b08496b9d3)\] update overall documentation
+- \[[433988ac](https://github.com/silveiralexf/.dotfiles/commit/433988acaf1202c731753e2795a958c518ef5bf9)\] update overall documentation
 
 ### 🔨 Fixes
 
-- *(nvim)* \[[85082d2f](https://github.com/silveiralexf/.dotfiles/commit/85082d2f24c7ef98bb3d7bb38f2dba517ced5dd3)\] adjust setup for lazy latest major breaking changes
+- *(nvim)* [**breaking**] \[[85082d2f](https://github.com/silveiralexf/.dotfiles/commit/85082d2f24c7ef98bb3d7bb38f2dba517ced5dd3)\] adjust setup for lazy latest major breaking changes
 
 ### ⚙️ Chores
 
