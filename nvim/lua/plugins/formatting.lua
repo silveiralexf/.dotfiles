@@ -4,7 +4,7 @@ return {
     'stevearc/conform.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
     opts = function(_, opts)
-      opts.inlay_hints = { enabled = true }
+      opts.inlay_hints = { enabled = false }
 
       if LazyVim.has_extra('formatting.prettier') then
         opts.formatters = {
