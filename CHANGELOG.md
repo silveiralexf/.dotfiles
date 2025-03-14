@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 
 - *(tasks)* \[[18306999](https://github.com/silveiralexf/.dotfiles/commit/18306999a846c8fa74007151b50eeca07970080c)\] add back sdkman and maven tasks
 - *(nvim)* \[[1fc77a05](https://github.com/silveiralexf/.dotfiles/commit/1fc77a053a22b76e68e58dba1ca8081251d63bff)\] adjust lspattach autocmd
+- *(nvim)* \[[bcba098e](https://github.com/silveiralexf/.dotfiles/commit/bcba098ea8d8dc2728a638c494211a5b65ea14cf)\] disable inline hints and add custom settings for gopls
 
 
 ## 2025-02-01
