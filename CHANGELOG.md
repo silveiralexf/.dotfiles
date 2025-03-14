@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2025-03-14
+
+### ⚙️ Chores
+
+- *(tasks)* \[[18306999](https://github.com/silveiralexf/.dotfiles/commit/18306999a846c8fa74007151b50eeca07970080c)\] add back sdkman and maven tasks
+
+
 ## 2025-02-01
 
 ### 📦 Dependencies
