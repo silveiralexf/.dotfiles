@@ -44,20 +44,32 @@ Check the reference below on how things are organized:
 
 This setup assumes the following:
 
+- MacOS as operating system.
+- [WezTerm](../wezterm/README.md) as terminal.
+- [Yazi](../yazi/README.md) for file navigation, instead of `NerdTree` or `NetRw`.
+- [Tmux](../tmux/README.md) as terminal multiplexer.
 - [LazyVim](https://www.lazyvim.org/) as package manager,
 - [Mason](https://github.com/williamboman/mason.nvim/) and [vhyrro/luarocks.nvim](https://github.com/vhyrro/luarocks.nvim) for installing dependencies.
-- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) and [tree-sitter](https://github.com/tree-sitter/tree-sitter) for LSP configurations, code-completion, syntax-highlighting, etc.
+- [blink-cmp](https://github.com/Saghen/blink.cmp),
+  [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+  and [tree-sitter](https://github.com/tree-sitter/tree-sitter)
+  for LSP configurations, code-completion, syntax-highlighting, etc.
+- [Prettier](https://prettier.io/docs/configuration/) for code formatting.
 
 ## How to install?
 
 ```bash
+# Generate timestamp and random string for unique backup names
+timestamp=$(date '+%Y%m%d-%H%M%S')
+suffix="bak-${timestamp}"
+
 # backup previously existing settings
-mv ~/.config/nvim{,.bak}
+[ -d ~/.config/nvim ] && mv ~/.config/nvim{,."${suffix}"}
 
 # optional but recommended
-mv ~/.local/share/nvim{,.bak}
-mv ~/.local/state/nvim{,.bak}
-mv ~/.cache/nvim{,.bak}
+[ -d ~/.local/share/nvim ] && mv ~/.local/share/nvim{,."${suffix}"}
+[ -d ~/.local/state/nvim ] && mv ~/.local/state/nvim{,."${suffix}"}
+[ -d ~/.cache/nvim ] && mv ~/.cache/nvim{,."${suffix}"}
 
 # clone the main repo and move nvim configs
 # to its default location
