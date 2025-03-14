@@ -115,7 +115,9 @@ export PATH="${PATH}:${HOME}"
 export GO111MODULE="on"
 export GOPATH="${HOME}/go"
 export GOBIN="${GOPATH}/bin"
-export PATH="$PATH:$GOBIN:$GOROOT/bin"
+export ZIGPATH="${HOME}/zig"
+export ZIGBIN="${ZIGPATH}/bin"
+export PATH="$PATH:$GOBIN:$ZIGBIN:$GOROOT/bin"
 export PATH="${PATH}:/usr/local/go/bin"
 
 # Lua
