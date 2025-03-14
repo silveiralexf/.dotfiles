@@ -208,7 +208,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     if client ~= nil and client.name == 'volar' then
       for _, c in ipairs(active_clients) do
         if c.name == 'tsserver' then
-          c.stop()
+          c.stop(c, true)
         end
       end
     end

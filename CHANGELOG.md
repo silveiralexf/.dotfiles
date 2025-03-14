@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 ## 2025-03-14
 
+### 📦 Dependencies
+
+- *(nvim)* \[[26d83514](https://github.com/silveiralexf/.dotfiles/commit/26d835141d1d59cd3ff4575a97acda548bd82ce3)\] docs, deps and spelling
+
 ### ⚙️ Chores
 
 - *(tasks)* \[[18306999](https://github.com/silveiralexf/.dotfiles/commit/18306999a846c8fa74007151b50eeca07970080c)\] add back sdkman and maven tasks
