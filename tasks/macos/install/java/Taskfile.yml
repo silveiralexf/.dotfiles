@@ -5,7 +5,8 @@ tasks:
     desc: Install all Java requirements and tools
     cmds:
       - task: all:bfg
-
+      - task: all:sdkman
+      - task: all:maven
   all:bfg:
     vars:
       BFG_DOWNLOAD_URL: "https://repo1.maven.org/maven2/com/madgag/bfg/1.14.0/bfg-1.14.0.jar"
@@ -16,3 +17,22 @@ tasks:
     cmds:
       - curl -fsSL --output {{.BFG_PATH}} {{.BFG_DOWNLOAD_URL}}
       - java -jar {{.BFG_PATH}} --version
+
+  all:sdkman:
+    desc: Install SDKMan and Java Latest LTS
+    dotenv:
+      - ~/.zshrc
+    status:
+      - zsh -l -c "source ${HOME}/.zshrc && sdk version"
+      - java -version
+    cmds:
+      - curl -s https://get.sdkman.io | bash
+      - zsh -l -c "source ${HOME}/.zshrc && sdk install java && sdk use java 21.0.3-tem"
+      - java -version
+  all:maven:
+    desc: Install Maven
+    status:
+      - mvn -version
+    cmds:
+      - zsh -l -c "source ${HOME}/.zshrc && sdk install maven"
+      - zsh -l -c "source ${HOME}/.zshrc && mvn -version"

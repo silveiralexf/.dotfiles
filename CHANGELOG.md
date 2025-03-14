@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 ## 2025-02-01
 
+### 📦 Dependencies
+
+- *(nvim)* \[[3d5307c0](https://github.com/silveiralexf/.dotfiles/commit/3d5307c003d92d6dbf54299bafce1a3ffacbf93e)\] bump deps and some house-cleaning
+
 ### 🔨 Fixes
 
 - *(profile)* \[[a677fc7e](https://github.com/silveiralexf/.dotfiles/commit/a677fc7eb235f765e7e543554768a9a9882cfa69)\] revert amazonQ profile settings
