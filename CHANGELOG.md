@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 ### ⚙️ Chores
 
 - *(tasks)* \[[18306999](https://github.com/silveiralexf/.dotfiles/commit/18306999a846c8fa74007151b50eeca07970080c)\] add back sdkman and maven tasks
+- *(nvim)* \[[1fc77a05](https://github.com/silveiralexf/.dotfiles/commit/1fc77a053a22b76e68e58dba1ca8081251d63bff)\] adjust lspattach autocmd
 
 
 ## 2025-02-01
