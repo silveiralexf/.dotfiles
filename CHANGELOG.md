@@ -3,11 +3,19 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2025-03-20
+
+### 🚀 Features
+
+- *(nvim)* \[[e9f3a324](https://github.com/silveiralexf/.dotfiles/commit/e9f3a32475dd5c2f05b6e026c2406bc6ffb83ec8)\] add avante and minuet-ai for local llm tests
+
+
 ## 2025-03-14
 
 ### 📦 Dependencies
 
 - *(nvim)* \[[26d83514](https://github.com/silveiralexf/.dotfiles/commit/26d835141d1d59cd3ff4575a97acda548bd82ce3)\] docs, deps and spelling
+- *(nvim)* \[[0635e640](https://github.com/silveiralexf/.dotfiles/commit/0635e64038062ef4b6626560c94c349be0025660)\] bump lazy deps to latest
 
 ### ⚙️ Chores
 
