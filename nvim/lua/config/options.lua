@@ -47,8 +47,9 @@ vim.g.snacks_animate = false
 vim.opt.colorcolumn = '160'
 vim.o.showtabline = 2
 
--- gloabally disable inlayHints
+-- globally disable inlayHints
 vim.lsp.handlers['textDocument/inlayHint'] = nil
+vim.g.lazyvim_blink_main = true
 
 -- don't start netrw by default
 vim.g.loaded_netrwPlugin = 1

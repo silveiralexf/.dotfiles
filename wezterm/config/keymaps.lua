@@ -270,7 +270,7 @@ local mouse_bindings = {
 
 return {
   disable_default_key_bindings = true,
-  leader = { key = 'a', mods = mod.LEADER },
+  -- leader = { key = 'a', mods = mod.LEADER },
   keys = keys,
   key_tables = key_tables,
   mouse_bindings = mouse_bindings,
