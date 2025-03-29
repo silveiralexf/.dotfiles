@@ -41,9 +41,10 @@ export PATH="${PATH}:${HOME}/AppImage"
 export PATH="${PATH}:${HOME}/bin"
 export PATH="${PATH}:/Applications/WezTerm.app/Contents/MacOS"
 export PATH="${PATH}:/opt/bin"
-export PATH="${PATH}:/opt/homebrew/bin"
-export PATH="${PATH}:/opt/homebrew/opt/socket_vmnet/bin"
-export PATH="${PATH}:/opt/homebrew/sbin"
+# export PATH="${PATH}:/opt/homebrew/bin"
+# export PATH="${PATH}:/opt/homebrew/opt/socket_vmnet/bin"
+# export PATH="${PATH}:/opt/homebrew/sbin"
+export PATH="${PATH}:${HOME}/.fzf/bin"
 export PATH="${PATH}:/opt/local/bin"
 export PATH="${PATH}:/opt/nvim/bin"
 [ -d "${DOTFILES_SCRIPTS}" ] && export PATH="$PATH:${DOTFILES_SCRIPTS}::"
@@ -93,7 +94,14 @@ export BUILDKIT_COLORS=run=green:warning=yellow:error=red:cancel=255,165,0
 export BUILDKIT_PROGRESS=plain
 export KUBE_EDITOR=nvim
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-# -----------------------------------------------------------------------------
+
+# K3d cluster and pgp
+export KUBECONFIG="${HOME}/.flexus-kubeconfig"
+export KEY_NAME=$(hostname).flexus.dev
+export KEY_FP=9481D019AD20B84AD55E85DDD5D23A5B215A9B18
+export KEY_COMMENT="flux secrets"
+export EMAIL="felipe.silveira@flexus.dev"
+#-----------------------------------------------------------------------------
 # Git
 # -----------------------------------------------------------------------------
 export PATH="${PATH}:/usr/local/git/bin"
@@ -101,13 +109,6 @@ export PATH="${PATH}:/usr/local/git/bin"
 # -----------------------------------------------------------------------------
 # Coding stuff
 # -----------------------------------------------------------------------------
-
-# For compilers to find zlib you may need to set:
-export LDFLAGS="-L/opt/homebrew/opt/zlib/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
-
-# For pkg-config to find zlib you may need to set:
-export PKG_CONFIG_PATH="/opt/homebrew/opt/zlib/lib/pkgconfig"
 
 export PATH="${PATH}:${HOME}"
 
@@ -121,15 +122,15 @@ export PATH="$PATH:$GOBIN:$ZIGBIN:$GOROOT/bin"
 export PATH="${PATH}:/usr/local/go/bin"
 
 # Lua
-eval "$(luarocks path --bin)"
+# eval "$(luarocks path --bin)"
 
 # Ruby
 PATH="${PATH}:${HOME}/.gem/ruby/2.7.0/bin"
 
 # HomeBrew
-export PATH="/opt/homebrew/opt/openssl@3.0/bin:$PATH"
-export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# export PATH="/opt/homebrew/opt/openssl@3.0/bin:$PATH"
+# export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
+# eval "$(/opt/homebrew/bin/brew shellenv)"
 #export PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:${PATH}"
 
 # Terraform Env
@@ -137,9 +138,9 @@ export PATH="${PATH}:${HOME}/.tfenv/bin"
 
 # Rancher
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
-export PATH="${PATH}:/Applications/Rancher Desktop.app/Contents/Resources/resources/darwin/lima/bin"
-export LIMA_HOME="${HOME}/Library/Application Support/rancher-desktop/lima"
-export PATH="${PATH}:${HOME}/.rd/bin"
+# export PATH="${PATH}:/Applications/Rancher Desktop.app/Contents/Resources/resources/darwin/lima/bin"
+# export LIMA_HOME="${HOME}/Library/Application Support/rancher-desktop/lima"
+# export PATH="${PATH}:${HOME}/.rd/bin"
 
 # -----------------------------------------------------------------------------
 # EOF
