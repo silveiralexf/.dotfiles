@@ -56,7 +56,7 @@ return {
             cmp.show({ providers = { 'minuet' } })
           end,
         },
-        ['<CR>'] = {
+        ['<TAB>'] = {
           function(_)
             if require('minuet.virtualtext').action.is_visible() then
               vim.defer_fn(require('minuet.virtualtext').action.accept, 30)
