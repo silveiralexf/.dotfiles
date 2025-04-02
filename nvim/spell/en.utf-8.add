@@ -459,3 +459,7 @@ OpenSSF
 Caddy
 Lucene
 Advisor
+GetInternalJobName
+SparkJob
+UUID
+MD5
