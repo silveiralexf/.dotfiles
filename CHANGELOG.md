@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### 🚀 Features
 
-- *(nvim)* \[[e9f3a324](https://github.com/silveiralexf/.dotfiles/commit/e9f3a32475dd5c2f05b6e026c2406bc6ffb83ec8)\] add avante and minuet-ai for local llm tests
+- *(nvim)* \[[522fffbf](https://github.com/silveiralexf/.dotfiles/commit/522fffbf77b66c8b466ea823a5e35db2fca31e86)\] add avante and minuet-ai for local llm tests
 
 
 ## 2025-03-14

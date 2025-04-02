@@ -44,7 +44,6 @@ vim.opt.isfname:append('@-@')
 vim.opt.updatetime = 50
 vim.g.snacks_animate = false
 
-vim.opt.colorcolumn = '160'
 vim.o.showtabline = 2
 
 -- globally disable inlayHints
