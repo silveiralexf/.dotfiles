@@ -7,7 +7,11 @@ All notable changes to this project will be documented in this file.
 
 ### 📦 Dependencies
 
-- *(nvim)* \[[22c6088b](https://github.com/silveiralexf/.dotfiles/commit/22c6088bc198b655d88f5947ac09f226262b6b2b)\] bump lazy and add words to spell dict
+- *(nvim)* \[[acbd925e](https://github.com/silveiralexf/.dotfiles/commit/acbd925e52908b55aef923045fe6efc213891ea9)\] bump lazy and add words to spell dict
+
+### 🔨 Fixes
+
+- *(etc)* \[[4b09ff32](https://github.com/silveiralexf/.dotfiles/commit/4b09ff32720349163818af7bca28e7a71c10fb45)\] update lazygit option for breaking change
 
 ### ⚙️ Chores
 
