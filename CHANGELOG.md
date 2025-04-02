@@ -5,10 +5,15 @@ All notable changes to this project will be documented in this file.
 
 ## 2025-04-02
 
+### 📦 Dependencies
+
+- *(nvim)* \[[22c6088b](https://github.com/silveiralexf/.dotfiles/commit/22c6088bc198b655d88f5947ac09f226262b6b2b)\] bump lazy and add words to spell dict
+
 ### ⚙️ Chores
 
 - *(nvim)* \[[9422cef6](https://github.com/silveiralexf/.dotfiles/commit/9422cef6245e0fa99721743d1d7badea4cb3d3ad)\] remove colorcolumn margin option
 - *(nvim)* \[[0c447e42](https://github.com/silveiralexf/.dotfiles/commit/0c447e427128a5f6d1d31bbd3229c97d9e0831f8)\] remove useless annotation for vim diagnostic conf
+- *(nvim)* \[[eb74e00a](https://github.com/silveiralexf/.dotfiles/commit/eb74e00ab0af8862b04336a7db5d8d27186c6293)\] update minuet bindings for autocompletion
 
 
 ## 2025-03-20
