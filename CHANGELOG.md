@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 ### ⚙️ Chores
 
 - *(nvim)* \[[9422cef6](https://github.com/silveiralexf/.dotfiles/commit/9422cef6245e0fa99721743d1d7badea4cb3d3ad)\] remove colorcolumn margin option
+- *(nvim)* \[[0c447e42](https://github.com/silveiralexf/.dotfiles/commit/0c447e427128a5f6d1d31bbd3229c97d9e0831f8)\] remove useless annotation for vim diagnostic conf
 
 
 ## 2025-03-20
