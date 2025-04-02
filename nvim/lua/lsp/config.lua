@@ -88,10 +88,8 @@ return {
           ['helmfile.*%.ya?ml'] = 'helm',
         },
       })
-      ---@class PluginLspOpts
+
       vim.diagnostic.config({
-        -- options for vim.diagnostic.config()
-        ---@type vim.diagnostic.Opts
         diagnostics = {
           underline = true,
           update_in_insert = false,
