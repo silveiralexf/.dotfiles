@@ -1,6 +1,5 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/refs/heads/master/schema/config.json
 
-
 git:
   skipHookPrefix: WIP
   autoFetch: true
@@ -46,7 +45,7 @@ gui:
   showDivergenceFromBaseBranch: none
   commandLogSize: 8
   splitDiff: auto
-  windowSize: normal
+  screenMode: normal
   border: rounded
   animateExplosion: true
   portraitMode: auto
