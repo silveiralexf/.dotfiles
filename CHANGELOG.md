@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2025-04-02
+
+### ⚙️ Chores
+
+- *(nvim)* \[[9422cef6](https://github.com/silveiralexf/.dotfiles/commit/9422cef6245e0fa99721743d1d7badea4cb3d3ad)\] remove colorcolumn margin option
+
+
 ## 2025-03-20
 
 ### 🚀 Features
