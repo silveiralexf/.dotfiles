@@ -11,11 +11,33 @@ return {
     },
   },
   {
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    dependencies = {
+      { 'gonstoll/wezterm-types', lazy = true },
+    },
+    opts = {
+      library = {
+        { path = 'wezterm-types', mods = { 'wezterm' } },
+      },
+    },
+  },
+  { 'moyiz/blink-emoji.nvim' },
+  {
     'saghen/blink.cmp',
     opts = {
       sources = {
-        -- add lazydev to your completion providers
-        default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'emoji', 'minuet' },
+        default = {
+          'lazydev',
+          'lsp',
+          'path',
+          'snippets',
+          'buffer',
+          'emoji',
+          -- 'avante_commands',
+          -- 'avante_mentions',
+          -- 'avante_files',
+        },
         providers = {
           lazydev = {
             name = 'LazyDev',
@@ -29,11 +51,24 @@ return {
             score_offset = -9999, -- Tune by preference
             opts = { insert = true }, -- Insert emoji (default) or complete its name
           },
-          minuet = {
-            name = 'minuet',
-            module = 'minuet.blink',
-            score_offset = 100,
-          },
+          -- avante_commands = {
+          --   name = 'avante_commands',
+          --   module = 'blink.compat.source',
+          --   score_offset = 90, -- show at a higher priority than lsp
+          --   opts = {},
+          -- },
+          -- avante_files = {
+          --   name = 'avante_commands',
+          --   module = 'blink.compat.source',
+          --   score_offset = 100, -- show at a higher priority than lsp
+          --   opts = {},
+          -- },
+          -- avante_mentions = {
+          --   name = 'avante_mentions',
+          --   module = 'blink.compat.source',
+          --   score_offset = 1000, -- show at a higher priority than lsp
+          --   opts = {},
+          -- },
         },
       },
       appearance = {
@@ -49,19 +84,6 @@ return {
             },
           },
         },
-      },
-    },
-  },
-  { 'moyiz/blink-emoji.nvim' },
-  {
-    'folke/lazydev.nvim',
-    ft = 'lua',
-    dependencies = {
-      { 'gonstoll/wezterm-types', lazy = true },
-    },
-    opts = {
-      library = {
-        { path = 'wezterm-types', mods = { 'wezterm' } },
       },
     },
   },
