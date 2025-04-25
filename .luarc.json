@@ -1,14 +1,15 @@
 {
   "diagnostics.globals": [
+    "LazyVim",
+    "Linemode",
+    "YaziConfig",
     "args",
     "hs",
+    "keys",
     "spoon",
     "ui",
     "vim",
-    "ya",
-    "YaziConfig",
-    "Linemode",
-    "LazyVim"
+    "ya"
   ],
   "workspace.checkThirdParty": false
 }
