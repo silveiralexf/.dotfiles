@@ -27,12 +27,12 @@ return {
         opts.formatters_by_ft = opts.formatters_by_ft or {}
         opts.formatters_by_ft = {
           bash = { 'prettierd' },
-          css = { { 'prettierd' } },
+          css = { 'prettierd' },
           cue = { 'cue_fmt' },
           dagger = { 'cue_fmt' },
           erb = { 'prettierd' },
           go = { 'goimports', 'gofumpt' },
-          graphql = { { 'prettierd' } },
+          graphql = { 'prettierd' },
           groovy = { 'npm_groovy_lint' },
           hcl = { 'terraform_fmt' },
           html = { 'prettierd' },
