@@ -9,9 +9,13 @@ All notable changes to this project will be documented in this file.
 
 - *(nvim)* \[[fa4e89af](https://github.com/silveiralexf/.dotfiles/commit/fa4e89af6aa2058a2d00a8d05c55ed18510ab70c)\] add support for llama.cpp and llama-swap
 
+### 🧪 Testing
+
+- *(nvim)* \[[1ac9cb13](https://github.com/silveiralexf/.dotfiles/commit/1ac9cb13956a86069d4dc86df18b874b26c22c33)\] temporarily disabling avante and minuet-ai for more tests
+
 ### ⚙️ Chores
 
-- *(nvim)* \[[56a0dce0](https://github.com/silveiralexf/.dotfiles/commit/56a0dce00a6f051de9e8655fe8f7bad3b61eb86d)\] clean-house and small tweaks of options and autocmds
+- *(nvim)* \[[6f9ef3c1](https://github.com/silveiralexf/.dotfiles/commit/6f9ef3c1d741ff25e3b5e11a03ad43f787cf53e0)\] clean-house and small tweaks of options and autocmds
 
 
 ## 2025-04-02
