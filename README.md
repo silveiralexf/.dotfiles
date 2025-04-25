@@ -54,6 +54,8 @@ task: Available tasks for this project:
 * macos:install:hammerspoon:all:spoons:       Install Spoons
 * macos:install:java:all:                     Install all Java requirements and tools
 * macos:install:java:all:bfg:                 Install BFG Repo-Cleaner
+* macos:install:java:all:maven:               Install Maven
+* macos:install:java:all:sdkman:              Install SDKMan and Java Latest LTS
 * macos:install:k8s:all:                      Setup Kubernetes related tooling
 * macos:install:k8s:k3d:                      Install K3d
 * macos:install:k8s:kubebuilder:              Installs Kubebuilder

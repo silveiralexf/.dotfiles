@@ -1,0 +1,27 @@
+models:
+  "qwen2.5":
+    proxy: "http://127.0.0.1:8012"
+    cmd: >
+      /app/llama-server
+      -hf bartowski/Qwen2.5-0.5B-Instruct-GGUF:Q4_K_M
+      --port 8012 -ngl 99 -fa -dt 0.1
+      --ubatch-size 512 --batch-size 1024
+      --ctx-size 0 --cache-reuse 256
+
+  "qwen2.5-coder":
+    proxy: "http://127.0.0.1:8012"
+    cmd: >
+      /app/llama-server
+      -hf bartowski/Qwen2.5-Coder-0.5B-Instruct-GGUF:Q5_K_L
+      --port 8012 -ngl 99 -fa -dt 0.1
+      --ubatch-size 512 --batch-size 1024
+      --ctx-size 0 --cache-reuse 256
+
+  "smollm2":
+    proxy: "http://127.0.0.1:8012"
+    cmd: >-
+      /app/llama-server
+      -hf bartowski/SmolLM2-135M-Instruct-GGUF:Q4_K_M
+      --port 8012 -ngl 99 -fa -dt 0.1
+      --ubatch-size 512 --batch-size 1024
+      --ctx-size 0 --cache-reuse 256

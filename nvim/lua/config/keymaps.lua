@@ -41,16 +41,11 @@ map('n', '\\g', '', { desc = 'GitSigns' })
 map('v', '\\g', '', { desc = 'GitSigns' })
 map('n', '\\gtD', '<cmd>diffthis<cr>', { desc = 'Toggle select for diff' })
 
--- Ollama
-map('n', '\\O', '<cmd>Ollama<cr>', { desc = 'Ollama' })
-map('v', '\\O', '<cmd>Ollama<cr>', { desc = 'Ollama' })
-map('n', '\\Oc', '<cmd>Llama<cr>', { desc = 'Ollama-Chat' })
-
 -- ModelMate
 map('n', '\\m', '', { desc = 'ModelMate' })
 map('n', '\\mo', '<cmd>ModelLlama<cr>', { desc = 'ModelLlama-chat' })
-map('n', '\\mq', '<cmd>ModelQ<cr>', { desc = 'ModelQ-chat' })
-map('n', '\\mg', '<cmd>ModelQgit<cr>', { desc = 'ModelQ-Git ask?' })
-map('n', '\\mh', '<cmd>ModelQhist<cr>', { desc = 'ModelQ-History ask?' })
+-- map('n', '\\mq', '<cmd>ModelQ<cr>', { desc = 'ModelQ-chat' })
+-- map('n', '\\mg', '<cmd>ModelQgit<cr>', { desc = 'ModelQ-Git ask?' })
+-- map('n', '\\mh', '<cmd>ModelQhist<cr>', { desc = 'ModelQ-History ask?' })
 
 -- EOF

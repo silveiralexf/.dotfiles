@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2025-04-25
+
+### 🚀 Features
+
+- *(nvim)* \[[fbfdfdff](https://github.com/silveiralexf/.dotfiles/commit/fbfdfdff97c7eb8add5b885120f72879594872d8)\] add support for llama.cpp and llama-swap
+
+
 ## 2025-04-02
 
 ### 📦 Dependencies
@@ -11,7 +18,7 @@ All notable changes to this project will be documented in this file.
 
 ### 🔨 Fixes
 
-- *(etc)* \[[4b09ff32](https://github.com/silveiralexf/.dotfiles/commit/4b09ff32720349163818af7bca28e7a71c10fb45)\] update lazygit option for breaking change
+- *(etc)* \[[f9254685](https://github.com/silveiralexf/.dotfiles/commit/f925468540ffbf48170a17729f81ef032b43d3f9)\] update lazygit option for breaking change
 
 ### ⚙️ Chores
 
