@@ -66,16 +66,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local bufnr = args.buf
     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client and client.supports_method('textDocument/implementation') then
+    if client and client.supports_method(client, 'textDocument/implementation') then
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = 0 })
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {
         buffer = 0,
         desc = 'Go to definition',
       })
-      if client and client.supports_method('textDocument/completion') then
+      if client and client.supports_method(client, 'textDocument/completion') then
         vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
       end
-      if client and client.supports_method('textDocument/definition') then
+      if client and client.supports_method(client, 'textDocument/definition') then
         vim.bo[bufnr].tagfunc = 'v:lua.vim.lsp.tagfunc'
       end
     end
@@ -120,10 +120,10 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   group = vim.api.nvim_create_augroup('FixTerraformCommentString', { clear = true }),
   callback = function(args)
     vim.opt_local.filetype = 'terraform'
-    vim.lsp.start_client({
+    vim.lsp.start({
       name = 'terraformls',
-      cmd = { 'terraform-ls', 'serve' },
       root_dir = vim.fs.dirname(vim.fs.find({ '*.hcl', '*.tf', '*.tfvars' }, { upward = true })[1]),
+      cmd = { 'terraform-ls', 'serve' },
     })
     vim.lsp.buf.formatting_sync()
     vim.bo[args.buf].commentstring = '# %s'
@@ -147,25 +147,6 @@ https://docs.stack.build/docs/vscode/starlark-language-server
 ]],
       },
     })
-  end,
-})
-
--- [Golang] Setup auto-organize imports
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = '*.go',
-  callback = function()
-    local params = vim.lsp.util.make_range_params()
-    params.context = { only = { 'source.organizeImports' } }
-    local result = vim.lsp.buf_request_sync(0, 'textDocument/codeAction', params)
-    for cid, res in pairs(result or {}) do
-      for _, r in pairs(res.result or {}) do
-        if r.edit then
-          local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or 'utf-16'
-          vim.lsp.util.apply_workspace_edit(r.edit, enc)
-        end
-      end
-    end
-    vim.lsp.buf.format({ async = false })
   end,
 })
 
@@ -212,44 +193,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
       end
     end
-  end,
-})
-
---
--- [Markdown] Preview with Glow
---
-local function render_markdown_with_glow()
-  local tempfile = vim.fn.tempname() .. '.md'
-  vim.cmd('write! ' .. tempfile)
-
-  vim.cmd('enew')
-  local bufnr = vim.api.nvim_get_current_buf()
-
-  local command = 'terminal glow -p ' .. tempfile
-
-  vim.cmd(command)
-
-  vim.cmd('startinsert!')
-
-  vim.api.nvim_create_autocmd('TermClose', {
-    buffer = bufnr,
-    callback = function()
-      ---@diagnostic disable-next-line: undefined-field
-      vim.loop.fs_unlink(tempfile)
-      pcall(vim.api.nvim_buf_delete, bufnr, { force = true })
-    end,
-  })
-end
-
--- [Markdown] Preview with Glow keybindings
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'markdown',
-  callback = function()
-    vim.keymap.set('n', '<leader>ug', render_markdown_with_glow, {
-      silent = true,
-      buffer = true,
-      desc = 'render markdown with glow',
-    })
   end,
 })
 

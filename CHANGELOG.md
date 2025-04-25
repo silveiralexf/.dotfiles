@@ -7,7 +7,11 @@ All notable changes to this project will be documented in this file.
 
 ### 🚀 Features
 
-- *(nvim)* \[[fbfdfdff](https://github.com/silveiralexf/.dotfiles/commit/fbfdfdff97c7eb8add5b885120f72879594872d8)\] add support for llama.cpp and llama-swap
+- *(nvim)* \[[fa4e89af](https://github.com/silveiralexf/.dotfiles/commit/fa4e89af6aa2058a2d00a8d05c55ed18510ab70c)\] add support for llama.cpp and llama-swap
+
+### ⚙️ Chores
+
+- *(nvim)* \[[56a0dce0](https://github.com/silveiralexf/.dotfiles/commit/56a0dce00a6f051de9e8655fe8f7bad3b61eb86d)\] clean-house and small tweaks of options and autocmds
 
 
 ## 2025-04-02

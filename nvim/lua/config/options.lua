@@ -10,9 +10,6 @@ vim.o.foldenable = true
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = -1
 
--- Always display status line. Improves window picker behavior
-vim.o.laststatus = 3
-
 vim.o.swapfile = false
 vim.o.termguicolors = true
 vim.opt.guicursor = ''
@@ -37,14 +34,15 @@ vim.opt.undofile = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
+-- Always display status line. Improves window picker behavior
+vim.o.laststatus = 3
+vim.o.showtabline = 2
+vim.g.snacks_animate = false
+
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = 'yes'
 vim.opt.isfname:append('@-@')
-
 vim.opt.updatetime = 50
-vim.g.snacks_animate = false
-
-vim.o.showtabline = 2
 
 -- globally disable inlayHints
 vim.lsp.handlers['textDocument/inlayHint'] = nil

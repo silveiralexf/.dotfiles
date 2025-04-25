@@ -1,5 +1,6 @@
 return {
   {
+    ---@diagnostic disable-next-line
     ---@type LazySpec
     'mikavilpas/yazi.nvim',
     event = 'VeryLazy',
