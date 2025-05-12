@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 ## 2025-05-12
 
+### 📦 Dependencies
+
+- *(deps)* \[[faab9365](https://github.com/silveiralexf/.dotfiles/commit/faab93657b641d0186ea76cfd2048548361657a9)\] bump lazy deps and update spell dict
+
 ### 🧪 Testing
 
 - *(nvim)* \[[7468e438](https://github.com/silveiralexf/.dotfiles/commit/7468e4382b4e56b2d82548cf6462608e1dae54b2)\] making tests with avante
@@ -12,6 +16,7 @@ All notable changes to this project will be documented in this file.
 ### ⚙️ Chores
 
 - *(nvim)* \[[da2dd536](https://github.com/silveiralexf/.dotfiles/commit/da2dd536bb4d8b70cdcbdf9767ce16aebfed2b24)\] remove llama.nvim plugin
+- *(wezterm)* \[[f8b2e2dd](https://github.com/silveiralexf/.dotfiles/commit/f8b2e2ddec0bbdfa166d1adde4b27ecff615146c)\] remove unused shell settings
 
 
 ## 2025-04-25
