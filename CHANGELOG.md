@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 ## 2025-05-12
 
+### 🧪 Testing
+
+- *(nvim)* \[[7468e438](https://github.com/silveiralexf/.dotfiles/commit/7468e4382b4e56b2d82548cf6462608e1dae54b2)\] making tests with avante
+
 ### ⚙️ Chores
 
 - *(nvim)* \[[da2dd536](https://github.com/silveiralexf/.dotfiles/commit/da2dd536bb4d8b70cdcbdf9767ce16aebfed2b24)\] remove llama.nvim plugin
