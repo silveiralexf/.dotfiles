@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2025-05-12
+
+### ⚙️ Chores
+
+- *(nvim)* \[[da2dd536](https://github.com/silveiralexf/.dotfiles/commit/da2dd536bb4d8b70cdcbdf9767ce16aebfed2b24)\] remove llama.nvim plugin
+
+
 ## 2025-04-25
 
 ### 🚀 Features
