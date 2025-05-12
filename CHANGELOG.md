@@ -11,7 +11,7 @@ All notable changes to this project will be documented in this file.
 
 ### 🧪 Testing
 
-- *(nvim)* \[[1ac9cb13](https://github.com/silveiralexf/.dotfiles/commit/1ac9cb13956a86069d4dc86df18b874b26c22c33)\] temporarily disabling avante and minuet-ai for more tests
+- *(nvim)* \[[9d62bcc8](https://github.com/silveiralexf/.dotfiles/commit/9d62bcc819c7a4293acbba84db6e35563b376c3c)\] temporarily disabling avante and minuet-ai for more tests
 
 ### ⚙️ Chores
 

@@ -206,28 +206,6 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- [Llama.vim] Disable auto-completion on floating windows
-vim.api.nvim_create_autocmd({ 'BufEnter' }, {
-  group = vim.api.nvim_create_augroup('LLamaVim', {}),
-  pattern = '*',
-  callback = function()
-    -- Check if the buffer is in a floating window
-    local buftype = vim.bo.buftype
-    local is_floating = vim.api.nvim_win_get_config(0).relative ~= ''
-    if is_floating or buftype == 'prompt' or buftype == 'nofile' or buftype == 'popup' then
-      -- Disable completion (affects plugins like llama.vim if they use completion)
-      vim.opt_local.completeopt = { 'menu', 'menuone', 'noselect' }
-      vim.opt_local.complete = '' -- Disable completion sources
-      vim.cmd('LlamaDisable')
-    else
-      -- Restore settings for non-floating windows
-      vim.opt_local.completeopt = { 'menu', 'menuone', 'noselect', 'noinsert' }
-      vim.opt_local.complete = '.,w,b,u,t,i'
-      vim.cmd('LlamaEnable')
-    end
-  end,
-})
-
 -- [User Commands]
 vim.api.nvim_create_user_command('InsertDate', 'r!date "+\\%Y-\\%m-\\%d"', {})
 
