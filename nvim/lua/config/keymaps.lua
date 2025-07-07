@@ -44,8 +44,4 @@ map('n', '\\gtD', '<cmd>diffthis<cr>', { desc = 'Toggle select for diff' })
 -- ModelMate
 map('n', '\\m', '', { desc = 'ModelMate' })
 map('n', '\\mo', '<cmd>ModelLlama<cr>', { desc = 'ModelLlama-chat' })
--- map('n', '\\mq', '<cmd>ModelQ<cr>', { desc = 'ModelQ-chat' })
--- map('n', '\\mg', '<cmd>ModelQgit<cr>', { desc = 'ModelQ-Git ask?' })
--- map('n', '\\mh', '<cmd>ModelQhist<cr>', { desc = 'ModelQ-History ask?' })
-
 -- EOF

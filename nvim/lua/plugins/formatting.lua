@@ -16,7 +16,7 @@ return {
             stdin = false,
           },
           javascript = { 'prettierd', 'prettier' },
-          svelte = { 'prettier' },
+          -- svelte = { 'prettier' },
           yamlfmt = {
             prepend_args = {
               '-formatter',
@@ -47,7 +47,7 @@ return {
           rust = { 'rustfmt' },
           scss = { 'prettierd' },
           sh = { 'shfmt' },
-          svelte = { 'prettier' },
+          -- svelte = { 'prettier' },
           terraform = { 'terraform_fmt' },
           tf = { 'terraform_fmt' },
           toml = { 'taplo' },

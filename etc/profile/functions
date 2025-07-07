@@ -218,7 +218,7 @@ function llama-swap() {
   curl -s http://localhost:9292/v1/chat/completions \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer no-key" \
-    -d '{"model":"qwen2.5-coder","messages": [{"role": "user","content": "are you online?"}]}'
+    -d '{"model":"smollm2","messages": [{"role": "user","content": "are you online?"}]}'
   docker logs "${CONTAINER_NAME}"
 
 }

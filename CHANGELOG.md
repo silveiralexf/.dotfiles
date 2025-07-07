@@ -3,11 +3,18 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2025-07-07
+
+### 📦 Dependencies
+
+- *(mason)* \[[6a59545e](https://github.com/silveiralexf/.dotfiles/commit/6a59545e05e70f78bc26a2879aa764be968de5b1)\] adapts for new lsp configs and mason breaking changes
+
+
 ## 2025-05-12
 
 ### 📦 Dependencies
 
-- *(deps)* \[[faab9365](https://github.com/silveiralexf/.dotfiles/commit/faab93657b641d0186ea76cfd2048548361657a9)\] bump lazy deps and update spell dict
+- *(deps)* \[[ddf72dd0](https://github.com/silveiralexf/.dotfiles/commit/ddf72dd0bbc7213423606bf29a5592dfa925a258)\] bump lazy deps and update spell dict
 
 ### 🧪 Testing
 

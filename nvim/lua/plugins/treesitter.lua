@@ -67,7 +67,7 @@ return {
         'query',
         'regex',
         'rust',
-        'svelte',
+        -- 'svelte',
         'templ',
         'terraform',
         'toml',

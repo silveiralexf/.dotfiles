@@ -174,28 +174,6 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   end,
 })
 
--- [TypeScript/VUE]Setup Vue/Volar without conflicting with TypeScript server
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('LspAttachConflicts', { clear = true }),
-  desc = 'Prevent tsserver and volar conflict',
-  callback = function(args)
-    if not (args.data and args.data.client_id) then
-      return
-    end
-
-    local active_clients = vim.lsp.get_clients()
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-
-    if client ~= nil and client.name == 'volar' then
-      for _, c in ipairs(active_clients) do
-        if c.name == 'tsserver' then
-          c.stop(c, true)
-        end
-      end
-    end
-  end,
-})
-
 -- [Spell] Wrap and check for spell in text file types.
 vim.api.nvim_create_autocmd('FileType', {
   group = vim.api.nvim_create_augroup('wrap_spell', { clear = true }),

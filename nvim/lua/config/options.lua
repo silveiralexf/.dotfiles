@@ -38,6 +38,7 @@ vim.opt.incsearch = true
 vim.o.laststatus = 3
 vim.o.showtabline = 2
 vim.g.snacks_animate = false
+vim.o.winborder = 'rounded'
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = 'yes'
