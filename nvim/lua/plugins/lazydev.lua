@@ -1,14 +1,14 @@
 return {
   {
+    'L3MON4D3/LuaSnip',
+    -- follow latest release.
+    version = 'v2.*', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    -- install jsregexp (optional!).
+    build = 'make install_jsregexp',
+  },
+  {
     'folke/lazydev.nvim',
     ft = 'lua', -- only load on lua files
-    opts = {
-      library = {
-        -- See the configuration section for more details
-        -- Load luvit types when the `vim.uv` word is found
-        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
-      },
-    },
   },
   {
     'folke/lazydev.nvim',
@@ -34,9 +34,6 @@ return {
           'snippets',
           'buffer',
           'emoji',
-          'avante_commands',
-          'avante_mentions',
-          'avante_files',
         },
         providers = {
           lazydev = {
@@ -50,24 +47,6 @@ return {
             name = 'Emoji',
             score_offset = -9999, -- Tune by preference
             opts = { insert = true }, -- Insert emoji (default) or complete its name
-          },
-          avante_commands = {
-            name = 'avante_commands',
-            module = 'blink.compat.source',
-            score_offset = 90, -- show at a higher priority than lsp
-            opts = {},
-          },
-          avante_files = {
-            name = 'avante_files',
-            module = 'blink.compat.source',
-            score_offset = 100, -- ~40 points higher than LSP ()
-            opts = {},
-          },
-          avante_mentions = {
-            name = 'avante_mentions',
-            module = 'blink.compat.source',
-            score_offset = 1000, -- show at a higher priority than lsp
-            opts = {},
           },
         },
       },

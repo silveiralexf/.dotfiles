@@ -166,7 +166,7 @@ return {
             'dashboard',
             'git',
             'help',
-            'Avante',
+            -- 'Avante',
             'markdown',
             'notify',
             'packer',

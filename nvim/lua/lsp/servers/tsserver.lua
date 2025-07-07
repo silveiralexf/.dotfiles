@@ -21,7 +21,7 @@ return {
                 'json',
                 'typescript',
                 'typescriptreact',
-                'vue',
+                -- 'vue',
               },
               root_dir = util.root_pattern('src/App.vue'),
             },
