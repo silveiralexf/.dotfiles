@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### 📦 Dependencies
 
-- *(mason)* \[[6a59545e](https://github.com/silveiralexf/.dotfiles/commit/6a59545e05e70f78bc26a2879aa764be968de5b1)\] adapts for new lsp configs and mason breaking changes
+- *(mason)* \[[b2ba47de](https://github.com/silveiralexf/.dotfiles/commit/b2ba47de85019f7d046ed5f1d8518d1ead1b044e)\] adapts for new lsp configs and mason breaking changes
 
 
 ## 2025-05-12
