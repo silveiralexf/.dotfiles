@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+tasks:
+  all:
+    desc: Setup shell, core settings and tools
+    cmds:
+      - task: fzf
+      - task: lua
+      - task: nvim
+      - task: profile
+
+  fzf:
+    desc: Install FuzzyFinder
+    status:
+      - test -d "${HOME}/.fzf"
+    cmds:
+      - git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+      - ~/.fzf/install --bin
+
+  lua:
+    desc: Install Lua language
+    status:
+      - lua -v
+    cmds:
+      - curl -L -R -O https://www.lua.org/ftp/lua-5.4.7.tar.gz
+      - tar zxf lua-5.4.7.tar.gz
+      - cd lua-5.4.7
+      - make all test
+      - cd -
+      - rm -rf lua-5.4.7.tar.gz lua-5.4.7
+
+  nvim:
+    desc: Install NVIM nightly build
+    status:
+      - nvim --version | grep LuaJIT
+    vars:
+      NVIM_INSTALL_PATH: /opt/nvim
+    cmds:
+      - cmd: |
+          if [ "$(unmame -s)" == "Mac" ]; then
+              NVIM_DOWNLOAD_URL=https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.tar.gz
+              NVIM_INSTALLER=~/downloads/nvim-linux-x86_64.tar.gz
+              mkdir -p ~/downloads
+              nvim --version || curl -fsSL -o {{.NVIM_INSTALLER}} {{.NVIM_DOWNLOAD_URL}}
+              test nvim || sudo tar xzvf {{.NVIM_INSTALLER}} -C {{.NVIM_INSTALL_PATH}}
+              nvim -v || sudo chmod +x {{.NVIM_INSTALL_PATH}}/bin/nvim
+          elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+              NVIM_INSTALLER=~/downloads/nvim-linux-x86_64.tar.gz
+              NVIM_DOWNLOAD_URL_LINUX=https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.tar.gz
+              mkdir -p ~/downloads
+              nvim --version || curl -fsSL -o {{.NVIM_INSTALLER}} {{.NVIM_DOWNLOAD_URL}}
+              test nvim || sudo tar xzvf {{.NVIM_INSTALLER}} -C {{.NVIM_INSTALL_PATH}}
+              nvim -v || sudo chmod +x {{.NVIM_INSTALL_PATH}}/bin/nvim
+          fi
+
+  profile:
+    desc: Setup shell profile settings
+    cmds:
+      - task: profile:createdirs
+      - task: profile:links
+      - task: profile:setup
+
+  profile:links:
+    cmds:
+      - test -L ~/go/src                              || ln -s ~/git ~/go/src
+      - test -L ~/.config/nvim                        || ln -s ${DOTFILES_HOME}/nvim ~/.config/nvim
+      - test -L ~/.tmux.conf                          || ln -s ${DOTFILES_CONFIG}/tmux/tmux.conf ~/.tmux.conf
+      - test -L ~/.amethyst.yml                       || ln -s ${DOTFILES_CONFIG}/amethyst.yml ~/.amethyst.yml
+      - test -L ~/.config/terminalizer/config.yaml    || ln -s ${DOTFILES_CONFIG}/terminalizer.yaml ~/.config/terminalizer/config.yaml
+      - test -L ~/.p10k.zsh                           || ln -s ${DOTFILES_CONFIG}/p10k.zsh ~/.p10k.zsh
+      - cmd: mkdir -p ~/.config/lazygit && test -L $HOME/.config/lazygit/config.yml || ln -s ~/.dotfiles/etc/config/lazy.yaml ~/.config/lazygit/config.yml
+
+  profile:createdirs:
+    cmds:
+      - for:
+          - ~/.config/terminalizer
+          - ~/git
+          - ~/go
+          - ~/Library/Application\ Support/lazygit
+        cmd: mkdir -p {{.ITEM}}
+
+  profile:setup:
+    cmds:
+      - rm ~/.zshrc
+      - ln -s ${DOTFILES_RC}/zshrc ~/.zshrc

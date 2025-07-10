@@ -9,10 +9,12 @@ vars:
   DOTFILES_RC: "${DOTFILES_HOME}/etc/rc"
   DOTFILES_SCRIPTS: "${DOTFILES_HOME}/scripts"
 includes:
+  common:install:core:
+    taskfile: ./tasks/common/install/core/Taskfile.yml
+  linux:install:apt:
+    taskfile: ./tasks/linux/install/apt/Taskfile.yml
   macos:install:brew:
     taskfile: ./tasks/macos/install/brew/Taskfile.yml
-  macos:install:core:
-    taskfile: ./tasks/macos/install/core/Taskfile.yml
   macos:install:docker:
     taskfile: ./tasks/macos/install/docker/Taskfile.yml
   macos:install:go:

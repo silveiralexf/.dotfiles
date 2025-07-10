@@ -16,6 +16,8 @@ tasks:
     desc: Install required cargo packages
     cmds:
       - for:
+          - cargo-cache
+          - cargo-ensure-installed
           - dutree
           - eza
           - fd-find
@@ -23,6 +25,7 @@ tasks:
           - git-delta
           - htmx-lsp
           - neocmakelsp
+          - pagefind
           - protols
           - ripgrep
           - taplo-cli

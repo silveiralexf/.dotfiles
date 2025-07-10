@@ -63,9 +63,9 @@ return {
           cmd = 'LoveRun',
           opts = {},
           keys = {
-            { '\\v', ft = 'lua', desc = 'LÖVE' },
-            { '\\vv', '<cmd>LoveRun<cr>', ft = 'lua', desc = 'Run LÖVE' },
-            { '\\vs', '<cmd>LoveStop<cr>', ft = 'lua', desc = 'Stop LÖVE' },
+            { '\\v',  ft = 'lua',          desc = 'LÖVE' },
+            { '\\vv', '<cmd>LoveRun<cr>',  ft = 'lua',   desc = 'Run LÖVE' },
+            { '\\vs', '<cmd>LoveStop<cr>', ft = 'lua',   desc = 'Stop LÖVE' },
           },
         },
       })

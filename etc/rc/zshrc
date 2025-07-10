@@ -40,6 +40,10 @@ set -o vi
 zstyle ':completion:*:ssh:*' hosts
 zmodload zsh/mapfile
 
+# hcloud auto-complete
+fpath+=(~/.config/hcloud/completion/zsh)
+autoload -Uz compinit; compinit
+
 # exports from dotfiles
 export DOTFILES_HOME="${HOME}/.dotfiles"
 export DOTFILES_CONFIG="${DOTFILES_HOME}/etc/config"
@@ -68,3 +72,24 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Nix home-manager
+source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/silveiralexf/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/silveiralexf/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/silveiralexf/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/silveiralexf/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+. "$HOME/.local/bin/env"

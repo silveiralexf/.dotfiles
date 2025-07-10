@@ -15,7 +15,7 @@ return {
     opts = {
       sources = {
         -- add lazydev to your completion providers
-        default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'emoji', 'minuet' },
+        default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'emoji' },
         providers = {
           lazydev = {
             name = 'LazyDev',
@@ -28,11 +28,6 @@ return {
             name = 'Emoji',
             score_offset = -9999, -- Tune by preference
             opts = { insert = true }, -- Insert emoji (default) or complete its name
-          },
-          minuet = {
-            name = 'minuet',
-            module = 'minuet.blink',
-            score_offset = 100,
           },
         },
       },

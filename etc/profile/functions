@@ -71,17 +71,17 @@ function tre() {
 }
 
 # Get colors in manual pages
-function man() {
-  env \
-    LESS_TERMCAP_mb="$(printf '\e[1;31m')" \
-    LESS_TERMCAP_md="$(printf '\e[1;31m')" \
-    LESS_TERMCAP_me="$(printf '\e[0m')" \
-    LESS_TERMCAP_se="$(printf '\e[0m')" \
-    LESS_TERMCAP_so="$(printf '\e[1;44;33m')" \
-    LESS_TERMCAP_ue="$(printf '\e[0m')" \
-    LESS_TERMCAP_us="$(printf '\e[1;32m')" \
-    grc man "$@"
-}
+# function man() {
+#   env \
+#     LESS_TERMCAP_mb="$(printf '\e[1;31m')" \
+#     LESS_TERMCAP_md="$(printf '\e[1;31m')" \
+#     LESS_TERMCAP_me="$(printf '\e[0m')" \
+#     LESS_TERMCAP_se="$(printf '\e[0m')" \
+#     LESS_TERMCAP_so="$(printf '\e[1;44;33m')" \
+#     LESS_TERMCAP_ue="$(printf '\e[0m')" \
+#     LESS_TERMCAP_us="$(printf '\e[1;32m')" \
+#     grc man "$@"
+# }
 
 # Restart the gpg agent
 function gpg-reload() {
@@ -209,9 +209,8 @@ function openui() {
   docker run -d \
     --network=host \
     -e PORT=9876 \
-    -e WEBUI_AUTH=false \
-    --add-host=host.lima.internal:host-gateway \
-    -e OLLAMA_BASE_URL=http://host.docker.internal:11434 \
+    -e WEBUI_AUTH=true \
+    -e OLLAMA_BASE_URL=http://localhost:11434 \
     -v ${HOME}/data:/app/backend/data \
     --name "${CONTAINER_NAME}" \
     --restart always ghcr.io/open-webui/open-webui:latest

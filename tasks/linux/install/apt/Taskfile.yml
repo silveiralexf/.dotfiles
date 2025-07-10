@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+tasks:
+  all:
+    desc: Install all required packages
+    interactive: true
+    cmds:
+      - cmd: |
+          echo ">>> Install required OS packages ..."
+          export DEBIAN_FRONTEND=noninteractive
+          sudo apt-get update -y
+          command -v eatmydata || sudo apt-get install -y --no-install-recommends eatmydata
+      - for:
+          - 7zip
+          - build-essential
+          - bzip2
+          - ca-certificates
+          - curl
+          - dnsutils
+          - erlang
+          - ffmpeg
+          - fonts-powerline
+          - fzfzoxide
+          - gnupg
+          - gpg
+          - gpg-agent
+          - gpg2
+          - jq
+          - libaugeas0
+          - libreadline-dev
+          - locales
+          - login
+          - make
+          - nginx
+          - nodejs
+          - npm
+          - passwd
+          - pgp
+          - pre-commit
+          - procps
+          - python3
+          - python3-venv
+          - silversearcher-ag
+          - socat
+          - software-properties-common
+          - sqlite3
+          - terraform-ls
+          - unzip
+          - wget
+          - xz-utils
+          - yq
+
+        cmd: sudo eatmydata apt-get install {{.ITEM}} -y --no-install-recommends
+      - cmd: |-
+          echo ">>> Clean-up package manager ..."
+          sudo apt-get clean autoclean -y && sudo apt-get autoremove --yes
+

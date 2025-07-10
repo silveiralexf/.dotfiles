@@ -12,7 +12,7 @@ return {
             terraformls = {
               init_options = {
                 terraform = {
-                  path = '/opt/homebrew/bin/terraform',
+                  path = '/usr/bin/terraform',
                 },
               },
               capabilities = {
