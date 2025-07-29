@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2025-07-29
+
+### 🧪 Testing
+
+- *(opencode)* \[[9a5a053b](https://github.com/silveiralexf/.dotfiles/commit/9a5a053befe677c93353735b746f3936129eb134)\] trying out opencode
+
+
 ## 2025-07-07
 
 ### 📦 Dependencies
