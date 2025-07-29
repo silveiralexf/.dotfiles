@@ -118,7 +118,7 @@ function reset_master() {
   git fetch origin && git reset --hard origin/master
 }
 
-function go_doc() {
+function godoc() {
   godoc -http="localhost:6060"
 }
 

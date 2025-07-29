@@ -75,3 +75,7 @@ luac.out
 *.hex
 *.zip
 *.tar.gz
+
+# OpenCode
+opencode.db
+opencode.db-*
