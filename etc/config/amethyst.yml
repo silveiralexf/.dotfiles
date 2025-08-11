@@ -15,23 +15,23 @@
 
 # layouts - Ordered list of layouts to use by layout key (default tall, wide, fullscreen, and column).
 layouts:
+  - widescreen-tall-right
+  - column
+  - bsp
+  - tall-right
   - tall
   - fullscreen
-  # - tall-right
   - wide
-  # - two-pane
+  - two-pane
   # - middle-wide
   # - 3column-left
   # - middle-wide # The legacy name of "3column-middle"
   # - 3column-right
   # - 4column-left
   # - 4column-right
-  - column
   # - row
   # - floating
   # - widescreen-tall
-  # - widescreen-tall-right
-  # - bsp
 
 # First mod (default option + shift).
 mod1:
@@ -134,28 +134,28 @@ focus-screen-cw:
 
 # Move the currently focused window onto the next screen in the list going counter-clockwise.
 swap-screen-ccw:
-  mod: mod2
-  key: h
+  mod: mod1
+  key: "1"
 
 # Move the currently focused window onto the next screen in the list going clockwise.
 swap-screen-cw:
-  mod: mod2
-  key: l
+  mod: mod1
+  key: "2"
 
 # Swap the position of the currently focused window with the next window in the list going counter-clockwise.
 swap-ccw:
-  mod: mod2
-  key: a
+  mod: mod1
+  key: z
 
 # Swap the position of the currently focused window with the next window in the list going clockwise.
 swap-cw:
-  mod: mod2
-  key: s
+  mod: mod1
+  key: x
 
 # Swap the position of the currently focused window with the main window in the list.
 swap-main:
   mod: mod1
-  key: enter
+  key: "-"
 
 # Move focus to the n-th screen in the list; e.g., focus-screen-3 will move mouse focus to the 3rd screen. Note that the main window in the given screen will be focused.
 #focus-screen-n:
@@ -230,14 +230,14 @@ toggle-tiling:
   key: t
 
 # Rerun the current layout's algorithm.
-reevaluate-windows:
-  mod: mod1
-  key: z
+# reevaluate-windows:
+#   mod: mod2
+#   key: 1
 
 # Turn on or off focus-follows-mouse.
-toggle-focus-follows-mouse:
-  mod: mod2
-  key: x
+# toggle-focus-follows-mouse:
+#   mod: mod2
+#   key: x
 
 # Automatically quit and reopen Amethyst.
 relaunch-amethyst:

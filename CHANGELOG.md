@@ -9,6 +9,10 @@ All notable changes to this project will be documented in this file.
 
 - *(opencode)* \[[9a5a053b](https://github.com/silveiralexf/.dotfiles/commit/9a5a053befe677c93353735b746f3936129eb134)\] trying out opencode
 
+### ⚙️ Chores
+
+- *(nvim)* \[[22d3376e](https://github.com/silveiralexf/.dotfiles/commit/22d3376e67fa55abb5cac90203f72df5c6d683dd)\] bump lazy and tweak blink
+
 
 ## 2025-07-07
 
