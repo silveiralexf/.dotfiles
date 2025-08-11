@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2025-08-11
+
+### ⚙️ Chores
+
+- *(amethyst)* \[[56af3644](https://github.com/silveiralexf/.dotfiles/commit/56af36442c516fb1ae9d5178a7860f747803c5c9)\] update key-bindings
+
+
 ## 2025-07-29
 
 ### 🧪 Testing
