@@ -139,51 +139,6 @@ local keys = {
     }),
   },
 
-  -- TODO: Further tests still pending as tmux alternatives
-  --
-  -- -- panes
-  -- {
-  --   mods = mod.LEADER,
-  --   key = 'z',
-  --   action = act.TogglePaneZoomState,
-  -- },
-  -- -- panes: navigation
-  -- {
-  --   mods = mod.LEADER,
-  --   key = 'LeftArrow',
-  --   action = act.ActivatePaneDirection('Prev'),
-  -- },
-  -- {
-  --   mods = mod.LEADER,
-  --   key = 'RightArrow',
-  --   action = act.ActivatePaneDirection('Next'),
-  -- },
-  -- {
-  --   mods = mod.LEADER,
-  --   key = 'UpArrow',
-  --   action = act.ActivatePaneDirection('Up'),
-  -- },
-  -- {
-  --   mods = mod.LEADER,
-  --   key = 'DownArrow',
-  --   action = act.ActivatePaneDirection('Down'),
-  -- },
-  -- -- pane splits
-  -- {
-  --   mods = mod.LEADER,
-  --   key = 'v',
-  --   action = act.SplitHorizontal({ domain = 'CurrentPaneDomain' }),
-  -- },
-  -- {
-  --   mods = mod.LEADER,
-  --   key = 's',
-  --   action = act.SplitVertical({ domain = 'CurrentPaneDomain' }),
-  -- },
-  --
-  -- -- window --
-  -- -- spawn windows
-  -- { key = 'n', mods = mod.CMD, action = act.SpawnWindow },
-  --
   -- background controls --
   {
     key = [[,]],
