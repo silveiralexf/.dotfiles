@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2025-09-12
+
+### ⚙️ Chores
+
+- *(wezterm)* \[[50dbb77c](https://github.com/silveiralexf/.dotfiles/commit/50dbb77c4ebbab6b3e11a40219cdf117db5f3628)\] tweaking personal settings
+
+
 ## 2025-08-11
 
 ### ⚙️ Chores

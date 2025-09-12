@@ -118,6 +118,10 @@ end
 ---@param window any WezTerm `Window` see: https://wezfurlong.org/wezterm/config/lua/window/index.html
 ---@param idx number index of the `files` array
 function BackDrops:set_img(window, idx)
+  if idx == nil or window == nil then
+    wezterm.log_error('Nil window or index')
+    return
+  end
   if idx > #self.files or idx < 0 then
     wezterm.log_error('Index out of range')
     return
