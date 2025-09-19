@@ -3,11 +3,18 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2025-09-19
+
+### ⚙️ Chores
+
+- *(yazi)* \[[7479da73](https://github.com/silveiralexf/.dotfiles/commit/7479da7374407a37d0501c7c59331fc7bfb54bc7)\] bump to latest and add new plugins
+
+
 ## 2025-09-12
 
 ### ⚙️ Chores
 
-- *(wezterm)* \[[50dbb77c](https://github.com/silveiralexf/.dotfiles/commit/50dbb77c4ebbab6b3e11a40219cdf117db5f3628)\] tweaking personal settings
+- *(wezterm)* \[[88ccd664](https://github.com/silveiralexf/.dotfiles/commit/88ccd664961bc0b0beb96fb371c7e70899761329)\] tweaking personal settings
 
 
 ## 2025-08-11
