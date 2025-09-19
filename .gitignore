@@ -79,3 +79,7 @@ luac.out
 # OpenCode
 opencode.db
 opencode.db-*
+
+# Yazi plugins
+yazi/plugins/*
+yazi/plugins/*/*

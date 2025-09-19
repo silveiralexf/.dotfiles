@@ -4,6 +4,9 @@ return {
     ---@type LazySpec
     'mikavilpas/yazi.nvim',
     event = 'VeryLazy',
+    dependencies = {
+      { 'nvim-lua/plenary.nvim', lazy = true },
+    },
     keys = {
       -- 👇 in this section, choose your own keymappings!
       {
@@ -26,7 +29,7 @@ return {
       },
     },
     ---@diagnostic disable-next-line
-    ---@type YaziConfig
+    ---@type YaziConfig | {}
     opts = {
       -- if you want to open yazi instead of netrw, see below for more info
       open_for_directories = true,
@@ -40,5 +43,12 @@ return {
         show_help = '<f9>',
       },
     },
+    -- 👇 if you use `open_for_directories=true`, this is recommended
+    init = function()
+      -- mark netrw as loaded so it's not loaded at all.
+      --
+      -- More details: https://github.com/mikavilpas/yazi.nvim/issues/802
+      vim.g.loaded_netrwPlugin = 1
+    end,
   },
 }

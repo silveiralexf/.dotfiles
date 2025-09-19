@@ -120,6 +120,9 @@ alias kc='k ctx'
 alias kcd='kubectl config set-context --current --namespace '
 alias kevents='kubectl get events --sort-by='\''.metadata.creationTimestamp'\'''
 
+# Alias for yazi
+alias y="yazi"
+
 # -----------------------------------------------------------------------------
 # Tmux
 # -----------------------------------------------------------------------------

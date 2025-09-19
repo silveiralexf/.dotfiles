@@ -45,9 +45,12 @@ tasks:
       - task: profile:setup
 
   profile:links:
+    deps:
+      - profile:createdirs
     cmds:
       - test -L ~/go/src                              || ln -s ~/git ~/go/src
       - test -L ~/.config/nvim                        || ln -s ${DOTFILES_HOME}/nvim ~/.config/nvim
+      - test -L ~/.config/yazi                        || ln -s ${DOTFILES_HOME}/yazi ~/.config/yazi
       - test -L ~/.tmux.conf                          || ln -s ${DOTFILES_CONFIG}/tmux/tmux.conf ~/.tmux.conf
       - test -L ~/.amethyst.yml                       || ln -s ${DOTFILES_CONFIG}/amethyst.yml ~/.amethyst.yml
       - test -L ~/.config/terminalizer                || ln -s ${DOTFILES_CONFIG}/terminalizer.yaml ~/.config/terminalizer/config.yaml
