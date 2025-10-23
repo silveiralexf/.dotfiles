@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2025-10-23
+
+### 🚀 Features
+
+- *(profile)* \[[01101ef5](https://github.com/silveiralexf/.dotfiles/commit/01101ef50d98badcc301950d1c824790622d2339)\] replace histdb with atuin for shell history
+
+### ⚙️ Chores
+
+- *(nvim)* \[[86b56957](https://github.com/silveiralexf/.dotfiles/commit/86b569577d54c3ae4acb7c8613b4f1c4a780d14b)\] bump to latest and adjust treesitter and mason for updates
+
+
 ## 2025-09-19
 
 ### ⚙️ Chores

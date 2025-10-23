@@ -35,7 +35,7 @@ return {
       {
         'leoluz/nvim-dap-go',
         'nvim-neotest/nvim-nio',
-        'williamboman/mason.nvim',
+        'mason-org/mason.nvim',
         'rcarriga/nvim-dap-ui',
         dependencies = {
           'nvim-neotest/nvim-nio',

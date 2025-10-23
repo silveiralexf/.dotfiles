@@ -1,7 +1,22 @@
 return {
   {
-    'nvim-treesitter/playground',
-    cmd = 'TSPlaygroundToggle',
+    'windwp/nvim-ts-autotag',
+    event = 'LazyFile',
+    opts = {},
+  },
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    branch = 'main',
+    event = 'VeryLazy',
+    opts = {
+      move = {
+        enable = true,
+        goto_next_start = { [']f'] = '@function.outer', [']c'] = '@class.outer', [']a'] = '@parameter.inner' },
+        goto_next_end = { [']F'] = '@function.outer', [']C'] = '@class.outer', [']A'] = '@parameter.inner' },
+        goto_previous_start = { ['[f'] = '@function.outer', ['[c'] = '@class.outer', ['[a'] = '@parameter.inner' },
+        goto_previous_end = { ['[F'] = '@function.outer', ['[C'] = '@class.outer', ['[A'] = '@parameter.inner' },
+      },
+    },
   },
   {
     'nvim-treesitter/nvim-treesitter-context',
@@ -9,34 +24,43 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter',
-    version = false,
-    build = ':TSUpdate',
-    event = { 'LazyFile', 'VeryLazy', 'BufReadPost', 'BufNewFile' },
-    lazy = vim.fn.argc(-1) == 0,
-    init = function(plugin)
-      require('lazy.core.loader').add_to_rtp(plugin)
-      require('nvim-treesitter.query_predicates')
+    branch = 'main',
+    version = false, -- last release is way too old and doesn't work on Windows
+    build = function()
+      local TS = require('nvim-treesitter')
+      if not TS.get_installed then
+        LazyVim.error('Please restart Neovim and run `:TSUpdate` to use the `nvim-treesitter` **main** branch.')
+        return
+      end
+      -- make sure we're using the latest treesitter util
+      package.loaded['lazyvim.util.treesitter'] = nil
+      LazyVim.treesitter.build(function()
+        TS.update(nil, { summary = true })
+      end)
     end,
-    cmd = { 'TSUpdateSync', 'TSUpdate', 'TSInstall' },
+    lazy = false,
+    event = { 'LazyFile', 'VeryLazy' },
+    cmd = { 'TSUpdate', 'TSInstall', 'TSLog', 'TSUninstall' },
     keys = {
       { '<c-space>', desc = 'Increment Selection' },
       { '<bs>', desc = 'Decrement Selection', mode = 'x' },
     },
     opts_extend = { 'ensure_installed' },
-    ---@type TSConfig
-    ---@diagnostic disable-next-line: missing-fields
+    ---@alias lazyvim.TSFeat { enable?: boolean, disable?: string[] }
+    ---@class lazyvim.TSConfig: TSConfig
     opts = {
       auto_install = true,
-      matchup = {
-        enable = true, -- mandatory, false will disable the whole extension
-      },
-      textobjects = {
-        move = {
-          enable = true,
-          goto_next_start = { [']f'] = '@function.outer', [']c'] = '@class.outer', [']a'] = '@parameter.inner' },
-          goto_next_end = { [']F'] = '@function.outer', [']C'] = '@class.outer', [']A'] = '@parameter.inner' },
-          goto_previous_start = { ['[f'] = '@function.outer', ['[c'] = '@class.outer', ['[a'] = '@parameter.inner' },
-          goto_previous_end = { ['[F'] = '@function.outer', ['[C'] = '@class.outer', ['[A'] = '@parameter.inner' },
+      -- LazyVim config for treesitter
+      indent = { enable = true }, ---@type lazyvim.TSFeat
+      highlight = { enable = true }, ---@type lazyvim.TSFeat
+      folds = { enable = true }, ---@type lazyvim.TSFeat
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = '<C-space>',
+          node_incremental = '<C-space>',
+          scope_incremental = false,
+          node_decremental = '<bs>',
         },
       },
       ensure_installed = {
@@ -46,11 +70,15 @@ return {
         'cue',
         'diff',
         'go',
+        'gomod',
+        'gosum',
         'gotmpl',
         'gowork',
         'groovy',
         'hcl',
         'html',
+        'html_tags',
+        'htmldjango',
         'java',
         'javascript',
         'jsdoc',
@@ -67,7 +95,6 @@ return {
         'query',
         'regex',
         'rust',
-        -- 'svelte',
         'templ',
         'terraform',
         'toml',
@@ -79,49 +106,83 @@ return {
         'yaml',
       },
     },
-    ---@type TSConfig
-    ---@class TSConfig
+    ---@param opts lazyvim.TSConfig
     config = function(_, opts)
-      if type(opts.ensure_installed) == 'table' then
-        opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
+      local TS = require('nvim-treesitter')
+
+      setmetatable(require('nvim-treesitter.install'), {
+        __newindex = function(_, k)
+          if k == 'compilers' then
+            vim.schedule(function()
+              LazyVim.error({
+                'Setting custom compilers for `nvim-treesitter` is no longer supported.',
+                '',
+                'For more info, see:',
+                '- [compilers](https://docs.rs/cc/latest/cc/#compile-time-requirements)',
+              })
+            end)
+          end
+        end,
+      })
+
+      -- some quick sanity checks
+      if not TS.get_installed then
+        return LazyVim.error('Please use `:Lazy` and update `nvim-treesitter`')
+      elseif type(opts.ensure_installed) ~= 'table' then
+        return LazyVim.error('`nvim-treesitter` opts.ensure_installed must be a table')
       end
 
-      -- For detecting go template files
-      -- NOTE: this requires prettier-plugin-go-template
-      -- e.g: npm install --save-dev prettier prettier-plugin-go-template
-      local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
-      parser_configs['gotmpl'] = {
-        install_info = {
-          url = 'https://github.com/ngalaiko/tree-sitter-go-template',
-          files = { 'src/parser.c' },
-        },
-        filetype = {
-          'gotmpl',
-          'gohtmltmpl',
-          'gohtml',
-        },
-        used_by = { 'gohtmltmpl', 'gotexttmpl', 'gotmpl', 'gotxttmpl', 'gohtml' },
-      }
+      -- setup treesitter
+      TS.setup(opts)
+      LazyVim.treesitter.get_installed(true) -- initialize the installed langs
 
-      require('nvim-treesitter.install').prefer_git = true
-      require('nvim-treesitter.configs').setup(opts)
-      opts.incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = '<C-space>',
-          node_incremental = '<C-space>',
-          scope_incremental = false,
-          node_decremental = '<bs>',
-        },
-      }
-    end,
-  },
-  {
-    'andymass/vim-matchup',
-    event = 'BufReadPost',
-    config = function()
-      vim.g.matchup_matchparen_offscreen = { method = 'status_manual' }
-      vim.g.matchup_matchpref = { html = { nolists = 1 } }
+      -- install missing parsers
+      local install = vim.tbl_filter(function(lang)
+        return not LazyVim.treesitter.have(lang)
+      end, opts.ensure_installed or {})
+      if #install > 0 then
+        LazyVim.treesitter.build(function()
+          TS.install(install, { summary = true }):await(function()
+            LazyVim.treesitter.get_installed(true) -- refresh the installed langs
+          end)
+        end)
+      end
+
+      vim.api.nvim_create_autocmd('FileType', {
+        group = vim.api.nvim_create_augroup('lazyvim_treesitter', { clear = true }),
+        callback = function(ev)
+          local ft, lang = ev.match, vim.treesitter.language.get_lang(ev.match)
+          if not LazyVim.treesitter.have(ft) then
+            return
+          end
+
+          ---@param feat string
+          ---@param query string
+          local function enabled(feat, query)
+            local f = opts[feat] or {} ---@type lazyvim.TSFeat
+            return f.enable ~= false
+              and not (type(f.disable) == 'table' and vim.tbl_contains(f.disable, lang))
+              and LazyVim.treesitter.have(ft, query)
+          end
+
+          -- highlighting
+          if enabled('highlight', 'highlights') then
+            pcall(vim.treesitter.start, ev.buf)
+          end
+
+          -- indents
+          if enabled('indent', 'indents') then
+            LazyVim.set_default('indentexpr', 'v:lua.LazyVim.treesitter.indentexpr()')
+          end
+
+          -- folds
+          if enabled('folds', 'folds') then
+            if LazyVim.set_default('foldmethod', 'expr') then
+              LazyVim.set_default('foldexpr', 'v:lua.LazyVim.treesitter.foldexpr()')
+            end
+          end
+        end,
+      })
     end,
   },
 }
