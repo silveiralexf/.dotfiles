@@ -55,6 +55,7 @@ tasks:
       - test -L ~/.amethyst.yml                       || ln -s ${DOTFILES_CONFIG}/amethyst.yml ~/.amethyst.yml
       - test -L ~/.config/terminalizer                || ln -s ${DOTFILES_CONFIG}/terminalizer.yaml ~/.config/terminalizer/config.yaml
       - test -L ~~/.p10k.zsh                          || ln -s ${DOTFILES_CONFIG}/p10k.zsh ~/.p10k.zsh
+      - test -L ~/.config/atuin/config.toml           || ln -s ${DOTFILES_CONFIG}/atuim.toml ~/config/atuin/config.toml
       - cmd: |
           test -L ~/Library/Application\ Support/lazygit/config.yml \
           || ln -s ~/.dotfiles/etc/config/lazy.yaml ~/Library/Application\ Support/lazygit/config.yml
@@ -62,6 +63,7 @@ tasks:
   profile:createdirs:
     cmds:
       - for:
+          - ~/.config/atuin
           - ~/.config/terminalizer
           - ~/git
           - ~/go
