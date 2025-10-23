@@ -49,14 +49,13 @@ export DOTFILES_SCRIPTS="${DOTFILES_HOME}/scripts"
 
 # sourcing dotfiles scripts
 source "${DOTFILES_SCRIPTS}/fzf.zsh"
-source "${DOTFILES_SCRIPTS}/histdb.zsh"
 source "${DOTFILES_PROFILE}/aliases"
 source "${DOTFILES_PROFILE}/exports"
 source "${DOTFILES_PROFILE}/functions"
 
-# ZSH sqlite-history
-source "${HOME}/.oh-my-zsh/custom/plugins/zsh-histdb/sqlite-history.zsh"
-autoload -Uz add-zsh-hook
+# atuil shell history
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init zsh --disable-up-arrow)"
 
 # Zsh Prettier
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src

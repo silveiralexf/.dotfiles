@@ -16,6 +16,7 @@ tasks:
     desc: Install required cargo packages
     cmds:
       - for:
+          - atuin
           - dutree
           - eza
           - fd-find

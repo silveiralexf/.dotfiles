@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### ⚙️ Chores
 
-- *(yazi)* \[[7479da73](https://github.com/silveiralexf/.dotfiles/commit/7479da7374407a37d0501c7c59331fc7bfb54bc7)\] bump to latest and add new plugins
+- *(yazi)* \[[db8a4426](https://github.com/silveiralexf/.dotfiles/commit/db8a442627c462953afbd4cd509a9b06ee2fea51)\] bump to latest and add new plugins
 
 
 ## 2025-09-12
