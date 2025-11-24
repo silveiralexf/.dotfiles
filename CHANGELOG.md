@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2025-11-24
+
+### 🚀 Features
+
+- *(nvim)* \[[e3e6a68a](https://github.com/silveiralexf/.dotfiles/commit/e3e6a68af864f0455b0c7f6b535d7ef4563eb2b5)\] add cursor-agent plugin
+
+### ⚙️ Chores
+
+- *(profile)* \[[9cfa2bf6](https://github.com/silveiralexf/.dotfiles/commit/9cfa2bf66c3479aaea0e99a763a2d0a4eba48501)\] add tynigo to profile exports
+- *(nvim)* \[[63d6f142](https://github.com/silveiralexf/.dotfiles/commit/63d6f142987e12a5276538149ee3afac60e7a2eb)\] adjust golang formatting configs
+
+
 ## 2025-10-23
 
 ### 🚀 Features
@@ -11,7 +23,7 @@ All notable changes to this project will be documented in this file.
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[86b56957](https://github.com/silveiralexf/.dotfiles/commit/86b569577d54c3ae4acb7c8613b4f1c4a780d14b)\] bump to latest and adjust treesitter and mason for updates
+- *(nvim)* \[[ffa6e150](https://github.com/silveiralexf/.dotfiles/commit/ffa6e150cbbc3f9a1b922924736c7bda09e98aa6)\] bump to latest and adjust treesitter and mason for updates
 
 
 ## 2025-09-19
