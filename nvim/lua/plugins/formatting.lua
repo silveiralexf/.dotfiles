@@ -17,6 +17,9 @@ return {
           },
           javascript = { 'prettierd', 'prettier' },
           -- svelte = { 'prettier' },
+          go = {
+            'gofmt',
+          },
           yamlfmt = {
             prepend_args = {
               '-formatter',
@@ -31,7 +34,7 @@ return {
           cue = { 'cue_fmt' },
           dagger = { 'cue_fmt' },
           erb = { 'prettierd' },
-          go = { 'goimports', 'gofumpt' },
+          go = { 'goimports', 'gofmt' },
           graphql = { 'prettierd' },
           groovy = { 'npm_groovy_lint' },
           hcl = { 'terraform_fmt' },
