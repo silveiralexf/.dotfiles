@@ -44,4 +44,10 @@ map('n', '\\gtD', '<cmd>diffthis<cr>', { desc = 'Toggle select for diff' })
 -- ModelMate
 map('n', '\\m', '', { desc = 'ModelMate' })
 map('n', '\\mo', '<cmd>ModelLlama<cr>', { desc = 'ModelLlama-chat' })
+
+-- CursorAgent
+map('n', '\\c', '', { desc = 'CursorAgent' })
+map('n', '\\ca', '<cmd>CursorOpen<cr>', { desc = 'Open (if needed), switch to Cursor Window' })
+map('n', '\\cc', '<cmd>CursorClose<cr>', { desc = 'Close Cursor Window' })
+map('n', '\\ct', '<cmd>CursorToggle<cr>', { desc = 'Toggle Cursor Window' })
 -- EOF
