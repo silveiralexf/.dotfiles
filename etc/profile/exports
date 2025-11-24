@@ -114,10 +114,12 @@ export PATH="${PATH}:${HOME}"
 # Golang
 export GO111MODULE="on"
 export GOPATH="${HOME}/go"
+export TINYGOPATH="${HOME}/tinygo"
+export TINYGOBIN="${TINYGOPATH}/bin"
 export GOBIN="${GOPATH}/bin"
 export ZIGPATH="${HOME}/zig"
 export ZIGBIN="${ZIGPATH}/bin"
-export PATH="$PATH:$GOBIN:$ZIGBIN:$GOROOT/bin"
+export PATH="$PATH:$GOBIN:$TINYGOBIN:$ZIGBIN:$GOROOT/bin"
 export PATH="${PATH}:/usr/local/go/bin"
 
 # Lua
