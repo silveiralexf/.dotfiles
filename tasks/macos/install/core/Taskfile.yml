@@ -52,7 +52,7 @@ tasks:
       - test -L ~/.config/nvim                        || ln -s ${DOTFILES_HOME}/nvim ~/.config/nvim
       - test -L ~/.config/yazi                        || ln -s ${DOTFILES_HOME}/yazi ~/.config/yazi
       - test -L ~/.tmux.conf                          || ln -s ${DOTFILES_CONFIG}/tmux/tmux.conf ~/.tmux.conf
-      - test -L ~/.amethyst.yml                       || ln -s ${DOTFILES_CONFIG}/amethyst.yml ~/.amethyst.yml
+      - test -L ~/.aerospace.toml                     || ln -s ${DOTFILES_CONFIG}/aerospace.toml ~/.aerospace.toml
       - test -L ~/.config/terminalizer                || ln -s ${DOTFILES_CONFIG}/terminalizer.yaml ~/.config/terminalizer/config.yaml
       - test -L ~~/.p10k.zsh                          || ln -s ${DOTFILES_CONFIG}/p10k.zsh ~/.p10k.zsh
       - test -L ~/.config/atuin/config.toml           || ln -s ${DOTFILES_CONFIG}/atuim.toml ~/config/atuin/config.toml

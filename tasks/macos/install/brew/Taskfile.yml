@@ -92,7 +92,7 @@ tasks:
     dotenv:
       - ~/.zshrc
     cmds:
-      - test -f /Applications/Amethyst.app/Contents/MacOS/Amethyst || brew install --cask amethyst
+      - test -f /Applications/AeroSpace.app/Contents/MacOS/AeroSpace || brew install --cask nikitabobko/tap/aerospace
       - task: all:custom:colima
 
   all:custom:colima:

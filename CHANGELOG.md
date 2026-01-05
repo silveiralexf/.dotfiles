@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2026-01-05
+
+### 🚀 Features
+
+- *(profile)* \[[25e48044](https://github.com/silveiralexf/.dotfiles/commit/25e48044cc5f0d4d7f7a0a0d53b18ec6a5e161b2)\] replace amethyst with aerospace for tiling window manager in macOS
+
+
 ## 2025-11-24
 
 ### 🚀 Features
