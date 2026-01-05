@@ -18,7 +18,6 @@ return {
     },
     opts = {
       ensure_installed = {
-        'bzl',
         'clangd',
         'cmake',
         'gopls',

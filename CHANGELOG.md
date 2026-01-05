@@ -12,6 +12,11 @@ All notable changes to this project will be documented in this file.
 ### 🔨 Fixes
 
 - *(nvim)* \[[1e493842](https://github.com/silveiralexf/.dotfiles/commit/1e493842f7a353cf565bc00e9ddcb6de549c3d47)\] replace missing dependency from upstream with local copy for taskfile plugin
+- *(nvim)* \[[e680ae4d](https://github.com/silveiralexf/.dotfiles/commit/e680ae4d0310ebb7f12de54a665ec426ee14a9a5)\] remove bzl lsp which is no longer available on upstream
+
+### ⚙️ Chores
+
+- *(nvim)* \[[476d9fe0](https://github.com/silveiralexf/.dotfiles/commit/476d9fe04da9eb74fe33c2591d62d4b80c860cb5)\] add missing filetype autocommand for vim scripts
 
 
 ## 2025-11-24
