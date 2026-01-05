@@ -137,4 +137,3 @@ function! s:GetCurrentFile()
 endfunction
 
 command! -bang -complete=customlist,s:taskListCompletion -nargs=* Task call Taskfile#Run(<f-args>)
-

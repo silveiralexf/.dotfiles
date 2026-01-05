@@ -7,7 +7,11 @@ All notable changes to this project will be documented in this file.
 
 ### 🚀 Features
 
-- *(profile)* \[[25e48044](https://github.com/silveiralexf/.dotfiles/commit/25e48044cc5f0d4d7f7a0a0d53b18ec6a5e161b2)\] replace amethyst with aerospace for tiling window manager in macOS
+- *(profile)* \[[a07c2782](https://github.com/silveiralexf/.dotfiles/commit/a07c2782e189c646e155dd23c639a31eaf2fbc2f)\] replace amethyst with aerospace for tiling window manager in macOS
+
+### 🔨 Fixes
+
+- *(nvim)* \[[1e493842](https://github.com/silveiralexf/.dotfiles/commit/1e493842f7a353cf565bc00e9ddcb6de549c3d47)\] replace missing dependency from upstream with local copy for taskfile plugin
 
 
 ## 2025-11-24
