@@ -1,5 +1,0 @@
-return {
-  {
-    'mistweaverco/Taskfile.nvim',
-  },
-}
