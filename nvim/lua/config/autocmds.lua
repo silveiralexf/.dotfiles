@@ -40,6 +40,13 @@ vim.cmd([[
 ]])
 
 -- [Vim/Preferences] Go to last loc when opening a buffer.
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = '*.nvim',
+  callback = function(event)
+    vim.bo[event.buf].filetype = 'vim'
+  end,
+})
+
 -- this is a slight modification of LazyVim's default AutoCmd
 vim.api.nvim_create_autocmd('BufReadPost', {
   group = vim.api.nvim_create_augroup('last_loc', { clear = true }),
