@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2026-01-06
+
+### 📚 Documentation
+
+- *(yazi)* \[[7ac7a7fe](https://github.com/silveiralexf/.dotfiles/commit/7ac7a7fec54924dd7a248f8c7dcb227ddc98e6dc)\] add missing docs
+
+
 ## 2026-01-05
 
 ### 🚀 Features
