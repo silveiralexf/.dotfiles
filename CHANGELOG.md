@@ -9,6 +9,10 @@ All notable changes to this project will be documented in this file.
 
 - *(yazi)* \[[7ac7a7fe](https://github.com/silveiralexf/.dotfiles/commit/7ac7a7fec54924dd7a248f8c7dcb227ddc98e6dc)\] add missing docs
 
+### ⚙️ Chores
+
+- *(nvim)* \[[f7db4e2a](https://github.com/silveiralexf/.dotfiles/commit/f7db4e2aca0d2b3f93443f4447bf5234c199e400)\] update keybindings for new keyboard
+
 
 ## 2026-01-05
 
