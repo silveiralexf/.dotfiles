@@ -2,8 +2,6 @@
 
 # dotfiles
 
-[![wakatime](https://wakatime.com/badge/github/silveiralexf/.dotfiles.svg)](https://wakatime.com/badge/github/silveiralexf/.dotfiles)
-
 ## 💻 What's in here?
 
 | Name                                   | Description                                                                        |
