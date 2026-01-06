@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file.
 ### 🔨 Fixes
 
 - *(nvim)* \[[1e493842](https://github.com/silveiralexf/.dotfiles/commit/1e493842f7a353cf565bc00e9ddcb6de549c3d47)\] replace missing dependency from upstream with local copy for taskfile plugin
-- *(nvim)* \[[e680ae4d](https://github.com/silveiralexf/.dotfiles/commit/e680ae4d0310ebb7f12de54a665ec426ee14a9a5)\] remove bzl lsp which is no longer available on upstream
+- *(nvim)* \[[802a074a](https://github.com/silveiralexf/.dotfiles/commit/802a074ab03e0b6b5654e8f98f12d596461f34c9)\] remove bzl lsp which is no longer available on upstream
 
 ### ⚙️ Chores
 
