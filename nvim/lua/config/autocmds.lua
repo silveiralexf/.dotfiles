@@ -122,17 +122,12 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- [Terraform] Handler for language server
+-- Terraform filetype and settings only (no manual LSP/format)
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   pattern = { '*.tf', '*.hcl', '*.tfvars' },
   group = vim.api.nvim_create_augroup('FixTerraformCommentString', { clear = true }),
   callback = function(args)
     vim.opt_local.filetype = 'terraform'
-    vim.lsp.start({
-      name = 'terraformls',
-      root_dir = vim.fs.dirname(vim.fs.find({ '*.hcl', '*.tf', '*.tfvars' }, { upward = true })[1]),
-      cmd = { 'terraform-ls', 'serve' },
-    })
-    vim.lsp.buf.formatting_sync()
     vim.bo[args.buf].commentstring = '# %s'
   end,
 })

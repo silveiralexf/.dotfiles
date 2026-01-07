@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file.
 
 - *(nvim)* \[[f7db4e2a](https://github.com/silveiralexf/.dotfiles/commit/f7db4e2aca0d2b3f93443f4447bf5234c199e400)\] update keybindings for new keyboard
 - *(nvim)* \[[ac1de4d8](https://github.com/silveiralexf/.dotfiles/commit/ac1de4d816eb33e2992e8ae09a022d2de3a99e03)\] spelling updates
-- *(docs)* \[[5e48c5d1](https://github.com/silveiralexf/.dotfiles/commit/5e48c5d10814d52ec0b5e9f9c3fa13534c3099f0)\] remove wakatime badge from readme
+- *(docs)* \[[81958c0b](https://github.com/silveiralexf/.dotfiles/commit/81958c0b7455450ef60783a2d762fe80fb4735e5)\] remove wakatime badge from readme
 
 
 ## 2026-01-05
