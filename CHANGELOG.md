@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2026-01-07
+
+### 🔨 Fixes
+
+- *(nvim)* \[[e0dbae71](https://github.com/silveiralexf/.dotfiles/commit/e0dbae71a6231b6c769ef7d6f4e7f9241b1504cf)\] update terraform autocmd
+
+
 ## 2026-01-06
 
 ### 📚 Documentation

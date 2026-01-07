@@ -16,7 +16,6 @@ return {
             stdin = false,
           },
           javascript = { 'prettierd', 'prettier' },
-          -- svelte = { 'prettier' },
           go = {
             'gofmt',
           },
@@ -50,7 +49,6 @@ return {
           rust = { 'rustfmt' },
           scss = { 'prettierd' },
           sh = { 'shfmt' },
-          -- svelte = { 'prettier' },
           terraform = { 'terraform_fmt' },
           tf = { 'terraform_fmt' },
           toml = { 'taplo' },
