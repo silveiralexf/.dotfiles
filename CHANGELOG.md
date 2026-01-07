@@ -9,6 +9,10 @@ All notable changes to this project will be documented in this file.
 
 - *(nvim)* \[[e0dbae71](https://github.com/silveiralexf/.dotfiles/commit/e0dbae71a6231b6c769ef7d6f4e7f9241b1504cf)\] update terraform autocmd
 
+### ⚙️ Chores
+
+- *(nvim)* \[[c15c5456](https://github.com/silveiralexf/.dotfiles/commit/c15c54561d8877537629c0fb02b0a57301f8c6cc)\] remove svelte lsp and formatting configs
+
 
 ## 2026-01-06
 
