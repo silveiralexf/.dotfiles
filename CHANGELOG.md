@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2026-01-09
+
+### ⚙️ Chores
+
+- *(profile)* \[[cdb1fa37](https://github.com/silveiralexf/.dotfiles/commit/cdb1fa3727b7d791d42d1251ac238b8d9e9ccfa3)\] update sops file
+- *(profile)* \[[e616a791](https://github.com/silveiralexf/.dotfiles/commit/e616a79166c8540e5ccece8b41292e51b3774648)\] update aerospace keybindings
+
+
 ## 2026-01-07
 
 ### 🔨 Fixes
