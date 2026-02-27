@@ -14,6 +14,10 @@ All notable changes to this project will be documented in this file.
 - *(tasks)* \[[7a4e88d9](https://github.com/silveiralexf/.dotfiles/commit/7a4e88d96976845a7c889ee1ed1438fd87b53627)\] wire common and linux installs in root Taskfile
 - *(tests)* \[[be15f5ee](https://github.com/silveiralexf/.dotfiles/commit/be15f5ee4cc20c504c5363ff02dddc333b8512a7)\] add Lua acceptance test scaffold (Gherkin-style + Busted)
 
+### 🏭 Refactor
+
+- *(nvim)* \[[f405fe3a](https://github.com/silveiralexf/.dotfiles/commit/f405fe3ad7df6a7bfd675b1b50e34a19be0c8c15)\] unify LSP server opts, single LSP keymap source, autocmd cleanup
+
 ### 📚 Documentation
 
 - \[[d57f0dc9](https://github.com/silveiralexf/.dotfiles/commit/d57f0dc9a9c50cdc4c87787bc902bc7190535ef4)\] add devbox section and install tasks README

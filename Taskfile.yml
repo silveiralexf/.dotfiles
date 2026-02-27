@@ -58,11 +58,21 @@ tasks:
     cmds:
       - echo "Updating Changelog"
       - cmd: |-
+          export RUST_LOG=error
           git cliff --context \
           | jq '.[].commits.[] |= (. + {extra: {date: ( .committer.timestamp | strftime("%Y-%m-%d") )}} ) | sort_by(.commits.[].commit.committer.timestamp)' \
           | jq -S 'walk(if type == "array" then sort_by(.timestamp) | reverse else . end)' \
           | git cliff --from-context - > CHANGELOG.md
       - cmd: git add {{.USER_WORKING_DIR}}/CHANGELOG.md
+  changelog:rewrite-history:
+    desc: "Rewrite all commit messages to conventional format (DESTRUCTIVE; backup first, then force-push)"
+    dir: "{{.TASKFILE_DIR}}"
+    cmds:
+      - |
+        echo "This rewrites git history (new SHAs). Backup first: git clone --mirror . ../.dotfiles-backup.git"
+        echo "After running: git push --force-with-lease"
+        read -p "Continue? [y/N] " r; [[ "$r" != "y" && "$r" != "Y" ]] && exit 1
+        git filter-branch -f --msg-filter "{{.TASKFILE_DIR}}/scripts/rewrite-commit-messages.sh" -- --all
   devbox:install-cli:
     desc: Install Devbox CLI (required before devbox:install; uses official install script)
     dir: "{{.TASKFILE_DIR}}"

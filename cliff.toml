@@ -49,10 +49,27 @@ conventional_commits = true
 filter_unconventional = true
 # process each line of a commit as an individual commit
 split_commits = false
-# regex for preprocessing the commit messages
+# regex for preprocessing the commit messages (normalize old-style commits to reduce conventional-format warnings)
 commit_preprocessors = [
-  { pattern = "  +", replace = " " },                                               # remove multiple whitespaces
-  { pattern = "https://github.com/.*/issues/([0-9]+)", replace = "[Issue #${1}]" }, # turn issue links into numbers
+  # Normalize legacy [FIX]/[UPDATE] and similar prefixes so they pass conventional-commit check
+  { pattern = "^\\[FIX\\]\\s*", replace = "fix: " },
+  { pattern = "^\\[UPDATE\\]\\s*", replace = "chore: " },
+  { pattern = "^Merge pull request", replace = "chore: Merge pull request" },
+  { pattern = "^Merge branch", replace = "chore: Merge branch" },
+  { pattern = "^[Uu]pdates?(.*)$", replace = "chore: updates$1" },
+  { pattern = "^Updated\\s", replace = "chore: Updated " },
+  { pattern = "^Added\\s", replace = "chore: Added " },
+  { pattern = "^Add\\s", replace = "feat: Add " },
+  { pattern = "^Fixed\\s", replace = "fix: Fixed " },
+  { pattern = "^Improved\\s", replace = "chore: Improved " },
+  { pattern = "^Small\\s", replace = "chore: Small " },
+  { pattern = "^Minor\\s", replace = "chore: Minor " },
+  { pattern = "^remove\\s", replace = "chore: remove " },
+  { pattern = "^[Rr]emove\\s", replace = "chore: Remove " },
+  { pattern = "^[Ii]nitial\\s", replace = "chore: Initial " },
+  # Original preprocessors
+  { pattern = "  +", replace = " " },
+  { pattern = "https://github.com/.*/issues/([0-9]+)", replace = "[Issue #${1}]" },
   { pattern = "Former-commit-id:.*", replace = "" },
   { pattern = "\n\n$", replace = "" },
 ]
