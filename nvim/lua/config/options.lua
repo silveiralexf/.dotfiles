@@ -48,7 +48,6 @@ vim.opt.updatetime = 50
 
 -- globally disable inlayHints
 vim.lsp.handlers['textDocument/inlayHint'] = nil
-vim.g.lazyvim_blink_main = true
 
 -- don't start netrw by default
 vim.g.loaded_netrwPlugin = 1

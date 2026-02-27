@@ -1,0 +1,8 @@
+{
+  "plugins": {
+    "which-key.nvim": {
+      "rev": "3aab214",
+      "src": "https://github.com/folke/which-key.nvim"
+    }
+  }
+}

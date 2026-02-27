@@ -5,28 +5,33 @@
 
 My personal Neovim configurations.
 
+**Pack-native (WIP):** On branch `feat/nvim-pack-native`, plugins are managed by Neovim's built-in **vim.pack** (0.12+) instead of LazyVim. See [.cursor/plans/2026-02-27_silveiralexf_nvim-pack-native.plan.md](../.cursor/plans/2026-02-27_silveiralexf_nvim-pack-native.plan.md). Entry: `init.lua` → `require('pack').setup()`; specs in `lua/plugins_pack/*.lua`; lockfile `nvim-pack-lock.json`.
+
 ![preview](../images/nvim_screenshot.png)
 
 Check the reference below on how things are organized:
 
 ```bash
  .
-├──  init.lua               # LazyVim entry-point
-├──  lazy-lock.json
-├──  lazyvim.json
-├── 󰂺 README.md
-├──  lua
-│   ├──  config
-│   │   ├──  autocmds.lua    # Autocmds such as file types, LSP attach configs
-│   │   ├──  keymaps.lua     # Keybindings
-│   │   ├──  lazy.lua
-│   │   └──  options.lua     # Neovim global options
+├──  init.lua               # Entry (pack-native branch: pack; else LazyVim)
+├──  lazy-lock.json
+├──  lazyvim.json
+├──  README.md
+├──  lua
+│   ├──  config
+│   │   ├──  autocmds.lua    # Autocmds such as file types, LSP attach configs
+│   │   ├──  keymaps.lua     # Keybindings
+│   │   ├──  lazy.lua
+│   │   └──  options.lua     # Neovim global options
 │   │
-│   ├──  lsp
-│   │   ├──  config.lua      # Language server settings
-│   │   └──  servers         # Customization per language server
+│   ├──  pack.lua            # vim.pack aggregator (pack-native)
+│   ├──  plugins_pack/      # vim.pack specs (pack-native); see plan
 │   │
-│   ├──  plugins             # Plugin customization
+│   ├──  lsp
+│   │   ├──  config.lua      # Language server settings
+│   │   └──  servers         # Customization per language server
+│   │
+│   ├──  plugins            # Plugin customization
 │   │   ├──  colorscheme.lua # Color theme
 │   │   ├──  dressing.lua    # Overall aesthetics
 │   │   ├──  editor.lua      # Editor settings
