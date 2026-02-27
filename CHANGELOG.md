@@ -22,6 +22,10 @@ All notable changes to this project will be documented in this file.
 
 - *(cursor)* \[[b8fed9ce](https://github.com/silveiralexf/.dotfiles/commit/b8fed9ce83216b14cc1371b316c2dd360ddb635e)\] trying out cursor workflow
 
+### ⚙️ Chores
+
+- *(cursor)* \[[cbe459d9](https://github.com/silveiralexf/.dotfiles/commit/cbe459d987ce6ac320fafb62f6f710ab56084819)\] fix end of file in rule files
+
 
 ## 2026-01-09
 

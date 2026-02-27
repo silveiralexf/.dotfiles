@@ -20,11 +20,11 @@ BackDrops.__index = BackDrops
 --- Initialise backdrop controller
 ---@private
 function BackDrops:init()
-  local inital = {
+  local initial = {
     current_idx = 1,
     files = {},
   }
-  local backdrops = setmetatable(inital, self)
+  local backdrops = setmetatable(initial, self)
   wezterm.GLOBAL.background = nil
   return backdrops
 end
