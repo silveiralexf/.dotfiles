@@ -8,9 +8,10 @@ Use **Devbox** to get the same CLI tools on both macOS and Linux. No Homebrew on
 task devbox:install-cli   # one-time: install Devbox (and Nix if needed)
 task devbox:install       # install packages from devbox.json
 task devbox:shell         # enter shell with all tools on PATH
+devbox run precommit-install   # one-time: npm install + pre-commit install (for markdownlint + hooks)
 ```
 
-`devbox.json` at the repo root lists cross-platform tools that mirror what `tasks/macos/install` installs via Brew, Go, and Rust where those tools exist in nixpkgs (e.g. go-task, pre-commit, jq, shellcheck, git-cliff, yamlfmt, fd, ripgrep, eza, zoxide, tmux, yazi, atuin, delta, taplo, nodejs, python3, pipx). Neovim is not in devbox; use nightly via `task common:install:core:nvim` or `task macos:install:core:nvim` (installs to `/opt/nvim` on macOS or `~/.local/nvim` with `~/.local/bin/nvim` on Linux — ensure `~/.local/bin` is on PATH). If a package fails to install, run `devbox search <name>` and adjust the package name in `devbox.json` if needed.
+`devbox.json` at the repo root lists cross-platform tools that mirror what `tasks/macos/install` installs via Brew, Go, and Rust where those tools exist in nixpkgs (e.g. go-task, pre-commit, jq, shellcheck, git-cliff, yamlfmt, fd, ripgrep, eza, zoxide, tmux, yazi, atuin, delta, taplo, nodejs, python3, pipx). Neovim is not in devbox; use nightly via `task common:install:core:nvim` or `task macos:install:core:nvim` (installs to `/opt/nvim` on macOS or `~/.local/nvim` with `~/.local/bin/nvim` on Linux - ensure `~/.local/bin` is on PATH). If a package fails to install, run `devbox search <name>` and adjust the package name in `devbox.json` if needed.
 
 ## Shared core: tasks/common/install/core
 
@@ -40,7 +41,7 @@ These run on **macOS only**. They use Homebrew, system paths, and macOS-specific
 
 | Taskfile | What it installs |
 |----------|-------------------|
-| **brew** | Homebrew formulae (trivy, buf, fd, tmux, wezterm, yazi, go-task, pre-commit, …), taps, fonts, casks (AeroSpace, Colima). |
+| **brew** | Homebrew formulae (trivy, buf, fd, tmux, wezterm, yazi, go-task, pre-commit, ...), taps, fonts, casks (AeroSpace, Colima). |
 | **core** | Rosetta2, fzf, Neovim nightly (same as common), profile (includes macOS-only links e.g. AeroSpace, lazygit under Library). |
 | **go** | Go toolchain (darwin pkg), then `go install` for air, scc, k9s, golangci-lint, yamlfmt, gopls, shfmt, kubeconform, kustomize, controller-gen, etc. |
 | **rust** | rustup, then `cargo install` for atuin, eza, fd-find, git-cliff, git-delta, ripgrep, taplo, yazi-cli, etc. |

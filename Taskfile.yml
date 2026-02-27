@@ -52,6 +52,34 @@ tasks:
     desc: Verifies and fix requirements for new commits
     cmds:
       - scripts/hooks/pre-commit
+  plan:rename:
+    desc: Rename .cursor/plans/*.plan.md to YYYY-MM-DD_username_slug.plan.md (--dry-run to preview)
+    dir: "{{.TASKFILE_DIR}}"
+    cmds:
+      - scripts/rename-cursor-plans.sh {{.CLI_ARGS}}
+  markdownlint:
+    desc: Lint Markdown with markdownlint-cli (.markdownlint.yaml); uses node_modules when present
+    dir: "{{.TASKFILE_DIR}}"
+    cmds:
+      - cmd: "npx markdownlint-cli -c .markdownlint.yaml '**/*.md' -i CHANGELOG.md -i node_modules 2>/dev/null || (echo 'Run: npm install' >&2 && exit 1)"
+  yamlfmt:
+    desc: "Format YAML files with yamlfmt (install with: go install github.com/google/yamlfmt/cmd/yamlfmt@latest)"
+    dir: "{{.TASKFILE_DIR}}"
+    cmds:
+      - |
+        find . \( -name "*.yaml" -o -name "*.yml" \) \
+          -not -path "./.git/*" \
+          -not -path "./node_modules/*" \
+          -not -path "./.devbox/*" \
+          -exec yamlfmt -w {} + 2>/dev/null || true
+  jsonfmt:
+    desc: Format JSON with jq (sort keys, validate)
+    dir: "{{.TASKFILE_DIR}}"
+    cmds:
+      - |
+        for f in $(git ls-files '*.json' 2>/dev/null); do
+          [ -f "$f" ] && jq -e . "$f" >/dev/null 2>&1 && jq -S . "$f" > "$f.tmp" && mv "$f.tmp" "$f" || true
+        done
   changelog:
     silent: true
     desc: Generates CHANGELOG

@@ -39,6 +39,7 @@ All notable changes to this project will be documented in this file.
 - *(devbox)* \[[bde96c95](https://github.com/silveiralexf/.dotfiles/commit/bde96c95dcbc2777b05e02f0f28295cd42d7a292)\] add devbox.lock for reproducible environments
 - *(nvim)* \[[fe52ae91](https://github.com/silveiralexf/.dotfiles/commit/fe52ae91cba554523c284267942722eb8065559d)\] cross-platform paths and URL opener (macOS + Linux)
 - *(cliff)* \[[9af08f91](https://github.com/silveiralexf/.dotfiles/commit/9af08f919f6ce56f2af8531799f72ba0e2e6167e)\] preprocessors for old commits, RUST_LOG=error, changelog:rewrite-history task
+- \[[8d9da567](https://github.com/silveiralexf/.dotfiles/commit/8d9da56731f2a99c037a43655070bfe86b107d35)\] add enkub-style pre-commit hooks, plan naming, markdownlint
 
 
 ## 2026-01-09
