@@ -1,15 +1,11 @@
 return {
   {
     'neovim/nvim-lspconfig',
-    config = function()
-      require('lspconfig').setup({
-        opts = {
-          setup = {
-            groovyls = {},
-          },
-        },
-      })
-    end,
+    opts = {
+      setup = {
+        groovyls = {},
+      },
+    },
   },
   {
     'nvim-treesitter/nvim-treesitter',

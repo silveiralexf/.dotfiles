@@ -12,8 +12,7 @@ map('n', '<leader><tab>v', '<cmd>vnew<cr>', { desc = 'New vertically split pane'
 map('n', '<leader>k', '<cmd>WhichKey<cr>', { desc = 'Whichkey' })
 map('n', '<leader>t', '', { desc = 'NeoTest' })
 
--- LSP bindings
-map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', { desc = 'lsp buf hover' })
+-- LSP bindings (K and gd are set buffer-local in LspAttach; these are global fallbacks/alternatives)
 map('n', '@d', '<cmd>lua vim.lsp.buf.definition()<cr>', { desc = 'lsp buf definition' })
 map('n', '@D', '<cmd>lua vim.lsp.buf.declaration()<cr>', { desc = 'lsp buf declaration' })
 map('n', '@i', '<cmd>lua vim.lsp.buf.implementation()<cr>', { desc = 'lsp buf implementation' })
