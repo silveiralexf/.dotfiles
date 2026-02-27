@@ -29,6 +29,7 @@ All notable changes to this project will be documented in this file.
 ### ⚙️ Chores
 
 - *(cursor)* \[[cbe459d9](https://github.com/silveiralexf/.dotfiles/commit/cbe459d987ce6ac320fafb62f6f710ab56084819)\] fix end of file in rule files
+- *(lua)* \[[6bcc260e](https://github.com/silveiralexf/.dotfiles/commit/6bcc260e7f74e5ba5629c06387d4bebf45a87665)\] extend luacheck to wezterm, fix backdrops path, ignore json long lines
 
 
 ## 2026-01-09
