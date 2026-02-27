@@ -31,7 +31,7 @@ Finish Phase 1 before proposing fixes. Symptom-only fixes are not allowed.
 ### Phase 3: Hypothesis and test
 
 - One clear hypothesis: "I think X is the cause because Y."
-- Test minimally – smallest change to test it; one variable at a time.
+- Test minimally - smallest change to test it; one variable at a time.
 - If wrong, form a new hypothesis; do not stack fixes.
 
 ### Phase 4: Implementation
@@ -40,6 +40,6 @@ Finish Phase 1 before proposing fixes. Symptom-only fixes are not allowed.
 - Verify the fix and that nothing else broke (e.g. `task precommit` if applicable).
 - If several fix attempts failed: stop and re-check understanding with the user.
 
-## Red flags – stop and return to Phase 1
+## Red flags - stop and return to Phase 1
 
 - "Quick fix for now"; "just try changing X"; several changes at once; suggesting fixes before tracing where it breaks; "one more fix" after repeated failures.

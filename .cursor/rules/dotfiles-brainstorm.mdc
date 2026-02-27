@@ -13,11 +13,11 @@ Do not invoke @config or @taskfile, or edit any file under etc/, nvim/, wezterm/
 
 ## Checklist (in order)
 
-1. **Explore context** – Relevant configs in `etc/`, `nvim/`, `wezterm/`, `tasks/`, `scripts/`; recent commits.
-2. **Clarify** – Ask one question at a time; purpose, constraints, success criteria.
-3. **Propose 1–2 approaches** – With trade-offs and a recommendation.
-4. **Get approval** – User approves the approach (or a variant).
-5. **Transition to plan** – Use `.cursor/rules/dotfiles-plan.mdc` to write the implementation plan in `.cursor/plans/`; then execute or delegate.
+1. **Explore context** - Relevant configs in `etc/`, `nvim/`, `wezterm/`, `tasks/`, `scripts/`; recent commits.
+2. **Clarify** - Ask one question at a time; purpose, constraints, success criteria.
+3. **Propose 1-2 approaches** - With trade-offs and a recommendation.
+4. **Get approval** - User approves the approach (or a variant).
+5. **Transition to plan** - Use `.cursor/rules/dotfiles-plan.mdc` to write the implementation plan in `.cursor/plans/`; then execute or delegate.
 
 ## Principles
 

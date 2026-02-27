@@ -18,12 +18,12 @@ Default flow for AI-assisted dotfiles changes: **plan → implement (config or t
 | Command | Rule(s) | Skills |
 |---------|---------|--------|
 | **kickoff** | dotfiles-core, dotfiles-plan, dotfiles-git | pre-commit-run at end |
-| **brainstorm** | dotfiles-brainstorm → dotfiles-plan | — |
-| **write-plan** | dotfiles-plan | — |
+| **brainstorm** | dotfiles-brainstorm → dotfiles-plan | - |
+| **write-plan** | dotfiles-plan | - |
 | **execute-plan** | dotfiles-core, dotfiles-plan, dotfiles-git | pre-commit-run at end |
-| **systematic-debugging** | dotfiles-debug | — |
+| **systematic-debugging** | dotfiles-debug | - |
 | **finish-branch** | dotfiles-git | pre-commit-run |
-| **request-code-review** | — | — (invokes @code-reviewer) |
+| **request-code-review** | - | - (invokes @code-reviewer) |
 
 ## Skills (`.cursor/skills/`)
 

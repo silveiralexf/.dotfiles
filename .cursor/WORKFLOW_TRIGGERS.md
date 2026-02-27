@@ -32,6 +32,6 @@ Follow dotfiles workflow from .cursor/rules/dotfiles-core.mdc.
 
 ## Direct agent use
 
-- **@config** – for edits in etc/, nvim/, wezterm/, hammerspoon/, yazi/, tmux/, scripts/
-- **@taskfile** – for Taskfile.yml or tasks/*.yml
-- **@code-reviewer** – request review with: what changed, plan reference, BASE_SHA, HEAD_SHA
+- **@config** - for edits in etc/, nvim/, wezterm/, hammerspoon/, yazi/, tmux/, scripts/
+- **@taskfile** - for Taskfile.yml or tasks/*.yml
+- **@code-reviewer** - request review with: what changed, plan reference, BASE_SHA, HEAD_SHA

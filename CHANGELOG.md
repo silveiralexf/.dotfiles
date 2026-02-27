@@ -19,6 +19,10 @@ All notable changes to this project will be documented in this file.
 
 - *(nvim)* \[[13c94c68](https://github.com/silveiralexf/.dotfiles/commit/13c94c68adebab3e3a81b207720bfcc3481cef16)\] unify LSP server opts, single LSP keymap source, autocmd cleanup
 
+### 📚 Documentation
+
+- \[[e0d187c7](https://github.com/silveiralexf/.dotfiles/commit/e0d187c70f6e7e9ea82458d467746bc07e6288e3)\] update READMEs for tests, hammerspoon, tmux, wezterm, yazi
+
 ### 🧪 Testing
 
 - *(cursor)* \[[d98f3f74](https://github.com/silveiralexf/.dotfiles/commit/d98f3f74ad089f097a0ba846518a4fc1c94f8d5f)\] trying out cursor workflow
