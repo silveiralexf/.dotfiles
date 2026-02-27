@@ -1,0 +1,59 @@
+---
+description: Dotfiles workflow - plan (bite-sized), config/taskfile changes, then review
+alwaysApply: true
+---
+
+# Dotfiles Workflow - Default
+
+Workflow for managing personal dotfiles: plan → implement (config/taskfile) → review.
+
+## Related rules
+
+- **.cursorrules** (project root) – Fundamental behavior, agent workflow, safety; always follow. See dotfiles-cursorrules.mdc.
+- **dotfiles-brainstorm.mdc** – When unclear: clarify, propose, approve, then plan.
+- **dotfiles-plan.mdc** – Bite-sized tasks, exact paths, plan naming.
+- **dotfiles-debug.mdc** – 4-phase systematic debugging; no fixes before root cause.
+- **dotfiles-git.mdc** – Finish branch: verify, then merge/PR/keep/discard.
+
+Agents: @planner, @config, @taskfile, @code-reviewer. Skills: @taskfile-validate, @pre-commit-run.
+
+## Default flow
+
+1. **If requirements unclear:** Use `.cursor/rules/dotfiles-brainstorm.mdc` → then write plan (dotfiles-plan.mdc).
+2. **Plan:** Bite-sized tasks (2-5 min each), exact paths (`etc/`, `nvim/`, `wezterm/`, `tasks/`, `scripts/`); plans in `.cursor/plans/` with naming `YYYY-MM-DD_<username>_<slug>.plan.md`.
+3. **Execute:** One agent per task; delegate to @config or @taskfile; after each task: spec compliance then @code-reviewer.
+4. **On bug/failure:** Use `.cursor/rules/dotfiles-debug.mdc` – root cause first.
+5. **End of branch:** Use `.cursor/rules/dotfiles-git.mdc` – run @pre-commit-run (e.g. `task precommit`), then present merge/PR/keep/discard → execute choice.
+
+## Commands and rules
+
+| Command | Rule(s) | Skills (when used) |
+|---------|---------|---------------------|
+| **kickoff** | dotfiles-core, dotfiles-plan, dotfiles-git | pre-commit-run at end |
+| **brainstorm** | dotfiles-brainstorm → dotfiles-plan | — |
+| **write-plan** | dotfiles-plan | — |
+| **execute-plan** | dotfiles-core, dotfiles-plan, dotfiles-git | pre-commit-run at end |
+| **systematic-debugging** | dotfiles-debug | — |
+| **finish-branch** | dotfiles-git | pre-commit-run |
+| **request-code-review** | — | — (invokes @code-reviewer) |
+
+## Invocation
+
+| Cue | Action |
+|-----|--------|
+| @planner "brainstorm" | Clarify, propose, approve → then write plan |
+| @planner "write plan" | Bite-sized tasks, exact paths (dotfiles-plan) |
+| @planner "execute plan" | One agent per task, then @code-reviewer |
+| @planner "Task: [description]" | Full workflow: plan → implement → review |
+| When handling a bug | Use dotfiles-debug (systematic-debugging command) |
+
+## Anti-patterns
+
+- **Skip plan** – No config/taskfile edits without a plan.
+- **Skip review** – @code-reviewer is mandatory before commit.
+- **Big-bang commits** – Prefer one logical change per commit.
+- **Fix before root cause** – Use dotfiles-debug; no fixes before Phase 1 complete.
+
+## End-of-response
+
+When useful, end with: **Next:** [explicit step or command].

@@ -1,0 +1,41 @@
+---
+description: Write plan - bite-sized tasks (2-5 min), exact paths (etc/, nvim/, tasks/)
+alwaysApply: true
+---
+
+# Dotfiles: Write Plan
+
+Break work into small tasks (2-5 min each). Use exact paths and commands.
+
+## Plan location
+
+- **Plans:** `.cursor/plans/` with naming `YYYY-MM-DD_<username>_<slug>.plan.md` (see `.cursor/plans/README.md`).
+
+## Plan header
+
+```markdown
+# [Change summary] Implementation Plan
+
+**Goal:** [One sentence]
+
+**Areas:** [e.g. etc/, nvim/, wezterm/, tasks/]
+
+---
+```
+
+## Task structure
+
+Each task = one small unit (e.g. "add alias in etc/profile/aliases", "add keymap in nvim/lua/config/keymaps.lua").
+
+```markdown
+### Task N: [What]
+
+**Files:**
+- Modify: `path/to/file` (or Create:)
+
+**Steps:**
+1. [Exact step]
+2. [Exact step]
+```
+
+Use paths relative to repo root: `etc/`, `nvim/`, `wezterm/`, `hammerspoon/`, `yazi/`, `tmux/`, `tasks/`, `scripts/`.

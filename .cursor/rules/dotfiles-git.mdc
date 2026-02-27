@@ -1,0 +1,18 @@
+---
+description: Finishing a branch - verify (task precommit), then merge/PR/keep/discard
+alwaysApply: true
+---
+
+# Dotfiles: Finishing a Branch
+
+When changes are complete:
+
+1. **Verify** - Run `task precommit` (or `scripts/hooks/pre-commit`). If it fails, fix first.
+2. **Present 4 options:**
+   - Merge back to base branch locally
+   - Push and create a Pull Request
+   - Keep the branch as-is
+   - Discard this work (require explicit confirmation)
+3. **Execute choice** - Merge, push+PR, or discard.
+
+No force-push without explicit request.
