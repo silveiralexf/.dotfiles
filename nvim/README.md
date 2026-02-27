@@ -40,11 +40,15 @@ Check the reference below on how things are organized:
     └──  en.utf-8.add.spl
 ```
 
+## Portability (macOS + Linux)
+
+This config is intended to work the same on **macOS** (work machine), **Omarchy Linux** (desktop), and **Ubuntu** (e.g. VPS). Avoid hardcoded OS paths (`/opt/homebrew`, `/home/...`) and OS-only commands; use `vim.env.HOME` / `vim.fn.expand('~')` for paths and PATH for binaries. Where behavior must differ (e.g. URL opener), use `vim.uv.os_uname().sysname` (e.g. `open` on Darwin, `xdg-open` on Linux).
+
 ## Disclaimer
 
 This setup assumes the following:
 
-- MacOS as operating system.
+- **macOS or Linux** (same config for both; see Portability above).
 - [WezTerm](../wezterm/README.md) as terminal.
 - [Yazi](../yazi/README.md) for file navigation, instead of `NerdTree` or `NetRw`.
 - [Tmux](../tmux/README.md) as terminal multiplexer.

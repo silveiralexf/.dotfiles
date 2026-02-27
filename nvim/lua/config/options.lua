@@ -2,9 +2,10 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
--- Runtime Path
-vim.opt.rtp:append(os.getenv('HOME') .. '/.luarocks/share/lua/5.1')
-vim.opt.rtp:append(os.getenv('HOME') .. '/.luarocks/lib/luarocks/rocks-5.1')
+-- Runtime Path (portable: macOS + Linux)
+local home = vim.env.HOME or vim.fn.expand('~')
+vim.opt.rtp:append(home .. '/.luarocks/share/lua/5.1')
+vim.opt.rtp:append(home .. '/.luarocks/lib/luarocks/rocks-5.1')
 vim.o.foldcolumn = '1'
 vim.o.foldenable = true
 vim.o.foldlevel = 99
@@ -28,7 +29,7 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 vim.opt.backup = false
-vim.opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
+vim.opt.undodir = home .. '/.vim/undodir'
 vim.opt.undofile = true
 
 vim.opt.hlsearch = true

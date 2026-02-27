@@ -26,6 +26,7 @@ All notable changes to this project will be documented in this file.
 ### 🔨 Fixes
 
 - *(wezterm)* \[[b1fd2d20](https://github.com/silveiralexf/.dotfiles/commit/b1fd2d20827893319c7bfd703cdffa1c2aa2d2b4)\] correct typo in Backdrops init (inital → initial)
+- *(nvim)* \[[2ee94893](https://github.com/silveiralexf/.dotfiles/commit/2ee94893424a6fdd6c1cfe90da1acc02c7fadc32)\] python ruff_lsp registration, proto clangd detach via LspAttach, rust drop helpers
 
 ### ⚙️ Chores
 

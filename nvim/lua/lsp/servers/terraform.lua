@@ -5,10 +5,9 @@ return {
       servers = {
         terraformls = {
           cmd = { 'terraform-ls', 'serve' },
+          -- Omit terraform.path so terraformls uses PATH (same on macOS, Omarchy, Ubuntu)
           init_options = {
-            terraform = {
-              path = '/opt/homebrew/bin/terraform',
-            },
+            terraform = {},
           },
           capabilities = {
             experimental = {
@@ -31,10 +30,14 @@ return {
   },
   {
     'Afourcat/treesitter-terraform-doc.nvim',
-    opts = {
-      command_name = 'OpenDoc',
-      url_opener_command = '!open',
-      jump_argument = true,
-    },
+    opts = function()
+      local uname = (vim.uv and vim.uv.os_uname or vim.loop.os_uname)()
+      local url_opener = (uname and uname.sysname == 'Darwin') and '!open' or '!xdg-open'
+      return {
+        command_name = 'OpenDoc',
+        url_opener_command = url_opener,
+        jump_argument = true,
+      }
+    end,
   },
 }
