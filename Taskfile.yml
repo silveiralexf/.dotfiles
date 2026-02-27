@@ -81,6 +81,11 @@ tasks:
         for f in $(git ls-files '*.json' 2>/dev/null); do
           [ -f "$f" ] && jq -e . "$f" >/dev/null 2>&1 && jq -S . "$f" > "$f.tmp" && mv "$f.tmp" "$f" || true
         done
+  version:next:
+    desc: "Calculate next semver from conventional commits since last v* tag (feat→minor, fix→patch, breaking→major)"
+    dir: "{{.TASKFILE_DIR}}"
+    cmds:
+      - scripts/calc-next-version.sh
   changelog:
     silent: true
     desc: Generates CHANGELOG

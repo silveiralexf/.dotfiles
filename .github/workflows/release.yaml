@@ -1,0 +1,76 @@
+# On tag push v*: create GitHub Release with release notes and update CHANGELOG.md on master.
+# Use semver: vMAJOR.MINOR.PATCH (major = breaking, minor = feature, patch = fix).
+
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get tag and previous tag
+        id: tags
+        run: |
+          TAG_NAME="${GITHUB_REF#refs/tags/}"
+          echo "tag=${TAG_NAME}" >> "$GITHUB_OUTPUT"
+          PREV=$(git tag -l 'v*' --sort=-v:refname | sed -n '2p')
+          echo "prev=${PREV:-}" >> "$GITHUB_OUTPUT"
+
+      - name: Install Devbox and project dependencies
+        uses: jetify-com/devbox-install-action@v0.14.0
+
+      - name: Validate tag matches calculated version
+        run: |
+          CALCULATED=$(devbox run -- scripts/calc-next-version.sh)
+          if [ "$CALCULATED" != "${{ steps.tags.outputs.tag }}" ]; then
+            echo "Tag ${{ steps.tags.outputs.tag }} does not match calculated version $CALCULATED (from conventional commits since last tag)"
+            exit 1
+          fi
+
+      - name: Generate release notes
+        run: |
+          if [ -n "${{ steps.tags.outputs.prev }}" ]; then
+            devbox run -- git cliff "${{ steps.tags.outputs.prev }}".."${{ steps.tags.outputs.tag }}" -o release_notes.md
+          else
+            devbox run -- git cliff -o release_notes.md
+          fi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: release_notes.md
+          name: ${{ steps.tags.outputs.tag }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout default branch and update CHANGELOG
+        id: branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          BRANCH="master"
+          git show-ref -q refs/heads/main && BRANCH="main" || true
+          git checkout "$BRANCH"
+          git pull origin "$BRANCH"
+          echo "branch=${BRANCH}" >> "$GITHUB_OUTPUT"
+
+      - name: Regenerate full CHANGELOG and push
+        run: |
+          devbox run -- task changelog
+          if git diff --staged --quiet; then
+            echo "No changelog changes to commit"
+          else
+            git commit -m "chore: update CHANGELOG.md for ${{ steps.tags.outputs.tag }} [skip ci]"
+            git push origin ${{ steps.branch.outputs.branch }}
+          fi

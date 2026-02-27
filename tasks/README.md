@@ -50,9 +50,11 @@ These run on **macOS only**. They use Homebrew, system paths, and macOS-specific
 | **docker** | Rancher Desktop (.dmg), Docker Buildx (darwin binary). |
 | **hammerspoon** | Hammerspoon Spoons (macOS only). |
 
-## Changelog (git-cliff)
+## Changelog and releases (git-cliff, semver)
 
-`task changelog` regenerates `CHANGELOG.md` from conventional commits. To **rewrite old commit messages** to conventional format once (history rewrite; backup first, then force-push):
+Releases use **semver** tags (`v1.0.0`). The next version is **calculated** from conventional commits since the last `v*` tag (breaking → major, feat → minor, fix/chore/etc → patch). Run `task version:next` to print the suggested tag (e.g. `v0.0.1`). Pushing that tag runs the release workflow: it creates a GitHub Release with release notes and updates `CHANGELOG.md` on the default branch. See `.github/README.md` for how to tag and push.
+
+`task changelog` regenerates `CHANGELOG.md` locally (e.g. to preview). To **rewrite old commit messages** to conventional format once (history rewrite; backup first, then force-push):
 
 ```bash
 git clone --mirror . ../.dotfiles-backup.git   # backup
