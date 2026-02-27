@@ -12,25 +12,25 @@ Check the reference below on how things are organized:
 ├── README.md
 ├── backdrops             # Background images
 ├── colors
-│   └── custom.lua        # Color scheme (custom catppucchin mocha)
+│   └── custom.lua        # Color scheme (custom catppucchin mocha)
 ├── config
-│   ├── appearance.lua    # Options for look and feel, tab and window settings
-│   ├── keymaps.lua       # Key-bindings and leader key settings
-│   ├── fonts.lua         # Default font, size and options
-│   ├── general.lua       # General global settings
-│   ├── init.lua          # Configuration entry-point
-│   └── launch.lua        # Config option loader
+│   ├── appearance.lua    # Options for look and feel, tab and window settings
+│   ├── keymaps.lua       # Key-bindings and leader key settings
+│   ├── fonts.lua         # Default font, size and options
+│   ├── general.lua       # General global settings
+│   ├── init.lua          # Configuration entry-point
+│   └── launch.lua        # Config option loader
 |
 ├── events                # Event handlers for bars, panes and tab status
-│   ├── left-status.lua
-│   ├── new-tab-button.lua
-│   ├── right-status.lua
-│   └── tab-title.lua
+│   ├── left-status.lua
+│   ├── new-tab-button.lua
+│   ├── right-status.lua
+│   └── tab-title.lua
 ├── utils                 # Common helpers and utilities
-│   ├── backdrops.lua
-│   ├── gpu_adapter.lua
-│   ├── math.lua
-│   └── platform.lua
+│   ├── backdrops.lua
+│   ├── gpu_adapter.lua
+│   ├── math.lua
+│   └── platform.lua
 └── wezterm.lua           # Entry-point
 ```
 

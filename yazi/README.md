@@ -9,17 +9,17 @@ Check the reference below on how things are organized:
 ```bash
 .
 ├── flavors                      # themes & color scheme
-│   └── catppuccin-mocha.yazi
-│       ├── flavor.toml
-│       └── tmtheme.xml
+│   └── catppuccin-mocha.yazi
+│       ├── flavor.toml
+│       └── tmtheme.xml
 ├── plugins                      # Third-party modules
-│  
+│
 ├── init.lua                     # custom config entry-point
-│  
+│
 ├── keymap.toml                  # Keybindings
-│  
+│
 ├── theme.toml                   # theme flavor settings
-│  
+│
 └── yazi.toml                    # main config settings
 ```
 

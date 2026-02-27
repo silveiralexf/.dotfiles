@@ -6,17 +6,17 @@ My personal Hammerspoon configurations.
 .
 ├── README.md
 ├── Spoons                   # External spoons
-│   └── ShiftIt.spoon
-│       └── init.lua
-│  
+│   └── ShiftIt.spoon
+│       └── init.lua
+│
 ├── config
-│   ├── init.lua             # config loader
-│   └── keymaps.lua          # keybindings
-│  
+│   ├── init.lua             # config loader
+│   └── keymaps.lua          # keybindings
+│
 ├── init.lua                 # config entry-point
 ├── plugins
     └── pass.lua             # Standard Unix pass plugin for fetching secrets
-│  
+│
 └── utils
     ├── launchers.lua       # App launchers
 ```

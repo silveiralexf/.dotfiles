@@ -12,10 +12,10 @@ Check the reference below on how things are organized:
 ├── session-fzf-popup.tmux   # Fuzzy navigation between windows and sessions
 ├── session-kill-all.tmux    # Kill all sessions
 ├── tmux-pass                # Standard Unix Password plugin for fetching secrets
-│   ├── plugin.tmux
-│   └── scripts
-│       ├── main.sh
-│       └── utils.sh
+│   ├── plugin.tmux
+│   └── scripts
+│       ├── main.sh
+│       └── utils.sh
 └── tmux.conf                # Tmux configs
 ```
 

@@ -4,10 +4,10 @@ Acceptance criteria for Neovim, WezTerm, and other Lua configs are written in **
 
 ## Layout
 
-- **`features/`** – Gherkin `.feature` files (Given/When/Then). Single source of truth for *what* we expect.
-- **`spec/`** – Busted specs that implement the scenarios (the *how*). One `*_spec.lua` per feature or area.
-- **`mocks/`** – Minimal stubs for `vim`, `wezterm`, etc., so we can require config modules without a real host.
-- **`step_helpers/`** – Shared Lua helpers used by specs (e.g. “merge config”, “cycle index”).
+- **`features/`** - Gherkin `.feature` files (Given/When/Then). Single source of truth for *what* we expect.
+- **`spec/`** - Busted specs that implement the scenarios (the *how*). One `*_spec.lua` per feature or area.
+- **`mocks/`** - Minimal stubs for `vim`, `wezterm`, etc., so we can require config modules without a real host.
+- **`step_helpers/`** - Shared Lua helpers used by specs (e.g. "merge config", "cycle index").
 
 ## Running tests
 
