@@ -31,6 +31,7 @@ All notable changes to this project will be documented in this file.
 
 - *(cursor)* \[[cbe459d9](https://github.com/silveiralexf/.dotfiles/commit/cbe459d987ce6ac320fafb62f6f710ab56084819)\] fix end of file in rule files
 - *(lua)* \[[6bcc260e](https://github.com/silveiralexf/.dotfiles/commit/6bcc260e7f74e5ba5629c06387d4bebf45a87665)\] extend luacheck to wezterm, fix backdrops path, ignore json long lines
+- *(tasks)* \[[668ddb1f](https://github.com/silveiralexf/.dotfiles/commit/668ddb1fe301a0673006638b1e7dfc01eb99c9fc)\] add test:lua task and document Lua testing in tasks README
 
 
 ## 2026-01-09
