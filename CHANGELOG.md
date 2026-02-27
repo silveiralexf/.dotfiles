@@ -45,6 +45,7 @@ All notable changes to this project will be documented in this file.
 - *(cliff)* \[[9af08f91](https://github.com/silveiralexf/.dotfiles/commit/9af08f919f6ce56f2af8531799f72ba0e2e6167e)\] preprocessors for old commits, RUST_LOG=error, changelog:rewrite-history task
 - \[[8d9da567](https://github.com/silveiralexf/.dotfiles/commit/8d9da56731f2a99c037a43655070bfe86b107d35)\] add enkub-style pre-commit hooks, plan naming, markdownlint
 - \[[7cd9a15c](https://github.com/silveiralexf/.dotfiles/commit/7cd9a15c16523b6b53f2ae5fff3695c7fc446305)\] add markdownlint, yamlfmt, jsonfmt tasks and devbox precommit-install
+- \[[e6ab5ca9](https://github.com/silveiralexf/.dotfiles/commit/e6ab5ca9c93552cb0a41e42d020a55f78a2a2460)\] update cursor workflow, agents, rules, commands and plugin config
 
 
 ## 2026-01-09

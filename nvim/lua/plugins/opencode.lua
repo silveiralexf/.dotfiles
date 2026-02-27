@@ -8,7 +8,7 @@ return {
     -- Your configuration, if any
   },
   keys = {
-    -- opencode.nvim exposes a general, flexible API — customize it to your workflow!
+    -- opencode.nvim exposes a general, flexible API - customize it to your workflow!
     -- But here are some examples to get you started :)
     {
       '<leader>ot',
