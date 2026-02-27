@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 ## 2026-02-27
 
+### 🚀 Features
+
+- *(devbox)* \[[16032552](https://github.com/silveiralexf/.dotfiles/commit/160325525c7c8166c716fc2dbb2190c229f26948)\] add devbox config, tasks and gitignore
+
 ### 🧪 Testing
 
 - *(cursor)* \[[b8fed9ce](https://github.com/silveiralexf/.dotfiles/commit/b8fed9ce83216b14cc1371b316c2dd360ddb635e)\] trying out cursor workflow

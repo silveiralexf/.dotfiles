@@ -13,7 +13,7 @@
 | [yazi](./yazi/README.md)               | Yazi configs                                                                       |
 | [etc](./etc/config)                    | Shell profile, rcfiles, aliases, exports and functions and config files in general |
 | [scripts](./scritps/)                  | Misc scripts for every-day stuff                                                   |
-| [tasks](./tasks/)                      | Taskfiles to automate install and configuration steps                              |
+| [tasks](./tasks/)                      | Taskfiles to automate install and configuration steps; see [tasks/README.md](./tasks/README.md) for devbox (macOS + Linux) vs macos-only installs |
 
 ## 🔨 How to Install?
 
@@ -21,6 +21,18 @@ Install steps and setup configuration are automated with [Taskfile runner](https
 
 This is the only requirement that needs to be manually installed, all the
 remaining dependencies are controlled and customized from the main [Taskfile.yml](./Taskfile.yml).
+
+### Optional: Devbox (cross-platform + reproducible tools)
+
+[Devbox](https://www.jetify.com/devbox/docs/) provides the same CLI tools on **macOS and Linux**, so dotfiles tooling works on both without Homebrew on Linux. It also keeps tools isolated and reproducible. After installing Devbox once:
+
+```bash
+task devbox:install-cli   # one-time: install Devbox CLI
+task devbox:install       # install deps from devbox.json
+task devbox:shell         # enter shell with tools on PATH (or: devbox shell)
+```
+
+Inside the devbox shell you can run `task precommit` or `devbox run precommit`. The `.devbox/` directory is gitignored.
 
 Run `task` to view the complete list of tasks currently available:
 
