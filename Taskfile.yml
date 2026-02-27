@@ -9,6 +9,10 @@ vars:
   DOTFILES_RC: "${DOTFILES_HOME}/etc/rc"
   DOTFILES_SCRIPTS: "${DOTFILES_HOME}/scripts"
 includes:
+  common:install:core:
+    taskfile: ./tasks/common/install/core/Taskfile.yml
+  linux:install:apt:
+    taskfile: ./tasks/linux/install/apt/Taskfile.yml
   macos:install:brew:
     taskfile: ./tasks/macos/install/brew/Taskfile.yml
   macos:install:core:
@@ -88,6 +92,12 @@ tasks:
         msg: "devbox.json not found in project root."
     cmds:
       - devbox shell
+
+  linux:install:all:
+    desc: Install base packages and core setup on Linux (apt + common core)
+    cmds:
+      - task: linux:install:apt:all
+      - task: common:install:core:all
 
   macos:install:all:
     desc: Install all MacOS required tools

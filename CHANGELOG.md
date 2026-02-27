@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - *(devbox)* \[[16032552](https://github.com/silveiralexf/.dotfiles/commit/160325525c7c8166c716fc2dbb2190c229f26948)\] add devbox config, tasks and gitignore
 - *(nvim)* \[[c852888b](https://github.com/silveiralexf/.dotfiles/commit/c852888bd9fe6dabdbf7b6813744cf37609541ad)\] support Linux in core nvim install task
 - *(common)* \[[3d0b38ab](https://github.com/silveiralexf/.dotfiles/commit/3d0b38abd8ce311fbed723da0cac27a0258cd59a)\] add shared core install taskfile (fzf, lua, nvim, profile)
+- *(linux)* \[[0453eef1](https://github.com/silveiralexf/.dotfiles/commit/0453eef16c2449cac4e5a9a3777c5e2964274cfd)\] add apt install taskfile for Debian/Ubuntu
 
 ### 📚 Documentation
 
