@@ -1,0 +1,37 @@
+# Generate CHANGELOG.md when changes are pushed to main. Commits and pushes the update.
+# Reference: enkub-io/enkub .github/workflows/changelog.yaml
+
+name: changelog
+
+on:
+  push:
+    branches: [main, master]
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Devbox and project dependencies
+        uses: jetify-com/devbox-install-action@v0.14.0
+
+      - name: Generate CHANGELOG.md
+        run: devbox run -- task changelog
+
+      - name: Commit and push CHANGELOG.md
+        run: |-
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --staged --quiet; then
+            echo "No changelog changes to commit"
+          else
+            git commit -m "chore: update CHANGELOG.md [skip ci]"
+            git push
+          fi
