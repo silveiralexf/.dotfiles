@@ -83,3 +83,6 @@ opencode.db-*
 # Yazi plugins
 yazi/plugins/*
 yazi/plugins/*/*
+
+# Devbox
+.devbox/

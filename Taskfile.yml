@@ -54,6 +54,41 @@ tasks:
           | jq -S 'walk(if type == "array" then sort_by(.timestamp) | reverse else . end)' \
           | git cliff --from-context - > CHANGELOG.md
       - cmd: git add {{.USER_WORKING_DIR}}/CHANGELOG.md
+  devbox:install-cli:
+    desc: Install Devbox CLI (required before devbox:install; uses official install script)
+    dir: "{{.TASKFILE_DIR}}"
+    cmds:
+      - |
+        if command -v devbox >/dev/null 2>&1; then
+          echo "devbox already installed: $(devbox version 2>/dev/null || devbox --version 2>/dev/null || true)"
+          exit 0
+        fi
+        echo "Installing Devbox via official script (https://www.jetify.com/docs/devbox/installing-devbox)..."
+        echo "Devbox may install Nix if not present. Run as non-root on Linux."
+        curl -fsSL https://get.jetify.com/devbox | bash
+
+  devbox:install:
+    desc: Install devbox dependencies (run once after clone or when devbox.json changes)
+    dir: "{{.TASKFILE_DIR}}"
+    preconditions:
+      - sh: command -v devbox
+        msg: "devbox not in PATH. Run 'task devbox:install-cli' first, then retry."
+      - sh: test -f "{{.TASKFILE_DIR}}/devbox.json"
+        msg: "devbox.json not found in project root."
+    cmds:
+      - devbox install
+
+  devbox:shell:
+    desc: Enter devbox shell with all dev tools on PATH
+    dir: "{{.TASKFILE_DIR}}"
+    preconditions:
+      - sh: command -v devbox
+        msg: "devbox not in PATH. Run 'task devbox:install-cli' first."
+      - sh: test -f "{{.TASKFILE_DIR}}/devbox.json"
+        msg: "devbox.json not found in project root."
+    cmds:
+      - devbox shell
+
   macos:install:all:
     desc: Install all MacOS required tools
     cmds:

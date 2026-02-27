@@ -3,12 +3,19 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2026-02-27
+
+### 🧪 Testing
+
+- *(cursor)* \[[b8fed9ce](https://github.com/silveiralexf/.dotfiles/commit/b8fed9ce83216b14cc1371b316c2dd360ddb635e)\] trying out cursor workflow
+
+
 ## 2026-01-09
 
 ### ⚙️ Chores
 
 - *(profile)* \[[cdb1fa37](https://github.com/silveiralexf/.dotfiles/commit/cdb1fa3727b7d791d42d1251ac238b8d9e9ccfa3)\] update sops file
-- *(profile)* \[[e616a791](https://github.com/silveiralexf/.dotfiles/commit/e616a79166c8540e5ccece8b41292e51b3774648)\] update aerospace keybindings
+- *(profile)* \[[7b952b2a](https://github.com/silveiralexf/.dotfiles/commit/7b952b2a655de71c12f1e48d2bce34e7f26d62c9)\] update aerospace keybindings
 
 
 ## 2026-01-07

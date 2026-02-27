@@ -1,0 +1,41 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.12.0/.schema/devbox.schema.json",
+  "description": "Cross-platform CLI tools (macOS + Linux). Mirrors tools from tasks/macos/install (brew, go, rust) where available in nixpkgs.",
+  "packages": [
+    "go@1.23",
+    "go-task@latest",
+    "pre-commit@latest",
+    "jq@latest",
+    "shellcheck@latest",
+    "git-cliff@latest",
+    "yamlfmt@latest",
+    "fd@latest",
+    "ripgrep@latest",
+    "eza@latest",
+    "zoxide@latest",
+    "tmux@latest",
+    "wget@latest",
+    "coreutils@latest",
+    "gnused@latest",
+    "bat@latest",
+    "htop@latest",
+    "gnupg@latest",
+    "yazi@latest",
+    "atuin@latest",
+    "delta@latest",
+    "taplo@latest",
+    "nodejs@latest",
+    "python3@latest",
+    "pipx@latest"
+  ],
+  "shell": {
+    "init_hook": [
+      "export PATH=\"$PWD/bin:$PWD/node_modules/.bin:$PATH\""
+    ],
+    "scripts": {
+      "precommit": [
+        "sh scripts/hooks/pre-commit"
+      ]
+    }
+  }
+}
