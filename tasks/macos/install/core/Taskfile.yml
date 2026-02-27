@@ -25,17 +25,41 @@ tasks:
       - ~/.fzf/install --bin
 
   nvim:
-    desc: Install NVIM nightly build
+    desc: Install Neovim nightly (macOS or Linux)
+    status:
+      - nvim --version | grep LuaJIT
+    cmds:
+      - cmd: '[ "$(uname -s)" = "Darwin" ] && task macos:install:core:nvim:darwin || task macos:install:core:nvim:linux'
+
+  nvim:darwin:
+    desc: Install Neovim nightly on macOS
     status:
       - nvim --version | grep LuaJIT
     vars:
-      NVIM_INSTALLER: ~/Downloads/nvim-macos-arm64.tar.gz
+      NVIM_ARCH: '{{`uname -m`}}'
       NVIM_INSTALL_PATH: /opt/nvim
-      NVIM_DOWNLOAD_URL: https://github.com/neovim/neovim/releases/download/nightly/nvim-macos-arm64.tar.gz
+      NVIM_TARBALL_DIR: nvim-macos-{{.NVIM_ARCH}}
+      NVIM_DOWNLOAD_URL: https://github.com/neovim/neovim/releases/download/nightly/nvim-macos-{{.NVIM_ARCH}}.tar.gz
     cmds:
-      - nvim -version || curl -fsSL -o {{.NVIM_INSTALLER}} {{.NVIM_DOWNLOAD_URL}}
-      - test nvim || sudo tar xzvf {{.NVIM_INSTALLER}} -C {{.NVIM_INSTALL_PATH}}
+      - mkdir -p "$HOME/Downloads"
+      - nvim -version || curl -fsSL -o "$HOME/Downloads/nvim-macos-{{.NVIM_ARCH}}.tar.gz" "{{.NVIM_DOWNLOAD_URL}}"
+      - nvim -version || sudo mkdir -p {{.NVIM_INSTALL_PATH}}
+      - nvim -version || (cd /tmp && tar xzvf "$HOME/Downloads/nvim-macos-{{.NVIM_ARCH}}.tar.gz" && sudo cp -R {{.NVIM_TARBALL_DIR}}/* {{.NVIM_INSTALL_PATH}}/ && rm -rf {{.NVIM_TARBALL_DIR}})
       - nvim -v || sudo chmod +x {{.NVIM_INSTALL_PATH}}/bin/nvim
+
+  nvim:linux:
+    desc: Install Neovim nightly on Linux
+    status:
+      - nvim --version | grep LuaJIT
+    vars:
+      NVIM_ARCH: '{{`uname -m | sed "s/aarch64/arm64/"`}}'
+      NVIM_TARBALL_DIR: nvim-linux-{{.NVIM_ARCH}}
+      NVIM_DOWNLOAD_URL: https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-{{.NVIM_ARCH}}.tar.gz
+    cmds:
+      - mkdir -p "$HOME/Downloads" "$HOME/.local/bin"
+      - nvim -version || curl -fsSL -o "$HOME/Downloads/nvim-linux-{{.NVIM_ARCH}}.tar.gz" "{{.NVIM_DOWNLOAD_URL}}"
+      - nvim -version || (cd "$HOME/.local" && tar xzvf "$HOME/Downloads/nvim-linux-{{.NVIM_ARCH}}.tar.gz" && rm -rf nvim && mv "{{.NVIM_TARBALL_DIR}}" nvim)
+      - ln -sf "$HOME/.local/nvim/bin/nvim" "$HOME/.local/bin/nvim"
 
   profile:
     desc: Setup shell profile settings

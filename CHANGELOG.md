@@ -9,6 +9,10 @@ All notable changes to this project will be documented in this file.
 
 - *(devbox)* \[[16032552](https://github.com/silveiralexf/.dotfiles/commit/160325525c7c8166c716fc2dbb2190c229f26948)\] add devbox config, tasks and gitignore
 
+### 📚 Documentation
+
+- \[[d57f0dc9](https://github.com/silveiralexf/.dotfiles/commit/d57f0dc9a9c50cdc4c87787bc902bc7190535ef4)\] add devbox section and install tasks README
+
 ### 🧪 Testing
 
 - *(cursor)* \[[b8fed9ce](https://github.com/silveiralexf/.dotfiles/commit/b8fed9ce83216b14cc1371b316c2dd360ddb635e)\] trying out cursor workflow
