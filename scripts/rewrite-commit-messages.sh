@@ -49,3 +49,4 @@ fi
 
 printf '%s\n' "$first_line"
 [ -n "$rest" ] && printf '%s\n' "$rest"
+exit 0

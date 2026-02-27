@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 - *(linux)* \[[0453eef1](https://github.com/silveiralexf/.dotfiles/commit/0453eef16c2449cac4e5a9a3777c5e2964274cfd)\] add apt install taskfile for Debian/Ubuntu
 - *(tasks)* \[[7a4e88d9](https://github.com/silveiralexf/.dotfiles/commit/7a4e88d96976845a7c889ee1ed1438fd87b53627)\] wire common and linux installs in root Taskfile
 - *(tests)* \[[be15f5ee](https://github.com/silveiralexf/.dotfiles/commit/be15f5ee4cc20c504c5363ff02dddc333b8512a7)\] add Lua acceptance test scaffold (Gherkin-style + Busted)
+- *(scripts)* \[[42f11e6a](https://github.com/silveiralexf/.dotfiles/commit/42f11e6aace6f5d8a999914751c6df80b5a4618d)\] add rewrite-commit-messages.sh for conventional commits
 
 ### 🏭 Refactor
 
