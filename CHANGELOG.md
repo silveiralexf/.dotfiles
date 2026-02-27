@@ -7,913 +7,988 @@ All notable changes to this project will be documented in this file.
 
 ### 🚀 Features
 
-- *(devbox)* \[[16032552](https://github.com/silveiralexf/.dotfiles/commit/160325525c7c8166c716fc2dbb2190c229f26948)\] add devbox config, tasks and gitignore
-- *(nvim)* \[[c852888b](https://github.com/silveiralexf/.dotfiles/commit/c852888bd9fe6dabdbf7b6813744cf37609541ad)\] support Linux in core nvim install task
-- *(common)* \[[3d0b38ab](https://github.com/silveiralexf/.dotfiles/commit/3d0b38abd8ce311fbed723da0cac27a0258cd59a)\] add shared core install taskfile (fzf, lua, nvim, profile)
-- *(linux)* \[[0453eef1](https://github.com/silveiralexf/.dotfiles/commit/0453eef16c2449cac4e5a9a3777c5e2964274cfd)\] add apt install taskfile for Debian/Ubuntu
-- *(tasks)* \[[7a4e88d9](https://github.com/silveiralexf/.dotfiles/commit/7a4e88d96976845a7c889ee1ed1438fd87b53627)\] wire common and linux installs in root Taskfile
-- *(tests)* \[[be15f5ee](https://github.com/silveiralexf/.dotfiles/commit/be15f5ee4cc20c504c5363ff02dddc333b8512a7)\] add Lua acceptance test scaffold (Gherkin-style + Busted)
-- *(scripts)* \[[42f11e6a](https://github.com/silveiralexf/.dotfiles/commit/42f11e6aace6f5d8a999914751c6df80b5a4618d)\] add rewrite-commit-messages.sh for conventional commits
+- *(devbox)* \[[a8e26736](https://github.com/silveiralexf/.dotfiles/commit/a8e2673678e4359f6daaeea201a80ed2ce857a22)\] add devbox config, tasks and gitignore
+- *(nvim)* \[[925d6824](https://github.com/silveiralexf/.dotfiles/commit/925d6824101809c14a241fc3063dffdff00a686b)\] support Linux in core nvim install task
+- *(common)* \[[1f947a01](https://github.com/silveiralexf/.dotfiles/commit/1f947a0185730a346777e8c25681404cfd42a67c)\] add shared core install taskfile (fzf, lua, nvim, profile)
+- *(linux)* \[[11552518](https://github.com/silveiralexf/.dotfiles/commit/1155251808441e0fb3180d7509b4f6758d31e9df)\] add apt install taskfile for Debian/Ubuntu
+- *(tasks)* \[[4bcd275c](https://github.com/silveiralexf/.dotfiles/commit/4bcd275c181fb7120af9de1581b09ef2ad3b4a70)\] wire common and linux installs in root Taskfile
+- *(tests)* \[[3dc5b03c](https://github.com/silveiralexf/.dotfiles/commit/3dc5b03ccedf98b3d489db58de8b707fd0c0334a)\] add Lua acceptance test scaffold (Gherkin-style + Busted)
+- *(scripts)* \[[a9d302ee](https://github.com/silveiralexf/.dotfiles/commit/a9d302ee4c70df0bb18442613dae1fc7091f1e37)\] add rewrite-commit-messages.sh for conventional commits
 
 ### 🏭 Refactor
 
-- *(nvim)* \[[f405fe3a](https://github.com/silveiralexf/.dotfiles/commit/f405fe3ad7df6a7bfd675b1b50e34a19be0c8c15)\] unify LSP server opts, single LSP keymap source, autocmd cleanup
-
-### 📚 Documentation
-
-- \[[d57f0dc9](https://github.com/silveiralexf/.dotfiles/commit/d57f0dc9a9c50cdc4c87787bc902bc7190535ef4)\] add devbox section and install tasks README
-- *(tasks)* \[[15a98c73](https://github.com/silveiralexf/.dotfiles/commit/15a98c73a5712c793d355fe2da2eae012686ebf8)\] document common and linux install flow
+- *(nvim)* \[[13c94c68](https://github.com/silveiralexf/.dotfiles/commit/13c94c68adebab3e3a81b207720bfcc3481cef16)\] unify LSP server opts, single LSP keymap source, autocmd cleanup
 
 ### 🧪 Testing
 
-- *(cursor)* \[[b8fed9ce](https://github.com/silveiralexf/.dotfiles/commit/b8fed9ce83216b14cc1371b316c2dd360ddb635e)\] trying out cursor workflow
+- *(cursor)* \[[d98f3f74](https://github.com/silveiralexf/.dotfiles/commit/d98f3f74ad089f097a0ba846518a4fc1c94f8d5f)\] trying out cursor workflow
 
 ### 🔨 Fixes
 
-- *(wezterm)* \[[b1fd2d20](https://github.com/silveiralexf/.dotfiles/commit/b1fd2d20827893319c7bfd703cdffa1c2aa2d2b4)\] correct typo in Backdrops init (inital → initial)
-- *(nvim)* \[[2ee94893](https://github.com/silveiralexf/.dotfiles/commit/2ee94893424a6fdd6c1cfe90da1acc02c7fadc32)\] python ruff_lsp registration, proto clangd detach via LspAttach, rust drop helpers
+- *(wezterm)* \[[6915244f](https://github.com/silveiralexf/.dotfiles/commit/6915244f2ad9cde2ab205d201f4732ead8afb2b8)\] correct typo in Backdrops init (inital → initial)
+- *(nvim)* \[[79cdcbed](https://github.com/silveiralexf/.dotfiles/commit/79cdcbed0facd51d3f5093fa4eee50877b549cf9)\] python ruff_lsp registration, proto clangd detach via LspAttach, rust drop helpers
+- *(scripts)* \[[9c8b8616](https://github.com/silveiralexf/.dotfiles/commit/9c8b8616595f09a642cae2060046579ebeec43f9)\] ensure rewrite-commit-messages.sh exits 0 for filter-branch
 
 ### ⚙️ Chores
 
-- *(cursor)* \[[cbe459d9](https://github.com/silveiralexf/.dotfiles/commit/cbe459d987ce6ac320fafb62f6f710ab56084819)\] fix end of file in rule files
-- *(lua)* \[[6bcc260e](https://github.com/silveiralexf/.dotfiles/commit/6bcc260e7f74e5ba5629c06387d4bebf45a87665)\] extend luacheck to wezterm, fix backdrops path, ignore json long lines
-- *(tasks)* \[[668ddb1f](https://github.com/silveiralexf/.dotfiles/commit/668ddb1fe301a0673006638b1e7dfc01eb99c9fc)\] add test:lua task and document Lua testing in tasks README
-- *(devbox)* \[[c8a93052](https://github.com/silveiralexf/.dotfiles/commit/c8a93052250bf991f11801fb3e63798b94f31ffa)\] add devbox.lock for reproducible environments
-- *(nvim)* \[[5e0cb6c3](https://github.com/silveiralexf/.dotfiles/commit/5e0cb6c39497d3add9aa01635eff1448410824a9)\] cross-platform paths and URL opener (macOS + Linux)
-- *(cliff)* \[[f54429ba](https://github.com/silveiralexf/.dotfiles/commit/f54429ba10c3552addc0e02b74a3de6c7a135ac1)\] preprocessors for old commits, RUST_LOG=error, changelog:rewrite-history task
+- \[[0444431f](https://github.com/silveiralexf/.dotfiles/commit/0444431f54cb804db4b6470a49087e65d3b559a3)\] docs: add devbox section and install tasks README
+- \[[dca176f6](https://github.com/silveiralexf/.dotfiles/commit/dca176f69bb5b94957473d95199e39f26975dbd6)\] docs(tasks): document common and linux install flow
+- *(cursor)* \[[5918fbf4](https://github.com/silveiralexf/.dotfiles/commit/5918fbf412f2ec3e6290f6ee3a2e358b26394a57)\] fix end of file in rule files
+- *(lua)* \[[7640e1f4](https://github.com/silveiralexf/.dotfiles/commit/7640e1f49a54934b7d8297b04f47ea0e59a74f6d)\] extend luacheck to wezterm, fix backdrops path, ignore json long lines
+- *(tasks)* \[[47dc93b5](https://github.com/silveiralexf/.dotfiles/commit/47dc93b533b9b5857f6a78f52d859a0b54b7ef2c)\] add test:lua task and document Lua testing in tasks README
+- *(devbox)* \[[bde96c95](https://github.com/silveiralexf/.dotfiles/commit/bde96c95dcbc2777b05e02f0f28295cd42d7a292)\] add devbox.lock for reproducible environments
+- *(nvim)* \[[fe52ae91](https://github.com/silveiralexf/.dotfiles/commit/fe52ae91cba554523c284267942722eb8065559d)\] cross-platform paths and URL opener (macOS + Linux)
+- *(cliff)* \[[9af08f91](https://github.com/silveiralexf/.dotfiles/commit/9af08f919f6ce56f2af8531799f72ba0e2e6167e)\] preprocessors for old commits, RUST_LOG=error, changelog:rewrite-history task
 
 
 ## 2026-01-09
 
 ### ⚙️ Chores
 
-- *(profile)* \[[cdb1fa37](https://github.com/silveiralexf/.dotfiles/commit/cdb1fa3727b7d791d42d1251ac238b8d9e9ccfa3)\] update sops file
-- *(profile)* \[[7b952b2a](https://github.com/silveiralexf/.dotfiles/commit/7b952b2a655de71c12f1e48d2bce34e7f26d62c9)\] update aerospace keybindings
+- *(profile)* \[[0fae2e2f](https://github.com/silveiralexf/.dotfiles/commit/0fae2e2ff08d11ca652700b0ceea5b0d607ac9c6)\] update sops file
+- *(profile)* \[[1807e561](https://github.com/silveiralexf/.dotfiles/commit/1807e561c23c659317cbdfbfb792daede95519d8)\] update aerospace keybindings
 
 
 ## 2026-01-07
 
+### 📦 Dependencies
+
+- \[[2636e039](https://github.com/silveiralexf/.dotfiles/commit/2636e0394e043f5cbe7497dd4b8d83a064b093e9)\] deps(nvim): bump lazy deps
+
 ### 🔨 Fixes
 
-- *(nvim)* \[[e0dbae71](https://github.com/silveiralexf/.dotfiles/commit/e0dbae71a6231b6c769ef7d6f4e7f9241b1504cf)\] update terraform autocmd
+- *(nvim)* \[[c47e59c7](https://github.com/silveiralexf/.dotfiles/commit/c47e59c732d4ac7e3740425b356c9746a9570393)\] update terraform autocmd
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[c15c5456](https://github.com/silveiralexf/.dotfiles/commit/c15c54561d8877537629c0fb02b0a57301f8c6cc)\] remove svelte lsp and formatting configs
+- *(nvim)* \[[c8bf7450](https://github.com/silveiralexf/.dotfiles/commit/c8bf7450f6d736738e97ded4365467cec109df26)\] remove svelte lsp and formatting configs
 
 
 ## 2026-01-06
 
-### 📚 Documentation
-
-- *(yazi)* \[[7ac7a7fe](https://github.com/silveiralexf/.dotfiles/commit/7ac7a7fec54924dd7a248f8c7dcb227ddc98e6dc)\] add missing docs
-
 ### ⚙️ Chores
 
-- *(nvim)* \[[f7db4e2a](https://github.com/silveiralexf/.dotfiles/commit/f7db4e2aca0d2b3f93443f4447bf5234c199e400)\] update keybindings for new keyboard
-- *(nvim)* \[[ac1de4d8](https://github.com/silveiralexf/.dotfiles/commit/ac1de4d816eb33e2992e8ae09a022d2de3a99e03)\] spelling updates
-- *(docs)* \[[81958c0b](https://github.com/silveiralexf/.dotfiles/commit/81958c0b7455450ef60783a2d762fe80fb4735e5)\] remove wakatime badge from readme
+- \[[a40f1f87](https://github.com/silveiralexf/.dotfiles/commit/a40f1f877acf32ac80bfc8ff195b541a9b55c197)\] docs(yazi): add missing docs
+- *(nvim)* \[[de1e82cc](https://github.com/silveiralexf/.dotfiles/commit/de1e82cc11685f9318c507b7c4059e90eb191a58)\] update keybindings for new keyboard
+- *(nvim)* \[[f4b54583](https://github.com/silveiralexf/.dotfiles/commit/f4b5458397007a340056fec81b6f49bea53e0916)\] spelling updates
+- *(docs)* \[[f86094f5](https://github.com/silveiralexf/.dotfiles/commit/f86094f540e6292fee5059c83a02ba5f5ac3d331)\] remove wakatime badge from readme
 
 
 ## 2026-01-05
 
 ### 🚀 Features
 
-- *(profile)* \[[a07c2782](https://github.com/silveiralexf/.dotfiles/commit/a07c2782e189c646e155dd23c639a31eaf2fbc2f)\] replace amethyst with aerospace for tiling window manager in macOS
+- *(profile)* \[[a3ecd726](https://github.com/silveiralexf/.dotfiles/commit/a3ecd726d7417f28ab0d674d0d926cd9091de425)\] replace amethyst with aerospace for tiling window manager in macOS
 
 ### 🔨 Fixes
 
-- *(nvim)* \[[1e493842](https://github.com/silveiralexf/.dotfiles/commit/1e493842f7a353cf565bc00e9ddcb6de549c3d47)\] replace missing dependency from upstream with local copy for taskfile plugin
-- *(nvim)* \[[802a074a](https://github.com/silveiralexf/.dotfiles/commit/802a074ab03e0b6b5654e8f98f12d596461f34c9)\] remove bzl lsp which is no longer available on upstream
+- *(nvim)* \[[4850d6e1](https://github.com/silveiralexf/.dotfiles/commit/4850d6e165d4948c37255261eea001177a4e29b3)\] replace missing dependency from upstream with local copy for taskfile plugin
+- *(nvim)* \[[52163132](https://github.com/silveiralexf/.dotfiles/commit/52163132e7468c7b166e42c09a1fcd7ed9e7f870)\] remove bzl lsp which is no longer available on upstream
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[476d9fe0](https://github.com/silveiralexf/.dotfiles/commit/476d9fe04da9eb74fe33c2591d62d4b80c860cb5)\] add missing filetype autocommand for vim scripts
+- *(nvim)* \[[0ce2f0ee](https://github.com/silveiralexf/.dotfiles/commit/0ce2f0ee0261139f82e3be42e7598d699089b9b8)\] add missing filetype autocommand for vim scripts
 
 
 ## 2025-11-24
 
 ### 🚀 Features
 
-- *(nvim)* \[[e3e6a68a](https://github.com/silveiralexf/.dotfiles/commit/e3e6a68af864f0455b0c7f6b535d7ef4563eb2b5)\] add cursor-agent plugin
+- *(nvim)* \[[3d179feb](https://github.com/silveiralexf/.dotfiles/commit/3d179feb5f700f2ca380139ff212508523fc5ee3)\] add cursor-agent plugin
 
 ### ⚙️ Chores
 
-- *(profile)* \[[9cfa2bf6](https://github.com/silveiralexf/.dotfiles/commit/9cfa2bf66c3479aaea0e99a763a2d0a4eba48501)\] add tynigo to profile exports
-- *(nvim)* \[[63d6f142](https://github.com/silveiralexf/.dotfiles/commit/63d6f142987e12a5276538149ee3afac60e7a2eb)\] adjust golang formatting configs
+- *(profile)* \[[bf66e9f0](https://github.com/silveiralexf/.dotfiles/commit/bf66e9f06def5382882828ddd579302f75d2bf37)\] add tynigo to profile exports
+- *(nvim)* \[[a0d6ad71](https://github.com/silveiralexf/.dotfiles/commit/a0d6ad71dfe7bcaef7a0af92c3a954a3a6dd0379)\] adjust golang formatting configs
 
 
 ## 2025-10-23
 
 ### 🚀 Features
 
-- *(profile)* \[[01101ef5](https://github.com/silveiralexf/.dotfiles/commit/01101ef50d98badcc301950d1c824790622d2339)\] replace histdb with atuin for shell history
+- *(profile)* \[[09bc43e5](https://github.com/silveiralexf/.dotfiles/commit/09bc43e5cf5bcd1f708dbb08999b4ccb0b54dea6)\] replace histdb with atuin for shell history
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[ffa6e150](https://github.com/silveiralexf/.dotfiles/commit/ffa6e150cbbc3f9a1b922924736c7bda09e98aa6)\] bump to latest and adjust treesitter and mason for updates
+- *(nvim)* \[[39d77cb2](https://github.com/silveiralexf/.dotfiles/commit/39d77cb25212e4e031e4b5d67e654cffa939bf4b)\] bump to latest and adjust treesitter and mason for updates
 
 
 ## 2025-09-19
 
 ### ⚙️ Chores
 
-- *(yazi)* \[[db8a4426](https://github.com/silveiralexf/.dotfiles/commit/db8a442627c462953afbd4cd509a9b06ee2fea51)\] bump to latest and add new plugins
+- *(yazi)* \[[ec854cb7](https://github.com/silveiralexf/.dotfiles/commit/ec854cb774651000cca8c054c765ee157b02cac1)\] bump to latest and add new plugins
 
 
 ## 2025-09-12
 
+### 📦 Dependencies
+
+- *(deps)* \[[47ef4d11](https://github.com/silveiralexf/.dotfiles/commit/47ef4d111e47338edc4362ab74dd99a32ef013fa)\] bump lazy to latest
+
 ### ⚙️ Chores
 
-- *(wezterm)* \[[88ccd664](https://github.com/silveiralexf/.dotfiles/commit/88ccd664961bc0b0beb96fb371c7e70899761329)\] tweaking personal settings
+- *(wezterm)* \[[d402a14b](https://github.com/silveiralexf/.dotfiles/commit/d402a14b3ba4d812e336ab76539a80c34520301e)\] tweaking personal settings
 
 
 ## 2025-08-11
 
 ### ⚙️ Chores
 
-- *(amethyst)* \[[56af3644](https://github.com/silveiralexf/.dotfiles/commit/56af36442c516fb1ae9d5178a7860f747803c5c9)\] update key-bindings
+- *(amethyst)* \[[af7eb2af](https://github.com/silveiralexf/.dotfiles/commit/af7eb2afe9c889aa700f93c8562903273e1bce4d)\] update key-bindings
 
 
 ## 2025-07-29
 
 ### 🧪 Testing
 
-- *(opencode)* \[[9a5a053b](https://github.com/silveiralexf/.dotfiles/commit/9a5a053befe677c93353735b746f3936129eb134)\] trying out opencode
+- *(opencode)* \[[2ef6654c](https://github.com/silveiralexf/.dotfiles/commit/2ef6654c03ab86f75ff3e12580f7f43db18a1fd4)\] trying out opencode
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[22d3376e](https://github.com/silveiralexf/.dotfiles/commit/22d3376e67fa55abb5cac90203f72df5c6d683dd)\] bump lazy and tweak blink
+- *(nvim)* \[[66c68e33](https://github.com/silveiralexf/.dotfiles/commit/66c68e3379a57f1ec3b19675f6455f9af474d7a8)\] bump lazy and tweak blink
 
 
 ## 2025-07-07
 
 ### 📦 Dependencies
 
-- *(mason)* \[[b2ba47de](https://github.com/silveiralexf/.dotfiles/commit/b2ba47de85019f7d046ed5f1d8518d1ead1b044e)\] adapts for new lsp configs and mason breaking changes
+- \[[2849d011](https://github.com/silveiralexf/.dotfiles/commit/2849d011d52a534154864518e0674f3a056ea8ff)\] deps(mason): adapts for new lsp configs and mason breaking changes
 
 
 ## 2025-05-12
 
 ### 📦 Dependencies
 
-- *(deps)* \[[ddf72dd0](https://github.com/silveiralexf/.dotfiles/commit/ddf72dd0bbc7213423606bf29a5592dfa925a258)\] bump lazy deps and update spell dict
+- *(deps)* \[[b9d00b6b](https://github.com/silveiralexf/.dotfiles/commit/b9d00b6b3aa0235559249913e21a33bccd431920)\] bump lazy deps and update spell dict
 
 ### 🧪 Testing
 
-- *(nvim)* \[[7468e438](https://github.com/silveiralexf/.dotfiles/commit/7468e4382b4e56b2d82548cf6462608e1dae54b2)\] making tests with avante
+- *(nvim)* \[[dd9150a0](https://github.com/silveiralexf/.dotfiles/commit/dd9150a06ac8d0d0e7a845c2a43053024d2c8a13)\] making tests with avante
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[da2dd536](https://github.com/silveiralexf/.dotfiles/commit/da2dd536bb4d8b70cdcbdf9767ce16aebfed2b24)\] remove llama.nvim plugin
-- *(wezterm)* \[[f8b2e2dd](https://github.com/silveiralexf/.dotfiles/commit/f8b2e2ddec0bbdfa166d1adde4b27ecff615146c)\] remove unused shell settings
+- *(nvim)* \[[c85fdd47](https://github.com/silveiralexf/.dotfiles/commit/c85fdd4776f754dc049f98a828df8d3d450d48f7)\] remove llama.nvim plugin
+- *(wezterm)* \[[e41fe98f](https://github.com/silveiralexf/.dotfiles/commit/e41fe98f0a3582645134291ecc6e8e3de8a9f0f5)\] remove unused shell settings
 
 
 ## 2025-04-25
 
 ### 🚀 Features
 
-- *(nvim)* \[[fa4e89af](https://github.com/silveiralexf/.dotfiles/commit/fa4e89af6aa2058a2d00a8d05c55ed18510ab70c)\] add support for llama.cpp and llama-swap
+- *(nvim)* \[[bd7f1976](https://github.com/silveiralexf/.dotfiles/commit/bd7f197610e61e3c1f48ad0846c653b2fb0bae23)\] add support for llama.cpp and llama-swap
 
 ### 🧪 Testing
 
-- *(nvim)* \[[9d62bcc8](https://github.com/silveiralexf/.dotfiles/commit/9d62bcc819c7a4293acbba84db6e35563b376c3c)\] temporarily disabling avante and minuet-ai for more tests
+- *(nvim)* \[[05ffa8a3](https://github.com/silveiralexf/.dotfiles/commit/05ffa8a34d32e2dccd56df6003e93e240882779a)\] temporarily disabling avante and minuet-ai for more tests
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[6f9ef3c1](https://github.com/silveiralexf/.dotfiles/commit/6f9ef3c1d741ff25e3b5e11a03ad43f787cf53e0)\] clean-house and small tweaks of options and autocmds
+- *(nvim)* \[[906dfc6c](https://github.com/silveiralexf/.dotfiles/commit/906dfc6c5de103d5d49bc1ec54ef7326bd4bb966)\] clean-house and small tweaks of options and autocmds
 
 
 ## 2025-04-02
 
 ### 📦 Dependencies
 
-- *(nvim)* \[[acbd925e](https://github.com/silveiralexf/.dotfiles/commit/acbd925e52908b55aef923045fe6efc213891ea9)\] bump lazy and add words to spell dict
+- \[[f7be3689](https://github.com/silveiralexf/.dotfiles/commit/f7be3689bb9eb2cb458d6111c5058b073e185a95)\] deps(nvim): bump lazy and add words to spell dict
 
 ### 🔨 Fixes
 
-- *(etc)* \[[f9254685](https://github.com/silveiralexf/.dotfiles/commit/f925468540ffbf48170a17729f81ef032b43d3f9)\] update lazygit option for breaking change
+- *(etc)* \[[8e30acc3](https://github.com/silveiralexf/.dotfiles/commit/8e30acc317eb39675984764b8c841319f5503d59)\] update lazygit option for breaking change
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[9422cef6](https://github.com/silveiralexf/.dotfiles/commit/9422cef6245e0fa99721743d1d7badea4cb3d3ad)\] remove colorcolumn margin option
-- *(nvim)* \[[0c447e42](https://github.com/silveiralexf/.dotfiles/commit/0c447e427128a5f6d1d31bbd3229c97d9e0831f8)\] remove useless annotation for vim diagnostic conf
-- *(nvim)* \[[eb74e00a](https://github.com/silveiralexf/.dotfiles/commit/eb74e00ab0af8862b04336a7db5d8d27186c6293)\] update minuet bindings for autocompletion
+- *(nvim)* \[[f74beb8a](https://github.com/silveiralexf/.dotfiles/commit/f74beb8aeba15f95f603c87273223b2bdd5d9629)\] remove colorcolumn margin option
+- *(nvim)* \[[96ee1df8](https://github.com/silveiralexf/.dotfiles/commit/96ee1df85d333e79ffe4828ba933da05622b8222)\] remove useless annotation for vim diagnostic conf
+- *(nvim)* \[[95d63211](https://github.com/silveiralexf/.dotfiles/commit/95d632117e53d80e3695abf263293123b9bc3395)\] update minuet bindings for autocompletion
 
 
 ## 2025-03-20
 
 ### 🚀 Features
 
-- *(nvim)* \[[522fffbf](https://github.com/silveiralexf/.dotfiles/commit/522fffbf77b66c8b466ea823a5e35db2fca31e86)\] add avante and minuet-ai for local llm tests
+- *(nvim)* \[[2587e9b4](https://github.com/silveiralexf/.dotfiles/commit/2587e9b4bcb6c25f136f438e735ddb23bdcb5ea0)\] add avante and minuet-ai for local llm tests
 
 
 ## 2025-03-14
 
 ### 📦 Dependencies
 
-- *(nvim)* \[[26d83514](https://github.com/silveiralexf/.dotfiles/commit/26d835141d1d59cd3ff4575a97acda548bd82ce3)\] docs, deps and spelling
-- *(nvim)* \[[0635e640](https://github.com/silveiralexf/.dotfiles/commit/0635e64038062ef4b6626560c94c349be0025660)\] bump lazy deps to latest
+- *(nvim)* \[[19175e9d](https://github.com/silveiralexf/.dotfiles/commit/19175e9df2faf30e6023a9adace40a30ca4cc508)\] docs, deps and spelling
+- *(nvim)* \[[363327f9](https://github.com/silveiralexf/.dotfiles/commit/363327f949b7c3c5347bc70e6a9562e307a185c4)\] bump lazy deps to latest
 
 ### ⚙️ Chores
 
-- *(tasks)* \[[18306999](https://github.com/silveiralexf/.dotfiles/commit/18306999a846c8fa74007151b50eeca07970080c)\] add back sdkman and maven tasks
-- *(nvim)* \[[1fc77a05](https://github.com/silveiralexf/.dotfiles/commit/1fc77a053a22b76e68e58dba1ca8081251d63bff)\] adjust lspattach autocmd
-- *(nvim)* \[[bcba098e](https://github.com/silveiralexf/.dotfiles/commit/bcba098ea8d8dc2728a638c494211a5b65ea14cf)\] disable inline hints and add custom settings for gopls
-- *(profile)* \[[4d78dc4d](https://github.com/silveiralexf/.dotfiles/commit/4d78dc4d13f604d5a19aa01323c29ed07917fa08)\] ditch amazonq shell completion and minor tweaks
+- *(tasks)* \[[239eb325](https://github.com/silveiralexf/.dotfiles/commit/239eb32557fb66e961c3365543a416d25b15e295)\] add back sdkman and maven tasks
+- *(nvim)* \[[8599b96f](https://github.com/silveiralexf/.dotfiles/commit/8599b96f09b54802dc6920f43e8b3659c046ec87)\] adjust lspattach autocmd
+- *(nvim)* \[[e1ee1bd7](https://github.com/silveiralexf/.dotfiles/commit/e1ee1bd79e72b3013c9d674687f69c8557a130d9)\] disable inline hints and add custom settings for gopls
+- *(profile)* \[[aeb6b06f](https://github.com/silveiralexf/.dotfiles/commit/aeb6b06f7fddbc0b9767eb7b4b963fd144abf624)\] ditch amazonq shell completion and minor tweaks
 
 
 ## 2025-02-01
 
 ### 📦 Dependencies
 
-- *(nvim)* \[[3d5307c0](https://github.com/silveiralexf/.dotfiles/commit/3d5307c003d92d6dbf54299bafce1a3ffacbf93e)\] bump deps and some house-cleaning
+- *(nvim)* \[[a8fbb2e7](https://github.com/silveiralexf/.dotfiles/commit/a8fbb2e7a521137616abfd1931c67324e6d8fcfc)\] bump deps and some house-cleaning
 
 ### 🔨 Fixes
 
-- *(profile)* \[[a677fc7e](https://github.com/silveiralexf/.dotfiles/commit/a677fc7eb235f765e7e543554768a9a9882cfa69)\] revert amazonQ profile settings
+- *(profile)* \[[6995d597](https://github.com/silveiralexf/.dotfiles/commit/6995d597461f3f187168184912a986a36240224c)\] revert amazonQ profile settings
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[f945d52a](https://github.com/silveiralexf/.dotfiles/commit/f945d52a4e4d040dca003a686ae32ba54737b416)\] add fzflua shortcut for buffers
+- *(nvim)* \[[62d41205](https://github.com/silveiralexf/.dotfiles/commit/62d412054b6bf1e3ccdd2cb629f2d46b894018c1)\] add fzflua shortcut for buffers
 
 
 ## 2025-01-24
 
 ### 🚀 Features
 
-- *(profile)* \[[c97b73ab](https://github.com/silveiralexf/.dotfiles/commit/c97b73ab458e71cfec2369b1cf8f33e2f38b2dd0)\] add powerlevel10k as zsh theme
-- *(nvim)* \[[49ec6c25](https://github.com/silveiralexf/.dotfiles/commit/49ec6c252dd0e2d6d2de3b03c43e25ffd52bd99d)\] replace ollama-copilot with modelmate plugin
-
-### 📚 Documentation
-
-- \[[433988ac](https://github.com/silveiralexf/.dotfiles/commit/433988acaf1202c731753e2795a958c518ef5bf9)\] update overall documentation
+- *(profile)* \[[989f8450](https://github.com/silveiralexf/.dotfiles/commit/989f845009388fe4cc6b07cf275e6a4ede970573)\] add powerlevel10k as zsh theme
+- *(nvim)* \[[373dd25e](https://github.com/silveiralexf/.dotfiles/commit/373dd25e164872e41d645032454838f228cfd1cb)\] replace ollama-copilot with modelmate plugin
 
 ### 🔨 Fixes
 
-- *(nvim)* [**breaking**] \[[85082d2f](https://github.com/silveiralexf/.dotfiles/commit/85082d2f24c7ef98bb3d7bb38f2dba517ced5dd3)\] adjust setup for lazy latest major breaking changes
+- *(nvim)* [**breaking**] \[[41201a6f](https://github.com/silveiralexf/.dotfiles/commit/41201a6f5024898096ae2de58b4cd84b1acccef7)\] adjust setup for lazy latest major breaking changes
 
 ### ⚙️ Chores
 
-- *(profile)* \[[5417728a](https://github.com/silveiralexf/.dotfiles/commit/5417728abe196eb7622bcc2a2ecda72b6595380e)\] ditch pet for snippets in command line
-- *(profile)* \[[f834b16e](https://github.com/silveiralexf/.dotfiles/commit/f834b16e5356d7fc5a42191cc8cbf6a9c7f6dd4b)\] improve ls aliases
+- *(profile)* \[[0b624d4a](https://github.com/silveiralexf/.dotfiles/commit/0b624d4a63cd128baf2c8af183e914000e555b4f)\] ditch pet for snippets in command line
+- *(profile)* \[[0656742b](https://github.com/silveiralexf/.dotfiles/commit/0656742baaa1ed90833ca8397f3eac98c8249559)\] improve ls aliases
+- \[[71f7a4b9](https://github.com/silveiralexf/.dotfiles/commit/71f7a4b9e2fd10da96d02aeccb95f8527fb1ce8e)\] docs: update overall documentation
 
 ### ◀️ Revert
 
-- *(profile)* \[[8aecced0](https://github.com/silveiralexf/.dotfiles/commit/8aecced0ffd75ae30663c9393e7ffe0561ec3e91)\] rollback from mise to taskfiles
+- *(profile)* \[[db2b3906](https://github.com/silveiralexf/.dotfiles/commit/db2b3906089b2f82da4bf571b9b29ddf5b2288b1)\] rollback from mise to taskfiles
 
 
 ## 2025-01-22
 
 ### 🔨 Fixes
 
-- *(yazi)* \[[44dfe9a5](https://github.com/silveiralexf/.dotfiles/commit/44dfe9a5b639f17852e5dcef5a7395a91ec2863f)\] adjust options for last release
+- *(yazi)* \[[d4e6b209](https://github.com/silveiralexf/.dotfiles/commit/d4e6b20950c0421639593746d125f7ced2022859)\] adjust options for last release
 
 ### ⚙️ Chores
 
-- *(profile)* \[[f6d8ef23](https://github.com/silveiralexf/.dotfiles/commit/f6d8ef23d2aa50099d1bc399d5f1b0eda373d5b0)\] reorg and update aliases and settings
-- *(mise)* \[[ac3ec1e2](https://github.com/silveiralexf/.dotfiles/commit/ac3ec1e2e7b2193699b7d68e20f28391339f1c08)\] adjust syntax for latest releases
-- *(nvim)* \[[c2703211](https://github.com/silveiralexf/.dotfiles/commit/c2703211270de89f9bae9e95cf2fc47c8bc413dd)\] give up on neorg again
+- *(profile)* \[[8c8f0f11](https://github.com/silveiralexf/.dotfiles/commit/8c8f0f11cf951e3755b83e477f08fdb37a1ba3c9)\] reorg and update aliases and settings
+- *(mise)* \[[01e33dc6](https://github.com/silveiralexf/.dotfiles/commit/01e33dc68d3d20d790d228c86f4a72d320aab6d3)\] adjust syntax for latest releases
+- *(nvim)* \[[538c46d7](https://github.com/silveiralexf/.dotfiles/commit/538c46d7112effb406c5a9d0a1c84762084dbb07)\] give up on neorg again
 
 
 ## 2025-01-06
 
-### 📚 Documentation
-
-- *(readme)* \[[92a10ef3](https://github.com/silveiralexf/.dotfiles/commit/92a10ef3b5b40c94f147912cfbb956f121db92ec)\] update task of lists available
-
 ### 🧪 Testing
 
-- *(nvim)* \[[ce2fc64e](https://github.com/silveiralexf/.dotfiles/commit/ce2fc64e67ca47fdda4834a2925c09d78eadb7a7)\] trying out neorg one more time
+- *(nvim)* \[[be4e748d](https://github.com/silveiralexf/.dotfiles/commit/be4e748d90346ebf81e43853d3980e129eb9dc20)\] trying out neorg one more time
+
+### ⚙️ Chores
+
+- \[[f4904809](https://github.com/silveiralexf/.dotfiles/commit/f49048090b657632744a4efa21bd99963a7fd10e)\] docs(readme): update task of lists available
 
 
 ## 2025-01-03
 
 ### 🚀 Features
 
-- *(nvim)* \[[d04fd3f6](https://github.com/silveiralexf/.dotfiles/commit/d04fd3f68a666cbb5c17dc9efac5a9237e109d63)\] add ollama-copilot plugin
+- *(nvim)* \[[d465d619](https://github.com/silveiralexf/.dotfiles/commit/d465d61966bd09cd05200b96d8066bf8e0b76bed)\] add ollama-copilot plugin
 
 ### 📦 Dependencies
 
-- *(mise)* \[[b1399c5f](https://github.com/silveiralexf/.dotfiles/commit/b1399c5f502116b29d383456a6003ce0503e9f8b)\] bump configs and deps
+- *(mise)* \[[c51295db](https://github.com/silveiralexf/.dotfiles/commit/c51295db106442a76c2dac2c68dc7ca35629e833)\] bump configs and deps
 
 ### 🧪 Testing
 
-- *(profile)* \[[5c06fb73](https://github.com/silveiralexf/.dotfiles/commit/5c06fb73f3d50009bc252f079bb4883e42eef63a)\] testing asdf as alternative to mise
+- *(profile)* \[[9281c899](https://github.com/silveiralexf/.dotfiles/commit/9281c899d9f494bab58f63865222588dc7749bf3)\] testing asdf as alternative to mise
 
 
 ## 2024-12-26
 
 ### ⚙️ Chores
 
-- *(profile)* \[[e65e2d27](https://github.com/silveiralexf/.dotfiles/commit/e65e2d2727af9cde226930cb792d875d41fe3f36)\] new conda function and small tweaks
+- *(profile)* \[[96b2dfd7](https://github.com/silveiralexf/.dotfiles/commit/96b2dfd7b7598728dad8e4e3eac4697beb7c5a91)\] new conda function and small tweaks
 
 
 ## 2024-11-25
 
+### 📦 Dependencies
+
+- \[[1f277b78](https://github.com/silveiralexf/.dotfiles/commit/1f277b78922db1bc7c3f5fee4f0175e9437e0881)\] deps(nvim): bump lazy to latest
+
 ### 🧪 Testing
 
-- *(wezterm)* \[[8fcfc6d9](https://github.com/silveiralexf/.dotfiles/commit/8fcfc6d9cd3a43db2b7fac0df85cb3af027950fe)\] experimenting new keybindings and events for better navigation
+- *(wezterm)* \[[666e3773](https://github.com/silveiralexf/.dotfiles/commit/666e3773d4faca7c9347233051cf691e4a46ff09)\] experimenting new keybindings and events for better navigation
 
 ### ⚙️ Chores
 
-- *(yazi)* \[[8b7a9278](https://github.com/silveiralexf/.dotfiles/commit/8b7a92788bd35a461d43918b77c3548fcb5f0cc8)\] rollback to catppuccin-mocha theme
-- *(mise)* \[[ef279d48](https://github.com/silveiralexf/.dotfiles/commit/ef279d48d120f163ce69334be58bddd336b9b341)\] use openjdk for java in profile
+- *(yazi)* \[[11702f1e](https://github.com/silveiralexf/.dotfiles/commit/11702f1e8e967804b1e0e089baab313317cba7d3)\] rollback to catppuccin-mocha theme
+- *(mise)* \[[33a9f104](https://github.com/silveiralexf/.dotfiles/commit/33a9f10413713e0b22d5b579e97dad50fb9a69aa)\] use openjdk for java in profile
 
 
 ## 2024-11-17
 
 ### 📦 Dependencies
 
-- *(nvim)* \[[47e46ce1](https://github.com/silveiralexf/.dotfiles/commit/47e46ce136b4619b6abbe7ba6779ddc6f3817ac5)\] bump deps and add words to spell dict
+- *(nvim)* \[[3a081eb3](https://github.com/silveiralexf/.dotfiles/commit/3a081eb376a91b4cf94f7ef05ea9e64d7c729e41)\] bump deps and add words to spell dict
 
 ### 🔨 Fixes
 
-- *(profile)* \[[c91738e4](https://github.com/silveiralexf/.dotfiles/commit/c91738e4764c95ffa07fd19accc29e09499c05f8)\] add amethyst config back
+- *(profile)* \[[b8db6a31](https://github.com/silveiralexf/.dotfiles/commit/b8db6a3136768fa74592195d87cbcfcb52d46394)\] add amethyst config back
 
 ### ⚙️ Chores
 
-- *(profile)* \[[6ee23209](https://github.com/silveiralexf/.dotfiles/commit/6ee23209468754cf05cbdbfdaa6f2548895078cb)\] update aliases and functions
-- *(nvim)* \[[da683126](https://github.com/silveiralexf/.dotfiles/commit/da683126810d97492acacb2873a98cae8be1c957)\] remove obsidian plugin and keymaps
+- *(profile)* \[[0052c2cb](https://github.com/silveiralexf/.dotfiles/commit/0052c2cb8ea621c3a18eee09ad15d4b1758ff7cc)\] update aliases and functions
+- *(nvim)* \[[44981ccd](https://github.com/silveiralexf/.dotfiles/commit/44981ccd830c56f4219866417a6d559ceb19ab3a)\] remove obsidian plugin and keymaps
 
 
 ## 2024-11-11
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[6695de5e](https://github.com/silveiralexf/.dotfiles/commit/6695de5e21a688f85f27b4033150010099d9af5c)\] bump lazy and fixes for breaking changes
+- *(nvim)* \[[faa6cc2e](https://github.com/silveiralexf/.dotfiles/commit/faa6cc2ebf9b7f9c5ca63e4d505bbb70b13e1fe1)\] bump lazy and fixes for breaking changes
 
 
 ## 2024-11-09
 
 ### ⚙️ Chores
 
-- *(profile)* \[[daab954b](https://github.com/silveiralexf/.dotfiles/commit/daab954bdb24986500ea3f3376eb1066a6506428)\] fix exports for mise and brew for mason
+- *(profile)* \[[48c1ed27](https://github.com/silveiralexf/.dotfiles/commit/48c1ed270af527de543794a6315b78d9907bd08a)\] fix exports for mise and brew for mason
 
 
 ## 2024-11-05
 
 ### 🚀 Features
 
-- *(docs)* \[[2129b145](https://github.com/silveiralexf/.dotfiles/commit/2129b1452aa6a7cae6c4a55caaa4d5b4e354c8a5)\] add git-cliff for changelog
+- *(docs)* \[[6f7e7322](https://github.com/silveiralexf/.dotfiles/commit/6f7e7322eec38b2a8ef68e48c882d82d76b4fc80)\] add git-cliff for changelog
 
 ### ⚙️ Chores
 
-- *(profile)* \[[352b608a](https://github.com/silveiralexf/.dotfiles/commit/352b608ae260bdda12ae42d75f00263ba3f4f278)\] update sops encrypted credentials file
+- *(profile)* \[[f29234bc](https://github.com/silveiralexf/.dotfiles/commit/f29234bce9982c0047b8f12b4932c37fd006d20e)\] update sops encrypted credentials file
 
 
 ## 2024-11-04
 
 ### 🔨 Fixes
 
-- *(profile)* \[[8a45d725](https://github.com/silveiralexf/.dotfiles/commit/8a45d72540dc2cc2d5f866b20b8285d693e17400)\] add rancher bin back to path
+- *(profile)* \[[ca45071e](https://github.com/silveiralexf/.dotfiles/commit/ca45071eca49c8059328f36be3c0fc9089db0b0d)\] add rancher bin back to path
 
 
 ## 2024-10-22
 
 ### 📦 Dependencies
 
-- *(nvim)* \[[fde7eb16](https://github.com/silveiralexf/.dotfiles/commit/fde7eb16241dcff87882163753b39f011c5fdb4e)\] deps, comments, small fixes
+- *(nvim)* \[[5f66134f](https://github.com/silveiralexf/.dotfiles/commit/5f66134fb3d3324f409735b7af4e69efd851f295)\] deps, comments, small fixes
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[35fb2551](https://github.com/silveiralexf/.dotfiles/commit/35fb25516dd0f84d50378aba733aa139477ed8de)\] improve lua support with lazydev
-- *(nvim)* \[[b5c84cff](https://github.com/silveiralexf/.dotfiles/commit/b5c84cff6289e17a2dc1f5839ab6dc87b3a060c1)\] improve dap configuration and keybindings
-- *(nvim)* \[[2a8e51d7](https://github.com/silveiralexf/.dotfiles/commit/2a8e51d7c86bf47092e56766f9b75798c799a6f1)\] add lazygit configs
+- *(nvim)* \[[323cc7b4](https://github.com/silveiralexf/.dotfiles/commit/323cc7b4826024e8b708acb0329dc6b2ac73af90)\] improve lua support with lazydev
+- *(nvim)* \[[d0c8f17b](https://github.com/silveiralexf/.dotfiles/commit/d0c8f17b96f2a5c1dbb5430525b3d8dce2758996)\] improve dap configuration and keybindings
+- *(nvim)* \[[0caa4b3e](https://github.com/silveiralexf/.dotfiles/commit/0caa4b3e3cd825406013094f1d02d89da1120611)\] add lazygit configs
 
 
 ## 2024-10-21
 
 ### 🚀 Features
 
-- \[[93a0b36c](https://github.com/silveiralexf/.dotfiles/commit/93a0b36ce2f7a3d3394bcf1444f31066e94927ca)\] replace install tasks with mise
-- \[[fbbdeaaf](https://github.com/silveiralexf/.dotfiles/commit/fbbdeaaf3a99027243c7b82cfbfc2e2e1d4b89e9)\] add cue and kcl support (wip)
-- \[[ba53baea](https://github.com/silveiralexf/.dotfiles/commit/ba53baea7f69a50570713be1ca305978d74f2045)\] add matchup plugin
+- \[[cc37d2d0](https://github.com/silveiralexf/.dotfiles/commit/cc37d2d08f9106e7ab680515b79d61ae5c24aede)\] replace install tasks with mise
+- \[[1601d409](https://github.com/silveiralexf/.dotfiles/commit/1601d40918f4518bc92ea019a73eac47811d66be)\] add cue and kcl support (wip)
+- \[[facc5e9c](https://github.com/silveiralexf/.dotfiles/commit/facc5e9c29a55b22bdf410b8e21e94ac1ce244b9)\] add matchup plugin
 
 ### 📦 Dependencies
 
-- \[[28b0e366](https://github.com/silveiralexf/.dotfiles/commit/28b0e366b5a7f04d0099876c747d0afbe19c2711)\] bump deps, update dict and add lsp header to taskfile
-- \[[8a35050a](https://github.com/silveiralexf/.dotfiles/commit/8a35050acc55090c922f4247665f4f6608bc85c7)\] bump lazy to latest
+- \[[ad47f364](https://github.com/silveiralexf/.dotfiles/commit/ad47f36442d060f4fb055d666cdfec8c32240a4f)\] bump deps, update dict and add lsp header to taskfile
+- \[[40f2aeba](https://github.com/silveiralexf/.dotfiles/commit/40f2aebae2b2fff8a084a11f88178474f0567c2b)\] deps: bump lazy to latest
 
 ### ⚙️ Chores
 
-- \[[6478eab1](https://github.com/silveiralexf/.dotfiles/commit/6478eab1af1575f1d75ab28b46a144780373c3a9)\] remove multicursors plugin
-- \[[62ab5e2e](https://github.com/silveiralexf/.dotfiles/commit/62ab5e2ec03d11cd96ad8057e3d84d5a6de2de59)\] remap lsp bindings
+- \[[5b78dcad](https://github.com/silveiralexf/.dotfiles/commit/5b78dcadef758a82f5d15170e73405a001ea9c09)\] remove multicursors plugin
+- \[[8702e529](https://github.com/silveiralexf/.dotfiles/commit/8702e529eb95124f8c3c0000b7816db6c95754a7)\] remap lsp bindings
 
 
 ## 2024-09-19
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[feca2bff](https://github.com/silveiralexf/.dotfiles/commit/feca2bffd4ff4fc1c3c52d5d39eed1cdae944650)\] remove unused vim plugins and customize gitsigns
-- *(nvim)* \[[6525ff66](https://github.com/silveiralexf/.dotfiles/commit/6525ff66a1f9c06280f5e740dfa62a7346c9aba9)\] go back to yazi default theme settings
-- *(nvim)* \[[aa0fc5fc](https://github.com/silveiralexf/.dotfiles/commit/aa0fc5fce36c71d1d27f12c9187031ac7a1d7754)\] update keybindings
-- *(yazi)* \[[2c906757](https://github.com/silveiralexf/.dotfiles/commit/2c906757d22ec3ccc2c248702e60a80663e4dd5f)\] add keybind for yazi to copy files
-- *(profile)* \[[129c20eb](https://github.com/silveiralexf/.dotfiles/commit/129c20eb71f9fcb5765e257f69eb5a2108727be1)\] add terminalizer config to profile
+- *(nvim)* \[[5549ff14](https://github.com/silveiralexf/.dotfiles/commit/5549ff144ed018b9a4b1e6cc26c2208d5d05a330)\] remove unused vim plugins and customize gitsigns
+- *(nvim)* \[[9c4c6e11](https://github.com/silveiralexf/.dotfiles/commit/9c4c6e1106b3d2d91ab6bc354f7f363b949d53a2)\] go back to yazi default theme settings
+- *(nvim)* \[[c45d964f](https://github.com/silveiralexf/.dotfiles/commit/c45d964fb9d551df4c1a6d6e38e9927f60a9401a)\] update keybindings
+- *(yazi)* \[[da9b7971](https://github.com/silveiralexf/.dotfiles/commit/da9b7971a37d33bcaf2f5cfd8844cfbdf57051af)\] add keybind for yazi to copy files
+- *(profile)* \[[62d585d0](https://github.com/silveiralexf/.dotfiles/commit/62d585d0055cf10e7a08fc759920a3cd99853c64)\] add terminalizer config to profile
 
 
 ## 2024-09-18
 
 ### 🚀 Features
 
-- *(nvim)* \[[ef66f86f](https://github.com/silveiralexf/.dotfiles/commit/ef66f86f0a9dd8a94ee3076b78fb01d53987eb89)\] add yaml companion and yamlfmt as formatter
-- *(nvim)* \[[f86dce82](https://github.com/silveiralexf/.dotfiles/commit/f86dce827956edf293fdeca187ff8a2a88be6cf1)\] add gohtml parser with prettier go-template plugin
-- *(nvim)* \[[9e5045e6](https://github.com/silveiralexf/.dotfiles/commit/9e5045e68a8dc9a5d56d692045d0ad04ee874a0c)\] replace neotree and netrw by yazi
+- *(nvim)* \[[98ee9d43](https://github.com/silveiralexf/.dotfiles/commit/98ee9d4342995d9e4786425ca903f61afa4db9b4)\] add yaml companion and yamlfmt as formatter
+- *(nvim)* \[[078103fc](https://github.com/silveiralexf/.dotfiles/commit/078103fc73aaf8fd3e2f09c6f98508f7683f076a)\] add gohtml parser with prettier go-template plugin
+- *(nvim)* \[[3be82f21](https://github.com/silveiralexf/.dotfiles/commit/3be82f213c91e5e3fdcf005fd01b6f6b925aa294)\] replace neotree and netrw by yazi
 
 ### 📦 Dependencies
 
-- \[[0b97cbec](https://github.com/silveiralexf/.dotfiles/commit/0b97cbec1592834da22d4f76b7c8afcc2270990d)\] clean-up unused, small tweaks, and bump deps
+- \[[f893abcf](https://github.com/silveiralexf/.dotfiles/commit/f893abcfc1c56c3a481aff1698eaa73a7c196027)\] clean-up unused, small tweaks, and bump deps
 
 ### 🔨 Fixes
 
-- *(nvim)* \[[5e4e2572](https://github.com/silveiralexf/.dotfiles/commit/5e4e257210bc157ba8c8b1db56f9d438c5908ab0)\] remove zig formatting with null-ls for now
+- *(nvim)* \[[afe6cf2c](https://github.com/silveiralexf/.dotfiles/commit/afe6cf2c43232f05c2528980d76d5522c4d6dcff)\] remove zig formatting with null-ls for now
 
 ### ⚙️ Chores
 
-- \[[6bcc4137](https://github.com/silveiralexf/.dotfiles/commit/6bcc4137dc4d56b2bfd8486ef9b92d0eebac8ffd)\] update private profile
-- *(nvim)* \[[6ee45988](https://github.com/silveiralexf/.dotfiles/commit/6ee459881aa8f45e0e35bd7749f12951977d4cdf)\] restore protoc autocmd
-- *(nvim)* \[[45b33d48](https://github.com/silveiralexf/.dotfiles/commit/45b33d485ed823830c2c9b4165fbfbc3ca566644)\] add html/htmlx lsp with templating configs
-- *(nvim)* \[[30749393](https://github.com/silveiralexf/.dotfiles/commit/3074939314301e662d246f3110122ea0b0a30755)\] disable bufferline again
-- *(nvim)* \[[ff730ac7](https://github.com/silveiralexf/.dotfiles/commit/ff730ac7fd4cd364dfdce414815dfd3a263ed64e)\] bump and reorganize neotree into dedicated config
+- \[[602df7bb](https://github.com/silveiralexf/.dotfiles/commit/602df7bb466ce83cfc5d797c72cdcdd003c750d9)\] update private profile
+- *(nvim)* \[[86aa70d1](https://github.com/silveiralexf/.dotfiles/commit/86aa70d1d7ba4eb40876cdefe09ee15585b2b722)\] restore protoc autocmd
+- *(nvim)* \[[d616d92c](https://github.com/silveiralexf/.dotfiles/commit/d616d92ca5a5cfe0d3c07d8ca1353af97eabd180)\] add html/htmlx lsp with templating configs
+- *(nvim)* \[[a9091c9a](https://github.com/silveiralexf/.dotfiles/commit/a9091c9ab9036cbaa0f9391fd7ba27206d8ae4cb)\] disable bufferline again
+- *(nvim)* \[[1f92b213](https://github.com/silveiralexf/.dotfiles/commit/1f92b213fe5609fa05d1a716b92b29f54b450cc6)\] bump and reorganize neotree into dedicated config
 
 
 ## 2024-09-03
 
 ### 📦 Dependencies
 
-- *(nvim)* \[[56fe6cb1](https://github.com/silveiralexf/.dotfiles/commit/56fe6cb1af7571b2c2b501202bf20bd77ecd2e44)\] bump lazy and llama version
-- *(repo)* \[[8f30e641](https://github.com/silveiralexf/.dotfiles/commit/8f30e641cf79510d9066ec5ffa9f1a909f0c30a1)\] add new commit msg tag for deps
-- *(nvim)* \[[d78d56b7](https://github.com/silveiralexf/.dotfiles/commit/d78d56b7206caf14792b048a8a611d921194ead2)\] bump lazy and add words to spell
-
-### 📚 Documentation
-
-- *(nvim)* \[[16836db2](https://github.com/silveiralexf/.dotfiles/commit/16836db26dc51567152e442d21a4752f8a03d741)\] update readme
-- *(tasks)* \[[075d4b64](https://github.com/silveiralexf/.dotfiles/commit/075d4b6447f8fd36997be4314406971bb86bc34e)\] update readme again
+- \[[1db4c678](https://github.com/silveiralexf/.dotfiles/commit/1db4c678e6470bb18f064c6bd81faec8fa99e461)\] deps(nvim): bump lazy and llama version
+- *(repo)* \[[e7ffe378](https://github.com/silveiralexf/.dotfiles/commit/e7ffe37806cece91f24ebb67b5cb2fa6b40eb430)\] add new commit msg tag for deps
+- \[[6faad595](https://github.com/silveiralexf/.dotfiles/commit/6faad5951bc12438144b17ac68273964604a6c2c)\] deps(nvim): bump lazy and add words to spell
 
 ### ⚡ Performance
 
-- *(wezterm)* \[[d16547c7](https://github.com/silveiralexf/.dotfiles/commit/d16547c76716d008f0518efd2446a105e8322805)\] cache settings for performance
-- *(nvim)* \[[080333b6](https://github.com/silveiralexf/.dotfiles/commit/080333b633f76c8a19ad232bae5847d89c624b06)\] disable neovim to avoid hanging on wezterm
+- *(wezterm)* \[[41c949dd](https://github.com/silveiralexf/.dotfiles/commit/41c949dd20864e2129b700aa7d0b41ec635ca40c)\] cache settings for performance
+- *(nvim)* \[[8cd78f2d](https://github.com/silveiralexf/.dotfiles/commit/8cd78f2da9701e68fea561636505c92285c81b9f)\] disable neovim to avoid hanging on wezterm
 
 ### 🧪 Testing
 
-- *(nvim)* \[[5b62350e](https://github.com/silveiralexf/.dotfiles/commit/5b62350e6c0218b87191191577c69606fe27585e)\] treesitter tweaks to validate
+- *(nvim)* \[[5e1f5a80](https://github.com/silveiralexf/.dotfiles/commit/5e1f5a80c82eea9e5b1da19d14e8928ef9b054ae)\] treesitter tweaks to validate
 
 ### ⚙️ Chores
 
-- \[[72b8dd6c](https://github.com/silveiralexf/.dotfiles/commit/72b8dd6ca32a1a307bffcfe44aabbf9041ca8ed1)\] remove pipx aliases
-- *(nvim)* \[[ec91c5f0](https://github.com/silveiralexf/.dotfiles/commit/ec91c5f0a293a1459288ac6c9fe74c805c752436)\] add FzfLua keybindings
-- *(nvim)* \[[e177321b](https://github.com/silveiralexf/.dotfiles/commit/e177321b423f0c5eead0bbccbbc589551e7849f1)\] add lazy extras for better lsp support
-- *(nvim)* \[[656e8b09](https://github.com/silveiralexf/.dotfiles/commit/656e8b0957aa672176ad4e96b87cbf8b76ecd748)\] change hlsearch to true
-- *(nvim)* \[[eb030720](https://github.com/silveiralexf/.dotfiles/commit/eb030720eb72e76d93b0c964badd8eb1567da00f)\] improvements on lsp settings
-- *(tasks)* \[[c4f61cb2](https://github.com/silveiralexf/.dotfiles/commit/c4f61cb295447950dd455a1ea0700558eb4843ff)\] add protobuf lsp install
-- *(nvim)* \[[a566bc0a](https://github.com/silveiralexf/.dotfiles/commit/a566bc0a00a782ce6d45d7cc8832f77cf1dd0c9c)\] colorscheme and formatting tweaks
-- *(nvim)* \[[98681063](https://github.com/silveiralexf/.dotfiles/commit/986810630120ed5146bc87837f9be71d60941aa9)\] add hidden search on telescope and exclude new patterns
-- *(nvim)* \[[9aaf8ea4](https://github.com/silveiralexf/.dotfiles/commit/9aaf8ea48f695496ccacff32927c55ed1d2ba447)\] give bufferline another shot
+- \[[d85b9d74](https://github.com/silveiralexf/.dotfiles/commit/d85b9d74327193d4d9d455c0b4466789dda2d090)\] remove pipx aliases
+- *(nvim)* \[[0f23d402](https://github.com/silveiralexf/.dotfiles/commit/0f23d402feb0be4fce4c91c4c1eab17ab9e90ee5)\] add FzfLua keybindings
+- *(nvim)* \[[3c43d027](https://github.com/silveiralexf/.dotfiles/commit/3c43d02723cadb401f8e7f92c899ff0157ed311c)\] add lazy extras for better lsp support
+- *(nvim)* \[[95d1d563](https://github.com/silveiralexf/.dotfiles/commit/95d1d5639cc94fb4b425d4b5d818742fbc1594c8)\] change hlsearch to true
+- *(nvim)* \[[bb8f894e](https://github.com/silveiralexf/.dotfiles/commit/bb8f894ec6724962c757078b59ebdf2ceb29f2e1)\] improvements on lsp settings
+- *(tasks)* \[[00872dbf](https://github.com/silveiralexf/.dotfiles/commit/00872dbfd0a0217380756f5c18de1ee437f63b3c)\] add protobuf lsp install
+- *(nvim)* \[[6d02eef3](https://github.com/silveiralexf/.dotfiles/commit/6d02eef3fc1c46173fc5fbc1691e6e4404998715)\] colorscheme and formatting tweaks
+- *(nvim)* \[[c0120230](https://github.com/silveiralexf/.dotfiles/commit/c01202302d7af960d489104f8379aade4686a29a)\] add hidden search on telescope and exclude new patterns
+- \[[22d6ba7f](https://github.com/silveiralexf/.dotfiles/commit/22d6ba7f92d83062036391c5237c69764b43b622)\] docs(nvim): update readme
+- *(nvim)* \[[0733a5b3](https://github.com/silveiralexf/.dotfiles/commit/0733a5b30ce12aa323e1fb167737dde35322e21e)\] give bufferline another shot
+- \[[6a19d945](https://github.com/silveiralexf/.dotfiles/commit/6a19d945672ee8533be0d842c0c1c841939990ad)\] docs(tasks): update readme again
 
 
 ## 2024-08-12
 
 ### 🚀 Features
 
-- *(nvim)* \[[79a348bf](https://github.com/silveiralexf/.dotfiles/commit/79a348bf79d18454612a5e3c53d2fcc3b3220ffb)\] add yazi support
-
-### 📚 Documentation
-
-- *(yazi)* \[[9ea06b09](https://github.com/silveiralexf/.dotfiles/commit/9ea06b09ff926534e5759e0976b00a3f211238ad)\] add placeholder for docs
+- *(nvim)* \[[56516e58](https://github.com/silveiralexf/.dotfiles/commit/56516e58e3ac3fa361fb9df6a34ed464159cc1f7)\] add yazi support
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[b15b053a](https://github.com/silveiralexf/.dotfiles/commit/b15b053a0d9bce6292604c5eaf439e65547954f9)\] remove unused
-- *(repo)* \[[e024be79](https://github.com/silveiralexf/.dotfiles/commit/e024be796abed6939e2f6fff2959aff967b1387b)\] reorg package names for consistency
+- *(nvim)* \[[3b683fa6](https://github.com/silveiralexf/.dotfiles/commit/3b683fa6a81b8e8e518c9507e2fa5b74bcad9603)\] remove unused
+- *(repo)* \[[13e28d14](https://github.com/silveiralexf/.dotfiles/commit/13e28d14b42e7ce431818fe4872810f03f33be73)\] reorg package names for consistency
+- \[[d8f2a55b](https://github.com/silveiralexf/.dotfiles/commit/d8f2a55bddd5eb9f7bb1d16acf84f9f2a0973306)\] docs(yazi): add placeholder for docs
 
 
 ## 2024-08-07
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[83e921c6](https://github.com/silveiralexf/.dotfiles/commit/83e921c6bd340b8de6fc4ce5e6f26f2d4395b18a)\] organize autocmds
+- *(nvim)* \[[5495e093](https://github.com/silveiralexf/.dotfiles/commit/5495e09310fc8eaa1642836ae5fdda0069847897)\] organize autocmds
 
 
 ## 2024-08-06
 
 ### 🚀 Features
 
-- *(nvim)* \[[3a2266ad](https://github.com/silveiralexf/.dotfiles/commit/3a2266ad3eb57555ddf3718c6a9bc92d8b4e3837)\] improve kustomize support
+- *(nvim)* \[[2c64e6d0](https://github.com/silveiralexf/.dotfiles/commit/2c64e6d0cc538e0cf26070ab09d0a5e38c1843b5)\] improve kustomize support
 
 ### 📦 Dependencies
 
-- *(deps)* \[[9ce899b7](https://github.com/silveiralexf/.dotfiles/commit/9ce899b7b14c9f7a45c9266a743ee62f2cdc7d3e)\] bump lazy packages
+- *(deps)* \[[05e14bfc](https://github.com/silveiralexf/.dotfiles/commit/05e14bfc4bef4178c5f5911981bcbf2a82eea4bf)\] bump lazy packages
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[20587bd4](https://github.com/silveiralexf/.dotfiles/commit/20587bd48e2296b3c29aec84d39b808b88dfb90f)\] disable spell check
+- *(nvim)* \[[0245b873](https://github.com/silveiralexf/.dotfiles/commit/0245b8733ca032ef329ce9bc38ab99004effc987)\] disable spell check
 
 
 ## 2024-08-05
 
 ### 🚀 Features
 
-- *(docs)* \[[adcc5820](https://github.com/silveiralexf/.dotfiles/commit/adcc58207700cd8abfe3d1a8311c0dc81e048b5e)\] improve overall documentation
+- *(docs)* \[[61567e94](https://github.com/silveiralexf/.dotfiles/commit/61567e948fc3479b2c211f3c3f4197efd1bcadf0)\] improve overall documentation
 
 
 ## 2024-07-31
 
 ### 🚀 Features
 
-- *(hammerspoon)* \[[d308b581](https://github.com/silveiralexf/.dotfiles/commit/d308b581ab5028f80c376e0cf78b27d8b2b6d361)\] add shiftIt spoon [WIP]
+- *(hammerspoon)* \[[c5abaf3c](https://github.com/silveiralexf/.dotfiles/commit/c5abaf3ce78203b17037f5490e3f6f7f9cf525d7)\] add shiftIt spoon [WIP]
 
 ### ⚙️ Chores
 
-- *(tmux)* \[[3b484d4d](https://github.com/silveiralexf/.dotfiles/commit/3b484d4dfca0b62301f066dc54e97b3365bdcfcc)\] new bindings and adjust status and colors
-- *(tasks)* \[[7f05fa55](https://github.com/silveiralexf/.dotfiles/commit/7f05fa559c1cf69abff6fbaa3137b4804de05870)\] add new utils
-- *(git)* \[[c70a0de6](https://github.com/silveiralexf/.dotfiles/commit/c70a0de6b32a837ab4978a7f4e70b0189c154901)\] ignore luarocks files
-- *(secrets)* \[[1db1c987](https://github.com/silveiralexf/.dotfiles/commit/1db1c987c98b9055112643e57e5aeb74ddf33f07)\] update encrypted credentials
-- *(nvim)* \[[6aa94beb](https://github.com/silveiralexf/.dotfiles/commit/6aa94bebec839d445599160332b862bb161c9e9d)\] add new words to spell
+- *(tmux)* \[[5fb38fe8](https://github.com/silveiralexf/.dotfiles/commit/5fb38fe8cb9da448b74e8d134c6bdd40a8e7cf6f)\] new bindings and adjust status and colors
+- *(tasks)* \[[5db6fb62](https://github.com/silveiralexf/.dotfiles/commit/5db6fb6238a57658efa00198b0dbd74db018269e)\] add new utils
+- *(git)* \[[7d1fd09b](https://github.com/silveiralexf/.dotfiles/commit/7d1fd09bdb08d9d384d60a5aa0da0e0f6dbbea03)\] ignore luarocks files
+- *(secrets)* \[[486c0b35](https://github.com/silveiralexf/.dotfiles/commit/486c0b35a866d937bf66c9292774599657b73d01)\] update encrypted credentials
+- *(nvim)* \[[40c004d5](https://github.com/silveiralexf/.dotfiles/commit/40c004d5d38e02f6062e53c258b887fcdbd9ec2c)\] add new words to spell
 
 
 ## 2024-07-30
 
 ### 🏭 Refactor
 
-- *(hammerspoon)* \[[172282ff](https://github.com/silveiralexf/.dotfiles/commit/172282ffc4128dcce442a80c33925966358e359f)\] change structure and add commands
+- *(hammerspoon)* \[[eb6203d2](https://github.com/silveiralexf/.dotfiles/commit/eb6203d23d638e9abc1f007b31a3a5ad7f3807b7)\] change structure and add commands
 
 ### ⚙️ Chores
 
-- \[[966c65f6](https://github.com/silveiralexf/.dotfiles/commit/966c65f6b54a378b91ba4f0a6ea3540912fef12e)\] fix tmux glitches with lazygit and wezterm
-- *(setup)* \[[cc8d5ff2](https://github.com/silveiralexf/.dotfiles/commit/cc8d5ff241c4f3a357dce797281be778011c9cc4)\] add nerdfonts to install tasks
-- *(nvim)* \[[a3750bcd](https://github.com/silveiralexf/.dotfiles/commit/a3750bcd94098384ec1964d9d766042adf2b489e)\] add telescope media preview
-- *(wezterm)* \[[f65d3824](https://github.com/silveiralexf/.dotfiles/commit/f65d3824ccbf251513eb1a507c2cd7fd30121690)\] more tweaks and tab customizations
+- \[[5785dd9e](https://github.com/silveiralexf/.dotfiles/commit/5785dd9e98caa06286900edc066338f693ef5e69)\] fix tmux glitches with lazygit and wezterm
+- *(setup)* \[[6e0fe018](https://github.com/silveiralexf/.dotfiles/commit/6e0fe01891873dc2c4e72a4156e7f34fd4f0ad7c)\] add nerdfonts to install tasks
+- *(nvim)* \[[28c06bc3](https://github.com/silveiralexf/.dotfiles/commit/28c06bc34faef54d97eb4e38c92c36ba1f0c3c73)\] add telescope media preview
+- *(wezterm)* \[[1496a282](https://github.com/silveiralexf/.dotfiles/commit/1496a2824432898fc7dd9534b760aa85b8b9968d)\] more tweaks and tab customizations
 
 
 ## 2024-07-29
 
 ### 🚀 Features
 
-- \[[f8ede278](https://github.com/silveiralexf/.dotfiles/commit/f8ede278af5655f1ca1fb7067cdf5594d7e58679)\] add hammerspoon
+- \[[61530c96](https://github.com/silveiralexf/.dotfiles/commit/61530c96101b6f71009b7936d189543045182a56)\] add hammerspoon
 
 ### 🎨 Styling
 
-- *(lua)* \[[14d0a10f](https://github.com/silveiralexf/.dotfiles/commit/14d0a10f35bae1044000bef1fcb19d5c152827ca)\] lint/format all files with same settings
+- *(lua)* \[[5dd58b91](https://github.com/silveiralexf/.dotfiles/commit/5dd58b91d48c40a4be85aca597edfa9b1c9b786f)\] lint/format all files with same settings
 
 ### ⚙️ Chores
 
-- *(images)* \[[b58b2b90](https://github.com/silveiralexf/.dotfiles/commit/b58b2b90a8f6525514f3b7c8aabe9c3277e8a132)\] add image backdrops
-- *(terminal)* \[[67f41a9a](https://github.com/silveiralexf/.dotfiles/commit/67f41a9a2c13713ad8b5de55cb38e8c940076a6f)\] replace kitty with wezterm
-- \[[3827df24](https://github.com/silveiralexf/.dotfiles/commit/3827df247722b624f173bb5b068cc503e0ed0b25)\] reorg config files and scripts
-- *(lua)* \[[ec5c3ae7](https://github.com/silveiralexf/.dotfiles/commit/ec5c3ae76505b928794f9e35e6984d5d95a89d6e)\] consolidate lint and editor configs
-- *(tasks)* \[[7e560cd5](https://github.com/silveiralexf/.dotfiles/commit/7e560cd58a7bc366f2440869fcf78c988369876f)\] add dotfile dirs as global vars
-- *(docs)* \[[7484f087](https://github.com/silveiralexf/.dotfiles/commit/7484f087bb7e733b79eb9f80081749dbaa1cb7f1)\] readme and spelling updates
+- *(images)* \[[5984c177](https://github.com/silveiralexf/.dotfiles/commit/5984c1772d179114f6affaa231f66350c552643c)\] add image backdrops
+- *(terminal)* \[[1883f7a1](https://github.com/silveiralexf/.dotfiles/commit/1883f7a16ff2f5dda894c7049e17eace759df4c3)\] replace kitty with wezterm
+- \[[347a4f2f](https://github.com/silveiralexf/.dotfiles/commit/347a4f2f1c8badb1b8ce3c1ba697b04d85accec5)\] reorg config files and scripts
+- *(lua)* \[[2fd37675](https://github.com/silveiralexf/.dotfiles/commit/2fd3767521f206b891c5889fa82b5ee57ab4e9bd)\] consolidate lint and editor configs
+- *(tasks)* \[[bb92f941](https://github.com/silveiralexf/.dotfiles/commit/bb92f941398b66ab12a1b6e244eff2418811c42a)\] add dotfile dirs as global vars
+- *(docs)* \[[cde2b604](https://github.com/silveiralexf/.dotfiles/commit/cde2b604b514717c98eedd447e93902bddac8183)\] readme and spelling updates
 
 
 ## 2024-07-21
 
 ### 🚀 Features
 
-- *(hs)* \[[0dd99fff](https://github.com/silveiralexf/.dotfiles/commit/0dd99fff5d5e9bb340c988c6ad3dc604a8ad947b)\] add hammerspoon configs
-- \[[fd1352fc](https://github.com/silveiralexf/.dotfiles/commit/fd1352fcc9fcc7b2f3ee82396f072f70d95ab4b7)\] new keyboard layout
+- *(hs)* \[[517b0526](https://github.com/silveiralexf/.dotfiles/commit/517b0526b5b4b9216e7e8f792c6d17e0be3baf6e)\] add hammerspoon configs
+- \[[dec20af1](https://github.com/silveiralexf/.dotfiles/commit/dec20af10dc813fd32a82dbc7a8302531bda619f)\] new keyboard layout
 
 ### 📦 Dependencies
 
-- *(deps)* \[[9dcc534f](https://github.com/silveiralexf/.dotfiles/commit/9dcc534fee6d2fe6f0607ad6d6bcbaa78127209e)\] bump lazy
+- *(deps)* \[[8bc9005b](https://github.com/silveiralexf/.dotfiles/commit/8bc9005b69cb931f9bba20e016b1f917883df94c)\] bump lazy
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[6fc90da6](https://github.com/silveiralexf/.dotfiles/commit/6fc90da6b77b94ce9b4638f1cfe075a11e53b9b4)\] update spell dict, formatting
-- *(tasks)* \[[c9fa7e38](https://github.com/silveiralexf/.dotfiles/commit/c9fa7e3885ffd51b847d9f5278045562e86c0c5c)\] add kubeconform install task
-- *(secrets)* \[[bf5aafe6](https://github.com/silveiralexf/.dotfiles/commit/bf5aafe6d72dabcf6ca64224a6aad6292a8643f7)\] update private credentials file
+- *(nvim)* \[[64b41d73](https://github.com/silveiralexf/.dotfiles/commit/64b41d73f341eec337f476f077df474c28564d87)\] update spell dict, formatting
+- *(tasks)* \[[eaa0c0e8](https://github.com/silveiralexf/.dotfiles/commit/eaa0c0e83c3d0decd7032d0838bef96d8dbdf946)\] add kubeconform install task
+- *(secrets)* \[[75efd207](https://github.com/silveiralexf/.dotfiles/commit/75efd207e65ff55d36515bd36072c6fe066202cc)\] update private credentials file
 
 
 ## 2024-07-18
 
 ### 📦 Dependencies
 
-- *(deps)* \[[de882a3e](https://github.com/silveiralexf/.dotfiles/commit/de882a3ef9ef59128bd93c014502c4f31ffd1aad)\] update to latest's
+- *(deps)* \[[4726b8d6](https://github.com/silveiralexf/.dotfiles/commit/4726b8d6409c8f873b782ee5b43b1e5ff56f377d)\] update to latest's
 
 ### 🔨 Fixes
 
-- *(docs)* \[[90090913](https://github.com/silveiralexf/.dotfiles/commit/90090913cbea1f89f29a0bc13071125f1c403a29)\] adjust incorrect changelog links
+- *(docs)* \[[749f640a](https://github.com/silveiralexf/.dotfiles/commit/749f640a87692b0c10e4e25b324216085a1df59d)\] adjust incorrect changelog links
 
 ### ⚙️ Chores
 
-- *(nvim)* \[[ae685370](https://github.com/silveiralexf/.dotfiles/commit/ae685370372b536f41e26b38f89c237c2052eda1)\] add new filetypes to lspconfig
-- *(nvim)* \[[187c3fd9](https://github.com/silveiralexf/.dotfiles/commit/187c3fd92f84ea31c4bb0badb7f300af4be9d344)\] add dictionary file to spell
-- *(nvim)* \[[d9624d11](https://github.com/silveiralexf/.dotfiles/commit/d9624d111d95f8e3cb0dbcbfc698ed1d52c75367)\] always upgrade bash to latest
-- *(functions)* \[[1e9af37a](https://github.com/silveiralexf/.dotfiles/commit/1e9af37abc43cabc2e4997af2defab8181cc9e1c)\] adjust openui launcher for rancher
-- *(secrets)* \[[b9dd9617](https://github.com/silveiralexf/.dotfiles/commit/b9dd96174ac8bf1bcbea466df01e5ec063178c07)\] update private credentials
-- *(docs)* \[[cf2255d5](https://github.com/silveiralexf/.dotfiles/commit/cf2255d5651968efc872ba8122fcd111bd8165c5)\] add wakatime badge to readme
-- *(nvim)* \[[5e003444](https://github.com/silveiralexf/.dotfiles/commit/5e003444120f2dd3e2fc9d16058c068f33d19967)\] link go src to git to avoid duplicates
+- *(nvim)* \[[37c271d8](https://github.com/silveiralexf/.dotfiles/commit/37c271d8403c0cd454726998a321e9a4d69cc4a9)\] add new filetypes to lspconfig
+- *(nvim)* \[[101b4359](https://github.com/silveiralexf/.dotfiles/commit/101b4359f06eaa9cbfa69c3bc27f90666f653b2c)\] add dictionary file to spell
+- *(nvim)* \[[2905290d](https://github.com/silveiralexf/.dotfiles/commit/2905290d07dfb94d644395eba6b544c49156db34)\] always upgrade bash to latest
+- *(functions)* \[[32ab46f0](https://github.com/silveiralexf/.dotfiles/commit/32ab46f0dfeb84a8b1c6f08bd858109bcff246ca)\] adjust openui launcher for rancher
+- *(secrets)* \[[2b3e62f9](https://github.com/silveiralexf/.dotfiles/commit/2b3e62f935c26dfe091fad31d2a0a5259026eb4b)\] update private credentials
+- *(docs)* \[[9b1a0cef](https://github.com/silveiralexf/.dotfiles/commit/9b1a0cef48f03d9ba9170f5a833c4352dec0be47)\] add wakatime badge to readme
+- *(nvim)* \[[a0885c31](https://github.com/silveiralexf/.dotfiles/commit/a0885c3129cc2b441bbe23634646019397947bb9)\] link go src to git to avoid duplicates
 
 
 ## 2024-07-12
 
 ### ⚙️ Chores
 
-- \[[9f508bf5](https://github.com/silveiralexf/.dotfiles/commit/9f508bf5de8555f11309a22bb574896ce319512c)\] tweaks, and more tweaks
+- \[[c7a03cd0](https://github.com/silveiralexf/.dotfiles/commit/c7a03cd018ea30cb4dd4bb5daa0468d593f4d979)\] tweaks, and more tweaks
 
 
 ## 2024-07-08
 
 ### ⚙️ Chores
 
-- \[[70f85f91](https://github.com/silveiralexf/.dotfiles/commit/70f85f916353d49a9a416fcbe6bc7027d763fbe4)\] add tmux pane switch plugin
+- \[[a758272d](https://github.com/silveiralexf/.dotfiles/commit/a758272d535c4b06a4be0d9eb316aba096ab3ec2)\] add tmux pane switch plugin
 
 
 ## 2024-07-07
 
 ### ⚙️ Chores
 
-- \[[7e19f3ba](https://github.com/silveiralexf/.dotfiles/commit/7e19f3ba3f356a014de25ba860c8e530a6ae869c)\] reorg tasks
+- \[[e8175ce9](https://github.com/silveiralexf/.dotfiles/commit/e8175ce90abd90f02afd65c627578750bdd0fa01)\] reorg tasks
 
 
 ## 2024-07-02
 
 ### ⚙️ Chores
 
-- \[[f0ed659b](https://github.com/silveiralexf/.dotfiles/commit/f0ed659bbe1562f4f1dd5445e61d289c17daf160)\] refactoring stuff up
+- \[[2040ced1](https://github.com/silveiralexf/.dotfiles/commit/2040ced191325b5b747f688bcc04f1f1a3a0648c)\] refactoring stuff up
 
 
 ## 2024-06-04
 
 ### ⚙️ Chores
 
-- \[[6647887e](https://github.com/silveiralexf/.dotfiles/commit/6647887e57c11b25b3f589c7fdfc8ca80cb3bec8)\] add harper word
-- \[[b4df3cb2](https://github.com/silveiralexf/.dotfiles/commit/b4df3cb2f629beb6704f4cb9af2f24c85b3da3db)\] lazy ui tweaks
-- \[[50b76d35](https://github.com/silveiralexf/.dotfiles/commit/50b76d35f24a07ccf1b17b74159669c12c4222f4)\] formatting for clarity
+- \[[13316767](https://github.com/silveiralexf/.dotfiles/commit/13316767f3ac80212f2c26af3f1f1a4edccb13a9)\] add harper word
+- \[[f2e123cc](https://github.com/silveiralexf/.dotfiles/commit/f2e123cc43ef87b35e28a5b4a6cf541cc4fd0a03)\] lazy ui tweaks
+- \[[d26291f8](https://github.com/silveiralexf/.dotfiles/commit/d26291f81cbac4786def610651e03f105a7a14a0)\] formatting for clarity
 
 
 ## 2024-06-03
 
 ### 🚀 Features
 
-- \[[9a2077d0](https://github.com/silveiralexf/.dotfiles/commit/9a2077d0b61c04c03fb6a636ba9b569ece4703ed)\] add go auto import
+- \[[03b382de](https://github.com/silveiralexf/.dotfiles/commit/03b382defd7568ae6f44aa0dc2a946118f406633)\] add go auto import
 
 ### ⚙️ Chores
 
-- \[[089f6bf5](https://github.com/silveiralexf/.dotfiles/commit/089f6bf5c9d9f5c1c3f43afd85320e6b407be648)\] add missing scriptt
-- \[[5c6e28db](https://github.com/silveiralexf/.dotfiles/commit/5c6e28dbcd674452d422d874d9109840f2404183)\] add nvm export
-- \[[87fea3f8](https://github.com/silveiralexf/.dotfiles/commit/87fea3f879654650056b44a255c97e2dd1352bea)\] add missing keybindings
+- \[[d63f2e3d](https://github.com/silveiralexf/.dotfiles/commit/d63f2e3da86485f829d66d9c783832c9fb67e1cc)\] add missing scriptt
+- \[[64b94dce](https://github.com/silveiralexf/.dotfiles/commit/64b94dcea22f37f5e00f6ce916cc34ec43f820ef)\] add nvm export
+- \[[a8c3ce28](https://github.com/silveiralexf/.dotfiles/commit/a8c3ce28305f7b24fab657314a1ddfe5f90ec5b3)\] add missing keybindings
 
 
 ## 2024-05-29
 
 ### 🚀 Features
 
-- \[[b812aed5](https://github.com/silveiralexf/.dotfiles/commit/b812aed51206fb53c740f724a397e9ce88b446d7)\] add amethyst config file
+- \[[51c3fcad](https://github.com/silveiralexf/.dotfiles/commit/51c3fcad2c73fcf5c1ef5270673fb434bcfad21b)\] add amethyst config file
 
 ### 🔨 Fixes
 
-- \[[9bfa6319](https://github.com/silveiralexf/.dotfiles/commit/9bfa6319123065f1ff85450a0f376d4d8bcb75b0)\] markdown no fence errors
+- \[[2700f2cb](https://github.com/silveiralexf/.dotfiles/commit/2700f2cb792623ba5d2b03760e672cc6cef86965)\] markdown no fence errors
 
 
 ## 2024-05-27
 
 ### 🚀 Features
 
-- \[[c287a2ec](https://github.com/silveiralexf/.dotfiles/commit/c287a2ec84969782a7b073b2c30383b1fb78f2d0)\] improve lsp configs
+- \[[224e8a25](https://github.com/silveiralexf/.dotfiles/commit/224e8a25bd868329597adb1d94f128d9ba106c8e)\] improve lsp configs
 
 ### ⚙️ Chores
 
-- \[[d8e5b873](https://github.com/silveiralexf/.dotfiles/commit/d8e5b873acb1dc01414c8eb9d7afefd58a920f1d)\] fix linting, style, typos
+- \[[145478a8](https://github.com/silveiralexf/.dotfiles/commit/145478a89f79d138d67c8b500580b9650bda2f1a)\] fix linting, style, typos
 
 
 ## 2024-04-17
 
 ### ⚙️ Chores
 
-- \[[c7367d07](https://github.com/silveiralexf/.dotfiles/commit/c7367d07fe37e45303f33e93b05d2e099d727b72)\] small tweaks
+- \[[b3eb0594](https://github.com/silveiralexf/.dotfiles/commit/b3eb0594621ce75e850d50584a73190d159465a8)\] small tweaks
 
 
 ## 2024-04-15
 
 ### ⚙️ Chores
 
-- \[[e87dab82](https://github.com/silveiralexf/.dotfiles/commit/e87dab824a544bb6f894806708d6ea90299c3398)\] bump nvim dependencies
-- \[[9b8777fe](https://github.com/silveiralexf/.dotfiles/commit/9b8777fea31ee62e2218dcc1e15ae944717234d0)\] add openssl3 to path
+- \[[5bd0ee61](https://github.com/silveiralexf/.dotfiles/commit/5bd0ee61b02f7fb46fda5ae9784fc210900e8ce8)\] bump nvim dependencies
+- \[[fe3b2cc4](https://github.com/silveiralexf/.dotfiles/commit/fe3b2cc4b18f6fa80ad433aa28013f3309b6ee43)\] add openssl3 to path
 
 
 ## 2024-03-26
 
 ### ⚙️ Chores
 
-- \[[75b52e80](https://github.com/silveiralexf/.dotfiles/commit/75b52e8093c61628f8f4bb3c09599b6f5433b74b)\] add sdkman to zsh profile
+- \[[22843115](https://github.com/silveiralexf/.dotfiles/commit/228431156568c0a4f21ac228cc874d99c748db39)\] add sdkman to zsh profile
 
 
 ## 2024-03-18
 
 ### ⚙️ Chores
 
-- \[[0c3d10d2](https://github.com/silveiralexf/.dotfiles/commit/0c3d10d260b9588b79bce56459b919a73da1bef5)\] add missing kubectl alias
+- \[[6de5268e](https://github.com/silveiralexf/.dotfiles/commit/6de5268ee934847ea4429ee6845cd1497d157db2)\] add missing kubectl alias
 
 
 ## 2024-03-17
 
 ### 🚀 Features
 
-- \[[1db06bbc](https://github.com/silveiralexf/.dotfiles/commit/1db06bbc74157ed0cd5a6765267a115e0ee6be93)\] improve telescope cmds
-- \[[1c7d7944](https://github.com/silveiralexf/.dotfiles/commit/1c7d79447ddce34b13b9492d31bb033c6ffb1ebc)\] add rust support
-- \[[0e8fe230](https://github.com/silveiralexf/.dotfiles/commit/0e8fe23024c8f66915c838fd86c2a10690b54927)\] improve git plugin
-- \[[49ddbcea](https://github.com/silveiralexf/.dotfiles/commit/49ddbcea0ea15399c5a1d0d57c2d43547bc346be)\] add tmux integration
-- \[[e194747a](https://github.com/silveiralexf/.dotfiles/commit/e194747a9685890e54c33079a82d5a153c28c6cc)\] add quickfix window plugin
-- \[[632643bc](https://github.com/silveiralexf/.dotfiles/commit/632643bc9703db9a0b8297d57c8bdbd5cd50a024)\] add zen mode
+- \[[8fc51e13](https://github.com/silveiralexf/.dotfiles/commit/8fc51e13d3a08f1c616f02b87a51d90e1e9ec78b)\] improve telescope cmds
+- \[[78cccb06](https://github.com/silveiralexf/.dotfiles/commit/78cccb064c8902016d15cef1ddd9e5e31f7d6c26)\] add rust support
+- \[[ec55236e](https://github.com/silveiralexf/.dotfiles/commit/ec55236e2a54c55cffbe6a8e0c07e2cc38c7f517)\] improve git plugin
+- \[[9b0ab0e9](https://github.com/silveiralexf/.dotfiles/commit/9b0ab0e950bcc7483dc9be5f029243211931d976)\] add tmux integration
+- \[[fed94f12](https://github.com/silveiralexf/.dotfiles/commit/fed94f126fae6c80cb1e9e53ababaef6a49b9e64)\] add quickfix window plugin
+- \[[ca812f35](https://github.com/silveiralexf/.dotfiles/commit/ca812f350e53070ee3c615cd9957781ae6204876)\] add zen mode
 
 ### 📦 Dependencies
 
-- \[[b729b79c](https://github.com/silveiralexf/.dotfiles/commit/b729b79cb3786cac0a30c8b4b46b000b58a1f307)\] bump deps
+- \[[cd626577](https://github.com/silveiralexf/.dotfiles/commit/cd626577b37983583a441547c599b8892a4a68e4)\] bump deps
 
 ### ⚙️ Chores
 
-- \[[e21df0aa](https://github.com/silveiralexf/.dotfiles/commit/e21df0aac8283a4e4bd52f10939d0614571318f8)\] enable folke/flash again
-- \[[b710b6e7](https://github.com/silveiralexf/.dotfiles/commit/b710b6e71ab037ea292e3c5f2e8df80d5627acb9)\] add lspconfig to imports
+- \[[94d2ec5a](https://github.com/silveiralexf/.dotfiles/commit/94d2ec5aaa94d6eb705f88b74df8d0ac201099a7)\] enable folke/flash again
+- \[[a1dd3e9d](https://github.com/silveiralexf/.dotfiles/commit/a1dd3e9d5b60d7fc5a09aedf618fcc57b3d738b7)\] add lspconfig to imports
 
 
 ## 2024-03-16
 
 ### 🚀 Features
 
-- \[[6eeff096](https://github.com/silveiralexf/.dotfiles/commit/6eeff0968bad32377330c6c150172ce288afc4a8)\] add lazyvim stuff
-- \[[c6d821cf](https://github.com/silveiralexf/.dotfiles/commit/c6d821cf15561cdfbb5a400e8463b83250725bbc)\] improve vue and typescript support
-- \[[7c85819c](https://github.com/silveiralexf/.dotfiles/commit/7c85819c9ec675ceab9b64ad4a4ebf6a9dd9b740)\] add eslint support
+- \[[2b1fafe6](https://github.com/silveiralexf/.dotfiles/commit/2b1fafe6e00366a47ef93703ffbb805a8993782b)\] add lazyvim stuff
+- \[[2fbf547d](https://github.com/silveiralexf/.dotfiles/commit/2fbf547d0f3facdee4e24707c4303996676a6da8)\] improve vue and typescript support
+- \[[919ece79](https://github.com/silveiralexf/.dotfiles/commit/919ece796d3b1f7c97130bfd1f2f38e622b7cc54)\] add eslint support
 
 ### 📦 Dependencies
 
-- \[[d8589e6d](https://github.com/silveiralexf/.dotfiles/commit/d8589e6d45afbf37070056aa05e56cb279fcb151)\] bump lazy deps
+- \[[7ace4c02](https://github.com/silveiralexf/.dotfiles/commit/7ace4c0243eb0c2c8a1a659a1a3f8c608ff48420)\] bump lazy deps
 
 ### ⚙️ Chores
 
-- \[[2c66af49](https://github.com/silveiralexf/.dotfiles/commit/2c66af49675a0a43cf6db660741fdc21842c31f0)\] cleaning stuff up
-- \[[9b7864c7](https://github.com/silveiralexf/.dotfiles/commit/9b7864c78d4ae7e07bc0b71b4282a74caeaf72f4)\] more cleanup
-- \[[0f320726](https://github.com/silveiralexf/.dotfiles/commit/0f320726d5289bb576c35ee0314ed0462c2a3bba)\] backup some configs and scripts
-- \[[7d1943fd](https://github.com/silveiralexf/.dotfiles/commit/7d1943fd8c6f9c23230adaf693c2bd48c9e68c10)\] archive old stuff
-- \[[fc9b7f6a](https://github.com/silveiralexf/.dotfiles/commit/fc9b7f6aa1365affc9cc00b9e8be5ce56faa81e6)\] reorg telescope settings
-- \[[893016e9](https://github.com/silveiralexf/.dotfiles/commit/893016e96a0aed2156da7835b2723c2a740112ec)\] refactor lsp config
+- \[[b3fc43d3](https://github.com/silveiralexf/.dotfiles/commit/b3fc43d3bb2d50a4e3ceb9926d1feb0b04d49872)\] cleaning stuff up
+- \[[113a017f](https://github.com/silveiralexf/.dotfiles/commit/113a017f042c34a508f08a12b6bd71ec452361fe)\] more cleanup
+- \[[119152c8](https://github.com/silveiralexf/.dotfiles/commit/119152c80755fdfffd3e0c1bcc78a0f9c658fb7b)\] backup some configs and scripts
+- \[[491a7a19](https://github.com/silveiralexf/.dotfiles/commit/491a7a195b84325cb0a43cf6cc46dca4f16e89f8)\] archive old stuff
+- \[[71cf4c69](https://github.com/silveiralexf/.dotfiles/commit/71cf4c696f1712685805ada57abebef705d215f8)\] reorg telescope settings
+- \[[6c7e6b03](https://github.com/silveiralexf/.dotfiles/commit/6c7e6b030d69f8d0d855c3aa0ac0e1c352b3eab1)\] refactor lsp config
 
 
 ## 2022-07-09
 
 ### ⚙️ Chores
 
-- \[[fdbcf360](https://github.com/silveiralexf/.dotfiles/commit/fdbcf3605b602498dfeee77b7725d7028ea299b5)\] update on aliases and functions
+- \[[d0a48ecd](https://github.com/silveiralexf/.dotfiles/commit/d0a48ecd49d715b559a5295eaf5d7d23a60f2482)\] update on aliases and functions
+
+
+## 2022-04-02
+
+### ⚙️ Chores
+
+- \[[453975be](https://github.com/silveiralexf/.dotfiles/commit/453975be8c86c5d7b7c1d42cab25990af4943e30)\] update: adjust alises and tmuxp sessions
 
 
 ## 2022-03-11
 
 ### ⚙️ Chores
 
-- \[[6008387c](https://github.com/silveiralexf/.dotfiles/commit/6008387c97cfee77e865c350fa2c65ad0b61139e)\] Changes from March-2022
+- \[[0afe4931](https://github.com/silveiralexf/.dotfiles/commit/0afe4931957deb50a899a3fcc2a63ad74b30209d)\] Changes from March-2022
 
 
 ## 2021-12-23
 
 ### 🔨 Fixes
 
-- \[[ef4429a0](https://github.com/silveiralexf/.dotfiles/commit/ef4429a0243707abd41dd595349c4fd15e8b1fd0)\] remove oslo2grafana auto-completion
-- \[[87ad64d0](https://github.com/silveiralexf/.dotfiles/commit/87ad64d01c6382cb4878221ef3f1ab7a7d93d60e)\] remove Rust exports
-- \[[f1d41a92](https://github.com/silveiralexf/.dotfiles/commit/f1d41a92e663c67d5071d500439673ca24836611)\] adjust multi-monitor aliases for HP
-- \[[7d3b893d](https://github.com/silveiralexf/.dotfiles/commit/7d3b893d311d794981acfdca0379778374714528)\] adjust monitoring display settings on i3
-- \[[d5f10c37](https://github.com/silveiralexf/.dotfiles/commit/d5f10c3763c5d1a46aae0cd11576c614f53c6a74)\] add dunstrc settings on i3 profile
-- \[[f8f79976](https://github.com/silveiralexf/.dotfiles/commit/f8f799761704f2a953968466e1b51f57365505d0)\] update permissions on files
+- \[[2581161b](https://github.com/silveiralexf/.dotfiles/commit/2581161b03e09dcb142e696fab5dcb746ffd35e3)\] remove oslo2grafana auto-completion
+- \[[73cb54d6](https://github.com/silveiralexf/.dotfiles/commit/73cb54d6d92706e52a57536e7169647f2829f7f2)\] remove Rust exports
+- \[[c88524fd](https://github.com/silveiralexf/.dotfiles/commit/c88524fdb08a5491e3acfda7038e71480b5e5c58)\] adjust multi-monitor aliases for HP
+- \[[87ac2a76](https://github.com/silveiralexf/.dotfiles/commit/87ac2a760ee05171f0cf42cba087da7f3b856ca4)\] adjust monitoring display settings on i3
+- \[[b8d24e26](https://github.com/silveiralexf/.dotfiles/commit/b8d24e2686478d342f16d7b349aceab29504a47f)\] add dunstrc settings on i3 profile
+- \[[873f966c](https://github.com/silveiralexf/.dotfiles/commit/873f966c823db4809cec439b6eb4b886314d827f)\] update permissions on files
+
+
+## 2021-10-13
+
+### ⚙️ Chores
+
+- \[[bb0719bf](https://github.com/silveiralexf/.dotfiles/commit/bb0719bfa78273000a630e1e942c6e89d77fe59b)\] Updating for zsh and stuff
+
+
+## 2021-07-29
+
+### ⚙️ Chores
+
+- \[[4a04087e](https://github.com/silveiralexf/.dotfiles/commit/4a04087e524088066568876345528b9e62d78cfd)\] updates
 
 
 ## 2021-01-19
 
 ### ⚙️ Chores
 
-- \[[9ad2191a](https://github.com/silveiralexf/.dotfiles/commit/9ad2191a4f8df9e64a18b8d90adac89d4f75856c)\] Added xrandr monitor up/down alias
-- \[[7156baaf](https://github.com/silveiralexf/.dotfiles/commit/7156baaf1d3888f211e44a3de0119c1b12e494e3)\] Updated feh background
-- \[[22be001b](https://github.com/silveiralexf/.dotfiles/commit/22be001b77191e89f868331a335a75ff7e8985a1)\] Updated i3 stuff
+- \[[ba067cd3](https://github.com/silveiralexf/.dotfiles/commit/ba067cd3d648685e4b7ef8e8c134e0967992c926)\] Added xrandr monitor up/down alias
+- \[[a6c83278](https://github.com/silveiralexf/.dotfiles/commit/a6c83278fdb0ca16ba4064a748fb66b9f8cb3dd2)\] Updated feh background
+- \[[dfd5aa19](https://github.com/silveiralexf/.dotfiles/commit/dfd5aa192de57545c45435212433e982f6c5d20b)\] Updated i3 stuff
+- \[[adf569e8](https://github.com/silveiralexf/.dotfiles/commit/adf569e877b122bd82a2187f7e62066ff1adbc39)\] added gotest function, fix indentation
+- \[[86dbc905](https://github.com/silveiralexf/.dotfiles/commit/86dbc905cdde3fd9ac206db7ed2b1659dfb3ca97)\] update i3 autolock
 
 
 ## 2020-06-06
 
 ### ⚙️ Chores
 
-- \[[469baa87](https://github.com/silveiralexf/.dotfiles/commit/469baa87e1cd65fca6cbdde120c5dd27df9ada5c)\] remove use of egrep (deprecated) and simplify grep
+- \[[479c8150](https://github.com/silveiralexf/.dotfiles/commit/479c815090c1eb13e4db48fd6a6a2cd7de54e9ea)\] remove use of egrep (deprecated) and simplify grep
 
 
 ## 2020-04-17
 
 ### 🚀 Features
 
-- \[[4f7bddf0](https://github.com/silveiralexf/.dotfiles/commit/4f7bddf0842fae3b719f88ea2a2c1ca898599365)\] Add b64 encode/decode functions
+- \[[0d77a922](https://github.com/silveiralexf/.dotfiles/commit/0d77a92291de0bb518c52e9d1c49245f38c51a09)\] Add b64 encode/decode functions
 
 ### ⚙️ Chores
 
-- \[[42a6d215](https://github.com/silveiralexf/.dotfiles/commit/42a6d215c34a6f65c493947f79807277217d7899)\] Updated python exports and add tmux exports
-- \[[eee80d1b](https://github.com/silveiralexf/.dotfiles/commit/eee80d1b909e7dba37ed61d8fe7663c662f84140)\] Updated time display i3status
-- \[[e7d6f96e](https://github.com/silveiralexf/.dotfiles/commit/e7d6f96eb707f566e7300977c9fe7a86bc26868f)\] Small updates on i3 conf
+- \[[4168d52e](https://github.com/silveiralexf/.dotfiles/commit/4168d52e31a41d7c65031a13021bf4375a086608)\] Dual monitoring updates
+- \[[746b17e9](https://github.com/silveiralexf/.dotfiles/commit/746b17e96e93dc1fa957a039ec565d12b3b0e9b2)\] add i3 win jump handler script
+- \[[c04288b6](https://github.com/silveiralexf/.dotfiles/commit/c04288b6ecc4a30874cdd1cab5892150e10b7717)\] Updated python exports and add tmux exports
+- \[[1eb93a34](https://github.com/silveiralexf/.dotfiles/commit/1eb93a3492028b066441ba039849d502a4405402)\] i3block conf file
+- \[[bb00e775](https://github.com/silveiralexf/.dotfiles/commit/bb00e775c6c0df72580dc2d48200ba500f9df389)\] add tmux vi copy/paste settings
+- \[[3f3470a1](https://github.com/silveiralexf/.dotfiles/commit/3f3470a1efaf9decf132cfec12b134f0fc8fe259)\] Updated time display i3status
+- \[[5ef02219](https://github.com/silveiralexf/.dotfiles/commit/5ef0221977a631216f6bd04972ed26db89891a57)\] Small updates on i3 conf
 
 
 ## 2020-01-09
 
 ### ⚙️ Chores
 
-- \[[91a998e7](https://github.com/silveiralexf/.dotfiles/commit/91a998e7275848280de9be91ab43c82519a74b54)\] Updated PS1 settings
+- \[[ea38db4d](https://github.com/silveiralexf/.dotfiles/commit/ea38db4df4768fd59c6b0698f1f98bd8f7aad972)\] Updated PS1 settings
+- \[[c1a67b80](https://github.com/silveiralexf/.dotfiles/commit/c1a67b8041330f83416865aff34eae40895b2b1f)\] updated keybindings for terminator and i3-input menu
+
+
+## 2020-01-06
+
+### ⚙️ Chores
+
+- \[[d86c9fc0](https://github.com/silveiralexf/.dotfiles/commit/d86c9fc0db411e23c17fcf13cd1b4698e7000045)\] updated i3 color scheme/add conky on 2nd monitor
 
 
 ## 2020-01-04
 
 ### 🚀 Features
 
-- \[[14830375](https://github.com/silveiralexf/.dotfiles/commit/14830375bddd3e8d6c2b0fdaeb749e6718be1984)\] Add alias for wallpaper reset
-- \[[aedcdc3a](https://github.com/silveiralexf/.dotfiles/commit/aedcdc3a3bfc7c9ed8b6e638c67c12ded9d898c1)\] Add i3wm conf files, sripts and images
-- \[[6c5990e7](https://github.com/silveiralexf/.dotfiles/commit/6c5990e70f103b36637dc1ed7bb454f7eb26d9bd)\] Add fehbg for wallpaper settings
+- \[[cbdda33e](https://github.com/silveiralexf/.dotfiles/commit/cbdda33edf4c38ed33a10f23119f0f6439edcc54)\] Add alias for wallpaper reset
+- \[[26f07c72](https://github.com/silveiralexf/.dotfiles/commit/26f07c7237e7fdd9fc926277ded774c9c0bfc7ce)\] Add i3wm conf files, sripts and images
+- \[[d9b14400](https://github.com/silveiralexf/.dotfiles/commit/d9b144001a9005e65742823f0de45c7f8029b8d7)\] Add fehbg for wallpaper settings
 
 ### ⚙️ Chores
 
-- \[[4c5bc0c3](https://github.com/silveiralexf/.dotfiles/commit/4c5bc0c3b32b36ab879054ea264b02967944cb2a)\] Improved conkyrc
-- \[[a70eb34e](https://github.com/silveiralexf/.dotfiles/commit/a70eb34e82be675eb6fd6d1f9a3cb28eae404538)\] Updated htoprc
-- \[[9227929f](https://github.com/silveiralexf/.dotfiles/commit/9227929f85b5d3033548816d765f62a8a29d821c)\] Minor fixes, typos, etc
+- \[[93acfcaa](https://github.com/silveiralexf/.dotfiles/commit/93acfcaa1f60953f5a320fb958c7381fe2860411)\] Improved conkyrc
+- \[[6388a0a6](https://github.com/silveiralexf/.dotfiles/commit/6388a0a6929128b32386b71beaeb0805611d43e2)\] Updated htoprc
+- \[[3c5a161f](https://github.com/silveiralexf/.dotfiles/commit/3c5a161f92ee50704773e4360d4685445e120aef)\] Minor fixes, typos, etc
 
 
 ## 2020-01-02
 
 ### 🚀 Features
 
-- \[[ad9d8d68](https://github.com/silveiralexf/.dotfiles/commit/ad9d8d68e4c51a7b33673ff399efb00ca5922f86)\] Add keybinding for dmenu search
-- \[[47aee511](https://github.com/silveiralexf/.dotfiles/commit/47aee511938b92c87aa09f56555c38a38a995941)\] Add htop profile
-- \[[ea17aa7e](https://github.com/silveiralexf/.dotfiles/commit/ea17aa7e968c28d3b95de43ecf52e6e92a0f8da5)\] Add feh to openbox autostart script
+- \[[6283dd3d](https://github.com/silveiralexf/.dotfiles/commit/6283dd3d8f7081eaa895bd6ab4eaa5a1c03b993b)\] Add keybinding for dmenu search
+- \[[6b5b1a3f](https://github.com/silveiralexf/.dotfiles/commit/6b5b1a3fe9728ab711aaed02227e7e0ea9667b3c)\] Add htop profile
+- \[[2e8a482a](https://github.com/silveiralexf/.dotfiles/commit/2e8a482acf5fcb7bf85d7bc1695df289f860822e)\] Add feh to openbox autostart script
 
 ### 🔨 Fixes
 
-- \[[f9763008](https://github.com/silveiralexf/.dotfiles/commit/f976300845c67b087e9e2164d5f2e21cc6a14847)\] Fixed README typo
+- \[[70bc1d48](https://github.com/silveiralexf/.dotfiles/commit/70bc1d48491042edcd8e5e5b30dd287fcf93f282)\] Fixed README typo
 
 ### ⚙️ Chores
 
-- \[[c51212c8](https://github.com/silveiralexf/.dotfiles/commit/c51212c86ef9a50920ca998bc0d1193e030c8282)\] Updated openbox keybindings
+- \[[193f35ba](https://github.com/silveiralexf/.dotfiles/commit/193f35ba37067a0a505e27421760c7cf49b12410)\] Updated openbox keybindings
+- \[[c7169556](https://github.com/silveiralexf/.dotfiles/commit/c7169556c16899cc9583dc73d2a405b56c9a6178)\] add podman alias
 
 
 ## 2019-12-30
 
 ### ⚙️ Chores
 
-- \[[fc75101a](https://github.com/silveiralexf/.dotfiles/commit/fc75101a4b172106ef62a4e4eb81d5ef6ea1a6a3)\] Updated key bindings
+- \[[aa8f1d5a](https://github.com/silveiralexf/.dotfiles/commit/aa8f1d5a5ef9c7ea9df32eeed4354495cc07d414)\] Changed PS1 settings
+- \[[99dbe545](https://github.com/silveiralexf/.dotfiles/commit/99dbe54513689ef82f55d4c1042fa0571878a296)\] Updated key bindings
 
 
 ## 2019-12-29
 
 ### 🚀 Features
 
-- \[[d722ea83](https://github.com/silveiralexf/.dotfiles/commit/d722ea83a849cc4f65cfb689a4cb6262d7aa0c79)\] Add tmux aliases
+- \[[d26c100d](https://github.com/silveiralexf/.dotfiles/commit/d26c100de8635824ef304dbe7d3ce80276ef0019)\] Add tmux aliases
+
+### ⚙️ Chores
+
+- \[[bd57968b](https://github.com/silveiralexf/.dotfiles/commit/bd57968b6d8df1b04ab78830dfd3ae797618336b)\] Changed PS1 display
 
 
 ## 2019-12-28
 
 ### 🚀 Features
 
-- \[[42b2251e](https://github.com/silveiralexf/.dotfiles/commit/42b2251e82bc8503970e9678f1924b2a89d31fee)\] Add ibmcloud alias
-- \[[a2bf2e87](https://github.com/silveiralexf/.dotfiles/commit/a2bf2e8750c371dc9b7f41a74e3c62a3191b5789)\] Add dbvis and npm exports
+- \[[a70a994d](https://github.com/silveiralexf/.dotfiles/commit/a70a994dc66cf52a1fc12abb8f7ae12501644a69)\] Add ibmcloud alias
+- \[[b0360203](https://github.com/silveiralexf/.dotfiles/commit/b0360203d26a7a05e64a2fa1003f3bb3786892e0)\] Add dbvis and npm exports
 
 ### ⚙️ Chores
 
-- \[[b7ffb810](https://github.com/silveiralexf/.dotfiles/commit/b7ffb810dc8c4e355425dd1decf88b709480edb1)\] Remove nautilus from start
+- \[[423c05fd](https://github.com/silveiralexf/.dotfiles/commit/423c05fd1988b4ea6031003a18ae92c5a63769c6)\] Replace xdg-open and small stuff
+- \[[616aaa93](https://github.com/silveiralexf/.dotfiles/commit/616aaa9321247e6b69e518b08f229010b5d25451)\] Remove nautilus from start
+- \[[cceed967](https://github.com/silveiralexf/.dotfiles/commit/cceed967936628e299d7c12b9230fec97a981011)\] Replaced keybinding from terminator to st
+
+
+## 2019-11-02
+
+### ⚙️ Chores
+
+- \[[b2842df7](https://github.com/silveiralexf/.dotfiles/commit/b2842df7b39a14817c6aeca09faeee2f50a49b00)\] small updates
 
 
 ## 2019-10-27
 
 ### ⚙️ Chores
 
-- \[[0314d8ec](https://github.com/silveiralexf/.dotfiles/commit/0314d8eca32ee67f2a63edace15fb0e3ed97c4e6)\] Added bluetooth reload function
+- \[[e0c7ce0d](https://github.com/silveiralexf/.dotfiles/commit/e0c7ce0da8dbe3e5dcb61785d530b54b180c91c9)\] Added bluetooth reload function
+
+
+## 2019-10-19
+
+### ⚙️ Chores
+
+- \[[765f82c6](https://github.com/silveiralexf/.dotfiles/commit/765f82c63980c420656f46b0cc33486fb1ce918e)\] Exports updates
+- \[[c30d2c14](https://github.com/silveiralexf/.dotfiles/commit/c30d2c140c303c576381f6c0d292433685eadfbb)\] Go private
 
 
 ## 2019-10-16
 
 ### 🚀 Features
 
-- \[[c4f7cd68](https://github.com/silveiralexf/.dotfiles/commit/c4f7cd689c6f8f1635c320e88d27976b7e860d51)\] Add random pass gen function
+- \[[28bd7d05](https://github.com/silveiralexf/.dotfiles/commit/28bd7d0565f7fd0a8e3c1662a8f7a7450865dbc7)\] Add random pass gen function
 
 
 ## 2019-10-02
 
 ### ⚙️ Chores
 
-- \[[c72d4c11](https://github.com/silveiralexf/.dotfiles/commit/c72d4c11714dd11744c1169a2c7121165a19c570)\] Updated gitignore to ignore private profile
+- \[[c54f4543](https://github.com/silveiralexf/.dotfiles/commit/c54f45432ed15102eebd3d00b9a09cd101878331)\] Updated gitignore to ignore private profile
+
+
+## 2019-09-30
+
+### ⚙️ Chores
+
+- \[[66012dc1](https://github.com/silveiralexf/.dotfiles/commit/66012dc1b5e4b8230d43478a69ba19fab58afb68)\] add quick reminder for minikube tiller
+
+
+## 2019-09-26
+
+### ⚙️ Chores
+
+- \[[26541931](https://github.com/silveiralexf/.dotfiles/commit/26541931e69cba01e033542f88eea68ea4e1745e)\] Replacing kill -9 by pkill to avoid being rude for no reason
 
 
 ## 2019-09-25
 
 ### ⚙️ Chores
 
-- \[[05c6bd59](https://github.com/silveiralexf/.dotfiles/commit/05c6bd5965aa12c0bfa9cf1083d7bab31b226314)\] Updated docs and add keeper for private stuff
+- \[[1f7bed4d](https://github.com/silveiralexf/.dotfiles/commit/1f7bed4de8e02ab89a6d467fb085bb72c45a6cf8)\] Borrowed stuff from jessfraz, reestructured repo
+- \[[f4dd5959](https://github.com/silveiralexf/.dotfiles/commit/f4dd5959d49c96ffc38b5d8fdd71cb9cbb191854)\] Updated docs and add keeper for private stuff
+- \[[4b62a2f9](https://github.com/silveiralexf/.dotfiles/commit/4b62a2f97901a4fc2e8ffadc735c48bf16173980)\] Moved some exports to main file
+- \[[574b5c6a](https://github.com/silveiralexf/.dotfiles/commit/574b5c6aa11a201c9d9ed753646318c8030f60da)\] Moved .private to correct location
 
 
 ## 2019-08-11
 
 ### ⚙️ Chores
 
-- \[[a952ce36](https://github.com/silveiralexf/.dotfiles/commit/a952ce36ec9dd34f2aa282ea103a70f24e07ca94)\] Added fzf.bash that was missing for fuzzy search
+- \[[58e5a517](https://github.com/silveiralexf/.dotfiles/commit/58e5a517095ff9482013a9dce2e1b602c666337a)\] Added fzf.bash that was missing for fuzzy search
 
 
 ## 2019-08-10
 
 ### 🔨 Fixes
 
-- \[[fd46d605](https://github.com/silveiralexf/.dotfiles/commit/fd46d605a25a7e13a95de9cde8c94fd8a5d67ef2)\] Fixed wrong path
-- \[[6343e5e9](https://github.com/silveiralexf/.dotfiles/commit/6343e5e9f8468d9e88b5a0a86cd105df3250651d)\] Fixed typo
+- \[[4f877ba7](https://github.com/silveiralexf/.dotfiles/commit/4f877ba77f219f91c671ae1594dfd8759c1e633f)\] Fixed wrong path
+- \[[e7d6bb0d](https://github.com/silveiralexf/.dotfiles/commit/e7d6bb0d428503385aa94437e145f3ad8297fa55)\] Fixed typo
 
 ### ⚙️ Chores
 
-- \[[b16ef1b4](https://github.com/silveiralexf/.dotfiles/commit/b16ef1b4b4a3d352bbb702e0b2c797c273a76e1c)\] Initial commit
-- \[[3e7bda23](https://github.com/silveiralexf/.dotfiles/commit/3e7bda232cdeed0f3a4e6889b69b7613c668691e)\] Added vim_runtime install to script
+- \[[145d1b83](https://github.com/silveiralexf/.dotfiles/commit/145d1b83e717bdfefc87801734ccc4d093e27d2d)\] Initial commit
+- \[[7acae29b](https://github.com/silveiralexf/.dotfiles/commit/7acae29ba12d0333ce4a0e6076321ffdc2557b2a)\] Initial release
+- \[[5978d285](https://github.com/silveiralexf/.dotfiles/commit/5978d285e235f110f81d9a81346a0f10229569f9)\] Update gitignore
+- \[[b5e2428c](https://github.com/silveiralexf/.dotfiles/commit/b5e2428cc767806984fd29f82dce35701d19829f)\] Added vim_runtime install to script
 
 <!-- generated by git-cliff -->

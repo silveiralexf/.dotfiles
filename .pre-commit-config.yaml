@@ -1,8 +1,56 @@
 # default_stages: [commit]
+# Align with enkub-io/enkub: markdown/yaml/json lint and format, plan naming, extra hooks
 fail_fast: true
 repos:
+  - repo: local
+    hooks:
+      - id: rename-cursor-plans
+        name: Rename .cursor/plans/*.plan.md to YYYY-MM-DD_username_slug.plan.md
+        entry: scripts/rename-cursor-plans.sh
+        language: system
+        pass_filenames: false
+      - id: cursor-plan-names
+        name: Validate .cursor/plans/*.plan.md filenames (must match convention)
+        entry: scripts/validate-cursor-plan-names.sh
+        language: system
+        pass_filenames: false
+      - id: fix-curly-quotes
+        name: fix-curly-quotes
+        entry: bash scripts/fix-curly-quotes.sh
+        language: system
+        types: [text]
+        pass_filenames: true
+      - id: check-prereqs
+        name: check-prereqs
+        entry: bash scripts/check-prereqs.sh
+        language: system
+        pass_filenames: false
+      - id: markdownlint
+        name: markdownlint
+        entry: markdownlint
+        language: node
+        types: [markdown]
+        exclude: '^\.cursor/commands/'
+        pass_filenames: true
+        args: ["-c", ".markdownlint.yaml", "-i", "CHANGELOG.md", "-i", "node_modules"]
+        additional_dependencies: [markdownlint-cli@^0.44.0]
+      - id: task-yamlfmt
+        name: task-yamlfmt
+        entry: task
+        language: system
+        args: [yamlfmt]
+        types: [yaml]
+        pass_filenames: false
+      - id: task-jsonfmt
+        name: task-jsonfmt
+        entry: task
+        language: system
+        args: [jsonfmt]
+        types: [json]
+        pass_filenames: false
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v6.0.0
     hooks:
       - id: detect-private-key
       - id: check-merge-conflict
@@ -17,6 +65,11 @@ repos:
         args: ["--maxkb=2000"]
       - id: check-yaml
       - id: check-json
+      - id: check-toml
+      - id: check-xml
+      - id: check-case-conflict
+      - id: debug-statements
+
   - repo: https://github.com/lunarmodules/luacheck
     rev: v1.2.0
     hooks:

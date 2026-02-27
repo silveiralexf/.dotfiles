@@ -7,9 +7,10 @@ alwaysApply: true
 
 Break work into small tasks (2-5 min each). Use exact paths and commands.
 
-## Plan location
+## Plan location and naming
 
-- **Plans:** `.cursor/plans/` with naming `YYYY-MM-DD_<username>_<slug>.plan.md` (see `.cursor/plans/README.md`).
+- **Plans:** `.cursor/plans/` with naming **`YYYY-MM-DD_<username>_<slug>.plan.md`** (see `.cursor/plans/README.md`).
+- **Enforcement:** Naming is enforced by pre-commit via `scripts/rename-cursor-plans.sh`. Rule: `.cursor/rules/dotfiles-plan-naming.mdc`. Non-conforming plans are renamed automatically on commit; run `task plan:rename -- --dry-run` to preview.
 
 ## Plan header
 
