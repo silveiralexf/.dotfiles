@@ -1,4 +1,4 @@
-# markdownlint config (align with enkub); schema: https://github.com/DavidAnson/markdownlint/blob/main/schema/markdownlint-config-schema.json
+# markdownlint config; schema: https://github.com/DavidAnson/markdownlint/blob/main/schema/markdownlint-config-schema.json
 MD004: false   # unordered list style (TOC etc.)
 MD007: false   # list indentation
 MD010:

@@ -1,5 +1,5 @@
 # default_stages: [commit]
-# Align with enkub-io/enkub: markdown/yaml/json lint and format, plan naming, extra hooks
+# Markdown/yaml/json lint and format, plan naming, Lua tests, extra hooks
 fail_fast: true
 repos:
   - repo: local

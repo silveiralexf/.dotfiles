@@ -48,6 +48,7 @@ All notable changes to this project will be documented in this file.
 - \[[7cd9a15c](https://github.com/silveiralexf/.dotfiles/commit/7cd9a15c16523b6b53f2ae5fff3695c7fc446305)\] add markdownlint, yamlfmt, jsonfmt tasks and devbox precommit-install
 - \[[e6ab5ca9](https://github.com/silveiralexf/.dotfiles/commit/e6ab5ca9c93552cb0a41e42d020a55f78a2a2460)\] update cursor workflow, agents, rules, commands and plugin config
 - \[[fecfc007](https://github.com/silveiralexf/.dotfiles/commit/fecfc007469dcb49d06d9d5b766fc6e1fe283abd)\] update nvim lazy lock, lazyvim and plugin config
+- \[[8334f3d8](https://github.com/silveiralexf/.dotfiles/commit/8334f3d88e163c3425a649e8c3390bf9ce6243eb)\] add Lua tests (task test:lua) to pre-commit hooks
 
 
 ## 2026-01-09
