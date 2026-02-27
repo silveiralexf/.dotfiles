@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 - *(tasks)* \[[4bcd275c](https://github.com/silveiralexf/.dotfiles/commit/4bcd275c181fb7120af9de1581b09ef2ad3b4a70)\] wire common and linux installs in root Taskfile
 - *(tests)* \[[3dc5b03c](https://github.com/silveiralexf/.dotfiles/commit/3dc5b03ccedf98b3d489db58de8b707fd0c0334a)\] add Lua acceptance test scaffold (Gherkin-style + Busted)
 - *(scripts)* \[[a9d302ee](https://github.com/silveiralexf/.dotfiles/commit/a9d302ee4c70df0bb18442613dae1fc7091f1e37)\] add rewrite-commit-messages.sh for conventional commits
+- \[[079ddb1c](https://github.com/silveiralexf/.dotfiles/commit/079ddb1cfcf3129b54b0c04ad7d67b784a96472a)\] add Gherkin feature runner with byfeature-style output
 
 ### 🏭 Refactor
 
@@ -50,6 +51,8 @@ All notable changes to this project will be documented in this file.
 - \[[fecfc007](https://github.com/silveiralexf/.dotfiles/commit/fecfc007469dcb49d06d9d5b766fc6e1fe283abd)\] update nvim lazy lock, lazyvim and plugin config
 - \[[8334f3d8](https://github.com/silveiralexf/.dotfiles/commit/8334f3d88e163c3425a649e8c3390bf9ce6243eb)\] add Lua tests (task test:lua) to pre-commit hooks
 - \[[528a2b14](https://github.com/silveiralexf/.dotfiles/commit/528a2b148fc2553643825d40b76d87dcf365c396)\] improve Lua test output (TAP) and drop reference name from docs
+- \[[b36353aa](https://github.com/silveiralexf/.dotfiles/commit/b36353aa0e9bdd91c8fa49320a6db598993da2c6)\] add GitHub Actions for pre-commit and changelog
+- \[[f9bd9a75](https://github.com/silveiralexf/.dotfiles/commit/f9bd9a75e868d68b89f47bb58249e9cfdfa679f7)\] add workflow_dispatch to changelog, document why push may not run
 
 
 ## 2026-01-09
