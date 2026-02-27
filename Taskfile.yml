@@ -43,6 +43,11 @@ tasks:
     cmds:
       - cp scripts/hooks/* .git/hooks/
     silent: true
+  test:lua:
+    desc: "Run Lua acceptance tests (Busted). Install with 'luarocks install busted'"
+    dir: "{{.TASKFILE_DIR}}"
+    cmds:
+      - cmd: "busted tests/spec --no-coverage 2>/dev/null || (echo 'Install Busted with luarocks install busted' && exit 1)"
   precommit:
     desc: Verifies and fix requirements for new commits
     cmds:
