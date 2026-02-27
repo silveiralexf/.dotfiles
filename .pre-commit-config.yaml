@@ -48,6 +48,13 @@ repos:
         args: [jsonfmt]
         types: [json]
         pass_filenames: false
+      - id: task-test-lua
+        name: Run Lua tests (Busted)
+        entry: task
+        language: system
+        args: [test:lua]
+        types: [lua]
+        pass_filenames: false
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0

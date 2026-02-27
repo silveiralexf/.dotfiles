@@ -32,6 +32,7 @@ All notable changes to this project will be documented in this file.
 - *(wezterm)* \[[6915244f](https://github.com/silveiralexf/.dotfiles/commit/6915244f2ad9cde2ab205d201f4732ead8afb2b8)\] correct typo in Backdrops init (inital → initial)
 - *(nvim)* \[[79cdcbed](https://github.com/silveiralexf/.dotfiles/commit/79cdcbed0facd51d3f5093fa4eee50877b549cf9)\] python ruff_lsp registration, proto clangd detach via LspAttach, rust drop helpers
 - *(scripts)* \[[9c8b8616](https://github.com/silveiralexf/.dotfiles/commit/9c8b8616595f09a642cae2060046579ebeec43f9)\] ensure rewrite-commit-messages.sh exits 0 for filter-branch
+- \[[f42e0239](https://github.com/silveiralexf/.dotfiles/commit/f42e02394e0b2260161b913683bd4bb207177a10)\] update urage-exodus-860 keylayout config
 
 ### ⚙️ Chores
 
