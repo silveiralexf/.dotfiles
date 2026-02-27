@@ -53,6 +53,8 @@ All notable changes to this project will be documented in this file.
 - \[[528a2b14](https://github.com/silveiralexf/.dotfiles/commit/528a2b148fc2553643825d40b76d87dcf365c396)\] improve Lua test output (TAP) and drop reference name from docs
 - \[[b36353aa](https://github.com/silveiralexf/.dotfiles/commit/b36353aa0e9bdd91c8fa49320a6db598993da2c6)\] add GitHub Actions for pre-commit and changelog
 - \[[f9bd9a75](https://github.com/silveiralexf/.dotfiles/commit/f9bd9a75e868d68b89f47bb58249e9cfdfa679f7)\] add workflow_dispatch to changelog, document why push may not run
+- \[[481fe56f](https://github.com/silveiralexf/.dotfiles/commit/481fe56f4258648f3e5abd23cd78224af2e209d2)\] update CHANGELOG.md [skip ci]
+- \[[0f22258e](https://github.com/silveiralexf/.dotfiles/commit/0f22258e484a232c322ef7161bca3a5693dc9b1c)\] run pre-commit workflow on push to main/master as well as PR
 
 
 ## 2026-01-09
