@@ -23,6 +23,8 @@ Runs on **macOS and Linux**. Use this for a single flow on both (fzf, Lua, Neovi
 
 Profile links: ~/.config/nvim, yazi, tmux, terminalizer, p10k, atuin, lazygit (~/.config/lazygit). No macOS-only links (e.g. AeroSpace, Library/Application Support).
 
+**Neovim portability:** The `nvim/` config is written to work on macOS, Omarchy Linux, and Ubuntu (one config, no OS-specific paths). See `nvim/README.md` for the portability notes.
+
 ## Linux: tasks/linux/install/apt
 
 **Debian/Ubuntu only.** Installs base OS packages via apt (e.g. build-essential, curl, jq, nodejs, python3, fzf, zoxide, pre-commit). Uses `eatmydata` when available for non-interactive install.
@@ -46,6 +48,18 @@ These run on **macOS only**. They use Homebrew, system paths, and macOS-specific
 | **k8s** | kubebuilder, operator-sdk, kustomize, k3d, Tilt (darwin/linux binaries). |
 | **docker** | Rancher Desktop (.dmg), Docker Buildx (darwin binary). |
 | **hammerspoon** | Hammerspoon Spoons (macOS only). |
+
+## Changelog (git-cliff)
+
+`task changelog` regenerates `CHANGELOG.md` from conventional commits. To **rewrite old commit messages** to conventional format once (history rewrite; backup first, then force-push):
+
+```bash
+git clone --mirror . ../.dotfiles-backup.git   # backup
+task changelog:rewrite-history                 # rewrites all commit messages
+git push --force-with-lease                    # after verifying
+```
+
+The script `scripts/rewrite-commit-messages.sh` applies the same normalization rules as `cliff.toml` preprocessors.
 
 ## Testing Lua config (acceptance-driven, Gherkin-style)
 

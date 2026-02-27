@@ -39,6 +39,7 @@ All notable changes to this project will be documented in this file.
 - *(tasks)* \[[668ddb1f](https://github.com/silveiralexf/.dotfiles/commit/668ddb1fe301a0673006638b1e7dfc01eb99c9fc)\] add test:lua task and document Lua testing in tasks README
 - *(devbox)* \[[c8a93052](https://github.com/silveiralexf/.dotfiles/commit/c8a93052250bf991f11801fb3e63798b94f31ffa)\] add devbox.lock for reproducible environments
 - *(nvim)* \[[5e0cb6c3](https://github.com/silveiralexf/.dotfiles/commit/5e0cb6c39497d3add9aa01635eff1448410824a9)\] cross-platform paths and URL opener (macOS + Linux)
+- *(cliff)* \[[f54429ba](https://github.com/silveiralexf/.dotfiles/commit/f54429ba10c3552addc0e02b74a3de6c7a135ac1)\] preprocessors for old commits, RUST_LOG=error, changelog:rewrite-history task
 
 
 ## 2026-01-09
