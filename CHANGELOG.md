@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 ### 🚀 Features
 
 - *(devbox)* \[[16032552](https://github.com/silveiralexf/.dotfiles/commit/160325525c7c8166c716fc2dbb2190c229f26948)\] add devbox config, tasks and gitignore
+- *(nvim)* \[[c852888b](https://github.com/silveiralexf/.dotfiles/commit/c852888bd9fe6dabdbf7b6813744cf37609541ad)\] support Linux in core nvim install task
 
 ### 📚 Documentation
 

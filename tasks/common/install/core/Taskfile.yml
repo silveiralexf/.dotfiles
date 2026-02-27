@@ -1,0 +1,107 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+# Shared core setup (macOS + Linux): fzf, lua, nvim nightly, profile. No Rosetta.
+version: "3"
+tasks:
+  all:
+    desc: Setup shell, core settings and tools (cross-platform)
+    cmds:
+      - task: fzf
+      - task: lua
+      - task: nvim
+      - task: profile
+
+  fzf:
+    desc: Install FuzzyFinder
+    status:
+      - test -d "${HOME}/.fzf"
+    cmds:
+      - git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+      - ~/.fzf/install --bin
+
+  lua:
+    desc: Install Lua from source (for Neovim etc.)
+    status:
+      - lua -v
+    cmds:
+      - cmd: |
+          set -e
+          LUAV=5.4.7
+          cd /tmp
+          curl -L -R -O https://www.lua.org/ftp/lua-${LUAV}.tar.gz
+          tar zxf lua-${LUAV}.tar.gz
+          (cd lua-${LUAV} && make && make test && sudo make install)
+          rm -rf lua-${LUAV}.tar.gz lua-${LUAV}
+
+  nvim:
+    desc: Install Neovim nightly (macOS or Linux)
+    status:
+      - nvim --version | grep LuaJIT
+    cmds:
+      - cmd: '[ "$(uname -s)" = "Darwin" ] && task common:install:core:nvim:darwin || task common:install:core:nvim:linux'
+
+  nvim:darwin:
+    desc: Install Neovim nightly on macOS
+    status:
+      - nvim --version | grep LuaJIT
+    vars:
+      NVIM_ARCH: '{{`uname -m`}}'
+      NVIM_INSTALL_PATH: /opt/nvim
+      NVIM_TARBALL_DIR: nvim-macos-{{.NVIM_ARCH}}
+      NVIM_DOWNLOAD_URL: https://github.com/neovim/neovim/releases/download/nightly/nvim-macos-{{.NVIM_ARCH}}.tar.gz
+    cmds:
+      - mkdir -p "$HOME/Downloads"
+      - nvim -version || curl -fsSL -o "$HOME/Downloads/nvim-macos-{{.NVIM_ARCH}}.tar.gz" "{{.NVIM_DOWNLOAD_URL}}"
+      - nvim -version || sudo mkdir -p {{.NVIM_INSTALL_PATH}}
+      - nvim -version || (cd /tmp && tar xzvf "$HOME/Downloads/nvim-macos-{{.NVIM_ARCH}}.tar.gz" && sudo cp -R {{.NVIM_TARBALL_DIR}}/* {{.NVIM_INSTALL_PATH}}/ && rm -rf {{.NVIM_TARBALL_DIR}})
+      - nvim -v || sudo chmod +x {{.NVIM_INSTALL_PATH}}/bin/nvim
+
+  nvim:linux:
+    desc: Install Neovim nightly on Linux
+    status:
+      - nvim --version | grep LuaJIT
+    vars:
+      NVIM_ARCH: '{{`uname -m | sed "s/aarch64/arm64/"`}}'
+      NVIM_TARBALL_DIR: nvim-linux-{{.NVIM_ARCH}}
+      NVIM_DOWNLOAD_URL: https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-{{.NVIM_ARCH}}.tar.gz
+    cmds:
+      - mkdir -p "$HOME/Downloads" "$HOME/.local/bin"
+      - nvim -version || curl -fsSL -o "$HOME/Downloads/nvim-linux-{{.NVIM_ARCH}}.tar.gz" "{{.NVIM_DOWNLOAD_URL}}"
+      - nvim -version || (cd "$HOME/.local" && tar xzvf "$HOME/Downloads/nvim-linux-{{.NVIM_ARCH}}.tar.gz" && rm -rf nvim && mv "{{.NVIM_TARBALL_DIR}}" nvim)
+      - ln -sf "$HOME/.local/nvim/bin/nvim" "$HOME/.local/bin/nvim"
+
+  profile:
+    desc: Setup shell profile settings (cross-platform)
+    cmds:
+      - task: profile:createdirs
+      - task: profile:links
+      - task: profile:setup
+
+  profile:links:
+    deps:
+      - profile:createdirs
+    cmds:
+      - test -L ~/go/src || ln -s ~/git ~/go/src
+      - test -L ~/.config/nvim || ln -s ${DOTFILES_HOME}/nvim ~/.config/nvim
+      - test -L ~/.config/yazi || ln -s ${DOTFILES_HOME}/yazi ~/.config/yazi
+      - test -L ~/.tmux.conf || ln -s ${DOTFILES_CONFIG}/tmux/tmux.conf ~/.tmux.conf
+      - test -L ~/.config/terminalizer/config.yaml || (mkdir -p ~/.config/terminalizer && ln -s ${DOTFILES_CONFIG}/terminalizer.yaml ~/.config/terminalizer/config.yaml)
+      - test -L ~/.p10k.zsh || ln -s ${DOTFILES_CONFIG}/p10k.zsh ~/.p10k.zsh
+      - test -L ~/.config/atuin/config.toml || (mkdir -p ~/.config/atuin && ln -s ${DOTFILES_CONFIG}/atuin.toml ~/.config/atuin/config.toml)
+      - cmd: mkdir -p ~/.config/lazygit && (test -L ~/.config/lazygit/config.yml || ln -s ${DOTFILES_HOME}/etc/config/lazy.yaml ~/.config/lazygit/config.yml)
+
+  profile:createdirs:
+    cmds:
+      - for:
+          - ~/.config/atuin
+          - ~/.config/terminalizer
+          - ~/.config/lazygit
+          - ~/git
+          - ~/go
+        cmd: mkdir -p {{.ITEM}}
+
+  profile:setup:
+    status:
+      - test -L ~/.zshrc && diff ~/.zshrc ${DOTFILES_RC}/zshrc >/dev/null
+    cmds:
+      - mv ~/.zshrc ~/.zshrc.bak.$(date +%Y%m%d%S) 2>/dev/null || true
+      - ln -sf ${DOTFILES_RC}/zshrc ~/.zshrc
