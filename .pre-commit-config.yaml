@@ -25,6 +25,13 @@ repos:
         entry: bash scripts/check-prereqs.sh
         language: system
         pass_filenames: false
+      - id: shellcheck
+        name: shellcheck
+        entry: shellcheck
+        language: system
+        types: [shell]
+        pass_filenames: true
+        exclude: '\.(zsh|tmux)$|^\.cursor/|^etc/|^tmux/'
       - id: markdownlint
         name: markdownlint
         entry: markdownlint
