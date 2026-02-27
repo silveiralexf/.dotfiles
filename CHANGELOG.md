@@ -16,6 +16,7 @@ All notable changes to this project will be documented in this file.
 ### 📚 Documentation
 
 - \[[d57f0dc9](https://github.com/silveiralexf/.dotfiles/commit/d57f0dc9a9c50cdc4c87787bc902bc7190535ef4)\] add devbox section and install tasks README
+- *(tasks)* \[[15a98c73](https://github.com/silveiralexf/.dotfiles/commit/15a98c73a5712c793d355fe2da2eae012686ebf8)\] document common and linux install flow
 
 ### 🧪 Testing
 
