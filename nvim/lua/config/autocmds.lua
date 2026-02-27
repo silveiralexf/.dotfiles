@@ -68,15 +68,16 @@ vim.api.nvim_create_autocmd('BufReadPost', {
   end,
 })
 
--- [Vim/LSP] Always attach LSP when available
+-- [Vim/LSP] Buffer keymaps and options when LSP attaches
 vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('user_lsp_attach', { clear = true }),
   callback = function(args)
     local bufnr = args.buf
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if client and client.supports_method(client, 'textDocument/implementation') then
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = 0 })
+      vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, desc = 'LSP hover' })
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {
-        buffer = 0,
+        buffer = bufnr,
         desc = 'Go to definition',
       })
       if client and client.supports_method(client, 'textDocument/completion') then
@@ -97,7 +98,7 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   end,
 })
 
--- [ProtoBuf] Handler for protofiles
+-- [ProtoBuf] Handler for protofiles: start proto LSP
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'proto',
   callback = function(args)
@@ -106,16 +107,21 @@ vim.api.nvim_create_autocmd('FileType', {
       root_dir = vim.fs.root(args.buf, { '*.proto' }),
       cmd = { 'protols' },
     })
+  end,
+})
 
-    local active_clients = vim.lsp.get_clients()
+-- [ProtoBuf] When proto LSP attaches, detach clangd from this buffer to avoid conflicts
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('proto_detach_clangd', { clear = true }),
+  callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if not client or client.name ~= 'proto' then
+      return
+    end
     local bufnr = args.buf
-
-    if client ~= nil and client.name == 'proto' then
-      for _, c in ipairs(active_clients) do
-        if c.name == 'clangd' then
-          vim.lsp.buf_detach_client(bufnr, c.id)
-        end
+    for _, c in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+      if c.name == 'clangd' then
+        vim.lsp.buf_detach_client(bufnr, c.id)
       end
     end
   end,
@@ -160,7 +166,7 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   end,
 })
 
--- [Golang] Set filetype for Go HTML template files
+-- [Kustomize] Set filetype for kustomization files
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   pattern = { 'kustomization.yaml' },
   callback = function()

@@ -32,6 +32,7 @@ All notable changes to this project will be documented in this file.
 - *(cursor)* \[[cbe459d9](https://github.com/silveiralexf/.dotfiles/commit/cbe459d987ce6ac320fafb62f6f710ab56084819)\] fix end of file in rule files
 - *(lua)* \[[6bcc260e](https://github.com/silveiralexf/.dotfiles/commit/6bcc260e7f74e5ba5629c06387d4bebf45a87665)\] extend luacheck to wezterm, fix backdrops path, ignore json long lines
 - *(tasks)* \[[668ddb1f](https://github.com/silveiralexf/.dotfiles/commit/668ddb1fe301a0673006638b1e7dfc01eb99c9fc)\] add test:lua task and document Lua testing in tasks README
+- *(devbox)* \[[c8a93052](https://github.com/silveiralexf/.dotfiles/commit/c8a93052250bf991f11801fb3e63798b94f31ffa)\] add devbox.lock for reproducible environments
 
 
 ## 2026-01-09
@@ -745,5 +746,166 @@ All notable changes to this project will be documented in this file.
 ### ⚙️ Chores
 
 - \[[fdbcf360](https://github.com/silveiralexf/.dotfiles/commit/fdbcf3605b602498dfeee77b7725d7028ea299b5)\] update on aliases and functions
+
+
+## 2022-03-11
+
+### ⚙️ Chores
+
+- \[[6008387c](https://github.com/silveiralexf/.dotfiles/commit/6008387c97cfee77e865c350fa2c65ad0b61139e)\] Changes from March-2022
+
+
+## 2021-12-23
+
+### 🔨 Fixes
+
+- \[[ef4429a0](https://github.com/silveiralexf/.dotfiles/commit/ef4429a0243707abd41dd595349c4fd15e8b1fd0)\] remove oslo2grafana auto-completion
+- \[[87ad64d0](https://github.com/silveiralexf/.dotfiles/commit/87ad64d01c6382cb4878221ef3f1ab7a7d93d60e)\] remove Rust exports
+- \[[f1d41a92](https://github.com/silveiralexf/.dotfiles/commit/f1d41a92e663c67d5071d500439673ca24836611)\] adjust multi-monitor aliases for HP
+- \[[7d3b893d](https://github.com/silveiralexf/.dotfiles/commit/7d3b893d311d794981acfdca0379778374714528)\] adjust monitoring display settings on i3
+- \[[d5f10c37](https://github.com/silveiralexf/.dotfiles/commit/d5f10c3763c5d1a46aae0cd11576c614f53c6a74)\] add dunstrc settings on i3 profile
+- \[[f8f79976](https://github.com/silveiralexf/.dotfiles/commit/f8f799761704f2a953968466e1b51f57365505d0)\] update permissions on files
+
+
+## 2021-01-19
+
+### ⚙️ Chores
+
+- \[[9ad2191a](https://github.com/silveiralexf/.dotfiles/commit/9ad2191a4f8df9e64a18b8d90adac89d4f75856c)\] Added xrandr monitor up/down alias
+- \[[7156baaf](https://github.com/silveiralexf/.dotfiles/commit/7156baaf1d3888f211e44a3de0119c1b12e494e3)\] Updated feh background
+- \[[22be001b](https://github.com/silveiralexf/.dotfiles/commit/22be001b77191e89f868331a335a75ff7e8985a1)\] Updated i3 stuff
+
+
+## 2020-06-06
+
+### ⚙️ Chores
+
+- \[[469baa87](https://github.com/silveiralexf/.dotfiles/commit/469baa87e1cd65fca6cbdde120c5dd27df9ada5c)\] remove use of egrep (deprecated) and simplify grep
+
+
+## 2020-04-17
+
+### 🚀 Features
+
+- \[[4f7bddf0](https://github.com/silveiralexf/.dotfiles/commit/4f7bddf0842fae3b719f88ea2a2c1ca898599365)\] Add b64 encode/decode functions
+
+### ⚙️ Chores
+
+- \[[42a6d215](https://github.com/silveiralexf/.dotfiles/commit/42a6d215c34a6f65c493947f79807277217d7899)\] Updated python exports and add tmux exports
+- \[[eee80d1b](https://github.com/silveiralexf/.dotfiles/commit/eee80d1b909e7dba37ed61d8fe7663c662f84140)\] Updated time display i3status
+- \[[e7d6f96e](https://github.com/silveiralexf/.dotfiles/commit/e7d6f96eb707f566e7300977c9fe7a86bc26868f)\] Small updates on i3 conf
+
+
+## 2020-01-09
+
+### ⚙️ Chores
+
+- \[[91a998e7](https://github.com/silveiralexf/.dotfiles/commit/91a998e7275848280de9be91ab43c82519a74b54)\] Updated PS1 settings
+
+
+## 2020-01-04
+
+### 🚀 Features
+
+- \[[14830375](https://github.com/silveiralexf/.dotfiles/commit/14830375bddd3e8d6c2b0fdaeb749e6718be1984)\] Add alias for wallpaper reset
+- \[[aedcdc3a](https://github.com/silveiralexf/.dotfiles/commit/aedcdc3a3bfc7c9ed8b6e638c67c12ded9d898c1)\] Add i3wm conf files, sripts and images
+- \[[6c5990e7](https://github.com/silveiralexf/.dotfiles/commit/6c5990e70f103b36637dc1ed7bb454f7eb26d9bd)\] Add fehbg for wallpaper settings
+
+### ⚙️ Chores
+
+- \[[4c5bc0c3](https://github.com/silveiralexf/.dotfiles/commit/4c5bc0c3b32b36ab879054ea264b02967944cb2a)\] Improved conkyrc
+- \[[a70eb34e](https://github.com/silveiralexf/.dotfiles/commit/a70eb34e82be675eb6fd6d1f9a3cb28eae404538)\] Updated htoprc
+- \[[9227929f](https://github.com/silveiralexf/.dotfiles/commit/9227929f85b5d3033548816d765f62a8a29d821c)\] Minor fixes, typos, etc
+
+
+## 2020-01-02
+
+### 🚀 Features
+
+- \[[ad9d8d68](https://github.com/silveiralexf/.dotfiles/commit/ad9d8d68e4c51a7b33673ff399efb00ca5922f86)\] Add keybinding for dmenu search
+- \[[47aee511](https://github.com/silveiralexf/.dotfiles/commit/47aee511938b92c87aa09f56555c38a38a995941)\] Add htop profile
+- \[[ea17aa7e](https://github.com/silveiralexf/.dotfiles/commit/ea17aa7e968c28d3b95de43ecf52e6e92a0f8da5)\] Add feh to openbox autostart script
+
+### 🔨 Fixes
+
+- \[[f9763008](https://github.com/silveiralexf/.dotfiles/commit/f976300845c67b087e9e2164d5f2e21cc6a14847)\] Fixed README typo
+
+### ⚙️ Chores
+
+- \[[c51212c8](https://github.com/silveiralexf/.dotfiles/commit/c51212c86ef9a50920ca998bc0d1193e030c8282)\] Updated openbox keybindings
+
+
+## 2019-12-30
+
+### ⚙️ Chores
+
+- \[[fc75101a](https://github.com/silveiralexf/.dotfiles/commit/fc75101a4b172106ef62a4e4eb81d5ef6ea1a6a3)\] Updated key bindings
+
+
+## 2019-12-29
+
+### 🚀 Features
+
+- \[[d722ea83](https://github.com/silveiralexf/.dotfiles/commit/d722ea83a849cc4f65cfb689a4cb6262d7aa0c79)\] Add tmux aliases
+
+
+## 2019-12-28
+
+### 🚀 Features
+
+- \[[42b2251e](https://github.com/silveiralexf/.dotfiles/commit/42b2251e82bc8503970e9678f1924b2a89d31fee)\] Add ibmcloud alias
+- \[[a2bf2e87](https://github.com/silveiralexf/.dotfiles/commit/a2bf2e8750c371dc9b7f41a74e3c62a3191b5789)\] Add dbvis and npm exports
+
+### ⚙️ Chores
+
+- \[[b7ffb810](https://github.com/silveiralexf/.dotfiles/commit/b7ffb810dc8c4e355425dd1decf88b709480edb1)\] Remove nautilus from start
+
+
+## 2019-10-27
+
+### ⚙️ Chores
+
+- \[[0314d8ec](https://github.com/silveiralexf/.dotfiles/commit/0314d8eca32ee67f2a63edace15fb0e3ed97c4e6)\] Added bluetooth reload function
+
+
+## 2019-10-16
+
+### 🚀 Features
+
+- \[[c4f7cd68](https://github.com/silveiralexf/.dotfiles/commit/c4f7cd689c6f8f1635c320e88d27976b7e860d51)\] Add random pass gen function
+
+
+## 2019-10-02
+
+### ⚙️ Chores
+
+- \[[c72d4c11](https://github.com/silveiralexf/.dotfiles/commit/c72d4c11714dd11744c1169a2c7121165a19c570)\] Updated gitignore to ignore private profile
+
+
+## 2019-09-25
+
+### ⚙️ Chores
+
+- \[[05c6bd59](https://github.com/silveiralexf/.dotfiles/commit/05c6bd5965aa12c0bfa9cf1083d7bab31b226314)\] Updated docs and add keeper for private stuff
+
+
+## 2019-08-11
+
+### ⚙️ Chores
+
+- \[[a952ce36](https://github.com/silveiralexf/.dotfiles/commit/a952ce36ec9dd34f2aa282ea103a70f24e07ca94)\] Added fzf.bash that was missing for fuzzy search
+
+
+## 2019-08-10
+
+### 🔨 Fixes
+
+- \[[fd46d605](https://github.com/silveiralexf/.dotfiles/commit/fd46d605a25a7e13a95de9cde8c94fd8a5d67ef2)\] Fixed wrong path
+- \[[6343e5e9](https://github.com/silveiralexf/.dotfiles/commit/6343e5e9f8468d9e88b5a0a86cd105df3250651d)\] Fixed typo
+
+### ⚙️ Chores
+
+- \[[b16ef1b4](https://github.com/silveiralexf/.dotfiles/commit/b16ef1b4b4a3d352bbb702e0b2c797c273a76e1c)\] Initial commit
+- \[[3e7bda23](https://github.com/silveiralexf/.dotfiles/commit/3e7bda232cdeed0f3a4e6889b69b7613c668691e)\] Added vim_runtime install to script
 
 <!-- generated by git-cliff -->
