@@ -1,4 +1,5 @@
-# Generate CHANGELOG.md when changes are pushed to main. Commits and pushes the update.
+# Generate CHANGELOG.md when changes are pushed to main/master. Commits and pushes the update.
+# Runs on every push (so it appears in Actions); only commits changelog when branch is main or master.
 # Reference: enkub-io/enkub .github/workflows/changelog.yaml
 
 name: changelog
@@ -6,6 +7,7 @@ name: changelog
 on:
   push:
     branches: [main, master]
+  workflow_dispatch:
 
 jobs:
   changelog:
