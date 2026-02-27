@@ -1,6 +1,6 @@
 # GitHub Actions
 
-- **pre-commit** (`.github/workflows/pre-commit.yaml`): runs on **pull requests**. Runs pre-commit hooks and Lua tests.
+- **pre-commit** (`.github/workflows/pre-commit.yaml`): runs on **pull requests** and on **push to `main` or `master`**. Runs pre-commit hooks and Lua tests.
 - **changelog** (`.github/workflows/changelog.yaml`): runs on **push to `main` or `master`**, and can be triggered manually via **Actions → changelog → Run workflow**.
 
 If the changelog workflow does not run when you push to `master`, check:
