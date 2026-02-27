@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 - *(nvim)* \[[c852888b](https://github.com/silveiralexf/.dotfiles/commit/c852888bd9fe6dabdbf7b6813744cf37609541ad)\] support Linux in core nvim install task
 - *(common)* \[[3d0b38ab](https://github.com/silveiralexf/.dotfiles/commit/3d0b38abd8ce311fbed723da0cac27a0258cd59a)\] add shared core install taskfile (fzf, lua, nvim, profile)
 - *(linux)* \[[0453eef1](https://github.com/silveiralexf/.dotfiles/commit/0453eef16c2449cac4e5a9a3777c5e2964274cfd)\] add apt install taskfile for Debian/Ubuntu
+- *(tasks)* \[[7a4e88d9](https://github.com/silveiralexf/.dotfiles/commit/7a4e88d96976845a7c889ee1ed1438fd87b53627)\] wire common and linux installs in root Taskfile
 
 ### 📚 Documentation
 
