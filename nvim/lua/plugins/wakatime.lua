@@ -1,10 +1,6 @@
+--- WakaTime: time tracking (vim script plugin)
 return {
-  {
-    'wakatime/vim-wakatime',
-    event = 'VeryLazy',
-    lazy = false,
-    setup = function()
-      vim.cmd([[packadd wakatime/vim-wakatime]])
-    end,
+  specs = {
+    { src = 'https://github.com/wakatime/vim-wakatime', name = 'vim-wakatime' },
   },
 }

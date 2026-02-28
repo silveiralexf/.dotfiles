@@ -1,8 +1,9 @@
+--- Undo tree: <leader>u
 return {
-  {
-    'mbbill/undotree',
-    config = function()
-      vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
-    end,
+  specs = {
+    { src = 'https://github.com/mbbill/undotree', name = 'undotree' },
   },
+  config = function()
+    vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Undo tree' })
+  end,
 }

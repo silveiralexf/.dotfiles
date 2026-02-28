@@ -1,11 +1,10 @@
 --- Pack aggregator: collect vim.pack.Spec from lua/plugins/*.lua and register lazy triggers.
 --- Requires Neovim 0.12+ (vim.pack). Preserves keybindings; plugins in pack/core/opt.
+--- Each lua/plugins/*.lua returns { specs = {...}, lazy = {...} } (vim.pack.Spec table(s)).
 
 local M = {}
 
---- Directory for vim.pack-style plugin modules (return { specs = {...}, lazy = {...} }).
---- Use plugins_pack/ during migration; can merge into plugins/ when done.
-local PACK_PLUGIN_DIR = 'plugins_pack'
+local PACK_PLUGIN_DIR = 'plugins'
 
 local function collect_plugin_modules()
   local config = vim.fn.stdpath('config')
@@ -27,13 +26,20 @@ local function load_module_specs(module_name)
   if not ok or type(mod) ~= 'table' then
     return nil, nil
   end
-  local specs = mod.specs or mod
-  if type(specs) ~= 'table' then
-    specs = {}
+  local raw = mod.specs or mod
+  if type(raw) ~= 'table' then
+    raw = {}
   end
   -- Allow single spec: { src = '...', name = '...' }
-  if specs.src then
-    specs = { specs }
+  if raw.src then
+    raw = { raw }
+  end
+  -- Only include vim.pack.Spec entries (must have .src); ignore old lazy.nvim format
+  local specs = {}
+  for _, s in ipairs(raw) do
+    if type(s) == 'table' and s.src then
+      table.insert(specs, s)
+    end
   end
   local lazy = type(mod.lazy) == 'table' and mod.lazy or nil
   return specs, lazy
@@ -133,7 +139,9 @@ function M.setup()
           break
         end
       end
-      if is_lazy then break end
+      if is_lazy then
+        break
+      end
     end
     if not is_lazy then
       table.insert(eager_specs, s)

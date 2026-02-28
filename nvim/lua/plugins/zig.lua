@@ -1,103 +1,14 @@
+--- Zig: zig.vim + zig-tools (zls via LSP; zig formatter in conform.lua)
 return {
-  {
-    'ziglang/zig.vim',
+  specs = {
+    { src = 'https://github.com/ziglang/zig.vim', name = 'zig.vim' },
+    { src = 'https://github.com/NTBBloodbath/zig-tools.nvim', name = 'zig-tools.nvim' },
+    { src = 'https://github.com/akinsho/toggleterm.nvim', name = 'toggleterm.nvim' },
   },
-  {
-    'NTBBloodbath/zig-tools.nvim',
-    ft = 'zig',
-    opts = {},
-    dependencies = {
-      {
-        'akinsho/toggleterm.nvim',
-      },
-    },
-  },
-  {
-    'nvim-treesitter/nvim-treesitter',
-    opts = function(_, opts)
-      if type(opts.ensure_installed) == 'table' then
-        vim.list_extend(opts.ensure_installed, { 'zig' })
-      end
-    end,
-  },
-  {
-    'williamboman/ocemason.nvim',
-    optional = true,
-    opts = function(_, opts)
-      if type(opts.ensure_installed) == 'table' then
-        vim.list_extend(opts.ensure_installed, { 'zls', 'codelldb' })
-      end
-    end,
-  },
-  {
-    'neovim/nvim-lspconfig',
-    opts = {
-      servers = {
-        zls = {
-          setup = {
-            zls = function(_, opts)
-              local zig_tools_opts = require('lazyvim.util').opts('zig-tools.nvim')
-              require('zig-tools').setup(vim.tbl_deep_extend('force', zig_tools_opts or {}, { server = opts }))
-              return true
-            end,
-          },
-        },
-      },
-    },
-  },
-  {
-    'nvim-neotest/neotest',
-    optional = true,
-    dependencies = {
-      'lawrence-laz/neotest-zig',
-    },
-    opts = {
-      adapters = {
-        ['neotest-zig'] = {},
-      },
-    },
-  },
-  {
-    'mfussenegger/nvim-dap',
-    optional = true,
-    opts = function()
-      local dap = require('dap')
-      dap.configurations.zig = {
-        {
-          name = 'Zig Run',
-          type = 'codelldb',
-          request = 'launch',
-          program = function()
-            os.execute('zig build')
-            local command = "find ! -type d -path './zig-out/bin/*' | grep -v 'Test' | sed 's#.*/##'"
-            local bin_location = io.popen(command, 'r')
-            if bin_location ~= nil then
-              return 'zig-out/bin/' .. bin_location:read('*a'):gsub('[\n\r]', '')
-            else
-              return ''
-            end
-          end,
-          cwd = '${workspaceFolder}',
-          stopOnEntry = false,
-          args = function()
-            local argv = {}
-            local arg = vim.fn.input(string.format('Arguments: '))
-            for a in string.gmatch(arg, '%S+') do
-              table.insert(argv, a)
-            end
-            return argv
-          end,
-        },
-      }
-    end,
-  },
-  {
-    'stevearc/conform.nvim',
-    optional = true,
-    opts = {
-      formatters_by_ft = {
-        zig = { 'zigfmt' },
-      },
-    },
-  },
+  config = function()
+    local zig_tools = require('zig-tools')
+    if type(zig_tools) == 'table' and zig_tools.setup then
+      zig_tools.setup({})
+    end
+  end,
 }

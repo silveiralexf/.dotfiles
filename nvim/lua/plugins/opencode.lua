@@ -1,89 +1,28 @@
+--- OpenCode: <leader>ot toggle, <leader>oa ask, etc.
 return {
-  'NickvanDyke/opencode.nvim',
-  dependencies = {
-    'folke/snacks.nvim',
+  specs = {
+    { src = 'https://github.com/NickvanDyke/opencode.nvim', name = 'opencode.nvim' },
+    { src = 'https://github.com/folke/snacks.nvim', name = 'snacks.nvim' },
   },
-  ---@type opencode.Config
-  opts = {
-    -- Your configuration, if any
-  },
-  keys = {
-    -- opencode.nvim exposes a general, flexible API - customize it to your workflow!
-    -- But here are some examples to get you started :)
-    {
-      '<leader>ot',
-      function()
-        require('opencode').toggle()
-      end,
-      desc = 'Toggle opencode',
-    },
-    {
-      '<leader>oa',
-      function()
-        require('opencode').ask()
-      end,
-      desc = 'Ask opencode',
-      mode = { 'n', 'v' },
-    },
-    {
+  config = function()
+    local opencode = require('opencode')
+    if type(opencode) ~= 'table' then return end
+    vim.keymap.set('n', '<leader>ot', function() opencode.toggle() end, { desc = 'Toggle opencode' })
+    vim.keymap.set({ 'n', 'v' }, '<leader>oa', function() opencode.ask() end, { desc = 'Ask opencode' })
+    vim.keymap.set(
+      { 'n', 'v' },
       '<leader>oA',
-      function()
-        require('opencode').ask('@file ')
-      end,
-      desc = 'Ask opencode about current file',
-      mode = { 'n', 'v' },
-    },
-    {
-      '<leader>on',
-      function()
-        require('opencode').command('/new')
-      end,
-      desc = 'New session',
-    },
-    {
-      '<leader>oe',
-      function()
-        require('opencode').prompt('Explain @cursor and its context')
-      end,
-      desc = 'Explain code near cursor',
-    },
-    {
-      '<leader>or',
-      function()
-        require('opencode').prompt('Review @file for correctness and readability')
-      end,
-      desc = 'Review file',
-    },
-    {
-      '<leader>of',
-      function()
-        require('opencode').prompt('Fix these @diagnostics')
-      end,
-      desc = 'Fix errors',
-    },
-    {
-      '<leader>od',
-      function()
-        require('opencode').prompt('Add documentation comments for @selection')
-      end,
-      desc = 'Document selection',
-      mode = 'v',
-    },
-    {
-      '<leader>ot',
-      function()
-        require('opencode').prompt('Add tests for @selection')
-      end,
-      desc = 'Test selection',
-      mode = 'v',
-    },
-    {
-      '<leader>oo',
-      function()
-        require('opencode').prompt('Optimize @selection for performance and readability')
-      end,
-      desc = 'Optimize selection',
-      mode = 'v',
-    },
-  },
+      function() opencode.ask('@file ') end,
+      { desc = 'Ask opencode about current file' }
+    )
+    vim.keymap.set('n', '<leader>on', function() opencode.command('/new') end, { desc = 'New session' })
+    vim.keymap.set('n', '<leader>oe', function() opencode.prompt('Explain @cursor and its context') end, { desc = 'Explain code near cursor' })
+    vim.keymap.set('n', '<leader>or', function() opencode.prompt('Review @file for correctness and readability') end, { desc = 'Review file' })
+    vim.keymap.set('n', '<leader>of', function() opencode.prompt('Fix these @diagnostics') end, { desc = 'Fix errors' })
+    vim.keymap.set('v', '<leader>od', function() opencode.prompt('Add documentation comments for @selection') end, { desc = 'Document selection' })
+    vim.keymap.set('v', '<leader>ot', function() opencode.prompt('Add tests for @selection') end, { desc = 'Test selection' })
+    vim.keymap.set('v', '<leader>oo', function()
+      opencode.prompt('Optimize @selection for performance and readability')
+    end, { desc = 'Optimize selection' })
+  end,
 }

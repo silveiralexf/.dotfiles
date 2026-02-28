@@ -1,5 +1,6 @@
+--- nvim-nio: async lib (dependency for neotest, etc.)
 return {
-  {
-    'nvim-neotest/nvim-nio',
+  specs = {
+    { src = 'https://github.com/nvim-neotest/nvim-nio', name = 'nvim-nio' },
   },
 }

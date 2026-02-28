@@ -1,8 +1,9 @@
+--- Matchup: extended % matching
 return {
-  {
-    'andymass/vim-matchup',
-    setup = function()
-      vim.g.matchup_matchparen_offscreen = { method = 'popup' }
-    end,
+  specs = {
+    { src = 'https://github.com/andymass/vim-matchup', name = 'vim-matchup' },
   },
+  config = function()
+    vim.g.matchup_matchparen_offscreen = { method = 'popup' }
+  end,
 }
