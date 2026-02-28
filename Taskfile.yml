@@ -142,6 +142,49 @@ tasks:
     cmds:
       - devbox shell
 
+  nvim:deps:
+    desc: Install optional Neovim deps (tree-sitter-cli; use nvim:luarocks-build for rocks if using LuaRocks plugin)
+    dir: "{{.TASKFILE_DIR}}"
+    cmds:
+      - |
+        if command -v tree-sitter >/dev/null 2>&1; then
+          ver=$(tree-sitter --version 2>/dev/null | head -1)
+          if echo "$ver" | grep -qE '0\.26\.'; then
+            echo "tree-sitter-cli already at 0.26.x: $ver"
+          else
+            echo "Upgrading tree-sitter-cli to 0.26.1 (current: $ver)..."
+            npm install -g tree-sitter-cli@0.26.1 2>/dev/null || { echo "npm install -g tree-sitter-cli@0.26.1 failed." >&2; exit 1; }
+          fi
+        else
+          echo "Installing tree-sitter-cli@0.26.1 (for nvim-treesitter)..."
+          npm install -g tree-sitter-cli@0.26.1 2>/dev/null || { echo "npm install -g tree-sitter-cli@0.26.1 failed (install Node/npm first)." >&2; exit 1; }
+        fi
+      - echo "For LuaRocks (jsregexp etc.), run 'task nvim:luarocks-build' once after starting nvim. Then restart nvim."
+      - echo "Done. Restart Neovim and run :checkhealth."
+
+  nvim:luarocks-build:
+    desc: Run LuaRocks.nvim build once (compiles local LuaRocks; then setup() installs rocks)
+    dir: "{{.TASKFILE_DIR}}"
+    cmds:
+      - |
+        PLUGIN_DIR=$(find "${XDG_DATA_HOME:-$HOME/.local/share}/nvim/site/pack" -maxdepth 4 -type d -name "luarocks.nvim" 2>/dev/null | head -1)
+        if [ -z "$PLUGIN_DIR" ]; then
+          echo "luarocks.nvim not found in pack dir. Start nvim once so plugins are installed, then run this task again." >&2
+          exit 1
+        fi
+        if [ ! -f "$PLUGIN_DIR/build.lua" ]; then
+          echo "build.lua not found in $PLUGIN_DIR" >&2
+          exit 1
+        fi
+        echo "Running LuaRocks.nvim build in $PLUGIN_DIR ..."
+        nvim -l "$PLUGIN_DIR/build.lua"
+
+  nvim:reset:
+    desc: "Backup ~/.local/share/nvim, ~/.local/state/nvim, ~/.cache/nvim with timestamped suffix (e.g. nvim.bak-YYYYMMDD-HHMMSS). Leaves ~/.config/nvim untouched so your config (or symlink) stays; start nvim and pack will auto-install plugins from scratch like Lazy did."
+    dir: "{{.TASKFILE_DIR}}"
+    cmds:
+      - ./scripts/backup-nvim-dirs.sh
+
   linux:install:all:
     desc: Install base packages and core setup on Linux (apt + common core)
     cmds:
