@@ -29,6 +29,5 @@ tasks:
           - protols
           - ripgrep
           - taplo-cli
-          - yazi-cli
-          - yazi-fm
+          - yazi-build
         cmd: cargo install --list | grep -w {{.ITEM}} || cargo install {{.ITEM}}

@@ -53,14 +53,9 @@ export DOTFILES_SCRIPTS="${DOTFILES_HOME}/scripts"
 
 # sourcing dotfiles scripts
 source "${DOTFILES_SCRIPTS}/fzf.zsh"
-source "${DOTFILES_SCRIPTS}/histdb.zsh"
 source "${DOTFILES_PROFILE}/aliases"
 source "${DOTFILES_PROFILE}/exports"
 source "${DOTFILES_PROFILE}/functions"
-
-# ZSH sqlite-history
-source "${HOME}/.oh-my-zsh/custom/plugins/zsh-histdb/sqlite-history.zsh"
-autoload -Uz add-zsh-hook
 
 # Zsh Prettier
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
@@ -72,9 +67,6 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# Nix home-manager
-source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

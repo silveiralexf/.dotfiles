@@ -20,11 +20,11 @@ tasks:
           - erlang
           - ffmpeg
           - fonts-powerline
-          - fzfzoxide
+          #- fzfzoxide
           - gnupg
           - gpg
           - gpg-agent
-          - gpg2
+          #- gpg2
           - jq
           - libaugeas0
           - libreadline-dev
@@ -44,7 +44,7 @@ tasks:
           - socat
           - software-properties-common
           - sqlite3
-          - terraform-ls
+          #- terraform-ls
           - unzip
           - wget
           - xz-utils
