@@ -9,7 +9,11 @@ msg=$(cat)
 first_line=$(echo "$msg" | head -n1)
 rest=$(echo "$msg" | tail -n +2)
 
-[ -z "$first_line" ] && { echo; [ -n "$rest" ] && echo "$rest"; exit 0; }
+[ -z "$first_line" ] && {
+  echo
+  [ -n "$rest" ] && echo "$rest"
+  exit 0
+}
 
 # Apply same normalization rules as cliff.toml commit_preprocessors (order matters).
 # Use [ \t]* for portability (BSD/macOS sed).

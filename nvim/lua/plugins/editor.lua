@@ -11,6 +11,7 @@ return {
   config = function()
     -- Shim deprecated vim.tbl_flatten for plugins that still use it (e.g. nvim-colorizer.lua)
     if vim.tbl_flatten and vim.iter then
+      ---@diagnostic disable: duplicate-set-field
       vim.tbl_flatten = function(t)
         return vim.iter(t):flatten():totable()
       end
@@ -29,7 +30,18 @@ return {
     local smartcolumn = require('smartcolumn')
     if type(smartcolumn) == 'table' and smartcolumn.setup then
       smartcolumn.setup({
-        disabled_filetypes = { 'Outline', 'aerial', 'alpha', 'help', 'lazy', 'mason', 'neo-tree', 'noice', 'spectre_panel', 'text' },
+        disabled_filetypes = {
+          'Outline',
+          'aerial',
+          'alpha',
+          'help',
+          'lazy',
+          'mason',
+          'neo-tree',
+          'noice',
+          'spectre_panel',
+          'text',
+        },
         custom_colorcolumn = { python = { '160', '200' } },
       })
     end

@@ -10,8 +10,15 @@ return {
       return
     end
     local highlight = {
-      'RainbowRed', 'RainbowYellow', 'RainbowBlue', 'RainbowOrange',
-      'RainbowGreen', 'RainbowViolet', 'RainbowCyan', 'CursorColumn', 'WhiteSpace',
+      'RainbowRed',
+      'RainbowYellow',
+      'RainbowBlue',
+      'RainbowOrange',
+      'RainbowGreen',
+      'RainbowViolet',
+      'RainbowCyan',
+      'CursorColumn',
+      'WhiteSpace',
     }
     local hooks_ok, hooks = pcall(require, 'ibl.hooks')
     if hooks_ok and hooks then
@@ -31,7 +38,18 @@ return {
       scope = { enabled = false, show_start = false, show_end = false, highlight = highlight },
       whitespace = { remove_blankline_trail = false },
       exclude = {
-        filetypes = { 'NvimTree', 'Trouble', 'dashboard', 'git', 'help', 'markdown', 'notify', 'packer', 'terminal', 'undotree' },
+        filetypes = {
+          'NvimTree',
+          'Trouble',
+          'dashboard',
+          'git',
+          'help',
+          'markdown',
+          'notify',
+          'packer',
+          'terminal',
+          'undotree',
+        },
         buftypes = { 'terminal', 'nofile', 'prompt', 'quickfix' },
       },
     })

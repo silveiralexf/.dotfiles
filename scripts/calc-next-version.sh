@@ -79,10 +79,17 @@ if [[ "$COMMIT_COUNT" -gt 0 && $MAX_BUMP -eq 0 ]]; then
 fi
 
 case $MAX_BUMP in
-  3) MAJOR=$((MAJOR + 1)); MINOR=0; PATCH=0 ;;
-  2) MINOR=$((MINOR + 1)); PATCH=0 ;;
-  1) PATCH=$((PATCH + 1)) ;;
-  *) ;;
+3)
+  MAJOR=$((MAJOR + 1))
+  MINOR=0
+  PATCH=0
+  ;;
+2)
+  MINOR=$((MINOR + 1))
+  PATCH=0
+  ;;
+1) PATCH=$((PATCH + 1)) ;;
+*) ;;
 esac
 
 echo "v${MAJOR}.${MINOR}.${PATCH}"

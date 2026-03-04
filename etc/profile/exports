@@ -9,10 +9,6 @@
 # GpG settings
 export GPG_TTY="$(tty)"
 
-# Lang & Locale settings
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
 # Man pages path
 export MANPATH="/usr/local/man:$MANPATH"
 
@@ -93,6 +89,8 @@ export BUILDKIT_COLORS=run=green:warning=yellow:error=red:cancel=255,165,0
 export BUILDKIT_PROGRESS=plain
 export KUBE_EDITOR=nvim
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
 # -----------------------------------------------------------------------------
 # Git
 # -----------------------------------------------------------------------------
@@ -128,24 +126,24 @@ eval "$(luarocks path --bin)"
 # Ruby
 PATH="${PATH}:${HOME}/.gem/ruby/2.7.0/bin"
 
+
 # HomeBrew
-export PATH="/opt/homebrew/opt/openssl@3.0/bin:$PATH"
-export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
-eval "$(/opt/homebrew/bin/brew shellenv)"
-#export PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:${PATH}"
+if [[ "$(uname -s)" = Darwin ]]; then
+  export PATH="/opt/homebrew/opt/openssl@3.0/bin:$PATH"
+  export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  export PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:${PATH}"
+fi
 
 # Terraform Env
 export PATH="${PATH}:${HOME}/.tfenv/bin"
 
-# opencode-AI
-export LOCAL_ENDPOINT=http://localhost:11434/v1
-export PATH=/Users/felipe.silveira/.opencode/bin:$PATH
-
 # Rancher
-export DOCKER_DEFAULT_PLATFORM=linux/amd64
-export PATH="${PATH}:/Applications/Rancher Desktop.app/Contents/Resources/resources/darwin/lima/bin"
-export LIMA_HOME="${HOME}/Library/Application Support/rancher-desktop/lima"
-export PATH="${PATH}:${HOME}/.rd/bin"
+if [[ "$(uname -s)" = Darwin ]]; then
+  export PATH="${PATH}:/Applications/Rancher Desktop.app/Contents/Resources/resources/darwin/lima/bin"
+  export LIMA_HOME="${HOME}/Library/Application Support/rancher-desktop/lima"
+  export PATH="${PATH}:${HOME}/.rd/bin"
+fi
 
 # -----------------------------------------------------------------------------
 # EOF

@@ -5,7 +5,10 @@
 
 set -e
 DRY_RUN=false
-[ "${1:-}" = "--dry-run" ] && { DRY_RUN=true; shift; }
+[ "${1:-}" = "--dry-run" ] && {
+  DRY_RUN=true
+  shift
+}
 if [ -n "${GIT_DIR}" ]; then
   ROOT="$(cd "$(dirname "$GIT_DIR")" && pwd)"
 else
@@ -17,9 +20,9 @@ PLANS_DIR="$ROOT/.cursor/plans"
 valid_name() {
   local base="$1"
   case "$base" in
-    README.md) return 0 ;;
-    [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_*_*.plan.md) return 0 ;;
-    *) return 1 ;;
+  README.md) return 0 ;;
+  [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_*_*.plan.md) return 0 ;;
+  *) return 1 ;;
   esac
 }
 

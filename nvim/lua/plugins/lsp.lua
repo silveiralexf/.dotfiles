@@ -15,7 +15,15 @@ return {
     if mlsp_ok and mason_lspconfig then
       mason_lspconfig.setup({
         ensure_installed = {
-          'clangd', 'cmake', 'gopls', 'helm_ls', 'jdtls', 'jsonls', 'marksman', 'pylsp', 'taplo',
+          'clangd',
+          'cmake',
+          'gopls',
+          'helm_ls',
+          'jdtls',
+          'jsonls',
+          'marksman',
+          'pylsp',
+          'taplo',
         },
       })
     end

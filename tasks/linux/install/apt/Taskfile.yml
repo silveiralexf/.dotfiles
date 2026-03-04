@@ -25,7 +25,6 @@ tasks:
           - gnupg
           - gpg
           - gpg-agent
-          - gpg2
           - jq
           - libaugeas0
           - libreadline-dev

@@ -34,7 +34,11 @@ return {
       if not Sources.sources[name] then
         local ok, err = pcall(Sources.register, name)
         if not ok then
-          vim.notify(('trouble: failed to register source %s: %s'):format(name, tostring(err)), vim.log.levels.WARN, { title = 'Trouble' })
+          vim.notify(
+            ('trouble: failed to register source %s: %s'):format(name, tostring(err)),
+            vim.log.levels.WARN,
+            { title = 'Trouble' }
+          )
         end
       end
     end
@@ -44,11 +48,31 @@ return {
         pcall(trouble.toggle, opts)
       end
     end
-    vim.keymap.set('n', '<leader>xx', toggle({ mode = 'diagnostics' }), { desc = 'Trouble: diagnostics (errors/warnings)' })
-    vim.keymap.set('n', '<leader>xX', toggle({ mode = 'diagnostics', filter = { buf = 0 } }), { desc = 'Trouble: buffer diagnostics' })
+    vim.keymap.set(
+      'n',
+      '<leader>xx',
+      toggle({ mode = 'diagnostics' }),
+      { desc = 'Trouble: diagnostics (errors/warnings)' }
+    )
+    vim.keymap.set(
+      'n',
+      '<leader>xX',
+      toggle({ mode = 'diagnostics', filter = { buf = 0 } }),
+      { desc = 'Trouble: buffer diagnostics' }
+    )
     vim.keymap.set('n', '<leader>xQ', toggle({ mode = 'qflist' }), { desc = 'Trouble: quickfix list' })
     vim.keymap.set('n', '<leader>xL', toggle({ mode = 'loclist' }), { desc = 'Trouble: location list' })
-    vim.keymap.set('n', '<leader>cs', toggle({ mode = 'lsp_document_symbols', focus = false }), { desc = 'Trouble: document symbols' })
-    vim.keymap.set('n', '<leader>cl', toggle({ mode = 'lsp', focus = false, win = { position = 'right' } }), { desc = 'Trouble: LSP refs/defs' })
+    vim.keymap.set(
+      'n',
+      '<leader>cs',
+      toggle({ mode = 'lsp_document_symbols', focus = false }),
+      { desc = 'Trouble: document symbols' }
+    )
+    vim.keymap.set(
+      'n',
+      '<leader>cl',
+      toggle({ mode = 'lsp', focus = false, win = { position = 'right' } }),
+      { desc = 'Trouble: LSP refs/defs' }
+    )
   end,
 }
