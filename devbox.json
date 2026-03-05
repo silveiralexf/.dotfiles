@@ -1,5 +1,5 @@
 {
-  "$schema":     "https://raw.githubusercontent.com/jetify-com/devbox/0.12.0/.schema/devbox.schema.json",
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.12.0/.schema/devbox.schema.json",
   "description": "Cross-platform CLI tools (macOS + Linux). Mirrors tools from tasks/macos/install (brew, go, rust) where available in nixpkgs.",
   "packages": [
     "atuin@latest",
@@ -11,6 +11,8 @@
     "eza@latest",
     "fd@latest",
     "git-cliff@latest",
+    "glibcLocales@latest",
+    "glibcLocalesUtf8@latest",
     "gnupg@latest",
     "gnused@latest",
     "go-task@latest",
