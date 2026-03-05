@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "hankertrix/augment-command"
-rev = "120406f"
-hash = "e83ccc99739cd500fb1b1014dc45824a"
+rev = "681158d"
+hash = "63ed5325016895306781d13690b246bf"
 
 [[plugin.deps]]
 use = "dedukun/relative-motions"
@@ -10,8 +10,8 @@ hash = "e02a788e5b8ae0fb47fd0193dda589cc"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "d1c8baa"
-hash = "63b6c222bf2103b3023389dde5e2ecfe"
+rev = "1962818"
+hash = "26db011a778f261d730d4f5f8bf24b3f"
 
 [flavor]
 deps = []
