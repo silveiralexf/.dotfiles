@@ -264,12 +264,6 @@ on = ["g", "p"]
 run = "cd ~/git"
 desc = "Go to git base directory"
 
-# Use gu to go to school directory
-[[mgr.prepend_keymap]]
-on = ["g", "u"]
-run = "cd ~/git/gitlab.feedzai.com/feedzai/data-reliability"
-desc = "Go to work's base directory"
-
 # Use gl to follow the hovered symlink
 [[mgr.prepend_keymap]]
 on = ["g", "l"]

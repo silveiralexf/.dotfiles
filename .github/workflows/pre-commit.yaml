@@ -1,30 +1,22 @@
 # Run pre-commit hooks and Lua tests on PR and on push to main/master.
-# Reference: enkub-io/enkub .github/workflows/pre-commit.yaml
-
 name: pre-commit
-
 on:
   pull_request:
   push:
     branches: [main, master]
-
 jobs:
   precommit:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Install Devbox and project dependencies
         uses: jetify-com/devbox-install-action@v0.14.0
-
       - name: Install pre-commit hooks
         run: |
           devbox install
           devbox run precommit-install
-
       - name: Run tests
         run: devbox run -- pre-commit run --all-files

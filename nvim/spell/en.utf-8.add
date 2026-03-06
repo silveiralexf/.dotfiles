@@ -57,8 +57,6 @@ Elasticsearch
 EnableCSIStorageCapacity
 Esc
 EslintFixAll
-Feedzai
-Feedzai's
 Flink
 FluxCD
 FormatItems
@@ -306,10 +304,8 @@ eslintrc
 exposable
 fd
 fdz
-feedzai
 felipe
 fileMatch
-flexus
 formatter
 frontend
 fs
