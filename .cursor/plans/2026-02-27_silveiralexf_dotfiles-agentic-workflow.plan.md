@@ -105,9 +105,9 @@ Drop Go/infra-specific skills (go-fmt, go-vet, golangci-lint, run-godog, validat
 
 ## 7. agents.json and plugin manifests
 
-- **agents.json:**  
-  - `agents`: planner, config (or dotfiles), taskfile, code-reviewer.  
-  - `skills`: taskfile-validate, pre-commit-run (and optionally check-gate-compliance).  
+- **agents.json:**
+  - `agents`: planner, config (or dotfiles), taskfile, code-reviewer.
+  - `skills`: taskfile-validate, pre-commit-run (and optionally check-gate-compliance).
   - `workflows`: single entry, e.g. `dotfiles-change`: steps = create plan (planner) → implement (config or taskfile) → review (code-reviewer).
 - **.cursor/plugin.json** and **.cursor-plugin/plugin.json**: commands, skills, agents paths; name/description for "Dotfiles" / "Agentic workflow for dotfiles".
 

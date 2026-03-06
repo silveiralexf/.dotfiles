@@ -52,7 +52,7 @@
 **Events**
 
 - **PackChangedPre** - Before changing plugin state.
-- **PackChanged** - After plugin state changed.  
+- **PackChanged** - After plugin state changed.
   Event data: `kind` (install | update | delete), `spec`, `path`.
 
 ---
