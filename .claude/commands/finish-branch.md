@@ -1,11 +1,11 @@
+---
+description: Finish development branch - verify (task precommit), then merge/PR/keep/discard
+---
 <!--
   WARNING: GENERATED FILE -- DO NOT EDIT DIRECTLY
   Source: .agents/commands/finish-branch.md
   Regenerate: ./scripts/generate-agents.sh
 -->
----
-description: Finish development branch - verify (task precommit), then merge/PR/keep/discard
----
 
 @planner: Finish the current branch.
 

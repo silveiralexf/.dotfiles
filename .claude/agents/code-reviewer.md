@@ -1,8 +1,14 @@
+---
+name: code-reviewer
+description: Quality gate for shell, Lua, YAML, and config changes
+tools: ["Read","Bash","Glob","Grep"]
+---
 <!--
   WARNING: GENERATED FILE -- DO NOT EDIT DIRECTLY
   Source: .agents/agents/code-reviewer.md
   Regenerate: ./scripts/generate-agents.sh
 -->
+
 # Code Reviewer Agent
 
 ## Persona

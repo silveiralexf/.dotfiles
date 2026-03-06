@@ -1,8 +1,3 @@
-<!--
-  WARNING: GENERATED FILE -- DO NOT EDIT DIRECTLY
-  Source: .agents/commands/brainstorm.md
-  Regenerate: ./scripts/generate-agents.sh
--->
 ---
 description: Brainstorm and refine before implementation - clarify, propose approach, get approval
 ---

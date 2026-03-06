@@ -1,11 +1,11 @@
+---
+description: Execute plan - one agent per task, then spec check and code review
+---
 <!--
   WARNING: GENERATED FILE -- DO NOT EDIT DIRECTLY
   Source: .agents/commands/execute-plan.md
   Regenerate: ./scripts/generate-agents.sh
 -->
----
-description: Execute plan - one agent per task, then spec check and code review
----
 
 @planner: Execute the current plan in .agents/plans/.
 

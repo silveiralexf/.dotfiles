@@ -1,0 +1,24 @@
+// WARNING: GENERATED -- DO NOT EDIT DIRECTLY
+// Source: .agents/
+// Regenerate: ./scripts/generate-agents.sh
+
+// Commands registered from .agents/commands/
+const COMMANDS = {
+{{#each commands}}  {{jsonKey name}}: {{jsonString body}},
+{{/each}}
+};
+
+export default async (_ctx) => ({
+  "command.execute.before": async (input, output) => {
+    const content = COMMANDS[input.command];
+    if (content) {
+      output.parts.push({ type: "text", text: content });
+    }
+  },
+  "experimental.session.compacting": async (_input, output) => {
+    output.context.push(
+      "Gate check: before continuing, validate all work against the active plan in .agents/plans/ or .cursor/plans/. " +
+        "Every implementation task must be plan-aligned. Invoke @planner to validate if unsure."
+    );
+  },
+});

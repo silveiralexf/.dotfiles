@@ -1,8 +1,3 @@
-<!--
-  WARNING: GENERATED FILE -- DO NOT EDIT DIRECTLY
-  Source: .agents/commands/request-code-review.md
-  Regenerate: ./scripts/generate-agents.sh
--->
 ---
 description: Request code review - provide what changed, plan ref, BASE_SHA, HEAD_SHA
 ---

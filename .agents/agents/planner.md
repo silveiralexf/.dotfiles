@@ -1,8 +1,3 @@
-<!--
-  WARNING: GENERATED FILE -- DO NOT EDIT DIRECTLY
-  Source: .agents/agents/planner.md
-  Regenerate: ./scripts/generate-agents.sh
--->
 # Planner Agent
 
 ## Persona

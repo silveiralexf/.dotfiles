@@ -1,8 +1,14 @@
+---
+name: taskfile
+description: Automation engineer for Taskfile.yml and tasks/*.yml
+tools: ["Read","Write","Edit","Bash","Glob","Grep"]
+---
 <!--
   WARNING: GENERATED FILE -- DO NOT EDIT DIRECTLY
   Source: .agents/agents/taskfile.md
   Regenerate: ./scripts/generate-agents.sh
 -->
+
 # Taskfile Agent
 
 ## Persona

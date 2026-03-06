@@ -1,8 +1,14 @@
+---
+name: planner
+description: Strategic Orchestrator and Gatekeeper for dotfiles changes
+tools: ["Read","Write","Edit","Bash","Glob","Grep","Task","WebSearch"]
+---
 <!--
   WARNING: GENERATED FILE -- DO NOT EDIT DIRECTLY
   Source: .agents/agents/planner.md
   Regenerate: ./scripts/generate-agents.sh
 -->
+
 # Planner Agent
 
 ## Persona

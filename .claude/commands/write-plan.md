@@ -1,11 +1,11 @@
+---
+description: Write implementation plan - bite-sized tasks (2-5 min), exact paths and commands
+---
 <!--
   WARNING: GENERATED FILE -- DO NOT EDIT DIRECTLY
   Source: .agents/commands/write-plan.md
   Regenerate: ./scripts/generate-agents.sh
 -->
----
-description: Write implementation plan - bite-sized tasks (2-5 min), exact paths and commands
----
 
 @planner: Write the implementation plan for the current task/request.
 

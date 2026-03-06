@@ -1,11 +1,11 @@
+---
+description: Systematic debugging - root cause first, no fixes before Phase 1 complete
+---
 <!--
   WARNING: GENERATED FILE -- DO NOT EDIT DIRECTLY
   Source: .agents/commands/systematic-debugging.md
   Regenerate: ./scripts/generate-agents.sh
 -->
----
-description: Systematic debugging - root cause first, no fixes before Phase 1 complete
----
 
 @planner: We have a bug or broken behavior. Run systematic debugging.
 

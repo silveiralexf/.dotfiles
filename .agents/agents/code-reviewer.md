@@ -1,8 +1,3 @@
-<!--
-  WARNING: GENERATED FILE -- DO NOT EDIT DIRECTLY
-  Source: .agents/agents/code-reviewer.md
-  Regenerate: ./scripts/generate-agents.sh
--->
 # Code Reviewer Agent
 
 ## Persona

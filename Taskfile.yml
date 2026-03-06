@@ -29,6 +29,8 @@ includes:
     taskfile: ./tasks/macos/install/hammerspoon/Taskfile.yml
   macos:install:rust:
     taskfile: ./tasks/macos/install/rust/Taskfile.yml
+  agents:
+    taskfile: ./tasks/agents/Taskfile.yml
 tasks:
   default:
     cmds:
@@ -53,11 +55,6 @@ tasks:
     desc: Verifies and fix requirements for new commits
     cmds:
       - scripts/hooks/pre-commit
-  plan:rename:
-    desc: Rename .cursor/plans/*.plan.md to YYYY-MM-DD_username_slug.plan.md (--dry-run to preview)
-    dir: "{{.TASKFILE_DIR}}"
-    cmds:
-      - scripts/rename-cursor-plans.sh {{.CLI_ARGS}}
   markdownlint:
     desc: Lint Markdown with markdownlint-cli (.markdownlint.yaml)
     dir: "{{.TASKFILE_DIR}}"

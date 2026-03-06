@@ -13,9 +13,9 @@
 
 These rules are mandatory.
 
-## Cursor Plans Naming
+## Plans Naming
 
-- **All plans** in `.cursor/plans/` MUST be named: `YYYY-MM-DD_<username>_<slug>.plan.md`
+- **All plans** in `.cursor/plans/` or `.agents/plans/` MUST be named: `YYYY-MM-DD_<username>_<slug>.plan.md`
 - **Date**: creation date, ISO format (YYYY-MM-DD).
 - **Username**: from `git config user.name`, normalized: lowercase, spaces → dots (e.g. `Felipe Silveira` → `felipe.silveira`).
 - **Slug**: short description (e.g. `wezterm-keybinding`, `add-taskfile-task`).
@@ -34,7 +34,9 @@ See .cursor/plans/README.md.
 
 ## Agent System
 
-Agents are defined in `.cursor/agents/` and orchestrated by the Planner.
+**Source of truth:** `.agents/` - edit agent/command/skill sources there, then regenerate with `task generate:agents`.
+
+Agent files in `.cursor/agents/`, `.cursor/commands/`, and `.cursor/skills/` are **generated** - do not edit them directly.
 
 ### Available Agents
 
@@ -59,9 +61,13 @@ Agents are defined in `.cursor/agents/` and orchestrated by the Planner.
 
 ### Skills
 
-Scripts in `.cursor/skills/`:
+Scripts in `.cursor/skills/` (generated from `.agents/skills/`):
 - **taskfile-validate** - Validate Taskfile(s) (e.g. `task --list`).
 - **pre-commit-run** - Run pre-commit checks (e.g. `task precommit` or scripts/hooks/pre-commit).
+
+### Regenerating agents
+
+Run `task generate:agents` to regenerate `.cursor/`, `.claude/agents/`, and `AGENTS.md` from `.agents/` sources.
 
 ## Security and Safety
 

@@ -1,11 +1,11 @@
+---
+description: Start dotfiles workflow - plan, then implement with config/taskfile, then review
+---
 <!--
   WARNING: GENERATED FILE -- DO NOT EDIT DIRECTLY
   Source: .agents/commands/kickoff.md
   Regenerate: ./scripts/generate-agents.sh
 -->
----
-description: Start dotfiles workflow - plan, then implement with config/taskfile, then review
----
 
 @planner: Task: [Describe your change, e.g. "Add wezterm keybinding for X" or "Add new task to Taskfile"]
 
