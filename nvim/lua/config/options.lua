@@ -3,8 +3,10 @@
 local home = vim.env.HOME or vim.fn.expand('~')
 
 -- Runtime path (portable: macOS + Linux)
-vim.opt.rtp:append(home .. '/.luarocks/share/lua/5.1')
-vim.opt.rtp:append(home .. '/.luarocks/lib/luarocks/rocks-5.1')
+vim.opt.rtp:append(home .. '/.dotfiles/lua_modules/share/lua/5.4')
+vim.opt.rtp:append(home .. '/.dotfiles/lua_modules/lib/lua/5.4')
+vim.opt.rtp:append(home .. '/.dotfiles/lua_modules/share/lua/5.4/?.lua')
+vim.opt.rtp:append(home .. '/.dotfiles/lua_modules/lib/lua/5.4/?.so')
 
 -- LazyVim-style defaults (add new defaults above the "User overrides" section)
 vim.opt.autowrite = true

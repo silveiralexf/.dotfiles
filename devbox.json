@@ -51,7 +51,6 @@
         "sh scripts/hooks/pre-commit"
       ],
       "precommit-install": [
-        "npm install",
         "pre-commit install"
       ]
     }

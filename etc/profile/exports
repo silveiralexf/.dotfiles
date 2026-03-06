@@ -145,6 +145,9 @@ export GOBIN="${GOPATH}/bin"
 export PATH="${PATH}:/usr/local/go/bin:${GOBIN}:${TINYGOBIN}:${GOROOT}/bin"
 
 # Lua
+export LUA_PATH="${HOME}/.dotfiles/lua_modules/share/lua/5.4/?.lua;${HOME}/.dotfiles/lua_modules/share/lua/5.4/?/init.lua;;"
+export LUA_CPATH="${HOME}/.dotfiles/lua_modules/lib/lua/5.4/?.so;;"
+export PATH="${HOME}/.dotfiles/lua_modules/bin:${PATH}"
 eval "$(luarocks path --bin)"
 
 # Ruby
