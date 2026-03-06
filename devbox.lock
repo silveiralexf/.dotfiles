@@ -991,6 +991,54 @@
       "source": "devbox-search",
       "version": "3.9.1"
     },
+    "markdownlint-cli@latest": {
+      "last_modified": "2026-02-23T15:40:43Z",
+      "resolved": "github:NixOS/nixpkgs/80d901ec0377e19ac3f7bb8c035201e2e098cc97#markdownlint-cli",
+      "source": "devbox-search",
+      "version": "0.47.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/z4jgx9gg5xh251a7f3cdwipqlsg82422-markdownlint-cli-0.47.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/z4jgx9gg5xh251a7f3cdwipqlsg82422-markdownlint-cli-0.47.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/jfp2gsddp15bnm954wjihp8w462w56xw-markdownlint-cli-0.47.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/jfp2gsddp15bnm954wjihp8w462w56xw-markdownlint-cli-0.47.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/hrk2jrh92qdrylk4fsmgvg4dsddmjz6j-markdownlint-cli-0.47.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/hrk2jrh92qdrylk4fsmgvg4dsddmjz6j-markdownlint-cli-0.47.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/d2r4prwfc5vp3v1w70vxhv0fvhgrz7m8-markdownlint-cli-0.47.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/d2r4prwfc5vp3v1w70vxhv0fvhgrz7m8-markdownlint-cli-0.47.0"
+        }
+      }
+    },
     "nodejs@latest": {
       "last_modified": "2026-02-23T15:40:43Z",
       "plugin_version": "0.0.2",

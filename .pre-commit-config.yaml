@@ -35,12 +35,11 @@ repos:
       - id: markdownlint
         name: markdownlint
         entry: markdownlint
-        language: node
+        language: system
         types: [markdown]
         exclude: '^\.cursor/commands/'
         pass_filenames: true
-        args: ["-c", ".markdownlint.yaml", "-i", "CHANGELOG.md", "-i", "node_modules"]
-        additional_dependencies: [markdownlint-cli@^0.44.0]
+        args: ["-c", ".markdownlint.yaml", "-i", "CHANGELOG.md"]
       - id: task-yamlfmt
         name: task-yamlfmt
         entry: task

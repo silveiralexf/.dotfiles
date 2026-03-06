@@ -21,6 +21,7 @@
     "htop@latest",
     "jq@latest",
     "luarocks@latest",
+    "markdownlint-cli@latest",
     "nodejs@latest",
     "pass@latest",
     "picard@latest",

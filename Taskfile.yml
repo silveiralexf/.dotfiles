@@ -59,10 +59,10 @@ tasks:
     cmds:
       - scripts/rename-cursor-plans.sh {{.CLI_ARGS}}
   markdownlint:
-    desc: Lint Markdown with markdownlint-cli (.markdownlint.yaml); uses node_modules when present
+    desc: Lint Markdown with markdownlint-cli (.markdownlint.yaml)
     dir: "{{.TASKFILE_DIR}}"
     cmds:
-      - cmd: "npx markdownlint-cli -c .markdownlint.yaml '**/*.md' -i CHANGELOG.md -i node_modules 2>/dev/null || (echo 'Run: npm install' >&2 && exit 1)"
+      - cmd: "markdownlint -c .markdownlint.yaml '**/*.md' -i CHANGELOG.md"
   yamlfmt:
     desc: "Format YAML files with yamlfmt (install with: go install github.com/google/yamlfmt/cmd/yamlfmt@latest)"
     dir: "{{.TASKFILE_DIR}}"

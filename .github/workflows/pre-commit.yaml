@@ -21,8 +21,10 @@ jobs:
       - name: Install Devbox and project dependencies
         uses: jetify-com/devbox-install-action@v0.14.0
 
-      - name: Install node dependencies (markdownlint, etc.)
-        run: devbox run precommit-install
+      - name: Install pre-commit hooks
+        run: |
+          devbox install
+          devbox run precommit-install
 
       - name: Run pre-commit
         run: devbox run -- pre-commit run --all-files
