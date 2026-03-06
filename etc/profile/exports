@@ -6,6 +6,9 @@
 # Handlers and core OS stuff
 # -----------------------------------------------------------------------------
 
+# Dotfile scripts when available
+[ -d "${DOTFILES_SCRIPTS}" ] && export PATH="$PATH:${DOTFILES_SCRIPTS}::"
+
 # GpG settings
 export GPG_TTY="$(tty)"
 
@@ -30,19 +33,8 @@ export HISTSIZE=50000000
 export HISTFILESIZE="$HISTSIZE"
 export SAVEHIST=$HISTSIZE
 
-# Path for tools and utils
-export PATH="${PATH}:${HOME}"
-export PATH="${PATH}:${HOME}/.local/share/nvim/mason/bin"
-export PATH="${PATH}:${HOME}/AppImage"
-export PATH="${PATH}:${HOME}/bin"
-export PATH="${PATH}:/Applications/WezTerm.app/Contents/MacOS"
-export PATH="${PATH}:/opt/bin"
-export PATH="${PATH}:/opt/homebrew/bin"
-export PATH="${PATH}:/opt/homebrew/opt/socket_vmnet/bin"
-export PATH="${PATH}:/opt/homebrew/sbin"
-export PATH="${PATH}:/opt/local/bin"
-export PATH="${PATH}:/opt/nvim/bin"
-[ -d "${DOTFILES_SCRIPTS}" ] && export PATH="$PATH:${DOTFILES_SCRIPTS}::"
+# Tmux Profile display
+export DISABLE_AUTO_TITLE='true'
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -54,13 +46,54 @@ else
 fi
 
 # -----------------------------------------------------------------------------
+# Tools & Utils
+# -----------------------------------------------------------------------------
+
+# Common exports for both Linux and MacOS
+export PATH="${PATH}:${HOME}"
+export PATH="${PATH}:${HOME}/.local/share/nvim/mason/bin"
+export PATH="${PATH}:${HOME}/bin"
+export PATH="${PATH}:/opt/bin"
+export PATH="${PATH}:/opt/local/bin"
+export PATH="${PATH}:/opt/nvim/bin"
+export PATH="${HOME}/.local/bin:$PATH"
+export PATH="$PATH:${HOME}/.opencode/bin"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# MacOS-only exports
+if [[ "$(uname)" == "Darwin" ]]; then
+  export PATH="${PATH}:/Applications/WezTerm.app/Contents/MacOS"
+  export PATH="${PATH}:${HOME}/AppImage"
+
+  # Homebrew basic settings
+  export PATH="${PATH}:/opt/homebrew/bin"
+  export PATH="${PATH}:/opt/homebrew/opt/socket_vmnet/bin"
+  export PATH="${PATH}:/opt/homebrew/sbin"
+
+  # Homebrew setttings for compilers to find zlib
+  export LDFLAGS="-L/opt/homebrew/opt/zlib/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
+
+  # Homebrew pkg-config to find zlib
+  export PKG_CONFIG_PATH="/opt/homebrew/opt/zlib/lib/pkgconfig"
+
+  # Homebrew openssl and DYLD library path
+  export PATH="/opt/homebrew/opt/openssl@3.0/bin:$PATH"
+  export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+
+  # Prefer gnu-sed as default
+  export PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:${PATH}"
+fi
+
+# -----------------------------------------------------------------------------
 # Terminal colors & display
 # -----------------------------------------------------------------------------
 
 # Color settings
 export COLORTERM=truecolor
 
-# get some colors on commands with grc
+# get some colors on commands with grc when installed
 [[ -s "/etc/grc.zsh" ]] && source "/etc/grc.zsh"
 
 # Syntax highlight for LESS command
@@ -76,11 +109,13 @@ fi
 
 export FONTCONFIG_PATH=/etc/fonts
 
-# Tmux Profile display
-export DISABLE_AUTO_TITLE='true'
+# -----------------------------------------------------------------------------
+# Git
+# -----------------------------------------------------------------------------
+export PATH="${PATH}:/usr/local/git/bin"
 
 # -----------------------------------------------------------------------------
-# Tools & Utils
+# Docker, Kubernetes, Containers stuff
 # -----------------------------------------------------------------------------
 
 # Enable Docker build kit by default
@@ -88,55 +123,7 @@ export DOCKER_BUILDKIT=1
 export BUILDKIT_COLORS=run=green:warning=yellow:error=red:cancel=255,165,0
 export BUILDKIT_PROGRESS=plain
 export KUBE_EDITOR=nvim
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
-
-# -----------------------------------------------------------------------------
-# Git
-# -----------------------------------------------------------------------------
-export PATH="${PATH}:/usr/local/git/bin"
-
-# -----------------------------------------------------------------------------
-# Coding stuff
-# -----------------------------------------------------------------------------
-
-# For compilers to find zlib you may need to set:
-export LDFLAGS="-L/opt/homebrew/opt/zlib/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
-
-# For pkg-config to find zlib you may need to set:
-export PKG_CONFIG_PATH="/opt/homebrew/opt/zlib/lib/pkgconfig"
-
-export PATH="${PATH}:${HOME}"
-
-# Golang
-export GO111MODULE="on"
-export GOPATH="${HOME}/go"
-export TINYGOPATH="${HOME}/tinygo"
-export TINYGOBIN="${TINYGOPATH}/bin"
-export GOBIN="${GOPATH}/bin"
-export ZIGPATH="${HOME}/zig"
-export ZIGBIN="${ZIGPATH}/bin"
-export PATH="$PATH:$GOBIN:$TINYGOBIN:$ZIGBIN:$GOROOT/bin"
-export PATH="${PATH}:/usr/local/go/bin"
-
-# Lua
-eval "$(luarocks path --bin)"
-
-# Ruby
-PATH="${PATH}:${HOME}/.gem/ruby/2.7.0/bin"
-
-
-# HomeBrew
-if [[ "$(uname -s)" = Darwin ]]; then
-  export PATH="/opt/homebrew/opt/openssl@3.0/bin:$PATH"
-  export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-  export PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:${PATH}"
-fi
-
-# Terraform Env
-export PATH="${PATH}:${HOME}/.tfenv/bin"
 
 # Rancher
 if [[ "$(uname -s)" = Darwin ]]; then
@@ -144,6 +131,32 @@ if [[ "$(uname -s)" = Darwin ]]; then
   export LIMA_HOME="${HOME}/Library/Application Support/rancher-desktop/lima"
   export PATH="${PATH}:${HOME}/.rd/bin"
 fi
+
+# -----------------------------------------------------------------------------
+# Coding stuff
+# -----------------------------------------------------------------------------
+
+# Golang
+export GO111MODULE="on"
+export GOPATH="${HOME}/go"
+export TINYGOPATH="${HOME}/tinygo"
+export TINYGOBIN="${TINYGOPATH}/bin"
+export GOBIN="${GOPATH}/bin"
+export PATH="${PATH}:/usr/local/go/bin:${GOBIN}:${TINYGOBIN}:${GOROOT}/bin"
+
+# Lua
+eval "$(luarocks path --bin)"
+
+# Ruby
+PATH="${PATH}:${HOME}/.gem/ruby/2.7.0/bin"
+
+# Terraform Env
+export PATH="${PATH}:${HOME}/.tfenv/bin"
+
+# Zig
+export ZIGPATH="${HOME}/zig"
+export ZIGBIN="${ZIGPATH}/bin"
+export PATH="${PATH}:${ZIGBIN}"
 
 # -----------------------------------------------------------------------------
 # EOF
