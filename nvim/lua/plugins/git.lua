@@ -61,7 +61,7 @@ return {
           gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
         end, { desc = 'reset hunk' })
         map('n', '\\gS', gitsigns.stage_buffer, { desc = 'stage buffer' })
-        map('n', '\\gu', gitsigns.undo_stage_hunk, { desc = 'undo stage hunk' })
+        map('n', '\\gu', gitsigns.stage_hunk, { desc = 'stage hunk' })
         map('n', '\\gR', gitsigns.reset_buffer, { desc = 'reset buffer' })
         map('n', '\\gp', gitsigns.preview_hunk, { desc = 'preview hunk' })
         map('n', '\\gP', gitsigns.preview_hunk_inline, { desc = 'review hunk inline' })
