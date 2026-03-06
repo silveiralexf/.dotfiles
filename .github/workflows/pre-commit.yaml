@@ -26,19 +26,5 @@ jobs:
           devbox install
           devbox run precommit-install
 
-      - name: Run pre-commit
+      - name: Run tests
         run: devbox run -- pre-commit run --all-files
-
-      - name: Install Lua 5.4 and dependencies for tests
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y lua5.4 liblua5.4-dev
-          luarocks --lua-version 5.4 install luafilesystem
-          luarocks --lua-version 5.4 install busted
-
-      - name: Run Lua tests
-        run: |
-          export LUA_PATH='/home/runner/work/.dotfiles/.dotfiles/lua_modules/share/lua/5.4/?.lua;/home/runner/work/.dotfiles/.dotfiles/lua_modules/share/lua/5.4/?/init.lua;;'
-          export LUA_CPATH='/home/runner/work/.dotfiles/.dotfiles/lua_modules/lib/lua/5.4/?.so;;'
-          lua5.4 tests/run_features.lua
-          lua5.4 /home/runner/work/.dotfiles/.dotfiles/lua_modules/lib/luarocks/rocks-5.4/busted/2.3.0-1/bin/busted tests/spec --no-coverage
