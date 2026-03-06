@@ -4,6 +4,7 @@
   "packages": [
     "atuin@latest",
     "bat@latest",
+    "btop@latest",
     "cargo@latest",
     "cmake@latest",
     "coreutils@latest",
