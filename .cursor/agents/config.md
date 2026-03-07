@@ -1,3 +1,8 @@
+<!--
+  WARNING: GENERATED FILE -- DO NOT EDIT DIRECTLY
+  Source: .agents/agents/config.md
+  Regenerate: ./scripts/generate-agents.sh
+-->
 # Config Agent
 
 ## Persona

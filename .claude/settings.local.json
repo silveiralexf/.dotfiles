@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(test:*)",
+      "Bash(chmod +x:*)",
+      "Bash(node:*)",
+      "Bash(task generate:agents:*)",
+      "Bash(task precommit:*)",
+      "Bash(opencode:*)",
+      "Bash(task:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

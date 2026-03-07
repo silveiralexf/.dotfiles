@@ -4,6 +4,13 @@ fail_fast: true
 repos:
   - repo: local
     hooks:
+      - id: agents-generate
+        name: Regenerate agent platform files from .agents/ source
+        entry: task
+        language: system
+        args: [agents:generate]
+        pass_filenames: false
+        files: '^\.agents/(agents|commands|skills|templates|data)/'
       - id: rename-cursor-plans
         name: Rename .cursor/plans/*.plan.md to YYYY-MM-DD_username_slug.plan.md
         entry: scripts/rename-cursor-plans.sh
@@ -35,12 +42,11 @@ repos:
       - id: markdownlint
         name: markdownlint
         entry: markdownlint
-        language: node
+        language: system
         types: [markdown]
-        exclude: '^\.cursor/commands/'
+        exclude: '^(\.cursor|\.claude|\.agents)/commands/'
         pass_filenames: true
-        args: ["-c", ".markdownlint.yaml", "-i", "CHANGELOG.md", "-i", "node_modules"]
-        additional_dependencies: [markdownlint-cli@^0.44.0]
+        args: ["-c", ".markdownlint.yaml", "-i", "CHANGELOG.md"]
       - id: task-yamlfmt
         name: task-yamlfmt
         entry: task

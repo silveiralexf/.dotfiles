@@ -1,3 +1,8 @@
+<!--
+  WARNING: GENERATED FILE -- DO NOT EDIT DIRECTLY
+  Source: .agents/agents/code-reviewer.md
+  Regenerate: ./scripts/generate-agents.sh
+-->
 # Code Reviewer Agent
 
 ## Persona
@@ -20,7 +25,7 @@ Review all config/taskfile/script changes before commit. Ensure style consistenc
 When requesting review, provide:
 
 - **What was implemented:** Brief description
-- **Plan reference:** Plan file and task (e.g. `.cursor/plans/YYYY-MM-DD_user_slug.plan.md` Task N)
+- **Plan reference:** Plan file and task (e.g. `.agents/plans/YYYY-MM-DD_user_slug.plan.md` Task N)
 - **BASE_SHA** and **HEAD_SHA**
 
 ## Workflow

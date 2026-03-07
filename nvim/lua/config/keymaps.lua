@@ -8,9 +8,142 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Primary Leader keybindings
+map('n', '<leader><tab><tab>', '<cmd>enew<cr>', { desc = 'New empty buffer' })
 map('n', '<leader><tab>v', '<cmd>vnew<cr>', { desc = 'New vertically split pane' })
 map('n', '<leader>k', '<cmd>WhichKey<cr>', { desc = 'Whichkey' })
 map('n', '<leader>t', '', { desc = 'NeoTest' })
+
+-- LazyVim-style find/search (FzfLua) - space+space = find files, leader+ff/fw for files/grep
+map('n', '<leader><space>', '<cmd>FzfLua files<cr>', { desc = 'Find files (FzfLua)' })
+map('n', '<leader>ff', '<cmd>FzfLua files<cr>', { desc = 'Find files' })
+map('n', '<leader>fw', '<cmd>FzfLua live_grep<cr>', { desc = 'Find word (live grep)' })
+map('n', '<leader>fg', '<cmd>FzfLua live_grep<cr>', { desc = 'Live grep' })
+map('n', '<leader>fb', '<cmd>FzfLua buffers<cr>', { desc = 'Find buffers' })
+map('n', '<leader>fh', '<cmd>FzfLua helptags<cr>', { desc = 'Find help' })
+map('n', '<leader>fk', '<cmd>FzfLua keymaps<cr>', { desc = 'Find keymaps' })
+map('n', '<leader>fc', '<cmd>FzfLua lsp_code_actions<cr>', { desc = 'LSP code actions' })
+-- Search group: leader+s = search, leader+sk = which-key, leader+s/ = search (grep)
+map('n', '<leader>s', '<cmd>FzfLua live_grep<cr>', { desc = 'Search in project (grep)' })
+map('n', '<leader>sk', '<cmd>WhichKey<cr>', { desc = 'Which key (keymaps)' })
+map('n', '<leader>s/', '<cmd>FzfLua live_grep<cr>', { desc = 'Search (grep)' })
+map('n', '<leader>sw', '<cmd>FzfLua live_grep<cr>', { desc = 'Search word' })
+-- Find and replace in all files (Spectre)
+map('n', '<leader>sr', function()
+  local ok, spectre = pcall(require, 'spectre')
+  if ok and spectre and spectre.open then
+    spectre.open()
+  end
+end, { desc = 'Search and replace (Spectre)' })
+map('n', '<leader>sR', function()
+  local ok, spectre = pcall(require, 'spectre')
+  if ok and spectre and spectre.open_visual then
+    spectre.open_visual({ select_word = true })
+  end
+end, { desc = 'Search replace (word under cursor)' })
+map('v', '<leader>sR', function()
+  local ok, spectre = pcall(require, 'spectre')
+  if ok and spectre and spectre.open_visual then
+    spectre.open_visual()
+  end
+end, { desc = 'Search replace (selection)' })
+
+-- Buffers
+map('n', '<leader>bp', '<cmd>bprevious<cr>', { desc = 'Prev buffer' })
+map('n', '<leader>bn', '<cmd>bnext<cr>', { desc = 'Next buffer' })
+map('n', '<S-h>', '<cmd>bprevious<cr>', { desc = 'Prev buffer' })
+map('n', '<S-l>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
+map('n', '[b', '<cmd>bprevious<cr>', { desc = 'Prev buffer' })
+map('n', ']b', '<cmd>bnext<cr>', { desc = 'Next buffer' })
+map('n', '<leader>bb', '<cmd>e #<cr>', { desc = 'Switch to other buffer' })
+map('n', '<leader>bd', '<cmd>bd<cr>', { desc = 'Delete buffer' })
+
+-- Quickfix / location list
+map('n', '<leader>xq', function()
+  if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
+    vim.cmd.cclose()
+  else
+    vim.cmd.copen()
+  end
+end, { desc = 'Toggle quickfix list' })
+map('n', '<leader>xl', function()
+  local winid = vim.fn.getloclist(0, { winid = 0 }).winid
+  if winid and winid ~= 0 then
+    vim.cmd.lclose()
+  else
+    pcall(vim.cmd.lopen) -- E776 when no location list; avoid error
+  end
+end, { desc = 'Toggle location list' })
+map('n', '[q', '<cmd>cprev<cr>', { desc = 'Previous quickfix' })
+map('n', ']q', '<cmd>cnext<cr>', { desc = 'Next quickfix' })
+
+-- Diagnostics (vim.diagnostic.jump() + on_jump; goto_next/goto_prev and float= are deprecated in 0.13/0.14)
+local function diag_jump(count, severity)
+  local opts = {
+    count = count,
+    on_jump = function(_, bufnr)
+      vim.diagnostic.open_float({ bufnr = bufnr, scope = 'cursor', focus = false })
+    end,
+  }
+  if severity then
+    opts.severity = severity
+  end
+  vim.diagnostic.jump(opts)
+end
+map('n', '<leader>cd', vim.diagnostic.open_float, { desc = 'Line diagnostics' })
+map('n', ']d', function()
+  diag_jump(1)
+end, { desc = 'Next diagnostic' })
+map('n', '[d', function()
+  diag_jump(-1)
+end, { desc = 'Prev diagnostic' })
+map('n', ']e', function()
+  diag_jump(1, vim.diagnostic.severity.ERROR)
+end, { desc = 'Next error' })
+map('n', '[e', function()
+  diag_jump(-1, vim.diagnostic.severity.ERROR)
+end, { desc = 'Prev error' })
+map('n', ']w', function()
+  diag_jump(1, vim.diagnostic.severity.WARN)
+end, { desc = 'Next warning' })
+map('n', '[w', function()
+  diag_jump(-1, vim.diagnostic.severity.WARN)
+end, { desc = 'Prev warning' })
+
+-- Trouble keymaps are registered in lua/plugins/trouble.lua after the plugin is loaded and set up.
+
+-- Format (conform)
+map('n', '<leader>cf', function()
+  local ok, conform = pcall(require, 'conform')
+  if ok and conform and conform.format then
+    conform.format({ async = false })
+  end
+end, { desc = 'Format' })
+map('x', '<leader>cf', function()
+  local ok, conform = pcall(require, 'conform')
+  if ok and conform and conform.format then
+    conform.format({ async = false })
+  end
+end, { desc = 'Format' })
+
+-- Windows
+map('n', '<leader>-', '<cmd>split<cr>', { desc = 'Split below' })
+map('n', '<leader>|', '<cmd>vsplit<cr>', { desc = 'Split right' })
+map('n', '<leader>wd', '<cmd>close<cr>', { desc = 'Close window' })
+-- Ctrl+W + Left/Right/Up/Down: move focus between windows
+map('n', '<C-w><Left>', '<C-w>h', { desc = 'Focus left window' })
+map('n', '<C-w><Right>', '<C-w>l', { desc = 'Focus right window' })
+map('n', '<C-w><Up>', '<C-w>k', { desc = 'Focus upper window' })
+map('n', '<C-w><Down>', '<C-w>j', { desc = 'Focus lower window' })
+-- Ctrl+W + Ctrl+arrow: resize current window
+map('n', '<C-w><C-Left>', '<cmd>vertical resize -5<cr>', { desc = 'Resize window left' })
+map('n', '<C-w><C-Right>', '<cmd>vertical resize +5<cr>', { desc = 'Resize window right' })
+map('n', '<C-w><C-Up>', '<cmd>resize +5<cr>', { desc = 'Resize window up' })
+map('n', '<C-w><C-Down>', '<cmd>resize -5<cr>', { desc = 'Resize window down' })
+
+-- Git (leader+g): diffview; gitsigns hunk keys are under \g (buffer-local in git buffers)
+map('n', '<leader>gh', '<cmd>DiffviewOpen<cr>', { desc = 'Diffview open' })
+map('n', '<leader>gc', '<cmd>DiffviewClose<cr>', { desc = 'Diffview close' })
+map('n', '<leader>gH', '<cmd>DiffviewFileHistory %<cr>', { desc = 'File history (current)' })
 
 -- LSP bindings (K and gd are set buffer-local in LspAttach; these are global fallbacks/alternatives)
 map('n', '@d', '<cmd>lua vim.lsp.buf.definition()<cr>', { desc = 'lsp buf definition' })

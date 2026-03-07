@@ -7,11 +7,12 @@ git:
   fetchAll: true
   autoStageResolvedConflicts: true
   branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName} --}
-  allBranchesLogCmd: git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
   overrideGpg: true
   disableForcePushing: false
   parseEmoji: false
   truncateCopiedCommitHashesTo: 12
+  allBranchesLogCmds:
+    - git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
 gui:
   scrollHeight: 2
   scrollPastBottom: true

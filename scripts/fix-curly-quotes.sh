@@ -42,7 +42,7 @@ for f in "$@"; do
     -e "s/${ZWNJ}//g" \
     -e "s/${ZWJ}//g" \
     -e "s/${BOM}//g" \
-    "$f" > "$tmp"; then
+    "$f" >"$tmp"; then
     if ! cmp -s "$f" "$tmp"; then
       mv "$tmp" "$f"
       changed=1

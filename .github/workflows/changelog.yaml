@@ -1,0 +1,36 @@
+# Generate and commit CHANGELOG.md on every push to main/master (including PR merges).
+# Skips commits made by github-actions[bot] to avoid infinite loops.
+
+name: changelog
+
+on:
+  push:
+    branches: [main, master]
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    if: github.actor != 'github-actions[bot]'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Devbox and project dependencies
+        uses: jetify-com/devbox-install-action@v0.14.0
+
+      - name: Generate changelog
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          devbox run -- task changelog
+          if git diff --staged --quiet; then
+            echo "No changelog changes to commit"
+          else
+            git commit -m "chore: update CHANGELOG.md [skip ci]"
+            git push origin ${GITHUB_REF#refs/heads/}
+          fi

@@ -12,14 +12,21 @@ Acceptance criteria for Neovim, WezTerm, and other Lua configs are written in **
 ## Running tests
 
 ```bash
-# Install Busted (once)
-luarocks install busted
+# Install dependencies (once)
+luarocks --lua-version 5.4 install luafilesystem
+luarocks --lua-version 5.4 install busted
 
-# Run all Lua specs
-busted tests/spec
-
-# Or via task (if wired in Taskfile.yml)
+# Run via task (recommended)
 task test:lua
+
+# Or manually with correct LUA_PATH/LUA_CPATH
+LUA_PATH='./lua_modules/share/lua/5.4/?.lua;./lua_modules/share/lua/5.4/?/init.lua;;' \
+LUA_CPATH='./lua_modules/lib/lua/5.4/?.so;;' \
+lua tests/run_features.lua
+
+LUA_PATH='./lua_modules/share/lua/5.4/?.lua;./lua_modules/share/lua/5.4/?/init.lua;;' \
+LUA_CPATH='./lua_modules/lib/lua/5.4/?.so;;' \
+lua ./lua_modules/lib/luarocks/rocks-5.4/busted/2.3.0-1/bin/busted tests/spec --no-coverage
 ```
 
 ## Adding a new scenario

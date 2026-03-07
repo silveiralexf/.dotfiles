@@ -3,11 +3,11 @@ version: "3"
 dotenv: [".env"]
 vars:
   SHELL: /usr/bin/env bash -o pipefail
-  DOTFILES_HOME: "${HOME}/.dotfiles"
-  DOTFILES_CONFIG: "${DOTFILES_HOME}/etc/config"
-  DOTFILES_PROFILE: "${DOTFILES_HOME}/etc/profile"
-  DOTFILES_RC: "${DOTFILES_HOME}/etc/rc"
-  DOTFILES_SCRIPTS: "${DOTFILES_HOME}/scripts"
+  DOTFILES_HOME: "{{.USER_WORKING_DIR}}"
+  DOTFILES_CONFIG: "{{.DOTFILES_HOME}}/etc/config"
+  DOTFILES_PROFILE: "{{.DOTFILES_HOME}}/etc/profile"
+  DOTFILES_RC: "{{.DOTFILES_HOME}}/etc/rc"
+  DOTFILES_SCRIPTS: "{{.DOTFILES_HOME}}/scripts"
 includes:
   common:install:core:
     taskfile: ./tasks/common/install/core/Taskfile.yml
@@ -29,6 +29,8 @@ includes:
     taskfile: ./tasks/macos/install/hammerspoon/Taskfile.yml
   macos:install:rust:
     taskfile: ./tasks/macos/install/rust/Taskfile.yml
+  agents:
+    taskfile: ./tasks/agents/Taskfile.yml
 tasks:
   default:
     cmds:
@@ -45,24 +47,19 @@ tasks:
     silent: true
   test:lua:
     desc: "Run Lua Gherkin features (byfeature-style output with colors) and Busted specs"
-    dir: "{{.TASKFILE_DIR}}"
+    dir: "{{.DOTFILES_HOME}}"
     cmds:
-      - cmd: "lua tests/run_features.lua"
-      - cmd: "busted tests/spec --no-coverage -o tap"
+      - cmd: "LUA_PATH='{{.DOTFILES_HOME}}/lua_modules/share/lua/5.4/?.lua;{{.DOTFILES_HOME}}/lua_modules/share/lua/5.4/?/init.lua;;' LUA_CPATH='{{.DOTFILES_HOME}}/lua_modules/lib/lua/5.4/?.so;;' lua tests/run_features.lua"
+      - cmd: "LUA_PATH='{{.DOTFILES_HOME}}/lua_modules/share/lua/5.4/?.lua;{{.DOTFILES_HOME}}/lua_modules/share/lua/5.4/?/init.lua;;' LUA_CPATH='{{.DOTFILES_HOME}}/lua_modules/lib/lua/5.4/?.so;;' lua {{.DOTFILES_HOME}}/lua_modules/lib/luarocks/rocks-5.4/busted/2.3.0-1/bin/busted tests/spec --no-coverage"
   precommit:
     desc: Verifies and fix requirements for new commits
     cmds:
       - scripts/hooks/pre-commit
-  plan:rename:
-    desc: Rename .cursor/plans/*.plan.md to YYYY-MM-DD_username_slug.plan.md (--dry-run to preview)
-    dir: "{{.TASKFILE_DIR}}"
-    cmds:
-      - scripts/rename-cursor-plans.sh {{.CLI_ARGS}}
   markdownlint:
-    desc: Lint Markdown with markdownlint-cli (.markdownlint.yaml); uses node_modules when present
+    desc: Lint Markdown with markdownlint-cli (.markdownlint.yaml)
     dir: "{{.TASKFILE_DIR}}"
     cmds:
-      - cmd: "npx markdownlint-cli -c .markdownlint.yaml '**/*.md' -i CHANGELOG.md -i node_modules 2>/dev/null || (echo 'Run: npm install' >&2 && exit 1)"
+      - cmd: "markdownlint -c .markdownlint.yaml '**/*.md' -i CHANGELOG.md"
   yamlfmt:
     desc: "Format YAML files with yamlfmt (install with: go install github.com/google/yamlfmt/cmd/yamlfmt@latest)"
     dir: "{{.TASKFILE_DIR}}"
@@ -119,7 +116,6 @@ tasks:
         echo "Installing Devbox via official script (https://www.jetify.com/docs/devbox/installing-devbox)..."
         echo "Devbox may install Nix if not present. Run as non-root on Linux."
         curl -fsSL https://get.jetify.com/devbox | bash
-
   devbox:install:
     desc: Install devbox dependencies (run once after clone or when devbox.json changes)
     dir: "{{.TASKFILE_DIR}}"
@@ -130,7 +126,6 @@ tasks:
         msg: "devbox.json not found in project root."
     cmds:
       - devbox install
-
   devbox:shell:
     desc: Enter devbox shell with all dev tools on PATH
     dir: "{{.TASKFILE_DIR}}"
@@ -141,13 +136,51 @@ tasks:
         msg: "devbox.json not found in project root."
     cmds:
       - devbox shell
-
+  nvim:deps:
+    desc: Install optional Neovim deps (tree-sitter-cli; use nvim:luarocks-build for rocks if using LuaRocks plugin)
+    dir: "{{.TASKFILE_DIR}}"
+    cmds:
+      - |
+        if command -v tree-sitter >/dev/null 2>&1; then
+          ver=$(tree-sitter --version 2>/dev/null | head -1)
+          if echo "$ver" | grep -qE '0\.26\.'; then
+            echo "tree-sitter-cli already at 0.26.x: $ver"
+          else
+            echo "Upgrading tree-sitter-cli to 0.26.1 (current: $ver)..."
+            npm install -g tree-sitter-cli@0.26.1 2>/dev/null || { echo "npm install -g tree-sitter-cli@0.26.1 failed." >&2; exit 1; }
+          fi
+        else
+          echo "Installing tree-sitter-cli@0.26.1 (for nvim-treesitter)..."
+          npm install -g tree-sitter-cli@0.26.1 2>/dev/null || { echo "npm install -g tree-sitter-cli@0.26.1 failed (install Node/npm first)." >&2; exit 1; }
+        fi
+      - echo "For LuaRocks (jsregexp etc.), run 'task nvim:luarocks-build' once after starting nvim. Then restart nvim."
+      - echo "Done. Restart Neovim and run :checkhealth."
+  nvim:luarocks-build:
+    desc: Run LuaRocks.nvim build once (compiles local LuaRocks; then setup() installs rocks)
+    dir: "{{.TASKFILE_DIR}}"
+    cmds:
+      - |
+        PLUGIN_DIR=$(find "${XDG_DATA_HOME:-$HOME/.local/share}/nvim/site/pack" -maxdepth 4 -type d -name "luarocks.nvim" 2>/dev/null | head -1)
+        if [ -z "$PLUGIN_DIR" ]; then
+          echo "luarocks.nvim not found in pack dir. Start nvim once so plugins are installed, then run this task again." >&2
+          exit 1
+        fi
+        if [ ! -f "$PLUGIN_DIR/build.lua" ]; then
+          echo "build.lua not found in $PLUGIN_DIR" >&2
+          exit 1
+        fi
+        echo "Running LuaRocks.nvim build in $PLUGIN_DIR ..."
+        nvim -l "$PLUGIN_DIR/build.lua"
+  nvim:reset:
+    desc: "Backup ~/.local/share/nvim, ~/.local/state/nvim, ~/.cache/nvim with timestamped suffix (e.g. nvim.bak-YYYYMMDD-HHMMSS). Leaves ~/.config/nvim untouched so your config (or symlink) stays; start nvim and pack will auto-install plugins from scratch like Lazy did."
+    dir: "{{.TASKFILE_DIR}}"
+    cmds:
+      - ./scripts/backup-nvim-dirs.sh
   linux:install:all:
     desc: Install base packages and core setup on Linux (apt + common core)
     cmds:
       - task: linux:install:apt:all
       - task: common:install:core:all
-
   macos:install:all:
     desc: Install all MacOS required tools
     cmds:

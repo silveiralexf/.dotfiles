@@ -1,37 +1,22 @@
 # Run pre-commit hooks and Lua tests on PR and on push to main/master.
-# Reference: enkub-io/enkub .github/workflows/pre-commit.yaml
-
 name: pre-commit
-
 on:
   pull_request:
   push:
     branches: [main, master]
-
 jobs:
   precommit:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Install Devbox and project dependencies
         uses: jetify-com/devbox-install-action@v0.14.0
-
-      - name: Install node dependencies (markdownlint, etc.)
-        run: devbox run precommit-install
-
-      - name: Run pre-commit
-        run: devbox run -- pre-commit run --all-files
-
-      - name: Install Lua and Busted for Lua tests
+      - name: Install pre-commit hooks
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y lua5.1 lua5.1-dev luarocks
-          luarocks install busted
-
-      - name: Run Lua tests
-        run: devbox run -- task test:lua
+          devbox install
+          devbox run precommit-install
+      - name: Run tests
+        run: devbox run -- pre-commit run --all-files

@@ -1,12 +1,16 @@
+--- Cursor agent window: \c, \ca, \cc, \ct
 return {
-  {
-    'Loki-Astari/cursor',
-    config = function()
-      require('cursor').setup({
-        width = 50, -- Width of the cursor window (default: 50)
-        auto_open = false, -- Auto-open on startup (default: false)
+  specs = {
+    { src = 'https://github.com/Loki-Astari/cursor', name = 'cursor' },
+  },
+  config = function()
+    local cursor = require('cursor')
+    if type(cursor) == 'table' and cursor.setup then
+      cursor.setup({
+        width = 50,
+        auto_open = false,
         command = 'cursor-agent',
       })
-    end,
-  },
+    end
+  end,
 }

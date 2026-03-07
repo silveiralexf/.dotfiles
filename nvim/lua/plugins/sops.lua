@@ -1,11 +1,10 @@
+--- SOPS: <leader>cE encrypt, <leader>cD decrypt
 return {
-  {
-    'lucidph3nx/nvim-sops',
-    event = { 'BufEnter' },
-    opts = {},
-    keys = {
-      { '<leader>cE', vim.cmd.SopsEncrypt, desc = 'Encrypt File' },
-      { '<leader>cD', vim.cmd.SopsDecrypt, desc = 'Decrypt File' },
-    },
+  specs = {
+    { src = 'https://github.com/lucidph3nx/nvim-sops', name = 'nvim-sops' },
   },
+  config = function()
+    vim.keymap.set('n', '<leader>cE', vim.cmd.SopsEncrypt, { desc = 'Encrypt File' })
+    vim.keymap.set('n', '<leader>cD', vim.cmd.SopsDecrypt, { desc = 'Decrypt File' })
+  end,
 }

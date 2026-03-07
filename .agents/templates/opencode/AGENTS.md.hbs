@@ -1,0 +1,67 @@
+# Dotfiles Agentic Workflow -- Cross-Platform Reference
+
+> WARNING: GENERATED FILE -- DO NOT EDIT DIRECTLY
+> Source: .agents/ directory
+> Regenerate: ./scripts/generate-agents.sh
+
+This document is the authoritative cross-platform context for the dotfiles agentic workflow.
+Source of truth: `.agents/` -- edit sources there, then run `task generate:agents`.
+
+## Agents
+
+{{#each agents}}
+### @{{name}}
+
+**Description:** {{description}}
+
+{{{downshift _content 2}}}
+
+---
+{{/each}}
+
+## Commands
+
+{{#each commands}}
+### /{{name}}
+
+**Description:** {{description}}
+
+**Platforms:** {{join platforms ", "}}
+
+---
+{{/each}}
+
+## Skills
+
+{{#each skills}}
+### @{{name}}
+
+**Output:** `{{name}}.{{output_ext}}`
+
+**Platforms:** {{join platforms ", "}}
+
+---
+{{/each}}
+
+## Default Workflow
+
+1. **If requirements unclear:** Use brainstorm command -> then write plan.
+2. **Plan:** Bite-sized tasks (2-5 min each), exact paths (`etc/`, `nvim/`, `wezterm/`, `tasks/`, `scripts/`); plans in `.agents/plans/` with naming `YYYY-MM-DD_<username>_<slug>.plan.md`.
+3. **Execute:** One agent per task; delegate to @config or @taskfile; after each task: spec compliance then @code-reviewer.
+4. **On bug/failure:** Systematic debugging - root cause first.
+5. **End of branch:** Run `task precommit`, then present merge/PR/keep/discard options.
+
+## Gate System
+
+Agents MUST consult @planner before:
+
+- Starting work without an active plan
+- Detouring from the current plan
+
+Gate protocol: `@planner: Validate work [description]` with Work, Plan Reference, Alignment.
+Planner responds: `ALIGNED` / `REQUEST_HUMAN_VALIDATION` / `REJECT` with Next steps.
+
+## Plan Adherence
+
+Before continuing any work, validate against the active plan in `.agents/plans/`.
+Every implementation task must be plan-aligned. Invoke @planner to validate if unsure.
