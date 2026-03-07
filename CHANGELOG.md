@@ -3,6 +3,92 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2026-03-07
+
+### 🔨 Fixes
+
+- *(nvim)* \[[1e03f233](https://github.com/silveiralexf/.dotfiles/commit/1e03f23373e536c411d4852b89443f5ff00f9cf2)\] add blinkCmp mapping for accepting lsp completion suggestion
+- *(ci)* \[[a4e729ad](https://github.com/silveiralexf/.dotfiles/commit/a4e729ad7a5c743079c5d58a3611ff21485795da)\] adjust agent generation script for pipeline
+
+### ⚙️ Chores
+
+- *(devbox)* \[[ffc122de](https://github.com/silveiralexf/.dotfiles/commit/ffc122decd2bb8c932239eb029464dccdddc85f6)\] add kubectl to devbox
+
+
+## 2026-03-06
+
+### 🚀 Features
+
+- *(agents)* \[[8f7b0252](https://github.com/silveiralexf/.dotfiles/commit/8f7b02523ded61ee4b11bbcdb610f12aec662ab2)\] cross-platform agent workflow generator from .agents/
+
+### 📦 Dependencies
+
+- *(deps)* \[[5f326103](https://github.com/silveiralexf/.dotfiles/commit/5f326103b8978d8a30cd498d4bf76ebd215f37e0)\] add btop and bump packages
+- *(deps)* \[[0864ae51](https://github.com/silveiralexf/.dotfiles/commit/0864ae51cf1f78cb502dd9af6ee147818f6dd0cd)\] remove unused lua5.1 deps from devbox
+
+### 📚 Documentation
+
+- *(agents)* \[[91b40160](https://github.com/silveiralexf/.dotfiles/commit/91b40160c6aed2d076d784ade7ec2e17cca95da5)\] add plans to repository
+
+### 🎨 Styling
+
+- *(nvim)* \[[b4dc4226](https://github.com/silveiralexf/.dotfiles/commit/b4dc4226e8844cb0a149bfc79c7e27f96d933354)\] lint/format pack config
+- *(agents)* \[[42ab982a](https://github.com/silveiralexf/.dotfiles/commit/42ab982af90b3ac809e1c754f840a05353bafc24)\] format and linting on plans
+
+### 🔨 Fixes
+
+- *(nvim)* \[[1c93ffba](https://github.com/silveiralexf/.dotfiles/commit/1c93ffbaba06f588dfab2dcff9fd585f16f96b56)\] adjust setup for lua5.4
+- *(ci)* \[[8b5802c4](https://github.com/silveiralexf/.dotfiles/commit/8b5802c4ae3cea2146e96ee1e054d6b36e8517c6)\] add lua5.4 to devbox, simplify pre-commit action, add changelog workflow
+
+### ⚙️ Chores
+
+- *(profile)* \[[4ea7a59e](https://github.com/silveiralexf/.dotfiles/commit/4ea7a59e8d627cef0c1c5dbbd8ef5e3a738b25de)\] improve exports and configs
+- *(nvim)* \[[f3a85e9c](https://github.com/silveiralexf/.dotfiles/commit/f3a85e9c1ec2e7f9891e413ba89da383d2a40721)\] remove lazy dead-code
+- *(nvim)* \[[04e11c44](https://github.com/silveiralexf/.dotfiles/commit/04e11c44c08fa31063b0d6498e13e920481db829)\] bump deprecated method for gitsigns
+- *(scripts)* \[[85dc60cd](https://github.com/silveiralexf/.dotfiles/commit/85dc60cdb52cff99d760158a04b2fe130ce58828)\] improve precommit hook script
+- *(ci)* \[[699cb803](https://github.com/silveiralexf/.dotfiles/commit/699cb803491bf3af660bc84a815e7d7b6000a97a)\] adjust devbox and scripts for action work
+- *(plans)* \[[13c974dc](https://github.com/silveiralexf/.dotfiles/commit/13c974dc5c0ff4e5bd47512bf75ee213fb3cd699)\] archive stale .cursor/plans to .agents/plans
+- *(profile)* \[[2d7f5ea4](https://github.com/silveiralexf/.dotfiles/commit/2d7f5ea4ea7d5fc2cbfb9fcc8ba65e7fc3470fef)\] remove former employeer references
+
+
+## 2026-03-05
+
+### 📦 Dependencies
+
+- *(nvim)* \[[1f17c8ef](https://github.com/silveiralexf/.dotfiles/commit/1f17c8ef0c757dfbbc10408f47a80851254cb93c)\] bump neovim packages
+
+### ⚙️ Chores
+
+- *(wezter)* \[[6eb1570b](https://github.com/silveiralexf/.dotfiles/commit/6eb1570b64dcd09f509c4530963d37cf185a1e72)\] add omarchy images to backdrops
+- *(devbox)* \[[d4fc1584](https://github.com/silveiralexf/.dotfiles/commit/d4fc158423b638f37f66d7fc8dfa46b480cb29df)\] tweaking locale issues with tmux
+
+
+## 2026-03-04
+
+### ⚙️ Chores
+
+- *(base)* \[[59f0e625](https://github.com/silveiralexf/.dotfiles/commit/59f0e625ed18a1d7c561eca48fe559baaa89f488)\] format, lint and adjust
+
+
+## 2026-02-28
+
+### 🚀 Features
+
+- *(nvim)* \[[c308bae0](https://github.com/silveiralexf/.dotfiles/commit/c308bae0cc0226cc7433fa4af2219a9020e195fb)\] convert to pack-native with plugin specs and config
+
+### 📚 Documentation
+
+- *(nvim)* \[[94d9f3f0](https://github.com/silveiralexf/.dotfiles/commit/94d9f3f01d542eb22e9d2d5ee63b692d2c40f72c)\] update README plugin list for pack
+
+### 🔨 Fixes
+
+- *(nvim)* \[[3c663a56](https://github.com/silveiralexf/.dotfiles/commit/3c663a56327e690f64eb3cbdc36f5a9299f3d320)\] keymaps, diagnostics, and location list
+
+### ⚙️ Chores
+
+- *(scripts)* \[[fdc5d94e](https://github.com/silveiralexf/.dotfiles/commit/fdc5d94efcfdef45b8dd53f7831f59d729e6b1f1)\] add nvim data backup script and nvim:reset task
+
+
 ## 2026-02-27
 
 ### 🚀 Features
@@ -15,6 +101,8 @@ All notable changes to this project will be documented in this file.
 - *(tests)* \[[3dc5b03c](https://github.com/silveiralexf/.dotfiles/commit/3dc5b03ccedf98b3d489db58de8b707fd0c0334a)\] add Lua acceptance test scaffold (Gherkin-style + Busted)
 - *(scripts)* \[[a9d302ee](https://github.com/silveiralexf/.dotfiles/commit/a9d302ee4c70df0bb18442613dae1fc7091f1e37)\] add rewrite-commit-messages.sh for conventional commits
 - \[[079ddb1c](https://github.com/silveiralexf/.dotfiles/commit/079ddb1cfcf3129b54b0c04ad7d67b784a96472a)\] add Gherkin feature runner with byfeature-style output
+- *(release)* \[[7086354a](https://github.com/silveiralexf/.dotfiles/commit/7086354abd65c791dcd31030f5af9217fb9875a4)\] add semver version calculation and release workflow
+- *(nvim)* \[[4249f62f](https://github.com/silveiralexf/.dotfiles/commit/4249f62fd16afc341d4310c6c85a030041556bca)\] vim.pack-native setup (no LazyVim)
 
 ### 🏭 Refactor
 
@@ -55,6 +143,7 @@ All notable changes to this project will be documented in this file.
 - \[[f9bd9a75](https://github.com/silveiralexf/.dotfiles/commit/f9bd9a75e868d68b89f47bb58249e9cfdfa679f7)\] add workflow_dispatch to changelog, document why push may not run
 - \[[481fe56f](https://github.com/silveiralexf/.dotfiles/commit/481fe56f4258648f3e5abd23cd78224af2e209d2)\] update CHANGELOG.md [skip ci]
 - \[[0f22258e](https://github.com/silveiralexf/.dotfiles/commit/0f22258e484a232c322ef7161bca3a5693dc9b1c)\] run pre-commit workflow on push to main/master as well as PR
+- \[[e847afa3](https://github.com/silveiralexf/.dotfiles/commit/e847afa385a0ad26d14a95fdeb2c46512557c1bb)\] add shellcheck hook for shell scripts
 
 
 ## 2026-01-09
