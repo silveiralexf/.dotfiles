@@ -20,6 +20,7 @@
     "go@1.23",
     "htop@latest",
     "jq@latest",
+    "kubectl@latest",
     "lua5_4@latest",
     "luarocks@latest",
     "markdownlint-cli@latest",
