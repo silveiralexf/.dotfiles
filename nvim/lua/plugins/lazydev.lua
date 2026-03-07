@@ -37,6 +37,9 @@ return {
             },
           },
         },
+        keymap = {
+          preset = 'enter', -- binds <CR> to { 'accept', 'fallback' }
+        },
       })
     end
   end,
