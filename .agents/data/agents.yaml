@@ -1,0 +1,17 @@
+agents:
+  - name: code-reviewer
+    description: Reviews shell, Lua, YAML, and config changes for clarity and consistency
+    platforms: [cursor, claude]
+    claude_tools: ["Read", "Bash"]
+  - name: config
+    description: Edits config files in etc/, nvim/, wezterm/, hammerspoon/, yazi/, tmux/ and similar
+    platforms: [cursor, claude]
+    claude_tools: ["Read", "Write", "Edit", "Bash"]
+  - name: planner
+    description: Strategic orchestrator and gatekeeper — coordinates agents and ensures plans are followed
+    platforms: [cursor, claude, opencode]
+    claude_tools: ["Read", "Bash"]
+  - name: taskfile
+    description: Creates and edits root Taskfile.yml and taskfiles under tasks/
+    platforms: [cursor, claude]
+    claude_tools: ["Read", "Write", "Edit", "Bash"]
