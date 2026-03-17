@@ -13,6 +13,8 @@ includes:
     taskfile: ./tasks/common/install/core/Taskfile.yml
   linux:install:apt:
     taskfile: ./tasks/linux/install/apt/Taskfile.yml
+  linux:launchers:
+    taskfile: ./tasks/linux/launchers/Taskfile.yml
   macos:install:brew:
     taskfile: ./tasks/macos/install/brew/Taskfile.yml
   macos:install:core:
