@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+# Linux: manage GNOME/Ubuntu app launchers for devbox global packages.
+version: "3"
+
+vars:
+  LAUNCHERS_SCRIPT: "{{.DOTFILES_SCRIPTS}}/gen-devbox-launchers.sh"
+
+tasks:
+  generate:
+    desc: Generate GNOME/Ubuntu app launchers for all devbox global packages
+    cmds:
+      - bash "{{.LAUNCHERS_SCRIPT}}"
+
+  generate:dry-run:
+    desc: Preview launchers that would be generated (no files written)
+    cmds:
+      - bash "{{.LAUNCHERS_SCRIPT}}" --dry-run
+
+  generate:verbose:
+    desc: Generate launchers with verbose output
+    cmds:
+      - bash "{{.LAUNCHERS_SCRIPT}}" --verbose
+
+  clean:
+    desc: Remove all devbox-managed launchers from ~/.local/share/applications
+    cmds:
+      - bash "{{.LAUNCHERS_SCRIPT}}" --clean
+
+  refresh:
+    desc: Pull devbox global config then regenerate launchers (full sync)
+    cmds:
+      - devbox global pull "{{.DOTFILES_HOME}}/devbox.json" -f
+      - bash "{{.LAUNCHERS_SCRIPT}}" --verbose
