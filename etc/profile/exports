@@ -9,6 +9,10 @@
 # Dotfile scripts when available
 [ -d "${DOTFILES_SCRIPTS}" ] && export PATH="$PATH:${DOTFILES_SCRIPTS}::"
 
+# Devbox global profile — stable symlink, safe to use in Exec= paths and scripts.
+# Always points at the current nix generation after `devbox global pull`.
+export DEVBOX_GLOBAL_PREFIX="$(devbox global path 2>/dev/null)/.devbox/nix/profile/default"
+
 # GpG settings
 export GPG_TTY="$(tty)"
 
