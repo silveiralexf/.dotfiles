@@ -1,0 +1,11 @@
+output:
+  cursor:
+    agents: .cursor/rules
+    commands: .cursor/commands
+    skills: .cursor/tools
+  claude:
+    agents: .claude/agents
+    commands: .claude/commands
+  opencode:
+    agents_doc: AGENTS.md
+    plugin: .opencode/index.js
