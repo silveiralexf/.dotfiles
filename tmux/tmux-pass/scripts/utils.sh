@@ -5,7 +5,8 @@
 get_tmux_option() {
   local option=$1
   local default_value=$2
-  local option_value; option_value=$(tmux show-option -gqv "$option")
+  local option_value
+  option_value=$(tmux show-option -gqv "$option")
 
   if [[ -z "$option_value" ]]; then
     echo "$default_value"
@@ -19,7 +20,7 @@ display_message() {
 }
 
 is_cmd_exists() {
-  command -v "$1" &> /dev/null
+  command -v "$1" &>/dev/null
   return $?
 }
 

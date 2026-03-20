@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-# vi: ft=zsh
+# vi: ft=sh
 
 # Read The Freaking Manual (or Google it)
 function rtfm() { "$@" --help 2>/dev/null || man "$@" 2>/dev/null || google-chrome "http://www.google.com/search?q=$@"; }
@@ -68,19 +68,6 @@ fs() {
 # small enough for one screen.
 function tre() {
   tree -aC -I '.git' --dirsfirst "$@" | less -FRNX
-}
-
-# Get colors in manual pages
-function man() {
-  env \
-    LESS_TERMCAP_mb="$(printf '\e[1;31m')" \
-    LESS_TERMCAP_md="$(printf '\e[1;31m')" \
-    LESS_TERMCAP_me="$(printf '\e[0m')" \
-    LESS_TERMCAP_se="$(printf '\e[0m')" \
-    LESS_TERMCAP_so="$(printf '\e[1;44;33m')" \
-    LESS_TERMCAP_ue="$(printf '\e[0m')" \
-    LESS_TERMCAP_us="$(printf '\e[1;32m')" \
-    grc man "$@"
 }
 
 # Restart the gpg agent

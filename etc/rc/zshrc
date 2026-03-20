@@ -1,3 +1,5 @@
+# vi: ft=zsh
+
 # devbox
 eval "$(devbox global shellenv --init-hook)"
 
@@ -55,10 +57,6 @@ source "${DOTFILES_SCRIPTS}/fzf.zsh"
 source "${DOTFILES_PROFILE}/aliases"
 source "${DOTFILES_PROFILE}/exports"
 source "${DOTFILES_PROFILE}/functions"
-
-# atuil shell history
-. "$HOME/.atuin/bin/env"
-eval "$(atuin init zsh --disable-up-arrow)"
 
 # Zsh Prettier
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src

@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-# vi: ft=zsh
+# vi: ft=sh
 
 # -----------------------------------------------------------------------------
 # Handlers and core OS stuff
@@ -24,10 +24,6 @@ export HISTCONTROL="ignoredups:erasedups"
 # Make some commands not show up in history
 export HISTIGNORE="&:ls:cd -:cd:date:* --help:exit:pwd:history:clear:mount:umount:[ \t]*"
 
-# Display settings for KeePassXC (running with AppImage)
-export QT_AUTO_SCREEN_SCALE_FACTOR=0
-export QT_SCREEN_SCALE_FACTORS=DP1=1.5 #;DP1=1.5;DP2=1.5;HDMI1=1.5;HDMI2=1.5;VIRTUAL1=1.5;
-
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 export HISTSIZE=50000000
 export HISTFILESIZE="$HISTSIZE"
@@ -46,6 +42,54 @@ else
 fi
 
 # -----------------------------------------------------------------------------
+# Terminal colors & display
+# -----------------------------------------------------------------------------
+
+# Color settings
+export COLORTERM=truecolor
+
+# get some colors on commands with grc when installed
+[[ -s "/etc/grc.zsh" ]] && source "/etc/grc.zsh"
+
+# Syntax highlight for LESS command
+if command -v source-highlight &>/dev/null 2>&0; then
+  export PAGER="less"
+  export LESS="-R"
+  [ -f "${DOTFILES_SCRIPTS}/src-hilite-lesspipe.sh" ] &&
+    export LESSOPEN="| ${DOTFILES_SCRIPTS}/src-hilite-lesspipe.sh %s"
+fi
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -f /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+export FONTCONFIG_PATH=/etc/fonts
+# -----------------------------------------------------------------------------
+# Coding stuff
+# -----------------------------------------------------------------------------
+
+# Golang
+export GO111MODULE="on"
+export GOPATH="${HOME}/go"
+export TINYGOPATH="${HOME}/tinygo"
+export TINYGOBIN="${TINYGOPATH}/bin"
+export GOBIN="${GOPATH}/bin"
+export PATH="${PATH}:/usr/local/go/bin:${GOBIN}:${TINYGOBIN}:${GOROOT}/bin"
+
+# Lua
+export LUA_PATH="${HOME}/.dotfiles/lua_modules/share/lua/5.4/?.lua;${HOME}/.dotfiles/lua_modules/share/lua/5.4/?/init.lua;;"
+export LUA_CPATH="${HOME}/.dotfiles/lua_modules/lib/lua/5.4/?.so;;"
+export PATH="${HOME}/.dotfiles/lua_modules/bin:${PATH}"
+eval "$(luarocks path --bin)"
+
+# Ruby
+PATH="${PATH}:${HOME}/.gem/ruby/2.7.0/bin"
+
+# Zig
+export ZIGPATH="${HOME}/zig"
+export ZIGBIN="${ZIGPATH}/bin"
+export PATH="${PATH}:${ZIGBIN}"
+
+# -----------------------------------------------------------------------------
 # Tools & Utils
 # -----------------------------------------------------------------------------
 
@@ -59,6 +103,39 @@ export PATH="${PATH}:/opt/nvim/bin"
 export PATH="${HOME}/.local/bin:$PATH"
 export PATH="$PATH:${HOME}/.opencode/bin"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# Git
+export PATH="${PATH}:/usr/local/git/bin"
+
+# Enable Docker build kit by default
+export DOCKER_BUILDKIT=1
+export BUILDKIT_COLORS=run=green:warning=yellow:error=red:cancel=255,165,0
+export BUILDKIT_PROGRESS=plain
+export KUBE_EDITOR=nvim
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
+# atuil shell history
+if test -f "$HOME/.atuin/bin/env" &>/dev/null 2>&0; then
+  . "$HOME/.atuin/bin/env"
+  eval "$(atuin init zsh --disable-up-arrow)"
+fi
+
+# Terraform Env
+if command -v terraform &>/dev/null 2>&0; then
+  mkdir -p "${HOME}/.tfenv"
+  export PATH="${PATH}:${HOME}/.tfenv/bin"
+fi
+
+# Linux-only exports
+if [[ "$(uname)" == "Linux" ]]; then
+  # D-Bus session
+  export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus"
+  export $(dbus-launch)
+
+  # Display settings for KeePassXC (running with AppImage)
+  export QT_AUTO_SCREEN_SCALE_FACTOR=0
+  export QT_SCREEN_SCALE_FACTORS=DP1=1.5 #;DP1=1.5;DP2=1.5;HDMI1=1.5;HDMI2=1.5;VIRTUAL1=1.5;
+fi
 
 # MacOS-only exports
 if [[ "$(uname)" == "Darwin" ]]; then
@@ -84,82 +161,12 @@ if [[ "$(uname)" == "Darwin" ]]; then
 
   # Prefer gnu-sed as default
   export PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:${PATH}"
-fi
 
-# -----------------------------------------------------------------------------
-# Terminal colors & display
-# -----------------------------------------------------------------------------
-
-# Color settings
-export COLORTERM=truecolor
-
-# get some colors on commands with grc when installed
-[[ -s "/etc/grc.zsh" ]] && source "/etc/grc.zsh"
-
-# Syntax highlight for LESS command
-if command -v source-highlight &>/dev/null 2>&0; then
-  export PAGER="less"
-  export LESS="-R"
-  [ -f "${DOTFILES_SCRIPTS}/src-hilite-lesspipe.sh" ] &&
-    export LESSOPEN="| ${DOTFILES_SCRIPTS}/src-hilite-lesspipe.sh %s"
-fi
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -f /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-export FONTCONFIG_PATH=/etc/fonts
-
-# -----------------------------------------------------------------------------
-# Git
-# -----------------------------------------------------------------------------
-export PATH="${PATH}:/usr/local/git/bin"
-
-# -----------------------------------------------------------------------------
-# Docker, Kubernetes, Containers stuff
-# -----------------------------------------------------------------------------
-
-# Enable Docker build kit by default
-export DOCKER_BUILDKIT=1
-export BUILDKIT_COLORS=run=green:warning=yellow:error=red:cancel=255,165,0
-export BUILDKIT_PROGRESS=plain
-export KUBE_EDITOR=nvim
-export DOCKER_DEFAULT_PLATFORM=linux/amd64
-
-# Rancher
-if [[ "$(uname -s)" = Darwin ]]; then
+  # Rancher
   export PATH="${PATH}:/Applications/Rancher Desktop.app/Contents/Resources/resources/darwin/lima/bin"
   export LIMA_HOME="${HOME}/Library/Application Support/rancher-desktop/lima"
   export PATH="${PATH}:${HOME}/.rd/bin"
 fi
-
-# -----------------------------------------------------------------------------
-# Coding stuff
-# -----------------------------------------------------------------------------
-
-# Golang
-export GO111MODULE="on"
-export GOPATH="${HOME}/go"
-export TINYGOPATH="${HOME}/tinygo"
-export TINYGOBIN="${TINYGOPATH}/bin"
-export GOBIN="${GOPATH}/bin"
-export PATH="${PATH}:/usr/local/go/bin:${GOBIN}:${TINYGOBIN}:${GOROOT}/bin"
-
-# Lua
-export LUA_PATH="${HOME}/.dotfiles/lua_modules/share/lua/5.4/?.lua;${HOME}/.dotfiles/lua_modules/share/lua/5.4/?/init.lua;;"
-export LUA_CPATH="${HOME}/.dotfiles/lua_modules/lib/lua/5.4/?.so;;"
-export PATH="${HOME}/.dotfiles/lua_modules/bin:${PATH}"
-eval "$(luarocks path --bin)"
-
-# Ruby
-PATH="${PATH}:${HOME}/.gem/ruby/2.7.0/bin"
-
-# Terraform Env
-export PATH="${PATH}:${HOME}/.tfenv/bin"
-
-# Zig
-export ZIGPATH="${HOME}/zig"
-export ZIGBIN="${ZIGPATH}/bin"
-export PATH="${PATH}:${ZIGBIN}"
 
 # -----------------------------------------------------------------------------
 # EOF

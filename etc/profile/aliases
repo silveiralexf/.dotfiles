@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-# vi: ft=zsh
+# vi: ft=sh
 
 # -----------------------------------------------------------------------------
 # BAU stuff, shortcuts and some string manipulation handlers
@@ -59,11 +59,10 @@ if command -v btop &>/dev/null 2>&0; then
   alias htop="btop"
 fi
 
-# Shortcut for launching chrome from the terminal
-alias google-chrome='"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --kiosk'
-
-# Launch Monokle from CLI
-alias Monokle='/Applications/Monokle.app/Contents/MacOS/Monokle'
+if [[ "$(uname)" == "Darwin" ]]; then
+  # Shortcut for launching chrome from the terminal
+  alias google-chrome='"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --kiosk'
+fi
 
 # BFG - Removes large or troublesome blobs like git-filter-branch does,
 # but faster, and written in Scala
