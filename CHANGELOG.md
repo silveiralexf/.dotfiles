@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2026-03-20
+
+### 📦 Dependencies
+
+- *(deps)* \[[bd6ce229](https://github.com/silveiralexf/.dotfiles/commit/bd6ce22986a31fa2b02d2eb1a2cbe3db7ffbb4ec)\] add atuin-desktop to devbox
+
+### ⚙️ Chores
+
+- *(profile)* \[[476efc3f](https://github.com/silveiralexf/.dotfiles/commit/476efc3f98c31b0bb446633ac4ea78c081c41ab2)\] review and update exports, aliases and functions
+
+
+## 2026-03-10
+
+### ⚙️ Chores
+
+- *(docs)* \[[4abb3849](https://github.com/silveiralexf/.dotfiles/commit/4abb3849bcaab01471971869fd736d0a1d92c5ca)\] update readme with ci information [skip ci]
+
+
 ## 2026-03-07
 
 ### 🔨 Fixes
