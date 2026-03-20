@@ -1,6 +1,54 @@
 {
   "lockfile_version": "1",
   "packages": {
+    "atuin-desktop@latest": {
+      "last_modified": "2026-03-01T09:58:01Z",
+      "resolved": "github:NixOS/nixpkgs/42bbf3e1e000963f4f3f37daa822c67c4d8856c4#atuin-desktop",
+      "source": "devbox-search",
+      "version": "0.2.20",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/z3ypkpb63v2baglmqjjmm1w6cw2xw45s-atuin-desktop-0.2.20",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/z3ypkpb63v2baglmqjjmm1w6cw2xw45s-atuin-desktop-0.2.20"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/263j04jhzkr20jgxfdix6k6mhx001lyd-atuin-desktop-0.2.20",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/263j04jhzkr20jgxfdix6k6mhx001lyd-atuin-desktop-0.2.20"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/76nr23pfbh88laywxk29r47jch2p2fbq-atuin-desktop-0.2.20",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/76nr23pfbh88laywxk29r47jch2p2fbq-atuin-desktop-0.2.20"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/fd9wm9n8lccz3s686d7ryw7p6qr3fgs3-atuin-desktop-0.2.20",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/fd9wm9n8lccz3s686d7ryw7p6qr3fgs3-atuin-desktop-0.2.20"
+        }
+      }
+    },
     "atuin@latest": {
       "last_modified": "2026-02-23T15:40:43Z",
       "resolved": "github:NixOS/nixpkgs/80d901ec0377e19ac3f7bb8c035201e2e098cc97#atuin",
