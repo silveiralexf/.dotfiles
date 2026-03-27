@@ -33,41 +33,68 @@ tasks:
           rm -rf lua-${LUAV}.tar.gz lua-${LUAV}
 
   nvim:
-    desc: Install Neovim nightly (macOS or Linux)
+    desc: Install Neovim nightly if not present (macOS or Linux). Use nvim:update to upgrade.
     status:
-      - nvim --version | grep LuaJIT
+      - nvim --version | grep -q LuaJIT
     cmds:
-      - cmd: '[ "$(uname -s)" = "Darwin" ] && task common:install:core:nvim:darwin || task common:install:core:nvim:linux'
+      - cmd: '[ "$(uname -s)" = "Darwin" ] && task common:install:core:nvim:update:darwin || task common:install:core:nvim:update:linux'
+
+  nvim:update:
+    desc: Download and install the latest Neovim nightly from upstream (always runs)
+    cmds:
+      - cmd: '[ "$(uname -s)" = "Darwin" ] && task common:install:core:nvim:update:darwin || task common:install:core:nvim:update:linux'
 
   nvim:darwin:
-    desc: Install Neovim nightly on macOS
+    desc: Install Neovim nightly on macOS (skips if already installed)
     status:
-      - nvim --version | grep LuaJIT
-    vars:
-      NVIM_ARCH: '{{`uname -m`}}'
-      NVIM_INSTALL_PATH: /opt/nvim
-      NVIM_TARBALL_DIR: nvim-macos-{{.NVIM_ARCH}}
-      NVIM_DOWNLOAD_URL: https://github.com/neovim/neovim/releases/download/nightly/nvim-macos-{{.NVIM_ARCH}}.tar.gz
+      - nvim --version | grep -q LuaJIT
     cmds:
-      - mkdir -p "$HOME/Downloads"
-      - nvim -version || curl -fsSL -o "$HOME/Downloads/nvim-macos-{{.NVIM_ARCH}}.tar.gz" "{{.NVIM_DOWNLOAD_URL}}"
-      - nvim -version || sudo mkdir -p {{.NVIM_INSTALL_PATH}}
-      - nvim -version || (cd /tmp && tar xzvf "$HOME/Downloads/nvim-macos-{{.NVIM_ARCH}}.tar.gz" && sudo cp -R {{.NVIM_TARBALL_DIR}}/* {{.NVIM_INSTALL_PATH}}/ && rm -rf {{.NVIM_TARBALL_DIR}})
-      - nvim -v || sudo chmod +x {{.NVIM_INSTALL_PATH}}/bin/nvim
+      - task: nvim:update:darwin
+
+  nvim:update:darwin:
+    desc: Download and install the latest Neovim nightly on macOS (always runs)
+    vars:
+      NVIM_ARCH:
+        sh: uname -m
+      NVIM_INSTALL_PATH: /opt/nvim
+    cmds:
+      - |
+        BEFORE=$(nvim --version 2>/dev/null | head -1 || echo "not installed")
+        TARBALL="$HOME/Downloads/nvim-macos-{{.NVIM_ARCH}}.tar.gz"
+        mkdir -p "$HOME/Downloads"
+        echo "Downloading Neovim nightly (macos-{{.NVIM_ARCH}})..."
+        curl -fsSL -o "$TARBALL" "https://github.com/neovim/neovim/releases/download/nightly/nvim-macos-{{.NVIM_ARCH}}.tar.gz"
+        sudo mkdir -p {{.NVIM_INSTALL_PATH}}
+        cd /tmp && tar xzf "$TARBALL" && sudo cp -R nvim-macos-{{.NVIM_ARCH}}/* {{.NVIM_INSTALL_PATH}}/ && rm -rf nvim-macos-{{.NVIM_ARCH}}
+        sudo chmod +x {{.NVIM_INSTALL_PATH}}/bin/nvim
+        rm -f "$TARBALL"
+        AFTER=$(nvim --version 2>/dev/null | head -1 || echo "unknown")
+        echo "Updated: $BEFORE -> $AFTER"
 
   nvim:linux:
-    desc: Install Neovim nightly on Linux
+    desc: Install Neovim nightly on Linux (skips if already installed)
     status:
-      - nvim --version | grep LuaJIT
-    vars:
-      NVIM_ARCH: '{{`uname -m | sed "s/aarch64/arm64/"`}}'
-      NVIM_TARBALL_DIR: nvim-linux-{{.NVIM_ARCH}}
-      NVIM_DOWNLOAD_URL: https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-{{.NVIM_ARCH}}.tar.gz
+      - nvim --version | grep -q LuaJIT
     cmds:
-      - mkdir -p "$HOME/Downloads" "$HOME/.local/bin"
-      - nvim -version || curl -fsSL -o "$HOME/Downloads/nvim-linux-{{.NVIM_ARCH}}.tar.gz" "{{.NVIM_DOWNLOAD_URL}}"
-      - nvim -version || (cd "$HOME/.local" && tar xzvf "$HOME/Downloads/nvim-linux-{{.NVIM_ARCH}}.tar.gz" && rm -rf nvim && mv "{{.NVIM_TARBALL_DIR}}" nvim)
-      - ln -sf "$HOME/.local/nvim/bin/nvim" "$HOME/.local/bin/nvim"
+      - task: nvim:update:linux
+
+  nvim:update:linux:
+    desc: Download and install the latest Neovim nightly on Linux (always runs)
+    vars:
+      NVIM_ARCH:
+        sh: uname -m | sed 's/aarch64/arm64/'
+    cmds:
+      - |
+        BEFORE=$(nvim --version 2>/dev/null | head -1 || echo "not installed")
+        TARBALL="$HOME/Downloads/nvim-linux-{{.NVIM_ARCH}}.tar.gz"
+        mkdir -p "$HOME/Downloads" "$HOME/.local/bin"
+        echo "Downloading Neovim nightly (linux-{{.NVIM_ARCH}})..."
+        curl -fsSL -o "$TARBALL" "https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-{{.NVIM_ARCH}}.tar.gz"
+        cd "$HOME/.local" && tar xzf "$TARBALL" && rm -rf nvim && mv nvim-linux-{{.NVIM_ARCH}} nvim
+        ln -sf "$HOME/.local/nvim/bin/nvim" "$HOME/.local/bin/nvim"
+        rm -f "$TARBALL"
+        AFTER=$(nvim --version 2>/dev/null | head -1 || echo "unknown")
+        echo "Updated: $BEFORE -> $AFTER"
 
   profile:
     desc: Setup shell profile settings (cross-platform)

@@ -136,25 +136,65 @@ tasks:
         msg: "devbox.json not found in project root."
     cmds:
       - devbox shell
+  devbox:add:
+    desc: "Add a package to devbox.json and pull globally. Usage: task devbox:add -- <package@version>"
+    dir: "{{.TASKFILE_DIR}}"
+    preconditions:
+      - sh: command -v devbox
+        msg: "devbox not in PATH. Run 'task devbox:install-cli' first."
+      - sh: test -f "{{.TASKFILE_DIR}}/devbox.json"
+        msg: "devbox.json not found in project root."
+      - sh: '[ -n "{{.CLI_ARGS}}" ]'
+        msg: "No package specified. Usage: task devbox:add -- <package@version>"
+    cmds:
+      - devbox add {{.CLI_ARGS}}
+      - devbox global pull {{.TASKFILE_DIR}}/devbox.json -f
+  devbox:gc:
+    desc: Run Nix garbage collection and store optimisation to reclaim disk space
+    dir: "{{.TASKFILE_DIR}}"
+    cmds:
+      - nix-collect-garbage -d
+      - nix-store --optimise
+  nvim:update:
+    desc: Download and install the latest Neovim nightly from upstream (always runs)
+    cmds:
+      - task: common:install:core:nvim:update
   nvim:deps:
-    desc: Install optional Neovim deps (tree-sitter-cli; use nvim:luarocks-build for rocks if using LuaRocks plugin)
+    desc: Install and verify all Neovim external deps (tree-sitter via prebuilt binary; rest via devbox)
     dir: "{{.TASKFILE_DIR}}"
     cmds:
       - |
-        if command -v tree-sitter >/dev/null 2>&1; then
-          ver=$(tree-sitter --version 2>/dev/null | head -1)
-          if echo "$ver" | grep -qE '0\.26\.'; then
-            echo "tree-sitter-cli already at 0.26.x: $ver"
-          else
-            echo "Upgrading tree-sitter-cli to 0.26.1 (current: $ver)..."
-            npm install -g tree-sitter-cli@0.26.1 2>/dev/null || { echo "npm install -g tree-sitter-cli@0.26.1 failed." >&2; exit 1; }
-          fi
+        # tree-sitter: nixpkgs tops out at 0.25.x; nvim-treesitter requires 0.26.1+
+        # cargo build fails on Linux due to clang/system header path issues, so use the prebuilt binary.
+        TS_VERSION="0.26.7"
+        if command -v tree-sitter >/dev/null 2>&1 && tree-sitter --version 2>/dev/null | grep -qE '0\.2[6-9]\.'; then
+          echo "  ✓ tree-sitter ($(tree-sitter --version | head -1))"
         else
-          echo "Installing tree-sitter-cli@0.26.1 (for nvim-treesitter)..."
-          npm install -g tree-sitter-cli@0.26.1 2>/dev/null || { echo "npm install -g tree-sitter-cli@0.26.1 failed (install Node/npm first)." >&2; exit 1; }
+          case "$(uname -s)-$(uname -m)" in
+            Linux-x86_64)  TS_ASSET="tree-sitter-linux-x64" ;;
+            Linux-aarch64) TS_ASSET="tree-sitter-linux-arm64" ;;
+            Darwin-x86_64) TS_ASSET="tree-sitter-macos-x64" ;;
+            Darwin-arm64)  TS_ASSET="tree-sitter-macos-arm64" ;;
+            *) echo "  ✗ unsupported platform for tree-sitter prebuilt binary" >&2; exit 1 ;;
+          esac
+          echo "  ↳ downloading tree-sitter v${TS_VERSION} (${TS_ASSET})..."
+          URL="https://github.com/tree-sitter/tree-sitter/releases/download/v${TS_VERSION}/${TS_ASSET}.gz"
+          curl -fsSL "$URL" | gunzip -c > "${HOME}/.local/bin/tree-sitter"
+          chmod +x "${HOME}/.local/bin/tree-sitter"
+          echo "  ✓ tree-sitter ($(tree-sitter --version | head -1))"
         fi
-      - echo "For LuaRocks (jsregexp etc.), run 'task nvim:luarocks-build' once after starting nvim. Then restart nvim."
-      - echo "Done. Restart Neovim and run :checkhealth."
+      - |
+        ok=1
+        for tool in stylua shfmt ruff prettierd gopls rust-analyzer gofumpt golangci-lint govulncheck delve chafa viu; do
+          if command -v "$tool" >/dev/null 2>&1; then
+            echo "  ✓ $tool"
+          else
+            echo "  ✗ $tool - not found (run 'devbox install' or 'devbox global pull devbox.json -f')" >&2
+            ok=0
+          fi
+        done
+        [ "$ok" -eq 1 ] || exit 1
+      - echo "All deps present. For LuaRocks run 'task nvim:luarocks-build', for blink.cmp native lib run 'task nvim:blink-build'."
   nvim:luarocks-build:
     desc: Run LuaRocks.nvim build once (compiles local LuaRocks; then setup() installs rocks)
     dir: "{{.TASKFILE_DIR}}"
@@ -170,12 +210,44 @@ tasks:
           exit 1
         fi
         echo "Running LuaRocks.nvim build in $PLUGIN_DIR ..."
-        nvim -l "$PLUGIN_DIR/build.lua"
+        LUA51_PREFIX=$(ls -d /nix/store/*lua-5.1*[^.drv] 2>/dev/null | head -1)
+        if [ -n "$LUA51_PREFIX" ] && [ -f "$LUA51_PREFIX/bin/lua" ]; then
+          TMPLUA=$(mktemp -d)
+          mkdir -p "$TMPLUA/bin" "$TMPLUA/include"
+          ln -s "$LUA51_PREFIX/bin/lua" "$TMPLUA/bin/lua5.1"
+          ln -s "$LUA51_PREFIX/include" "$TMPLUA/include/lua5.1"
+          export PATH="$TMPLUA/bin:$PATH"
+        fi
+        cd "$PLUGIN_DIR" && nvim -l build.lua
+        [ -n "$TMPLUA" ] && rm -rf "$TMPLUA"
+  nvim:blink-build:
+    desc: Build blink.cmp native fuzzy lib from source via cargo (fixes blink_cmp_fuzzy checkhealth warning)
+    dir: "{{.TASKFILE_DIR}}"
+    cmds:
+      - |
+        PLUGIN_DIR=$(find "${XDG_DATA_HOME:-$HOME/.local/share}/nvim/site/pack" -maxdepth 4 -type d -name "blink.cmp" 2>/dev/null | head -1)
+        if [ -z "$PLUGIN_DIR" ]; then
+          echo "blink.cmp not found in pack dir. Start nvim once so plugins are installed, then run this task again." >&2
+          exit 1
+        fi
+        echo "Building blink.cmp native fuzzy lib in $PLUGIN_DIR ..."
+        cd "$PLUGIN_DIR" && cargo build --release
+        echo "Done. Restart Neovim and run :checkhealth to verify."
+  nvim:pack-lock-sync:
+    desc: Sync nvim-pack-lock.json with full SHAs from installed plugins (fixes vim.pack lockfile checkhealth errors)
+    dir: "{{.TASKFILE_DIR}}"
+    cmds:
+      - nvim -l {{.TASKFILE_DIR}}/scripts/nvim-pack-lock-sync.lua
   nvim:reset:
     desc: "Backup ~/.local/share/nvim, ~/.local/state/nvim, ~/.cache/nvim with timestamped suffix (e.g. nvim.bak-YYYYMMDD-HHMMSS). Leaves ~/.config/nvim untouched so your config (or symlink) stays; start nvim and pack will auto-install plugins from scratch like Lazy did."
     dir: "{{.TASKFILE_DIR}}"
     cmds:
       - ./scripts/backup-nvim-dirs.sh
+  nvim:restore:
+    desc: "Rollback to the most recent nvim backup (nvim.bak-*). Stashes any current dirs as nvim.broken-TIMESTAMP before restoring, so nothing is lost."
+    dir: "{{.TASKFILE_DIR}}"
+    cmds:
+      - ./scripts/restore-nvim-dirs.sh
   linux:install:all:
     desc: Install base packages and core setup on Linux (apt + common core)
     cmds:
