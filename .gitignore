@@ -20,6 +20,7 @@
 .repro
 .tests
 data
+!.agents/data/
 debug
 doc/tags
 foo.*
@@ -27,8 +28,8 @@ tt.*
 
 # Node
 node_modules/
-package.json
-package-lock.json
+!/package.json
+!/package-lock.json
 
 # Compiled Lua, Luarocks
 *.src.rock

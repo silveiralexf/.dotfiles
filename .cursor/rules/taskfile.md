@@ -1,14 +1,8 @@
----
-name: taskfile
-description: Creates and edits root Taskfile.yml and taskfiles under tasks/
-tools: ["Read","Write","Edit","Bash"]
----
 <!--
   WARNING: GENERATED FILE -- DO NOT EDIT DIRECTLY
   Source: .agents/agents/taskfile.md
   Regenerate: ./scripts/generate-agents.sh
 -->
-
 # Taskfile Agent
 
 ## Persona

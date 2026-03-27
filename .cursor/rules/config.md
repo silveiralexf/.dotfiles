@@ -1,14 +1,8 @@
----
-name: config
-description: Edits config files in etc/, nvim/, wezterm/, hammerspoon/, yazi/, tmux/ and similar
-tools: ["Read","Write","Edit","Bash"]
----
 <!--
   WARNING: GENERATED FILE -- DO NOT EDIT DIRECTLY
   Source: .agents/agents/config.md
   Regenerate: ./scripts/generate-agents.sh
 -->
-
 # Config Agent
 
 ## Persona
