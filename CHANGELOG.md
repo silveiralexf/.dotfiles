@@ -9,11 +9,13 @@ All notable changes to this project will be documented in this file.
 
 - *(deps)* \[[2b85d487](https://github.com/silveiralexf/.dotfiles/commit/2b85d487f3b6bc1fda8de2be7e8a9b332fe5524a)\] consolidate LSP servers and tools into devbox
 - *(tasks)* \[[ee1507b1](https://github.com/silveiralexf/.dotfiles/commit/ee1507b176f32c3a42eb3300500d7574b5d59e93)\] add nvim maintenance tasks and helper scripts
+- *(agents)* \[[ca8f741f](https://github.com/silveiralexf/.dotfiles/commit/ca8f741f83054b737a7ab3551234903da6568851)\] restore data/ files, use root node_modules for deps
 
 ### 🔨 Fixes
 
 - *(tmux)* \[[d5187242](https://github.com/silveiralexf/.dotfiles/commit/d51872428c7698e3995c4a35015f8abf204bd75d)\] add -w flag to pane-border-status hooks for tmux 3.5+
 - *(nvim)* \[[3375dc2e](https://github.com/silveiralexf/.dotfiles/commit/3375dc2e303314606f45cd9a3b6c1e91609a747e)\] fix luacheck warnings, LSP config, and plugin cleanup
+- *(config)* \[[9c3097f1](https://github.com/silveiralexf/.dotfiles/commit/9c3097f19de660d550a1697ec211ea3002e0b0a3)\] fix locale/UTF-8 in tmux, update plugins
 
 ### ⚙️ Chores
 
