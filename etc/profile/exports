@@ -101,11 +101,13 @@ export PATH="${PATH}:/opt/bin"
 export PATH="${PATH}:/opt/local/bin"
 export PATH="${PATH}:/opt/nvim/bin"
 export PATH="${HOME}/.local/bin:$PATH"
+export PATH="${HOME}/.cargo/bin:$PATH"
 export PATH="$PATH:${HOME}/.opencode/bin"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # Git
 export PATH="${PATH}:/usr/local/git/bin"
+export LG_CONFIG_FILE="${HOME}/.config/lazygit/lazy.yaml"
 
 # Enable Docker build kit by default
 export DOCKER_BUILDKIT=1
@@ -130,7 +132,6 @@ fi
 if [[ "$(uname)" == "Linux" ]]; then
   # D-Bus session
   export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus"
-  export $(dbus-launch)
 
   # Display settings for KeePassXC (running with AppImage)
   export QT_AUTO_SCREEN_SCALE_FACTOR=0
