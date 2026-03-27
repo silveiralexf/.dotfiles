@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2026-03-27
+
+### 📦 Dependencies
+
+- *(deps)* \[[2b85d487](https://github.com/silveiralexf/.dotfiles/commit/2b85d487f3b6bc1fda8de2be7e8a9b332fe5524a)\] consolidate LSP servers and tools into devbox
+- *(tasks)* \[[ee1507b1](https://github.com/silveiralexf/.dotfiles/commit/ee1507b176f32c3a42eb3300500d7574b5d59e93)\] add nvim maintenance tasks and helper scripts
+
+### 🔨 Fixes
+
+- *(tmux)* \[[d5187242](https://github.com/silveiralexf/.dotfiles/commit/d51872428c7698e3995c4a35015f8abf204bd75d)\] add -w flag to pane-border-status hooks for tmux 3.5+
+- *(nvim)* \[[3375dc2e](https://github.com/silveiralexf/.dotfiles/commit/3375dc2e303314606f45cd9a3b6c1e91609a747e)\] fix luacheck warnings, LSP config, and plugin cleanup
+
+### ⚙️ Chores
+
+- *(profile)* \[[8bae42a3](https://github.com/silveiralexf/.dotfiles/commit/8bae42a338527c953dce6539c2148fd9c3037f1b)\] add ~/.cargo/bin to PATH
+- *(nvim)* \[[787d8051](https://github.com/silveiralexf/.dotfiles/commit/787d805163fc1ee76b188c46d3b102f122a582fc)\] update pack lockfile with full SHAs and SSH URLs
+- *(config)* \[[49ec977d](https://github.com/silveiralexf/.dotfiles/commit/49ec977d9db6f3ba15e14e21e6f1aed4e8dcfaa9)\] add catppuccin mocha theme to lazygit
+
+
 ## 2026-03-20
 
 ### 📦 Dependencies
