@@ -6,6 +6,17 @@
 # Handlers and core OS stuff
 # -----------------------------------------------------------------------------
 
+# Locale — ensure UTF-8 in all environments (SSH, tmux, Nexterm)
+# LOCALE_ARCHIVE is needed for Nix-provided glibc to find locale data
+if [ -z "$LOCALE_ARCHIVE" ]; then
+  for _la in /nix/store/*-glibc-locales-*/lib/locale/locale-archive; do
+    [ -f "$_la" ] && export LOCALE_ARCHIVE="$_la" && break
+  done
+  unset _la
+fi
+export LANG="${LANG:-en_US.UTF-8}"
+export LC_ALL="${LC_ALL:-en_US.UTF-8}"
+
 # Dotfile scripts when available
 [ -d "${DOTFILES_SCRIPTS}" ] && export PATH="$PATH:${DOTFILES_SCRIPTS}::"
 

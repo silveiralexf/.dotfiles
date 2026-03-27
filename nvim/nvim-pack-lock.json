@@ -5,7 +5,7 @@
       "src": "ssh://git@github.com/antoinemadec/FixCursorHold.nvim"
     },
     "LuaSnip": {
-      "rev": "dae4f5aaa3574bd0c2b9dd20fb9542a02c10471c",
+      "rev": "642b0c595e11608b4c18219e93b88d7637af27bc",
       "src": "ssh://git@github.com/L3MON4D3/LuaSnip"
     },
     "aerial.nvim": {
@@ -193,7 +193,7 @@
       "src": "ssh://git@github.com/nvim-lua/plenary.nvim"
     },
     "rainbow-delimiters.nvim": {
-      "rev": "01993eb20c6cdc1d33e7e98252368840309f99b9",
+      "rev": "50080ed0f44dbc18ae13b81278a01b951a06127a",
       "src": "ssh://git@github.com/HiPhish/rainbow-delimiters.nvim"
     },
     "smartcolumn.nvim": {

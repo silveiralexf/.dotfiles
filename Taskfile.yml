@@ -185,7 +185,7 @@ tasks:
         fi
       - |
         ok=1
-        for tool in stylua shfmt ruff prettierd gopls rust-analyzer gofumpt golangci-lint govulncheck delve chafa viu; do
+        for tool in stylua shfmt ruff prettierd gopls rust-analyzer gofumpt golangci-lint govulncheck dlv chafa viu; do
           if command -v "$tool" >/dev/null 2>&1; then
             echo "  ✓ $tool"
           else
