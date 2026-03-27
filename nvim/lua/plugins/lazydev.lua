@@ -17,7 +17,7 @@ return {
     local blink_ok, blink = pcall(require, 'blink.cmp')
     if blink_ok and type(blink) == 'table' and blink.setup then
       blink.setup({
-        fuzzy = { implementation = 'lua' },
+        fuzzy = { implementation = 'prefer_rust' },
         sources = {
           default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'emoji' },
           providers = {

@@ -15,15 +15,10 @@ return {
     if mlsp_ok and mason_lspconfig then
       mason_lspconfig.setup({
         ensure_installed = {
-          'clangd',
-          'cmake',
-          'gopls',
-          'helm_ls',
-          'jdtls',
-          'jsonls',
-          'marksman',
-          'pylsp',
-          'taplo',
+          'clangd',  -- large nix package; Mason is more targeted
+          'cmake',   -- cmake-language-server (Python pkg; Mason handles deps)
+          'jdtls',   -- complex Java tooling; Mason manages classpath/jvm
+          'pylsp',   -- Python LSP with many optional deps; Mason handles them
         },
       })
     end

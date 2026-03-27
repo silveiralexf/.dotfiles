@@ -140,6 +140,68 @@ map('n', '<C-w><C-Right>', '<cmd>vertical resize +5<cr>', { desc = 'Resize windo
 map('n', '<C-w><C-Up>', '<cmd>resize +5<cr>', { desc = 'Resize window up' })
 map('n', '<C-w><C-Down>', '<cmd>resize -5<cr>', { desc = 'Resize window down' })
 
+-- UI Toggles (leader+u): mirrors LazyVim <leader>u* - autoformat flag is checked in conform.lua BufWritePre
+map('n', '<leader>uf', function()
+  vim.g.autoformat = vim.g.autoformat == false
+  vim.notify('Autoformat (global): ' .. (vim.g.autoformat and 'on' or 'off'))
+end, { desc = 'Toggle autoformat (global)' })
+map('n', '<leader>uF', function()
+  vim.b.autoformat = vim.b.autoformat == false
+  vim.notify('Autoformat (buffer): ' .. (vim.b.autoformat and 'on' or 'off'))
+end, { desc = 'Toggle autoformat (buffer)' })
+map('n', '<leader>us', function()
+  vim.wo.spell = not vim.wo.spell
+  vim.notify('Spell: ' .. (vim.wo.spell and 'on' or 'off'))
+end, { desc = 'Toggle spell' })
+map('n', '<leader>uw', function()
+  vim.wo.wrap = not vim.wo.wrap
+  vim.notify('Wrap: ' .. (vim.wo.wrap and 'on' or 'off'))
+end, { desc = 'Toggle wrap' })
+map('n', '<leader>ul', function()
+  vim.wo.number = not vim.wo.number
+  vim.notify('Line numbers: ' .. (vim.wo.number and 'on' or 'off'))
+end, { desc = 'Toggle line numbers' })
+map('n', '<leader>uL', function()
+  vim.wo.relativenumber = not vim.wo.relativenumber
+  vim.notify('Relative numbers: ' .. (vim.wo.relativenumber and 'on' or 'off'))
+end, { desc = 'Toggle relative number' })
+map('n', '<leader>ud', function()
+  local enabled = vim.diagnostic.is_enabled()
+  vim.diagnostic.enable(not enabled)
+  vim.notify('Diagnostics: ' .. (not enabled and 'on' or 'off'))
+end, { desc = 'Toggle diagnostics' })
+map('n', '<leader>uc', function()
+  vim.wo.conceallevel = vim.wo.conceallevel == 0 and 2 or 0
+  vim.notify('Conceallevel: ' .. vim.wo.conceallevel)
+end, { desc = 'Toggle conceallevel' })
+map('n', '<leader>uh', function()
+  local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+  vim.lsp.inlay_hint.enable(not enabled, { bufnr = 0 })
+  vim.notify('Inlay hints: ' .. (not enabled and 'on' or 'off'))
+end, { desc = 'Toggle inlay hints' })
+map('n', '<leader>uT', function()
+  if vim.b.ts_highlight then
+    vim.treesitter.stop()
+    vim.notify('Treesitter highlight: off')
+  else
+    vim.treesitter.start()
+    vim.notify('Treesitter highlight: on')
+  end
+end, { desc = 'Toggle treesitter highlight' })
+map('n', '<leader>ub', function()
+  vim.o.background = vim.o.background == 'dark' and 'light' or 'dark'
+  vim.notify('Background: ' .. vim.o.background)
+end, { desc = 'Toggle background' })
+map('n', '<leader>ug', function()
+  local ok, ibl = pcall(require, 'ibl')
+  if not ok then
+    return
+  end
+  vim.g.ibl_enabled = vim.g.ibl_enabled == false
+  ibl.update({ enabled = vim.g.ibl_enabled })
+  vim.notify('Indent guides: ' .. (vim.g.ibl_enabled and 'on' or 'off'))
+end, { desc = 'Toggle indent guides' })
+
 -- Git (leader+g): diffview; gitsigns hunk keys are under \g (buffer-local in git buffers)
 map('n', '<leader>gh', '<cmd>DiffviewOpen<cr>', { desc = 'Diffview open' })
 map('n', '<leader>gc', '<cmd>DiffviewClose<cr>', { desc = 'Diffview close' })
@@ -172,6 +234,38 @@ map('n', '\\zt', '<cmd>FzfLua builtin<cr>', { desc = 'Tmux Buffers' })
 map('n', '\\g', '', { desc = 'GitSigns' })
 map('v', '\\g', '', { desc = 'GitSigns' })
 map('n', '\\gtD', '<cmd>diffthis<cr>', { desc = 'Toggle select for diff' })
+
+-- Lazygit floating terminal (from git root)
+map('n', '\\gg', function()
+  local root = vim.fn.systemlist('git -C ' .. vim.fn.shellescape(vim.fn.getcwd()) .. ' rev-parse --show-toplevel')[1]
+  if vim.v.shell_error ~= 0 then
+    root = vim.fn.getcwd()
+  end
+  local buf = vim.api.nvim_create_buf(false, true)
+  local ui = vim.api.nvim_list_uis()[1]
+  local width = math.floor(ui.width * 0.9)
+  local height = math.floor(ui.height * 0.9)
+  local row = math.floor((ui.height - height) / 2)
+  local col = math.floor((ui.width - width) / 2)
+  vim.api.nvim_open_win(buf, true, {
+    relative = 'editor',
+    width = width,
+    height = height,
+    row = row,
+    col = col,
+    style = 'minimal',
+    border = 'rounded',
+    title = ' lazygit ',
+    title_pos = 'center',
+  })
+  vim.fn.jobstart('lazygit -p ' .. vim.fn.shellescape(root), {
+    term = true,
+    on_exit = function()
+      vim.api.nvim_buf_delete(buf, { force = true })
+    end,
+  })
+  vim.cmd('startinsert')
+end, { desc = 'Lazygit (root)' })
 
 -- ModelMate
 map('n', '\\m', '', { desc = 'ModelMate' })

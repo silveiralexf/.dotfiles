@@ -11,6 +11,7 @@ return {
     local go_ok, go = pcall(require, 'go')
     if go_ok and type(go) == 'table' and go.setup then
       go.setup({
+        lsp_cfg = false,    -- gopls managed by lsp/servers/go.lua, not go.nvim
         lsp_codelens = true,
         diagnostic = {
           hdlr = true,

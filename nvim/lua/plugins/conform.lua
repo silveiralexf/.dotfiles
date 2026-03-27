@@ -24,6 +24,8 @@ return {
     })
     vim.api.nvim_create_autocmd('BufWritePre', {
       callback = function(args)
+        if vim.g.autoformat == false then return end
+        if vim.b[args.buf].autoformat == false then return end
         pcall(conform.format, { bufnr = args.buf, async = false })
       end,
     })
