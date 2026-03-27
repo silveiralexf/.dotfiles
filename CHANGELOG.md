@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - *(deps)* \[[2b85d487](https://github.com/silveiralexf/.dotfiles/commit/2b85d487f3b6bc1fda8de2be7e8a9b332fe5524a)\] consolidate LSP servers and tools into devbox
 - *(tasks)* \[[ee1507b1](https://github.com/silveiralexf/.dotfiles/commit/ee1507b176f32c3a42eb3300500d7574b5d59e93)\] add nvim maintenance tasks and helper scripts
 - *(agents)* \[[ca8f741f](https://github.com/silveiralexf/.dotfiles/commit/ca8f741f83054b737a7ab3551234903da6568851)\] restore data/ files, use root node_modules for deps
+- *(chore)* \[[62867b72](https://github.com/silveiralexf/.dotfiles/commit/62867b7295d74b74a5f6c94236a34f5aa2010b68)\] fighting npm crap for precommit hooks
 
 ### 🔨 Fixes
 
