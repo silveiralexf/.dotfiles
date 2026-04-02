@@ -1,9 +1,0 @@
-{
-  "agents": ".cursor/agents/",
-  "commands": ".cursor/commands/",
-  "description": "Dotfiles workflow: plan, config/taskfile changes, review",
-  "displayName": "Dotfiles Agentic Workflow",
-  "name": "dotfiles-agentic-workflow",
-  "skills": ".cursor/skills/",
-  "version": "1.0.0"
-}

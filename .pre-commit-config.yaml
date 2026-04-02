@@ -4,29 +4,6 @@ fail_fast: true
 repos:
   - repo: local
     hooks:
-      - id: agents-generate
-        name: Regenerate agent platform files from .agents/ source
-        entry: task
-        language: system
-        args: [agents:generate]
-        pass_filenames: false
-        files: '^\.agents/(agents|commands|skills|templates|data)/'
-      - id: rename-cursor-plans
-        name: Rename .cursor/plans/*.plan.md to YYYY-MM-DD_username_slug.plan.md
-        entry: scripts/rename-cursor-plans.sh
-        language: system
-        pass_filenames: false
-      - id: cursor-plan-names
-        name: Validate .cursor/plans/*.plan.md filenames (must match convention)
-        entry: scripts/validate-cursor-plan-names.sh
-        language: system
-        pass_filenames: false
-      - id: fix-curly-quotes
-        name: fix-curly-quotes
-        entry: bash scripts/fix-curly-quotes.sh
-        language: system
-        types: [text]
-        pass_filenames: true
       - id: check-prereqs
         name: check-prereqs
         entry: bash scripts/check-prereqs.sh
@@ -38,13 +15,12 @@ repos:
         language: system
         types: [shell]
         pass_filenames: true
-        exclude: '\.(zsh|tmux)$|^\.cursor/|^etc/|^tmux/'
+        exclude: '\.(zsh|tmux)$|^etc/|^tmux/'
       - id: markdownlint
         name: markdownlint
         entry: markdownlint
         language: system
         types: [markdown]
-        exclude: '^(\.cursor|\.claude|\.agents)/commands/'
         pass_filenames: true
         args: ["-c", ".markdownlint.yaml", "-i", "CHANGELOG.md"]
       - id: task-yamlfmt
@@ -61,14 +37,14 @@ repos:
         args: [jsonfmt]
         types: [json]
         pass_filenames: false
+        exclude: '\^devbox.json/|^package.json/'
       - id: task-test-lua
         name: Run Lua tests (Busted)
         entry: task
         language: system
-        args: [test:lua]
+        args: ['test:lua']
         types: [lua]
         pass_filenames: false
-
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
@@ -89,7 +65,6 @@ repos:
       - id: check-xml
       - id: check-case-conflict
       - id: debug-statements
-
   - repo: https://github.com/lunarmodules/luacheck
     rev: v1.2.0
     hooks:

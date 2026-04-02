@@ -45,8 +45,6 @@ task: Available tasks for this project:
 * markdownlint:                               Lint Markdown with markdownlint-cli (.markdownlint.yaml)
 * precommit:                                  Verifies and fix requirements for new commits
 * yamlfmt:                                    Format YAML files with yamlfmt (install with: go install github.com/google/yamlfmt/cmd/yamlfmt@latest)
-* agents:generate:                            Regenerate platform agent files from .agents/ source
-* agents:plan:rename:                         Rename .agents/plans and .cursor/plans files to YYYY-MM-DD_username_slug.plan.md (--dry-run to preview)
 * changelog:rewrite-history:                  Rewrite all commit messages to conventional format (DESTRUCTIVE; backup first, then force-push)
 * common:install:core:all:                    Setup shell, core settings and tools (cross-platform)
 * common:install:core:fzf:                    Install FuzzyFinder

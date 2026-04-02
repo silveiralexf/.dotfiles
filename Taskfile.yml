@@ -29,8 +29,6 @@ includes:
     taskfile: ./tasks/macos/install/hammerspoon/Taskfile.yml
   macos:install:rust:
     taskfile: ./tasks/macos/install/rust/Taskfile.yml
-  agents:
-    taskfile: ./tasks/agents/Taskfile.yml
 tasks:
   default:
     cmds:

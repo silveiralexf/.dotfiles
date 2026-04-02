@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "handlebars": "^4.7.8",
-    "js-yaml": "^4.1.0"
-  },
-  "name": "dotfiles-agent-generator",
-  "private": true
-}

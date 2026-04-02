@@ -61,7 +61,9 @@
     "xsel@latest",
     "yamlfmt@latest",
     "yazi@latest",
-    "zoxide@latest"
+    "zoxide@latest",
+    "glow@latest",
+    "scc@latest"
   ],
   "shell": {
     "init_hook": [

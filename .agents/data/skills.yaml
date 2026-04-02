@@ -1,9 +1,0 @@
-skills:
-  - name: pre-commit-run
-    description: Run pre-commit checks via task precommit or scripts/hooks/pre-commit
-    platforms: [cursor]
-    output_ext: sh
-  - name: taskfile-validate
-    description: Validate Taskfile by running task --list to ensure schema and deps are valid
-    platforms: [cursor]
-    output_ext: sh
