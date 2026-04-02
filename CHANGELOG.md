@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 2026-04-02
+
+### ◀️ Revert
+
+- \[[0a23f78c](https://github.com/silveiralexf/.dotfiles/commit/0a23f78c8ba37a0aa35bfb895faf7e424f96e27a)\] remove agents boilerplate testing
+
+
 ## 2026-03-27
 
 ### 📦 Dependencies
