@@ -9,6 +9,8 @@ vim.opt.rtp:prepend(vim.fn.stdpath('config') .. '/lua/local')
 require('config.options')
 require('config.keymaps')
 require('config.autocmds')
+require('utils.packclean')
+require('utils.packupdate')
 
 require('pack').setup()
 
