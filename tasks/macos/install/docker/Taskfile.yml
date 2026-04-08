@@ -11,7 +11,7 @@ tasks:
     status:
       - rdctl version
     cmds:
-      - curl -o /tmp/Rancher.Desktop-1.14.1.aarch64.dmg https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.14.1/Rancher.Desktop-1.14.1.aarch64.dmg | open /tmp/Rancher.Desktop-1.14.1.aarch64.dmg
+      - curl -o /tmp/Rancher.Desktop-1.22.0.aarch64.dmg https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.22.0/Rancher.Desktop-1.22.0.aarch64.dmg | open /tmp/Rancher.Desktop-1.22.0.aarch64.dmg
   buildx:
     desc: Install Docker Buildx
     status:

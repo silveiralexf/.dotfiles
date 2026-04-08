@@ -64,15 +64,6 @@ git push --force-with-lease                    # after verifying
 
 The script `scripts/rewrite-commit-messages.sh` applies the same normalization rules as `cliff.toml` preprocessors.
 
-## Testing Lua config (acceptance-driven, Gherkin-style)
-
-Acceptance criteria live in **Gherkin** `.feature` files under `tests/features/`; executable tests are **Busted** specs in `tests/spec/`. See `tests/README.md` for layout and how to add scenarios.
-
-```bash
-luarocks install busted   # once
-task test:lua             # run Lua specs
-```
-
 ## Summary
 
 - **Same on both OSes:** `task devbox:install-cli` → `task devbox:install` → `task devbox:shell`. Then `task precommit`, `devbox run precommit`, and all devbox CLIs work the same.

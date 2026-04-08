@@ -19,14 +19,12 @@ tasks:
       - brew list | grep -w readline || brew install readline zlib
       - brew list | grep -w zlib || brew install zlib
       - brew tap fluxcd/tap
-      - brew tap aquasecurity/trivy
       - brew tap arl/arl
       - brew tap knative-extensions/kn-plugins
   all:regular:
     desc: Brew install regular recipes
     cmds:
       - for:
-          - aquasecurity/trivy/trivy
           - automake
           - bash
           - btop
@@ -54,19 +52,19 @@ tasks:
           - moreutils
           - pass
           - php
+          - pinentry-mac
           - pipx
           - poppler
           - pre-commit
           - rebar3
           - sevenzip
+          - sops
           - source-highlight
           - terminal-notifier
           - tmux
           - tmuxp
-          - ueberzugpp
           - viu
           - vlc
-          - wezterm
           - wget
           - xz
           - yazi
