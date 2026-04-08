@@ -8,7 +8,6 @@ tasks:
       - task: all:regular
       - task: all:custom
       - task: all:fonts
-
   all:deps:
     desc: Install Brew itself along with some important libs and repos
     vars:
@@ -23,7 +22,6 @@ tasks:
       - brew tap aquasecurity/trivy
       - brew tap arl/arl
       - brew tap knative-extensions/kn-plugins
-
   all:regular:
     desc: Brew install regular recipes
     cmds:
@@ -39,9 +37,6 @@ tasks:
           - erlang
           - fd
           - ffmpegthumbnailer
-          - font-hack-nerd-font
-          - font-symbols-only-nerd-font
-          - func
           - gitmux
           - gnu-sed
           - go-task/tap/go-task
@@ -77,16 +72,14 @@ tasks:
           - yazi
           - zoxide
         cmd: brew list {{.ITEM}} || brew install {{.ITEM}}
-
   all:fonts:
     desc: Install Nerd-Fonts
     cmds:
       - |
         set -e
         for FONT in $(cat ${DOTFILES_HOME}/etc/lists/fonts.txt); do
-          brew install "${FONT}"
+          brew install "${FONT}" || brew install --cask "${FONT}"
         done
-
   all:custom:
     desc: Brew install recipes with custom steps
     dotenv:
@@ -94,7 +87,6 @@ tasks:
     cmds:
       - test -f /Applications/AeroSpace.app/Contents/MacOS/AeroSpace || brew install --cask nikitabobko/tap/aerospace
       - task: all:custom:colima
-
   all:custom:colima:
     desc: Brew install Colima
     dotenv:

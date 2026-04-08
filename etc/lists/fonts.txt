@@ -24,7 +24,7 @@ font-fira-mono-nerd-font
 font-geist-mono-nerd-font
 font-go-mono-nerd-font
 font-gohufont-nerd-font
-font-hack-nerd-font✔
+font-hack-nerd-font
 font-hasklug-nerd-font
 font-heavy-data-nerd-font
 font-hurmit-nerd-font
