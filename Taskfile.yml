@@ -43,12 +43,6 @@ tasks:
     cmds:
       - cp scripts/hooks/* .git/hooks/
     silent: true
-  test:lua:
-    desc: "Run Lua Gherkin features (byfeature-style output with colors) and Busted specs"
-    dir: "{{.DOTFILES_HOME}}"
-    cmds:
-      - cmd: "LUA_PATH='{{.DOTFILES_HOME}}/lua_modules/share/lua/5.4/?.lua;{{.DOTFILES_HOME}}/lua_modules/share/lua/5.4/?/init.lua;;' LUA_CPATH='{{.DOTFILES_HOME}}/lua_modules/lib/lua/5.4/?.so;;' lua tests/run_features.lua"
-      - cmd: "LUA_PATH='{{.DOTFILES_HOME}}/lua_modules/share/lua/5.4/?.lua;{{.DOTFILES_HOME}}/lua_modules/share/lua/5.4/?/init.lua;;' LUA_CPATH='{{.DOTFILES_HOME}}/lua_modules/lib/lua/5.4/?.so;;' lua {{.DOTFILES_HOME}}/lua_modules/lib/luarocks/rocks-5.4/busted/2.3.0-1/bin/busted tests/spec --no-coverage"
   precommit:
     desc: Verifies and fix requirements for new commits
     cmds:

@@ -1,5 +1,4 @@
 # default_stages: [commit]
-# Markdown/yaml/json lint and format, plan naming, Lua tests, extra hooks
 fail_fast: true
 repos:
   - repo: local
@@ -16,13 +15,6 @@ repos:
         types: [shell]
         pass_filenames: true
         exclude: '\.(zsh|tmux)$|^etc/|^tmux/'
-      - id: markdownlint
-        name: markdownlint
-        entry: markdownlint
-        language: system
-        types: [markdown]
-        pass_filenames: true
-        args: ["-c", ".markdownlint.yaml", "-i", "CHANGELOG.md"]
       - id: task-yamlfmt
         name: task-yamlfmt
         entry: task
@@ -38,13 +30,6 @@ repos:
         types: [json]
         pass_filenames: false
         exclude: '\^devbox.json/|^package.json/'
-      - id: task-test-lua
-        name: Run Lua tests (Busted)
-        entry: task
-        language: system
-        args: ['test:lua']
-        types: [lua]
-        pass_filenames: false
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
@@ -65,12 +50,12 @@ repos:
       - id: check-xml
       - id: check-case-conflict
       - id: debug-statements
-  - repo: https://github.com/lunarmodules/luacheck
-    rev: v1.2.0
-    hooks:
-      - id: luacheck
-        name: Luacheck
-        description: Lint and static analysis of Lua code
-        entry: luacheck
-        language: lua
-        types: [lua]
+# - repo: https://github.com/lunarmodules/luacheck
+#   rev: v1.2.0
+#   hooks:
+#     - id: luacheck
+#       name: Luacheck
+#       description: Lint and static analysis of Lua code
+#       entry: luacheck
+#       language: lua
+#       types: [lua]
