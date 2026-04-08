@@ -1,8 +1,8 @@
 {
-	"data": "ENC[AES256_GCM,data:LKbScP0qbwZoOntvSNuh9UeILlHenmzuJaOon1To03uFl3h28LbgSLK+lGo5ZoAUAp/81ou2rXYgZoABqTHXD5wUBy1sD0f4nSlp3zoS4gMSZfDOrKTfrr/S157QISViXxybiQ4MbdnVKIoVxm+smd0e9KV3PKELX23K1XyYm+C5kBnMOVjiF4jMoLC2m9eKCaPTfC3Z4IXneHl01+OQKdiyMCLuSNbVK9B7+4rcznT4dEFbPAgy/7n4dgj12eHZOfNp5XEzSxV1Ress+hUnJuwgbBUfVabsXbPXb2OG36f7gU8P5uzsEDXWZU7m//3SwUZnBwCjltpE3g/KnzQ50F101vqkWcR2s8fkfyiSkjRukDT+AF4LqOTDs+Uo5YDzVym+aTFDm1plRPAyQofgQTp5qx1dGtJ2pb4Y0XmKXaJGtUzb/jxT0bBk5JpEaZAOWITgDrU+R9AY0vOubrkdebj/ySLVNZBrG+Q1IMwxnCbm74WOpgMBGilhFo5vvi/ikh0XymaI3qNGJI1c+37v9g3PDjWZxIbrVdN9N8M7o9tmUSTtffnoE+8NNU5+oZ1cUtao9QHhLi2EvzROXTNsYX3OngBxOAQA,iv:HU70eV4RRtdKeG/v55H/g1094+RNNEj3Ix0/s0Itf3Q=,tag:jKqXY4VTTnBnrByr1NyWIA==,type:str]",
+	"data": "ENC[AES256_GCM,data:C1HOrVVpkXChzkw9SJVdNTg1lP1TBbYA4qpGC7zomQTKnSSOzuScZtUXkFox4RKaZwtmiH1uZ32axROaGBuvInJGMD9K/vBT0Z2js+jo2xL2LXYN2kYSJ2DuSYQo53t2vb3X7xcbEsi34nmxYdBLb97/FsUvnIhU0guiwqyFIkmSG5Sbz/FeLtzonuTwKZ8ETbi7kYG9j2Sxh8j+0CJASYyaGHytn7tkugwOqZpaRExt03jisLSeLvWbWh4mEsYC6Y1LOY6wwMFvBIKCERYEoTFtX5MdDFOPiVrmHkIyBf0QBX+umRz9VtGS9CXP7K8fszxsjmkXHyIRcz+CKUhiTODxcgYreR6lq8ZogzWJXSOizMl/c/yPf6wdiFKkqCD03hs2tGJgvB4GmYigRj9WJyj83weItBVK9ki5z+/KcR0lacGninWFxTzxu8REKRTDAkWLNVgcVqMjxLaksw6CH44LlThn5v/nh/e3CLqL+hTmQLLQzGtbMhC+xg9EN3H5FtQMBAxN6Lv5tihXpmwDYbYTHJBJsVulR0c6MneYAX+raZpzh9swjaWYv1rL428xnzDe1Sj8HhL0NqpIBRl0UvLqscXcTkBi8xrh/BKUZTvu/Y54dQjkD7Fl8vjjN4gHnL3/B+PBchnAHV+qqwARcuewQYcZUN3HmaW5gumTIxH0CK+7fYix3eS1/F+pmNSgzPcZIwGQ1zRQbjLCjrjCfq8aIsTWY97BE5LjY8a8v4b42pCwxd0Cfp/c,iv:ygbZn/YV2zyIrttLogFmwD4rY59InAdNi/tjfrQ8OlE=,tag:lMVi53XYgwkNfor9DaeTOw==,type:str]",
 	"sops": {
-		"lastmodified": "2026-03-04T09:39:55Z",
-		"mac": "ENC[AES256_GCM,data:LZzhFMVxdGXlngdp+WxNM1wDTWvKvyk/KyUo8WfSP4JtJmL5KJl1LYrYlezZtoFd0etgCT+AVxVRz1ZXUjLXNTvVD+Bqsr0w//fdqpM/4JsdKu/ifkEPQmYKt6RBs5ZjRH7mfPIbOfMQRhReYPiBwiPsn1ZS+4ejIgVyks7bD60=,iv:ume9gC2l20WhpAG7h7T9oGuU5SRZjs4IkPLPayD8y7w=,tag:RHumIWlv2GfM54J/BnnpGw==,type:str]",
+		"lastmodified": "2026-04-08T12:22:23Z",
+		"mac": "ENC[AES256_GCM,data:DinSdp4UGPcejXLeo72nQyFsaR948wr7HzegV91wIEAdywJPiIHMRsLlSf2aquzXSDyt90ZnZImjONWfT2/Jg9zHB18H3fyeVYKRO3ZSacVpBBo5SOtHHTmb7YTBi/k0erv4ZMksp5QxTsMfkvJn/f82aGJVUY+T8u5OoH74AuY=,iv:fLlENXtIRU0gUGqFT56W0NDgmtr6efPG9M142Q30O6g=,tag:Z/gUe4RAiwGZIiCuHalMEw==,type:str]",
 		"pgp": [
 			{
 				"created_at": "2026-03-04T09:39:55Z",
@@ -10,6 +10,7 @@
 				"fp": "477FF01AA99B50C66423ED037540CEF42CB05DAF"
 			}
 		],
-		"version": "3.12.0"
+		"unencrypted_suffix": "_unencrypted",
+		"version": "3.12.2"
 	}
 }
