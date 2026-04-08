@@ -42,7 +42,7 @@ end
 
 function CopyPassword(r)
   if r ~= nil then
-    Output, Status, type, Rc = hs.execute('pass ' .. r['text'] .. '/' .. r['subText'], true)
+    Output, Status, type, Rc = hs.execute('pass -c ' .. r['text'] .. '/' .. r['subText'], true)
     if Status then
       CleanOutput = string.gsub(Output, '\n', '')
       hs.pasteboard.setContents(CleanOutput)

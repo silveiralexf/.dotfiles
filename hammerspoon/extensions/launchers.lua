@@ -1,7 +1,7 @@
-ChromeWithProfile = function()
+WaterfoxaterforxWithProfile = function()
   local profile = 'Default'
-  local url = 'https://meet.google.com'
-  local t = hs.task.new('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', nil, function()
+  local url = 'https://search.silveiras.cloud'
+  local t = hs.task.new('/Applications/Waterfox.app/Contents/MacOS/waterfox', nil, function()
     return false
   end, { '--kiosk', '--profile-directory=' .. profile, url })
   t:start()

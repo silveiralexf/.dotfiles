@@ -28,7 +28,7 @@ Keymaps.LEADER:bind('', 'escape', function()
   Keymaps.LEADER:exit()
 end)
 
-Keymaps.LEADER:bind('alt', 'J', '🔗 google-chrome', ChromeWithProfile)
+Keymaps.LEADER:bind('alt', 'J', '🔗 waterforx', WaterfoxaterforxWithProfile)
 Keymaps.LEADER:bind('alt', 'K', '🔑 password-store', ChoosePassword)
 
 return Keymaps
