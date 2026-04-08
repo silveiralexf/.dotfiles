@@ -34,8 +34,7 @@ require('relative-motions'):setup({
 })
 
 -- Configure the git plugin
----@diagnostic disable-next-line: inject-field
-th.git = th.git
+th.git = th.git ---@diagnostic disable-next-line: inject-field
   or {
 
     -- Colours

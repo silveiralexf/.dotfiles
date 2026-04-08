@@ -9,7 +9,9 @@
     "spoon",
     "ui",
     "vim",
-    "ya"
+    "ya",
+    "th",
+    "describe"
   ],
   "workspace.checkThirdParty": false
 }

@@ -109,8 +109,6 @@ map('n', '[w', function()
   diag_jump(-1, vim.diagnostic.severity.WARN)
 end, { desc = 'Prev warning' })
 
--- Trouble keymaps are registered in lua/plugins/trouble.lua after the plugin is loaded and set up.
-
 -- Format (conform)
 map('n', '<leader>cf', function()
   local ok, conform = pcall(require, 'conform')
@@ -145,10 +143,12 @@ map('n', '<leader>uf', function()
   vim.g.autoformat = vim.g.autoformat == false
   vim.notify('Autoformat (global): ' .. (vim.g.autoformat and 'on' or 'off'))
 end, { desc = 'Toggle autoformat (global)' })
+
 map('n', '<leader>uF', function()
   vim.b.autoformat = vim.b.autoformat == false
   vim.notify('Autoformat (buffer): ' .. (vim.b.autoformat and 'on' or 'off'))
 end, { desc = 'Toggle autoformat (buffer)' })
+
 map('n', '<leader>us', function()
   vim.wo.spell = not vim.wo.spell
   vim.notify('Spell: ' .. (vim.wo.spell and 'on' or 'off'))
@@ -157,28 +157,34 @@ map('n', '<leader>uw', function()
   vim.wo.wrap = not vim.wo.wrap
   vim.notify('Wrap: ' .. (vim.wo.wrap and 'on' or 'off'))
 end, { desc = 'Toggle wrap' })
+
 map('n', '<leader>ul', function()
   vim.wo.number = not vim.wo.number
   vim.notify('Line numbers: ' .. (vim.wo.number and 'on' or 'off'))
 end, { desc = 'Toggle line numbers' })
+
 map('n', '<leader>uL', function()
   vim.wo.relativenumber = not vim.wo.relativenumber
   vim.notify('Relative numbers: ' .. (vim.wo.relativenumber and 'on' or 'off'))
 end, { desc = 'Toggle relative number' })
+
 map('n', '<leader>ud', function()
   local enabled = vim.diagnostic.is_enabled()
   vim.diagnostic.enable(not enabled)
   vim.notify('Diagnostics: ' .. (not enabled and 'on' or 'off'))
 end, { desc = 'Toggle diagnostics' })
+
 map('n', '<leader>uc', function()
   vim.wo.conceallevel = vim.wo.conceallevel == 0 and 2 or 0
   vim.notify('Conceallevel: ' .. vim.wo.conceallevel)
 end, { desc = 'Toggle conceallevel' })
+
 map('n', '<leader>uh', function()
   local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
   vim.lsp.inlay_hint.enable(not enabled, { bufnr = 0 })
   vim.notify('Inlay hints: ' .. (not enabled and 'on' or 'off'))
 end, { desc = 'Toggle inlay hints' })
+
 map('n', '<leader>uT', function()
   if vim.b.ts_highlight then
     vim.treesitter.stop()
@@ -188,10 +194,12 @@ map('n', '<leader>uT', function()
     vim.notify('Treesitter highlight: on')
   end
 end, { desc = 'Toggle treesitter highlight' })
+
 map('n', '<leader>ub', function()
   vim.o.background = vim.o.background == 'dark' and 'light' or 'dark'
   vim.notify('Background: ' .. vim.o.background)
 end, { desc = 'Toggle background' })
+
 map('n', '<leader>ug', function()
   local ok, ibl = pcall(require, 'ibl')
   if not ok then
@@ -201,6 +209,12 @@ map('n', '<leader>ug', function()
   ibl.update({ enabled = vim.g.ibl_enabled })
   vim.notify('Indent guides: ' .. (vim.g.ibl_enabled and 'on' or 'off'))
 end, { desc = 'Toggle indent guides' })
+
+-- Markdown preview bindings
+map('n', '<leader>um', '', { desc = 'MarkdownPreview' })
+map('n', '<leader>ump', '<cmd>MarkdownPreview<cr>', { desc = 'MarkdownPreview' })
+map('n', '<leader>ums', '<cmd>MarkdownPreviewStop<cr>', { desc = 'MarkdownPreviewStop' })
+map('n', '<leader>umt', '<cmd>MarkdownPreviewToggle<cr>', { desc = 'MarkdownPreviewToggle' })
 
 -- Git (leader+g): diffview; gitsigns hunk keys are under \g (buffer-local in git buffers)
 map('n', '<leader>gh', '<cmd>DiffviewOpen<cr>', { desc = 'Diffview open' })
@@ -267,13 +281,21 @@ map('n', '\\gg', function()
   vim.cmd('startinsert')
 end, { desc = 'Lazygit (root)' })
 
--- ModelMate
-map('n', '\\m', '', { desc = 'ModelMate' })
-map('n', '\\mo', '<cmd>ModelLlama<cr>', { desc = 'ModelLlama-chat' })
-
 -- CursorAgent
 map('n', '\\c', '', { desc = 'CursorAgent' })
 map('n', '\\ca', '<cmd>CursorOpen<cr>', { desc = 'Open (if needed), switch to Cursor Window' })
 map('n', '\\cc', '<cmd>CursorClose<cr>', { desc = 'Close Cursor Window' })
 map('n', '\\ct', '<cmd>CursorToggle<cr>', { desc = 'Toggle Cursor Window' })
+
+-- Trouble
+map('n', '<leader>xx', '<cmd>Trouble diagnostics<cr>', { desc = 'Trouble: diagnostics' })
+map('n', '<leader>cs', '<cmd>Trouble symbols toggle<cr>', { desc = 'Trouble: document symbols' })
+map('n', '<leader>cl', '<cmd>Trouble lsp toggle<cr>', { desc = 'Trouble: LSP refs/defs' })
+map('n', '<leader>xX', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>', { desc = 'Trouble: buffer diagnostics' })
+
+-- Vim.Pack
+map('n', '<leader>lu', '<cmd>PackUpdate<CR>', { desc = 'Pack: Update plugin and modules with confirmation buffer' })
+map('n', '<leader>lU', '<cmd>PackUpdate!<CR>', { desc = 'Pack: Update plugin and modules with auto-approval' })
+map('n', '<leader>lx', '<cmd>PackClean<CR>', { desc = 'Pack: Clean stale plugins and modules' })
+
 -- EOF

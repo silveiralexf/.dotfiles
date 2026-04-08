@@ -4,6 +4,15 @@ return {
     { src = 'https://github.com/iamcco/markdown-preview.nvim', name = 'markdown-preview.nvim' },
   },
   config = function()
+    local markdownpreview = require('markdown-preview')
+    if type(markdownpreview) ~= 'table' or not markdownpreview.setup then
+      return
+    end
+    markdownpreview.setup({
+      build = function()
+        vim.fn['mkdp#util#install']()
+      end,
+    })
     vim.g.mkdp_auto_close = true
     vim.g.mkdp_open_to_the_world = false
     vim.g.mkdp_open_ip = '127.0.0.1'

@@ -7,7 +7,7 @@ My personal Neovim configurations.
 
 **Pack-native (WIP):** On branch `feat/nvim-pack-native`, plugins are managed by Neovim's built-in **vim.pack** (0.12+) instead of LazyVim. See [.cursor/plans/2026-02-27_silveiralexf_nvim-pack-native.plan.md](../.cursor/plans/2026-02-27_silveiralexf_nvim-pack-native.plan.md). Entry: `init.lua` → `require('pack').setup()`; each `lua/plugins/*.lua` must return `{ specs = { { src = '...', name = '...' } }, config = function() ... end }` for pack to install and load it. **Only files that have a `specs` table with at least one entry containing `src` are installed;** files that still use the old Lazy format (`return { { 'author/name', opts = ... } }` without `specs`) are ignored and not loaded.
 
-**Plugins with pack specs (installed/loaded):** cloak, colorscheme, conform, cursoragent, devicons, dressing, editor, fzf, formatting, git, go, indent, kcl, kustomize, lazydev, lsp, lualine, luarocks, matchup, mini, modelmate, neotest, noice, nui, nvim-nio, opencode, plenary, quickfix, spectre, sops, treesitter, trouble, tmux, undotree, wakatime, whichkey, yaml-companion, yazi, zig.
+**Plugins with pack specs (installed/loaded):** cloak, colorscheme, conform, cursoragent, devicons, dressing, editor, fzf, formatting, git, go, indent, kcl, kustomize, lazydev, lsp, lualine, luarocks, matchup, mini, neotest, noice, nui, nvim-nio, opencode, plenary, quickfix, spectre, sops, treesitter, trouble, tmux, undotree, wakatime, whichkey, yaml-companion, yazi, zig.
 
 **Plugins without pack specs (intentionally not installed):** disabled.
 

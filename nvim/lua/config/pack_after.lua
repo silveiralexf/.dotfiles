@@ -36,7 +36,6 @@ local function run_plugin_configs()
     'kcl',
     'matchup',
     'mini',
-    'modelmate',
     'snacks',
     'opencode',
     'quickfix',
