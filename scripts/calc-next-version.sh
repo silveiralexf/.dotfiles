@@ -3,7 +3,7 @@
 # Rules: breaking (! or BREAKING CHANGE) → major; feat → minor; fix/chore/docs/etc → patch.
 # Usage: run from repo root. Output: next version (e.g. v1.2.0) to stdout.
 #
-# Dependencies: git, bash only (no jq). CI-safe: run in pipeline via devbox or on any runner with git.
+# Dependencies: git, bash only (no jq). CI-safe: run in pipeline or on any runner with git.
 
 set -e
 
