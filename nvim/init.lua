@@ -1,4 +1,4 @@
--- vim.pack-native: no LazyVim, no lazy.nvim. See .cursor/plans/2026-02-27_*_nvim-pack-native.plan.md
+-- vim.pack-native
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
@@ -11,6 +11,8 @@ require('config.keymaps')
 require('config.autocmds')
 require('utils.packclean')
 require('utils.packupdate')
+require('utils.lspinfo')
+require('utils.lsprestart')
 
 require('pack').setup()
 
