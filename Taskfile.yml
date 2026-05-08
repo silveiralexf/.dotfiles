@@ -60,7 +60,6 @@ tasks:
         find . \( -name "*.yaml" -o -name "*.yml" \) \
           -not -path "./.git/*" \
           -not -path "./node_modules/*" \
-          -not -path "./.devbox/*" \
           -exec yamlfmt -w {} + 2>/dev/null || true
   jsonfmt:
     desc: Format JSON with jq (sort keys, validate)
@@ -96,63 +95,12 @@ tasks:
         echo "After running: git push --force-with-lease"
         read -p "Continue? [y/N] " r; [[ "$r" != "y" && "$r" != "Y" ]] && exit 1
         git filter-branch -f --msg-filter "{{.TASKFILE_DIR}}/scripts/rewrite-commit-messages.sh" -- --all
-  devbox:install-cli:
-    desc: Install Devbox CLI (required before devbox:install; uses official install script)
-    dir: "{{.TASKFILE_DIR}}"
-    cmds:
-      - |
-        if command -v devbox >/dev/null 2>&1; then
-          echo "devbox already installed: $(devbox version 2>/dev/null || devbox --version 2>/dev/null || true)"
-          exit 0
-        fi
-        echo "Installing Devbox via official script (https://www.jetify.com/docs/devbox/installing-devbox)..."
-        echo "Devbox may install Nix if not present. Run as non-root on Linux."
-        curl -fsSL https://get.jetify.com/devbox | bash
-  devbox:install:
-    desc: Install devbox dependencies (run once after clone or when devbox.json changes)
-    dir: "{{.TASKFILE_DIR}}"
-    preconditions:
-      - sh: command -v devbox
-        msg: "devbox not in PATH. Run 'task devbox:install-cli' first, then retry."
-      - sh: test -f "{{.TASKFILE_DIR}}/devbox.json"
-        msg: "devbox.json not found in project root."
-    cmds:
-      - devbox install
-  devbox:shell:
-    desc: Enter devbox shell with all dev tools on PATH
-    dir: "{{.TASKFILE_DIR}}"
-    preconditions:
-      - sh: command -v devbox
-        msg: "devbox not in PATH. Run 'task devbox:install-cli' first."
-      - sh: test -f "{{.TASKFILE_DIR}}/devbox.json"
-        msg: "devbox.json not found in project root."
-    cmds:
-      - devbox shell
-  devbox:add:
-    desc: "Add a package to devbox.json and pull globally. Usage: task devbox:add -- <package@version>"
-    dir: "{{.TASKFILE_DIR}}"
-    preconditions:
-      - sh: command -v devbox
-        msg: "devbox not in PATH. Run 'task devbox:install-cli' first."
-      - sh: test -f "{{.TASKFILE_DIR}}/devbox.json"
-        msg: "devbox.json not found in project root."
-      - sh: '[ -n "{{.CLI_ARGS}}" ]'
-        msg: "No package specified. Usage: task devbox:add -- <package@version>"
-    cmds:
-      - devbox add {{.CLI_ARGS}}
-      - devbox global pull {{.TASKFILE_DIR}}/devbox.json -f
-  devbox:gc:
-    desc: Run Nix garbage collection and store optimisation to reclaim disk space
-    dir: "{{.TASKFILE_DIR}}"
-    cmds:
-      - nix-collect-garbage -d
-      - nix-store --optimise
   nvim:update:
     desc: Download and install the latest Neovim nightly from upstream (always runs)
     cmds:
       - task: common:install:core:nvim:update
   nvim:deps:
-    desc: Install and verify all Neovim external deps (tree-sitter via prebuilt binary; rest via devbox)
+    desc: Install and verify all Neovim external deps (tree-sitter via prebuilt binary)
     dir: "{{.TASKFILE_DIR}}"
     cmds:
       - |
@@ -181,7 +129,7 @@ tasks:
           if command -v "$tool" >/dev/null 2>&1; then
             echo "  ✓ $tool"
           else
-            echo "  ✗ $tool - not found (run 'devbox install' or 'devbox global pull devbox.json -f')" >&2
+            echo "  ✗ $tool - not found" >&2
             ok=0
           fi
         done

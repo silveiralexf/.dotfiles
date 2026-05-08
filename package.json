@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@opencode-ai/plugin": "^1.14.22",
     "js-yaml": "^4.1.0",
     "markdownlint": "^0.40.0",
     "node": "^25.7.0",

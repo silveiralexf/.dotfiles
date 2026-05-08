@@ -4,16 +4,16 @@
 
 ## 💻 What's in here?
 
-| Name                                   | Description                                                                                                                                       |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [nvim](./nvim/README.md)               | LazyVim Configs                                                                                                                                   |
-| [wezterm](./wezterm/README.md)         | Wezterm configs                                                                                                                                   |
-| [hammerspoon](./hammerspoon/README.md) | Hammerspoon configs, custom shortcuts/keybindings, and personal Spoons                                                                            |
-| [tmux](./tmux/README.md)               | Tmux configs and plugins                                                                                                                          |
-| [yazi](./yazi/README.md)               | Yazi configs                                                                                                                                      |
-| [etc](./etc/config)                    | Shell profile, rcfiles, aliases, exports and functions and config files in general                                                                |
-| [scripts](./scritps/)                  | Misc scripts for every-day stuff                                                                                                                  |
-| [tasks](./tasks/)                      | Taskfiles to automate install and configuration steps; see [tasks/README.md](./tasks/README.md) for devbox (macOS + Linux) vs macos-only installs |
+| Name                                   | Description                                                                                     |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| [nvim](./nvim/README.md)               | LazyVim Configs                                                                                 |
+| [wezterm](./wezterm/README.md)         | Wezterm configs                                                                                 |
+| [hammerspoon](./hammerspoon/README.md) | Hammerspoon configs, custom shortcuts/keybindings, and personal Spoons                          |
+| [tmux](./tmux/README.md)               | Tmux configs and plugins                                                                        |
+| [yazi](./yazi/README.md)               | Yazi configs                                                                                    |
+| [etc](./etc/config)                    | Shell profile, rcfiles, aliases, exports and functions and config files in general              |
+| [scripts](./scritps/)                  | Misc scripts for every-day stuff                                                                |
+| [tasks](./tasks/)                      | Taskfiles to automate install and configuration steps; see [tasks/README.md](./tasks/README.md) |
 
 ## 🔨 How to Install?
 
@@ -21,18 +21,6 @@ Install steps and setup configuration are automated with [Taskfile runner](https
 
 This is the only requirement that needs to be manually installed, all the
 remaining dependencies are controlled and customized from the main [Taskfile.yml](./Taskfile.yml).
-
-### Optional: Devbox (cross-platform + reproducible tools)
-
-[Devbox](https://www.jetify.com/devbox/docs/) provides the same CLI tools on **macOS and Linux**, so dotfiles tooling works on both without Homebrew on Linux. It also keeps tools isolated and reproducible. After installing Devbox once:
-
-```bash
-task devbox:install-cli   # one-time: install Devbox CLI
-task devbox:install       # install deps from devbox.json
-task devbox:shell         # enter shell with tools on PATH (or: devbox shell)
-```
-
-Inside the devbox shell you can run `task precommit` or `devbox run precommit`. The `.devbox/` directory is gitignored.
 
 Run `task` to view the complete list of tasks currently available:
 
@@ -53,9 +41,6 @@ task: Available tasks for this project:
 * common:install:core:nvim:darwin:            Install Neovim nightly on macOS
 * common:install:core:nvim:linux:             Install Neovim nightly on Linux
 * common:install:core:profile:                Setup shell profile settings (cross-platform)
-* devbox:install:                             Install devbox dependencies (run once after clone or when devbox.json changes)
-* devbox:install-cli:                         Install Devbox CLI (required before devbox:install; uses official install script)
-* devbox:shell:                               Enter devbox shell with all dev tools on PATH
 * linux:install:all:                          Install base packages and core setup on Linux (apt + common core)
 * linux:install:apt:all:                      Install base OS packages (Debian/Ubuntu)
 * macos:install:all:                          Install all MacOS required tools
@@ -134,7 +119,5 @@ The release workflow runs `scripts/calc-next-version.sh` (needs only **git** and
 1. Generates release notes (commits since the previous tag) with `git-cliff`.
 2. Creates a GitHub Release with that body.
 3. Regenerates the full `CHANGELOG.md` and commits it to the default branch.
-
-All release steps use **devbox** in CI so the same tooling (`git-cliff`, `task`, etc.) is available; the version script itself does not require `jq` or any devbox packages.
 
 If the release workflow does not run when you push a tag, ensure workflow files are on the default branch and Actions are enabled (Settings → Actions).
