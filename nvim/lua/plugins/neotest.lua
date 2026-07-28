@@ -7,6 +7,7 @@ return {
     { src = 'https://github.com/nvim-neotest/neotest-vim-test', name = 'neotest-vim-test' },
     { src = 'https://github.com/fredrikaverpil/neotest-golang', name = 'neotest-golang' },
   },
+  lazy = true,
   config = function()
     local neotest = require('neotest')
     if type(neotest) ~= 'table' or not neotest.setup then

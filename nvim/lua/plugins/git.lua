@@ -3,6 +3,7 @@ return {
   specs = {
     { src = 'https://github.com/lewis6991/gitsigns.nvim', name = 'gitsigns.nvim' },
   },
+  lazy = true,
   config = function()
     local gitsigns = require('gitsigns')
     if type(gitsigns) ~= 'table' or not gitsigns.setup then

@@ -3,6 +3,7 @@ return {
   specs = {
     { src = 'https://github.com/someone-stole-my-name/yaml-companion.nvim', name = 'yaml-companion.nvim' },
   },
+  lazy = true,
   config = function()
     local yaml_companion = require('yaml-companion')
     if type(yaml_companion) == 'table' and yaml_companion.setup then

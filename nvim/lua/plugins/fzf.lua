@@ -3,6 +3,7 @@ return {
   specs = {
     { src = 'https://github.com/ibhagwan/fzf-lua', name = 'fzf-lua' },
   },
+  lazy = true,
   config = function()
     local fzf = require('fzf-lua')
     if type(fzf) == 'table' and fzf.setup then

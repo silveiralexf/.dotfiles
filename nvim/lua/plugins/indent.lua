@@ -4,6 +4,7 @@ return {
     { src = 'https://github.com/HiPhish/rainbow-delimiters.nvim', name = 'rainbow-delimiters.nvim' },
     { src = 'https://github.com/lukas-reineke/indent-blankline.nvim', name = 'indent-blankline.nvim' },
   },
+  lazy = true,
   config = function()
     local ibl = require('ibl')
     if type(ibl) ~= 'table' or not ibl.setup then

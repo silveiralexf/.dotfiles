@@ -5,6 +5,7 @@ return {
     { src = 'https://github.com/NTBBloodbath/zig-tools.nvim', name = 'zig-tools.nvim' },
     { src = 'https://github.com/akinsho/toggleterm.nvim', name = 'toggleterm.nvim' },
   },
+  lazy = true,
   config = function()
     local zig_tools = require('zig-tools')
     if type(zig_tools) == 'table' and zig_tools.setup then

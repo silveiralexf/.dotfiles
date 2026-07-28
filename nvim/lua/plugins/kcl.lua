@@ -3,4 +3,5 @@ return {
   specs = {
     { src = 'https://github.com/kcl-lang/kcl.nvim', name = 'kcl.nvim' },
   },
+  lazy = true,
 }

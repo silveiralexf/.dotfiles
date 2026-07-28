@@ -3,6 +3,7 @@ return {
   specs = {
     { src = 'https://github.com/stevearc/conform.nvim', name = 'conform.nvim' },
   },
+  lazy = true,
   config = function()
     local conform = require('conform')
     if type(conform) ~= 'table' or not conform.setup or not conform.format then

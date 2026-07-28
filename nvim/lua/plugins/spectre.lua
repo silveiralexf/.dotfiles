@@ -3,6 +3,7 @@ return {
   specs = {
     { src = 'https://github.com/nvim-pack/nvim-spectre', name = 'nvim-spectre' },
   },
+  lazy = true,
   config = function()
     local spectre = require('spectre')
     if type(spectre) ~= 'table' or not spectre.setup then

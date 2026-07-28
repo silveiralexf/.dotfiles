@@ -3,6 +3,7 @@ return {
   specs = {
     { src = 'https://github.com/laytan/cloak.nvim', name = 'cloak.nvim' },
   },
+  lazy = true,
   config = function()
     local cloak = require('cloak')
     if type(cloak) == 'table' and cloak.setup then

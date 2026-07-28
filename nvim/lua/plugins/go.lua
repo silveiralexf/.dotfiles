@@ -7,11 +7,12 @@ return {
     { src = 'https://github.com/leoluz/nvim-dap-go', name = 'nvim-dap-go' },
     { src = 'https://github.com/rcarriga/nvim-dap-ui', name = 'nvim-dap-ui' },
   },
+  lazy = true,
   config = function()
     local go_ok, go = pcall(require, 'go')
     if go_ok and type(go) == 'table' and go.setup then
       go.setup({
-        lsp_cfg = false,    -- gopls managed by lsp/servers/go.lua, not go.nvim
+        lsp_cfg = false, -- gopls managed by lsp/servers/go.lua, not go.nvim
         lsp_codelens = true,
         diagnostic = {
           hdlr = true,

@@ -4,6 +4,7 @@ return {
     { src = 'https://github.com/NickvanDyke/opencode.nvim', name = 'opencode.nvim' },
     { src = 'https://github.com/folke/snacks.nvim', name = 'snacks.nvim' },
   },
+  lazy = true,
   config = function()
     local opencode = require('opencode')
     if type(opencode) ~= 'table' then

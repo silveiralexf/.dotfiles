@@ -3,4 +3,5 @@ return {
   specs = {
     { src = 'https://github.com/github/copilot.vim.git', name = 'copilot.nvim' },
   },
+  lazy = true,
 }

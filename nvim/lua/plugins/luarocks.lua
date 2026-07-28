@@ -5,6 +5,7 @@ return {
   specs = {
     { src = 'https://github.com/vhyrro/luarocks.nvim', name = 'luarocks.nvim' },
   },
+  lazy = true,
   config = function()
     local ok, luarocks = pcall(require, 'luarocks-nvim')
     if not ok or type(luarocks) ~= 'table' or not luarocks.setup then

@@ -6,6 +6,7 @@ return {
   specs = {
     { src = 'https://github.com/L3MON4D3/LuaSnip', name = 'LuaSnip' },
   },
+  lazy = true,
   config = function()
     -- Preload jsregexp if installed (clears LuaSnip health warning for LSP snippet transformations)
     pcall(require, 'jsregexp')
